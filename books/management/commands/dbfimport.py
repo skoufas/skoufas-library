@@ -56,9 +56,7 @@ class Command(BaseCommand):
                 result.append(author_entry)
                 if author_created:
                     author_entry.save()
-                    self.stdout.write(
-                        f"{entry[0]}: Added author {author} with id { author_entry.id }"
-                    )
+                    self.stdout.write(f"{entry[0]}: Added author {author} with id { author_entry.id }")
                 else:
                     self.stdout.write(f"{entry[0]}: Reusing author {author}")
         return result
@@ -96,9 +94,7 @@ class Command(BaseCommand):
                 result.append(translator_entry)
                 if translator_created:
                     translator_entry.save()
-                    self.stdout.write(
-                        f"{entry[0]}: Added translator {translator} with id { translator_entry.id }"
-                    )
+                    self.stdout.write(f"{entry[0]}: Added translator {translator} with id { translator_entry.id }")
                 else:
                     self.stdout.write(f"{entry[0]}: Reusing translator {translator}")
         return result
@@ -135,9 +131,7 @@ class Command(BaseCommand):
                 result.append(curator_entry)
                 if curator_created:
                     curator_entry.save()
-                    self.stdout.write(
-                        f"{entry[0]}: Added curator {curator} with id { curator_entry.id }"
-                    )
+                    self.stdout.write(f"{entry[0]}: Added curator {curator} with id { curator_entry.id }")
                 else:
                     self.stdout.write(f"{entry[0]}: Reusing curator {curator}")
         return result
@@ -173,9 +167,7 @@ class Command(BaseCommand):
                 result.append(donor_entry)
                 if donor_created:
                     donor_entry.save()
-                    self.stdout.write(
-                        f"{entry[0]}: Added donor {donor} with id { donor_entry.id }"
-                    )
+                    self.stdout.write(f"{entry[0]}: Added donor {donor} with id { donor_entry.id }")
                 else:
                     self.stdout.write(f"{entry[0]}: Reusing donor {donor}")
         return result
@@ -194,9 +186,7 @@ class Command(BaseCommand):
         else:
             if editor_created:
                 editor_entry.save()
-                self.stdout.write(
-                    f"{entry[0]}: Added editor {editor} {place} with id { editor_entry.id }"
-                )
+                self.stdout.write(f"{entry[0]}: Added editor {editor} {place} with id { editor_entry.id }")
             else:
                 self.stdout.write(f"{entry[0]}: Reusing editor {editor} {place}")
         return editor_entry
@@ -225,9 +215,7 @@ class Command(BaseCommand):
                 result.append(topic_entry)
                 if topic_created:
                     topic_entry.save()
-                    self.stdout.write(
-                        f"{entry[0]}: Added topic {topic} with id { topic_entry.id }"
-                    )
+                    self.stdout.write(f"{entry[0]}: Added topic {topic} with id { topic_entry.id }")
                 else:
                     self.stdout.write(f"{entry[0]}: Reusing topic {topic}")
         return result
@@ -260,9 +248,7 @@ class Command(BaseCommand):
         else:
             if entry_created:
                 dbf_entry.save()
-                self.stdout.write(
-                    f"{entry[0]}: Added original dbf entry with id { dbf_entry.id }"
-                )
+                self.stdout.write(f"{entry[0]}: Added original dbf entry with id { dbf_entry.id }")
             else:
                 self.stderr.write(f"{entry[0]}: Reusing original dbf entry????")
         return dbf_entry
@@ -288,9 +274,7 @@ class Command(BaseCommand):
         volume = volume_from_a17_a18_a20_a30(entry[17], entry[18], entry[20], entry[30])
         material = material_from_a18_a30(entry[18], entry[30])
         notes = notes_from_a17_a18_a21_a30(entry[17], entry[18], entry[21], entry[30])
-        isbn_issn_ean = isbn_from_a17_a18_a19_a22_a30(
-            entry[17], entry[18], entry[19], entry[22], entry[30]
-        )
+        isbn_issn_ean = isbn_from_a17_a18_a19_a22_a30(entry[17], entry[18], entry[19], entry[22], entry[30])
         isbn = None
         issn = None
         ean = None
@@ -374,9 +358,7 @@ class Command(BaseCommand):
                 },
             )
             if not entry_number_object:
-                self.stderr.write(
-                    f"{entry[0]}: Cannot create entry number for {entry_number}"
-                )
+                self.stderr.write(f"{entry[0]}: Cannot create entry number for {entry_number}")
             else:
                 if not entry_created:
                     previous_book_entry = entry_number_object.book_entry
@@ -412,9 +394,7 @@ class Command(BaseCommand):
                 editor=editor,
                 topics=topics,
             )
-            entry_numbers = self.add_entry_numbers(
-                entry=entry, book_entry=book_entry, donors=donors
-            )
+            entry_numbers = self.add_entry_numbers(entry=entry, book_entry=book_entry, donors=donors)
 
             self.add_original_entry(
                 entry,

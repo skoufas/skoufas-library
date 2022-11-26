@@ -1,9 +1,12 @@
 """Models for book entries and directly related data"""
 import datetime
 from typing import Any
-from django.db import models
+
 from django.core.validators import MaxValueValidator, MinValueValidator
-from books.fields import ISBNField, ISSNField, EANField
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+from books.fields import EANField, ISBNField, ISSNField
 
 
 def current_year() -> int:
@@ -17,15 +20,15 @@ def max_value_current_year(value: Any):
 class Author(models.Model):
     """Συγγραφέας"""
 
-    first_name = models.CharField(max_length=200, null=True)
-    middle_name = models.CharField(max_length=200, null=True)
-    surname = models.CharField(max_length=200, null=True)
-    organisation_name = models.CharField(max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
+    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
     class Meta:
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
-        verbose_name = "Author"
-        verbose_name_plural = "Authors"
+        verbose_name = _("Author")
+        verbose_name_plural = _("Authors")
         constraints = [
             models.UniqueConstraint(
                 name="unique_author",
@@ -37,15 +40,15 @@ class Author(models.Model):
 class Translator(models.Model):
     """Μεταφραστής"""
 
-    first_name = models.CharField(max_length=200, null=True)
-    middle_name = models.CharField(max_length=200, null=True)
-    surname = models.CharField(max_length=200, null=True)
-    organisation_name = models.CharField(max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
+    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
     class Meta:
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
-        verbose_name = "Translator"
-        verbose_name_plural = "Translators"
+        verbose_name = _("Translator")
+        verbose_name_plural = _("Translators")
         constraints = [
             models.UniqueConstraint(
                 name="unique_translator",
@@ -57,15 +60,15 @@ class Translator(models.Model):
 class Curator(models.Model):
     """Επιμελητής"""
 
-    first_name = models.CharField(max_length=200, null=True)
-    middle_name = models.CharField(max_length=200, null=True)
-    surname = models.CharField(max_length=200, null=True)
-    organisation_name = models.CharField(max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
+    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
     class Meta:
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
-        verbose_name = "Curator"
-        verbose_name_plural = "Curators"
+        verbose_name = _("Curator")
+        verbose_name_plural = _("Curators")
         constraints = [
             models.UniqueConstraint(
                 name="unique_curator",
@@ -77,15 +80,15 @@ class Curator(models.Model):
 class Donor(models.Model):
     """Δωρητής"""
 
-    first_name = models.CharField(max_length=200, null=True)
-    middle_name = models.CharField(max_length=200, null=True)
-    surname = models.CharField(max_length=200, null=True)
-    organisation_name = models.CharField(max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
+    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
     class Meta:
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
-        verbose_name = "Donor"
-        verbose_name_plural = "Donors"
+        verbose_name = _("Donor")
+        verbose_name_plural = _("Donors")
         constraints = [
             models.UniqueConstraint(
                 name="unique_donor",
@@ -97,13 +100,13 @@ class Donor(models.Model):
 class Editor(models.Model):
     """Εκδότης"""
 
-    name = models.CharField(max_length=200, null=True)
-    place = models.CharField(max_length=200, null=True)
+    name = models.CharField(verbose_name=_("Editor"), max_length=200, null=True)
+    place = models.CharField(verbose_name=_("Editor place"), max_length=200, null=True)
 
     class Meta:
         ordering = ["name", "place"]
-        verbose_name = "Editor"
-        verbose_name_plural = "Editors"
+        verbose_name = _("Editor")
+        verbose_name_plural = _("Editors")
         constraints = [
             models.UniqueConstraint(
                 name="unique_editor",
@@ -115,12 +118,12 @@ class Editor(models.Model):
 class Topic(models.Model):
     """Θέμα"""
 
-    topic_name = models.CharField(max_length=200)
+    topic_name = models.CharField(verbose_name=_("topic"), max_length=200)
 
     class Meta:
         ordering = ["topic_name"]
-        verbose_name = "Topic"
-        verbose_name_plural = "Topics"
+        verbose_name = _("Topic")
+        verbose_name_plural = _("Topics")
         constraints = [
             models.UniqueConstraint(
                 name="unique_topic_name",
@@ -133,57 +136,60 @@ class BookEntry(models.Model):
     """Καρτέλα Βιβλίου"""
 
     # ### Authorship (Many-to-Many)
-    authors = models.ManyToManyField(to=Author)
+    authors = models.ManyToManyField(
+        verbose_name=_("Author"),
+        to=Author,
+    )
 
     # ### Translation (Many-to-Many)
-    translators = models.ManyToManyField(Translator)
+    translators = models.ManyToManyField(verbose_name=_("Translator"), to=Translator)
 
     # ### Curation (Many-to-Many)
-    curators = models.ManyToManyField(Curator)
+    curators = models.ManyToManyField(verbose_name=_("Curator"), to=Curator)
 
     # ### Topics (Many-to-Many)
-    topics = models.ManyToManyField(Topic)
+    topics = models.ManyToManyField(verbose_name=_("Topic"), to=Topic)
 
     # - EditorId (FK: Editor)
-    editor = models.ForeignKey(Editor, null=True, on_delete=models.CASCADE)
+    editor = models.ForeignKey(Editor, verbose_name=_("editor"), null=True, on_delete=models.CASCADE)
 
     # - Title - Τίτλος
-    title = models.CharField(max_length=4096, null=True)
+    title = models.CharField(verbose_name=_("Title"), max_length=4096, null=True)
 
     # - Subtitle - Υπότιτλος
-    subtitle = models.CharField(max_length=4096, null=True)
+    subtitle = models.CharField(verbose_name=_("Subtitle"), max_length=4096, null=True)
 
     # - Dewey - Ταξινομικός Αριθμός Dewey
-    dewey = models.CharField(max_length=15, null=True)
+    dewey = models.CharField(verbose_name=_("Dewey"), max_length=15, null=True)
 
     # - Language - Γλώσσα
-    language = models.CharField(max_length=8, null=True)
+    language = models.CharField(verbose_name=_("Language"), max_length=8, null=True)
 
     # - Edition - Έκδοση
-    edition = models.CharField(max_length=60, null=True)
+    edition = models.CharField(verbose_name=_("Edition"), max_length=60, null=True)
 
     # - EditionDate - Έτος Έκδοσης
     edition_year = models.IntegerField(
-        validators=[MinValueValidator(1200), max_value_current_year], null=True
+        verbose_name=_("Edition Year"), validators=[MinValueValidator(1200), max_value_current_year], null=True
     )
 
     # - Pages - Σελίδες Αριθμητικά
-    pages = models.IntegerField(null=True)
+    pages = models.IntegerField(verbose_name=_("Pages"), null=True)
 
     # - Copies - Αντίτυπα Αριθμητικά
-    copies = models.IntegerField(null=True)
+    copies = models.IntegerField(verbose_name=_("Copies"), null=True)
 
     # Donors (Many-to-Many)
-    donors = models.ManyToManyField(Donor)
+    donors = models.ManyToManyField(verbose_name=_("Donor"), to=Donor)
 
     # - Volumes - Τόμοι/Τεύχη
-    volumes = models.CharField(max_length=100, null=True)
+    volumes = models.CharField(verbose_name=_("Volumes"), max_length=100, null=True)
 
     # - Notes - Σημειώσεις
-    notes = models.CharField(max_length=4096, null=True)
+    notes = models.CharField(verbose_name=_("Notes"), max_length=4096, null=True)
 
     # - Material - Υλικό
-    material = models.CharField(max_length=4096, null=True)
+    material = models.CharField(verbose_name=_("Material"), max_length=4096, null=True)
 
     # - ISBN
     isbn = ISBNField(null=True)
@@ -195,36 +201,43 @@ class BookEntry(models.Model):
     ean = EANField(null=True)
 
     # - Offprint - ΑΝΑΤΥΠΟ
-    offprint = models.BooleanField()
+    offprint = models.BooleanField(verbose_name=_("Offprint"))
 
     # - HasCD - Έχει
-    has_cd = models.BooleanField()
+    has_cd = models.BooleanField(
+        verbose_name=_("Has CD"),
+    )
 
     # - HasDVD - Έχει
-    has_dvd = models.BooleanField()
+    has_dvd = models.BooleanField(
+        verbose_name=_("Has DVD"),
+    )
 
     class Meta:
         ordering = ["title", "subtitle"]
-        verbose_name = "Book Entry"
-        verbose_name_plural = "Book Entries"
+        verbose_name = _("Book Entry")
+        verbose_name_plural = _("Book Entries")
 
 
 class EntryNumber(models.Model):
     """Αριθμός Εισαγωγής"""
 
-    entry_number = models.CharField(max_length=200)
+    entry_number = models.CharField(verbose_name=_("Entry number"), max_length=200)
 
-    copies = models.IntegerField(default=0, null=True)
+    copies = models.IntegerField(verbose_name=_("Copies"), default=0, null=True)
 
-    book_entry = models.ForeignKey(BookEntry, on_delete=models.CASCADE)
+    book_entry = models.ForeignKey(BookEntry, verbose_name=_("Book Entry"), on_delete=models.CASCADE)
 
     # Donors (Many-to-Many)
-    donors = models.ManyToManyField(Donor)
+    donors = models.ManyToManyField(
+        Donor,
+        verbose_name=_("Donor"),
+    )
 
     class Meta:
         ordering = ["entry_number"]
-        verbose_name = "Entry Number"
-        verbose_name_plural = "Entry Numbers"
+        verbose_name = _("Entry Number")
+        verbose_name_plural = _("Entry Numbers")
         constraints = [
             models.UniqueConstraint(
                 name="unique_entry_number",
@@ -236,28 +249,30 @@ class EntryNumber(models.Model):
 class DbfEntry(models.Model):
     """Καρτέλα DBASE"""
 
-    book_entry = models.ForeignKey(BookEntry, null=True, on_delete=models.CASCADE)
-    dbf_sequence = models.IntegerField(default=0, editable=False)
-    import_time = models.DateTimeField(editable=False)
+    book_entry = models.ForeignKey(BookEntry, verbose_name=_("Book Entry"), null=True, on_delete=models.CASCADE)
+    dbf_sequence = models.IntegerField(verbose_name=_("DBF Sequence"), default=0, editable=False)
+    import_time = models.DateTimeField(verbose_name=_("Import Time"), editable=False)
 
     class Meta:
         ordering = ["-import_time", "dbf_sequence"]
-        verbose_name = "DBF entry"
-        verbose_name_plural = "DBF entries"
+        verbose_name = _("DBF entry")
+        verbose_name_plural = _("DBF entries")
         unique_together = [["import_time", "dbf_sequence"]]
 
 
 class DbfEntryRow(models.Model):
     """Γραμμή σε καρτέλα DBASE"""
 
-    dbfentry = models.ForeignKey(DbfEntry, on_delete=models.CASCADE, editable=False)
-    code = models.IntegerField()
+    dbfentry = models.ForeignKey(DbfEntry, verbose_name=_("DBF entry"), on_delete=models.CASCADE, editable=False)
+    code = models.IntegerField(
+        verbose_name=_("Code"),
+    )
     # Length obtained via
     # max([max([len(value) for value in record.values()]) for record in books_table])
-    value = models.CharField(max_length=65)
+    value = models.CharField(verbose_name=_("Value"), max_length=65)
 
     class Meta:
         order_with_respect_to = "dbfentry"
-        verbose_name = "DBF row"
-        verbose_name_plural = "DBF rows"
+        verbose_name = _("DBF row")
+        verbose_name_plural = _("DBF rows")
         unique_together = [["dbfentry", "code"]]

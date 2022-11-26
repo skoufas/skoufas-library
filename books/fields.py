@@ -10,7 +10,7 @@ class ISBNField(CharField):
 
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = 28
-        kwargs["verbose_name"] = "ISBN"
+        kwargs["verbose_name"] = _("ISBN")
         kwargs["validators"] = [ISBNValidator]
         super(ISBNField, self).__init__(*args, **kwargs)
 
@@ -40,7 +40,7 @@ class ISSNField(CharField):
 
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = 16
-        kwargs["verbose_name"] = "ISSN"
+        kwargs["verbose_name"] = _("ISSN")
         kwargs["validators"] = [ISSNValidator]
         super(ISSNField, self).__init__(*args, **kwargs)
 
@@ -70,7 +70,7 @@ class EANField(CharField):
 
     def __init__(self, *args, **kwargs):
         kwargs["max_length"] = 28
-        kwargs["verbose_name"] = "EAN"
+        kwargs["verbose_name"] = _("EAN")
         kwargs["validators"] = [EANValidator]
         super(EANField, self).__init__(*args, **kwargs)
 

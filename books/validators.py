@@ -64,7 +64,7 @@ def EANValidator(raw_ean):
     except stdnum.exceptions.InvalidChecksum:
         raise ValidationError(_("Invalid EAN: wrong checksum"))
     except stdnum.exceptions.InvalidLength:
-        raise ValidationError(_("Invalid EAN: length not 8"))
+        raise ValidationError(_("Invalid EAN: length not one of 14, 13, 12, 8"))
     except stdnum.exceptions.InvalidFormat:
         raise ValidationError(_("Invalid EAN"))
 
