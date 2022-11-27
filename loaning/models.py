@@ -1,6 +1,7 @@
 """Models for library customers and loans"""
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext
 
 from books.models import EntryNumber
 
@@ -16,6 +17,12 @@ class Customer(models.Model):
     phone_number = models.CharField(verbose_name=_("phone number"), max_length=200)
     email = models.CharField(verbose_name=_("email"), max_length=200)
     address = models.CharField(verbose_name=_("address"), max_length=200)
+
+    def __str__(self):
+        if self.middle_name:
+            return f"{self.surname}, {self.first_name} {self.middle_name}"
+        else:
+            return f"{self.surname}, {self.first_name}"
 
     class Meta:
         ordering = ["surname", "middle_name", "first_name"]
@@ -48,6 +55,15 @@ class Loan(models.Model):
     expected_end = models.CharField(verbose_name=_("expected end"), max_length=4096)
     end = models.CharField(verbose_name=_("end"), null=True, max_length=4096)
     note = models.CharField(verbose_name=_("note"), blank=True, max_length=4096)
+
+    def __str__(self):
+        return "%(customer)s / %(start)s - %(expected)s - %(end)s / %(entry)s" % {
+            "customer": self.customer if self.customer else gettext("No customer"),
+            "start": self.start,
+            "expected": self.expected_end,
+            "end": self.end if self.end else gettext("No end"),
+            "entry": self.entry_number,
+        }
 
     class Meta:
         ordering = ["end", "expected_end", "entry_number", "customer"]

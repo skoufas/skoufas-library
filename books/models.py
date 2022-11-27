@@ -5,6 +5,7 @@ from typing import Any
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext
 
 from books.fields import EANField, ISBNField, ISSNField
 
@@ -24,6 +25,17 @@ class Author(models.Model):
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
     surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
+
+    def __str__(self):
+        if self.organisation_name and str(self.organisation_name):
+            return str(self.organisation_name)
+        else:
+            if not self.first_name and not self.surname:
+                return gettext("Nameless author")
+            if self.middle_name:
+                return f"{self.surname}, {self.first_name} {self.middle_name}"
+            else:
+                return f"{self.surname}, {self.first_name}"
 
     class Meta:
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
@@ -45,6 +57,17 @@ class Translator(models.Model):
     surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
+    def __str__(self):
+        if self.organisation_name and str(self.organisation_name):
+            return str(self.organisation_name)
+        else:
+            if not self.first_name and not self.surname:
+                return gettext("Nameless translator")
+            if self.middle_name:
+                return f"{self.surname}, {self.first_name} {self.middle_name}"
+            else:
+                return f"{self.surname}, {self.first_name}"
+
     class Meta:
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
         verbose_name = _("Translator")
@@ -64,6 +87,17 @@ class Curator(models.Model):
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
     surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
+
+    def __str__(self):
+        if self.organisation_name and str(self.organisation_name):
+            return str(self.organisation_name)
+        else:
+            if not self.first_name and not self.surname:
+                return gettext("Nameless curator")
+            if self.middle_name:
+                return f"{self.surname}, {self.first_name} {self.middle_name}"
+            else:
+                return f"{self.surname}, {self.first_name}"
 
     class Meta:
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
@@ -85,6 +119,17 @@ class Donor(models.Model):
     surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
+    def __str__(self):
+        if self.organisation_name and str(self.organisation_name):
+            return str(self.organisation_name)
+        else:
+            if not self.first_name and not self.surname:
+                return gettext("Nameless donor")
+            if self.middle_name:
+                return f"{self.surname}, {self.first_name} {self.middle_name}"
+            else:
+                return f"{self.surname}, {self.first_name}"
+
     class Meta:
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
         verbose_name = _("Donor")
@@ -103,6 +148,16 @@ class Editor(models.Model):
     name = models.CharField(verbose_name=_("Editor"), max_length=200, null=True)
     place = models.CharField(verbose_name=_("Editor place"), max_length=200, null=True)
 
+    def __str__(self):
+        if not self.place and not self.name:
+            return gettext("Nameless editor")
+        if not self.place:
+            return self.name
+        if not self.name:
+            return gettext("Unknown editor in %(place)s") % {"place": self.place}
+        else:
+            return f"{self.name}, {self.place}"
+
     class Meta:
         ordering = ["name", "place"]
         verbose_name = _("Editor")
@@ -119,6 +174,9 @@ class Topic(models.Model):
     """Θέμα"""
 
     topic_name = models.CharField(verbose_name=_("topic"), max_length=200)
+
+    def __str__(self):
+        return str(self.topic_name)
 
     class Meta:
         ordering = ["topic_name"]
@@ -213,6 +271,15 @@ class BookEntry(models.Model):
         verbose_name=_("Has DVD"),
     )
 
+    def __str__(self):
+        if not self.title and not self.subtitle:
+            return gettext("Book with no title and subtitle")
+        if not self.title:
+            return str(self.subtitle)
+        if not self.subtitle:
+            return str(self.title)
+        return f"{self.title} - {self.subtitle}"
+
     class Meta:
         ordering = ["title", "subtitle"]
         verbose_name = _("Book Entry")
@@ -234,6 +301,12 @@ class EntryNumber(models.Model):
         verbose_name=_("Donor"),
     )
 
+    def __str__(self):
+        if self.book_entry:
+            return f"{self.entry_number}: {self.book_entry}"
+        else:
+            return f"{self.entry_number}"
+
     class Meta:
         ordering = ["entry_number"]
         verbose_name = _("Entry Number")
@@ -253,6 +326,12 @@ class DbfEntry(models.Model):
     dbf_sequence = models.IntegerField(verbose_name=_("DBF Sequence"), default=0, editable=False)
     import_time = models.DateTimeField(verbose_name=_("Import Time"), editable=False)
 
+    def __str__(self):
+        if self.book_entry:
+            return f"{self.dbf_sequence:05}: {self.book_entry}"
+        else:
+            return f"{self.dbf_sequence:05}"
+
     class Meta:
         ordering = ["-import_time", "dbf_sequence"]
         verbose_name = _("DBF entry")
@@ -270,6 +349,12 @@ class DbfEntryRow(models.Model):
     # Length obtained via
     # max([max([len(value) for value in record.values()]) for record in books_table])
     value = models.CharField(verbose_name=_("Value"), max_length=65)
+
+    def __str__(self):
+        if self.value:
+            return f"{self.dbfentry.dbf_sequence:05}/{self.code:02}: {self.value}"
+        else:
+            return f"{self.dbfentry.dbf_sequence:05}/{self.code:02}:"
 
     class Meta:
         order_with_respect_to = "dbfentry"

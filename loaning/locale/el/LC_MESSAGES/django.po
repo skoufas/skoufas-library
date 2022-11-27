@@ -27,7 +27,7 @@ msgstr "Όνομα"
 
 #: models.py:12
 msgid "middle name"
-msgstr "Μεσαίαο όνομα"
+msgstr "Μεσαίο όνομα"
 
 #: models.py:13
 msgid "surname"
