@@ -9,9 +9,9 @@ from books.models import EntryNumber
 class Customer(models.Model):
     """Πελάτης"""
 
-    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200)
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
-    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200)
     id_number = models.CharField(verbose_name=_("id number"), max_length=200)
     id_type = models.CharField(verbose_name=_("id type"), max_length=200)
     phone_number = models.CharField(verbose_name=_("phone number"), max_length=200)
@@ -50,10 +50,10 @@ class Loan(models.Model):
     # Μετά τα 2 χρόνια, γίνεται ανώνυμος
     customer = models.ForeignKey(Customer, verbose_name=_("customer"), null=True, on_delete=models.CASCADE)
 
-    entry_number = models.ForeignKey(EntryNumber, verbose_name=_("Entry number"), null=True, on_delete=models.CASCADE)
-    start = models.CharField(verbose_name=_("start"), max_length=4096)
-    expected_end = models.CharField(verbose_name=_("expected end"), max_length=4096)
-    end = models.CharField(verbose_name=_("end"), null=True, max_length=4096)
+    entry_number = models.ForeignKey(EntryNumber, verbose_name=_("Entry number"), on_delete=models.CASCADE)
+    start = models.DateField(verbose_name=_("start"))
+    expected_end = models.DateField(verbose_name=_("expected end"))
+    end = models.DateField(verbose_name=_("end"), blank=True)
     note = models.CharField(verbose_name=_("note"), blank=True, max_length=4096)
 
     def __str__(self):

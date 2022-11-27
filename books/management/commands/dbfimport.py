@@ -334,7 +334,7 @@ class Command(BaseCommand):
                 book_entry.translators.set(translators),
                 book_entry.curators.set(curators),
                 book_entry.topics.set(topics)
-                book_entry.donors.set(donors)
+                book_entry.entry_donors.set(donors)
                 book_entry.save()
                 self.stdout.write(f"{entry[0]}: Added book entry")
             else:
@@ -368,7 +368,7 @@ class Command(BaseCommand):
                 entry_number_object.copies = copies
                 entry_number_object.book_entry = book_entry
                 entry_number_object.save()
-                entry_number_object.donors.set(donors)
+                entry_number_object.entry_number_donors.set(donors)
                 self.stdout.write(f"{entry[0]}: Added entry number {entry_number}")
 
     def handle(self, *args, **options):

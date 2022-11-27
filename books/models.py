@@ -197,16 +197,17 @@ class BookEntry(models.Model):
     authors = models.ManyToManyField(
         verbose_name=_("Author"),
         to=Author,
+        blank=True,
     )
 
     # ### Translation (Many-to-Many)
-    translators = models.ManyToManyField(verbose_name=_("Translator"), to=Translator)
+    translators = models.ManyToManyField(verbose_name=_("Translator"), to=Translator, blank=True)
 
     # ### Curation (Many-to-Many)
-    curators = models.ManyToManyField(verbose_name=_("Curator"), to=Curator)
+    curators = models.ManyToManyField(verbose_name=_("Curator"), to=Curator, blank=True)
 
     # ### Topics (Many-to-Many)
-    topics = models.ManyToManyField(verbose_name=_("Topic"), to=Topic)
+    topics = models.ManyToManyField(verbose_name=_("Topic"), to=Topic, blank=True)
 
     # - EditorId (FK: Editor)
     editor = models.ForeignKey(Editor, verbose_name=_("editor"), null=True, on_delete=models.CASCADE)
@@ -238,7 +239,7 @@ class BookEntry(models.Model):
     copies = models.IntegerField(verbose_name=_("Copies"), null=True)
 
     # Donors (Many-to-Many)
-    donors = models.ManyToManyField(verbose_name=_("Donor"), to=Donor)
+    entry_donors = models.ManyToManyField(verbose_name=_("Donor"), to=Donor, blank=True)
 
     # - Volumes - Τόμοι/Τεύχη
     volumes = models.CharField(verbose_name=_("Volumes"), max_length=100, null=True)
@@ -296,9 +297,10 @@ class EntryNumber(models.Model):
     book_entry = models.ForeignKey(BookEntry, verbose_name=_("Book Entry"), on_delete=models.CASCADE)
 
     # Donors (Many-to-Many)
-    donors = models.ManyToManyField(
+    entry_number_donors = models.ManyToManyField(
         Donor,
         verbose_name=_("Donor"),
+        blank=True,
     )
 
     def __str__(self):
