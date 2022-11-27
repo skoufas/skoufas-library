@@ -1,0 +1,11 @@
+#!/bin/bash
+
+PROJECT_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")"; cd ..; pwd)"
+cd "$PROJECT_DIR"
+pwd
+rm -rf ./venv
+python -m venv venv
+
+source venv/bin/activate
+python -m pip install -U pip setuptools
+python -m pip install -e '.[test]'
