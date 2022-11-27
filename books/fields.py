@@ -1,4 +1,4 @@
-from books.validators import ISBNValidator, ISSNValidator, EANValidator
+from books.validators import ISBNValidator, ISSNValidator, EANValidator, DeweyValidator
 from django.db.models import CharField
 from django.utils.translation import gettext_lazy as _
 from django.core.validators import EMPTY_VALUES
@@ -89,6 +89,36 @@ class EANField(CharField):
             cleaned_ean = value.replace(" ", "").replace("-", "").upper()
             setattr(model_instance, self.attname, cleaned_ean)
         return super(EANField, self).pre_save(model_instance, add)
+
+    def __unicode__(self) -> str:
+        return self.value
+
+
+class DeweyField(CharField):
+
+    description = _("Dewey format XXX, XXX ABC, XXX.XXX, XXX.XXX ABC")
+
+    def __init__(self, *args, **kwargs):
+        kwargs["max_length"] = 28
+        kwargs["verbose_name"] = _("Dewey")
+        kwargs["validators"] = [DeweyValidator]
+        super(DeweyField, self).__init__(*args, **kwargs)
+
+    def formfield(self, **kwargs):
+        defaults = {
+            "min_length": 3,
+            "validators": [DeweyValidator],
+        }
+        defaults.update(kwargs)
+        return super(DeweyField, self).formfield(**defaults)
+
+    def pre_save(self, model_instance, add):
+        """Cleanup"""
+        value = getattr(model_instance, self.attname)
+        if value not in EMPTY_VALUES:
+            value = value.replace("  ", " ").replace("-", "").upper()
+            setattr(model_instance, self.attname, value)
+        return super(DeweyField, self).pre_save(model_instance, add)
 
     def __unicode__(self) -> str:
         return self.value

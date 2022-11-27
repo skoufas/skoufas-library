@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-26 03:53+0000\n"
+"POT-Creation-Date: 2022-11-27 19:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,274 +18,319 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:8
+#: books/apps.py:8
 msgid "books"
 msgstr "Βιβλία"
 
-#: fields.py:9
+#: books/fields.py:9
 msgid "ISBN-10 or ISBN-13"
 msgstr "ISBN-10 ή ISBN-13"
 
-#: fields.py:13
+#: books/fields.py:13
 msgid "ISBN"
 msgstr "ISBN"
 
-#: fields.py:39 fields.py:43
+#: books/fields.py:39 books/fields.py:43
 msgid "ISSN"
 msgstr "ISSN"
 
-#: fields.py:69
+#: books/fields.py:69
 msgid "EAN-14, EAN-13, EAN-12, EAN-8"
 msgstr "EAN-14, EAN-13, EAN-12, EAN-8"
 
-#: fields.py:73
+#: books/fields.py:73
 msgid "EAN"
 msgstr "EAN"
 
-#: models.py:23 models.py:43 models.py:63 models.py:83
-msgid "first name"
-msgstr "Όνομα"
+#: books/fields.py:99
+msgid "Dewey format XXX, XXX ABC, XXX.XXX, XXX.XXX ABC"
+msgstr "Αριθμός Dewey NNN, ΝΝΝ ΑΒΓ, ΝΝΝ.ΝΝΝ, ΝΝΝ.ΝΝΝ ΑΒΓ"
 
-#: models.py:24 models.py:44 models.py:64 models.py:84
-msgid "middle name"
-msgstr "Μεσαίο Όνομα"
-
-#: models.py:25 models.py:45 models.py:65 models.py:85
-msgid "surname"
-msgstr "Επίθετο"
-
-#: models.py:26 models.py:46 models.py:66 models.py:86
-msgid "organisation name"
-msgstr "Οργάνωση"
-
-#: models.py:30 models.py:140
-msgid "Author"
-msgstr "Συγγραφέας"
-
-#: models.py:31
-msgid "Authors"
-msgstr "Συγγραφείς"
-
-#: models.py:50 models.py:145
-msgid "Translator"
-msgstr "Μεταφραστής"
-
-#: models.py:51
-msgid "Translators"
-msgstr "Μεταφραστές"
-
-#: models.py:70 models.py:148
-msgid "Curator"
-msgstr "Επιμελητής"
-
-#: models.py:71
-msgid "Curators"
-msgstr "Επιμελητές"
-
-#: models.py:90 models.py:183 models.py:234
-msgid "Donor"
-msgstr "Δωρητής"
-
-#: models.py:91
-msgid "Donors"
-msgstr "Δωρητές"
-
-#: models.py:103 models.py:108
-msgid "Editor"
-msgstr "Εκδότης"
-
-#: models.py:104
-msgid "Editor place"
-msgstr "Εκδότης"
-
-#: models.py:109
-msgid "Editors"
-msgstr "Εκδότες"
-
-#: models.py:121
-msgid "topic"
-msgstr "Θέμα"
-
-#: models.py:125 models.py:151
-msgid "Topic"
-msgstr "Θέμα"
-
-#: models.py:126
-msgid "Topics"
-msgstr "Θέματα"
-
-#: models.py:154
-msgid "editor"
-msgstr "Εκδότης"
-
-#: models.py:157
-msgid "Title"
-msgstr "Τίτλος"
-
-#: models.py:160
-msgid "Subtitle"
-msgstr "Υπότιτλος"
-
-#: models.py:163
+#: books/fields.py:103 books/models.py:222
 msgid "Dewey"
 msgstr "Ταξινομικός Αριθμός Dewey"
 
-#: models.py:166
+#: books/models.py:24 books/models.py:55 books/models.py:86 books/models.py:117
+msgid "first name"
+msgstr "Όνομα"
+
+#: books/models.py:25 books/models.py:56 books/models.py:87 books/models.py:118
+msgid "middle name"
+msgstr "Μεσαίο Όνομα"
+
+#: books/models.py:26 books/models.py:57 books/models.py:88 books/models.py:119
+msgid "surname"
+msgstr "Επίθετο"
+
+#: books/models.py:27 books/models.py:58 books/models.py:89 books/models.py:120
+msgid "organisation name"
+msgstr "Οργάνωση"
+
+#: books/models.py:34
+msgid "Nameless author"
+msgstr "Συγγραφέας χωρίς όνομα"
+
+#: books/models.py:42 books/models.py:198
+msgid "Author"
+msgstr "Συγγραφέας"
+
+#: books/models.py:43
+msgid "Authors"
+msgstr "Συγγραφείς"
+
+#: books/models.py:65
+msgid "Nameless translator"
+msgstr "Μεταφραστής χωρίς όνομα"
+
+#: books/models.py:73 books/models.py:204
+msgid "Translator"
+msgstr "Μεταφραστής"
+
+#: books/models.py:74
+msgid "Translators"
+msgstr "Μεταφραστές"
+
+#: books/models.py:96
+msgid "Nameless curator"
+msgstr "Επιμελητής χωρίς όνομα"
+
+#: books/models.py:104 books/models.py:207
+msgid "Curator"
+msgstr "Επιμελητής"
+
+#: books/models.py:105
+msgid "Curators"
+msgstr "Επιμελητές"
+
+#: books/models.py:127
+msgid "Nameless donor"
+msgstr "Δωρητής χωρίς όνομα"
+
+#: books/models.py:135 books/models.py:242 books/models.py:302
+msgid "Donor"
+msgstr "Δωρητής"
+
+#: books/models.py:136
+msgid "Donors"
+msgstr "Δωρητές"
+
+#: books/models.py:148 books/models.py:163
+msgid "Editor"
+msgstr "Εκδότης"
+
+#: books/models.py:149
+msgid "Editor place"
+msgstr "Εκδότης"
+
+#: books/models.py:153
+msgid "Nameless editor"
+msgstr "Εκδότης χωρίς όνομα"
+
+#: books/models.py:157
+#, python-format
+msgid "Unknown editor in %(place)s"
+msgstr "Άγνωστος εκδότης σε %(place)s"
+
+#: books/models.py:164
+msgid "Editors"
+msgstr "Εκδότες"
+
+#: books/models.py:176
+msgid "topic"
+msgstr "Θέμα"
+
+#: books/models.py:183 books/models.py:210
+msgid "Topic"
+msgstr "Θέμα"
+
+#: books/models.py:184
+msgid "Topics"
+msgstr "Θέματα"
+
+#: books/models.py:213
+msgid "editor"
+msgstr "Εκδότης"
+
+#: books/models.py:216
+msgid "Title"
+msgstr "Τίτλος"
+
+#: books/models.py:219
+msgid "Subtitle"
+msgstr "Υπότιτλος"
+
+#: books/models.py:225
 msgid "Language"
 msgstr "Γλώσσα"
 
-#: models.py:169
+#: books/models.py:228
 msgid "Edition"
 msgstr "Εκδότης"
 
-#: models.py:173
+#: books/models.py:232
 msgid "Edition Year"
 msgstr "Έτος έκδοσης"
 
-#: models.py:177
+#: books/models.py:236
 msgid "Pages"
 msgstr "Σελίδες"
 
-#: models.py:180 models.py:227
+#: books/models.py:239 books/models.py:295
 msgid "Copies"
 msgstr "Αντίτυπα"
 
-#: models.py:186
+#: books/models.py:245
 msgid "Volumes"
 msgstr "Τεύχη/Τόμοι"
 
-#: models.py:189
+#: books/models.py:248
 msgid "Notes"
 msgstr "Σημειώσεις"
 
-#: models.py:192
+#: books/models.py:251
 msgid "Material"
 msgstr "Υλικό"
 
-#: models.py:204
+#: books/models.py:263
 msgid "Offprint"
 msgstr "Ανάτυπο"
 
-#: models.py:208
+#: books/models.py:267
 msgid "Has CD"
 msgstr "Έχει CD"
 
-#: models.py:213
+#: books/models.py:272
 msgid "Has DVD"
 msgstr "Έχει DVD"
 
-#: models.py:218 models.py:229 models.py:252
+#: books/models.py:277
+msgid "Book with no title and subtitle"
+msgstr "Βιβλίο χωρίς τιτλο και υπότιτλο"
+
+#: books/models.py:286 books/models.py:297 books/models.py:327
 msgid "Book Entry"
 msgstr "Κάρτα Βιβλίου"
 
-#: models.py:219
+#: books/models.py:287
 msgid "Book Entries"
 msgstr "Κάρτες Βιβλίου"
 
-#: models.py:225
+#: books/models.py:293
 msgid "Entry number"
 msgstr "Αριθμός εισαγωγής"
 
-#: models.py:239
+#: books/models.py:314
 msgid "Entry Number"
 msgstr "Αριθμός εισαγωγής"
 
-#: models.py:240
+#: books/models.py:315
 msgid "Entry Numbers"
 msgstr "Αριθμοί εισαγωγής"
 
-#: models.py:253
+#: books/models.py:328
 msgid "DBF Sequence"
 msgstr "Οθόνες DBF"
 
-#: models.py:254
+#: books/models.py:329
 msgid "Import Time"
 msgstr "Ώρα εισαγωγής"
 
-#: models.py:258 models.py:266
+#: books/models.py:339 books/models.py:347
 msgid "DBF entry"
 msgstr "Οθόνη DBF"
 
-#: models.py:259
+#: books/models.py:340
 msgid "DBF entries"
 msgstr "Οθόνες DBF"
 
-#: models.py:268
+#: books/models.py:349
 msgid "Code"
 msgstr "Κωδικός"
 
-#: models.py:272
+#: books/models.py:353
 msgid "Value"
 msgstr "Τιμή"
 
-#: models.py:276
+#: books/models.py:363
 msgid "DBF row"
 msgstr "Πεδίο DBF"
 
-#: models.py:277
+#: books/models.py:364
 msgid "DBF rows"
 msgstr "Πεδία DBF"
 
-#: validators.py:12
+#: books/validators.py:14
 msgid "Invalid ISBN: Not a string"
 msgstr "Λανθασμένο ISBN: λάθος τύπος"
 
-#: validators.py:19
+#: books/validators.py:21
 msgid "Invalid ISBN: wrong checksum"
 msgstr "Λανθασμένο ISBN: λάθος στο τελευταίο ψηφίο"
 
-#: validators.py:21
+#: books/validators.py:23
 msgid "Invalid ISBN: component not one of 978, 979"
 msgstr "Λανθασμένο ISBN: δεν αρχιζει με 978, 979"
 
-#: validators.py:23
+#: books/validators.py:25
 msgid "Invalid ISBN: length not 10 or 13"
 msgstr "Λανθασμένο ISBN: χρειάζονται 10 ή 13 ψηφία"
 
-#: validators.py:25
+#: books/validators.py:27
 msgid "Invalid ISBN"
 msgstr "Λανθασμένο ISBN"
 
-#: validators.py:28
+#: books/validators.py:30
 msgid "Invalid ISBN: Only upper case allowed"
 msgstr "Λανθασμένο ISBN: επιτρέπονται μόνο κεφαλαία"
 
-#: validators.py:36
+#: books/validators.py:38
 msgid "Invalid ISSN: Not a string"
 msgstr "Λανθασμένο ISSN: λάθος τύπος"
 
-#: validators.py:43
+#: books/validators.py:45
 msgid "Invalid ISSN: wrong checksum"
 msgstr "Λανθασμένο ISSN: λάθος στο τελευταίο ψηφίο"
 
-#: validators.py:45
+#: books/validators.py:47
 msgid "Invalid ISSN: length not 8"
 msgstr "Λανθασμένο ISSN: χρειάζονται 8 ψηφία"
 
-#: validators.py:47
+#: books/validators.py:49
 msgid "Invalid ISSN"
 msgstr "Λανθασμένο ISSN"
 
-#: validators.py:50
+#: books/validators.py:52
 msgid "Invalid ISSN: Only upper case allowed"
 msgstr "Λανθασμένο ISSN: επιτρέπονται μόνο κεφαλαία"
 
-#: validators.py:58
+#: books/validators.py:60
 msgid "Invalid EAN: Not a string"
 msgstr "Λανθασμένο EAN: λάθος τύπος"
 
-#: validators.py:65
+#: books/validators.py:67
 msgid "Invalid EAN: wrong checksum"
 msgstr "Λανθασμένο EAN: λάθος στο τελευταίο ψηφίο"
 
-#: validators.py:67
+#: books/validators.py:69
 msgid "Invalid EAN: length not one of 14, 13, 12, 8"
 msgstr "Λανθασμένο EAN: χρειάζονται 14 ή 13 ή 12 ή 8 ψηφία"
 
-#: validators.py:69
+#: books/validators.py:71
 msgid "Invalid EAN"
 msgstr "Λανθασμένο EAN"
 
-#: validators.py:72
+#: books/validators.py:74
 msgid "Invalid EAN: Only upper case allowed"
 msgstr "Λανθασμένο EAN: επιτρέπονται μόνο κεφαλαία"
+
+#: books/validators.py:90
+msgid "Invalid Dewey: Not a string"
+msgstr "Λανθασμένο Dewey: λάθος τύπος"
+
+#: books/validators.py:93
+msgid "Invalid Dewey: Only upper case allowed"
+msgstr "Λανθασμένο Dewey: επιτρέπονται μόνο κεφαλαία"
+
+#: books/validators.py:98
+msgid "Invalid Dewey: Invalid format"
+msgstr "Λανθασμένο Dewey: επιτρέπονται μόνο αριθμοί στην αρχή, μια τελεία μετα το τρίτο ψηφίο και μονο κεφαλαία μετα απο ενα κενό"

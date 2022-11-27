@@ -7,7 +7,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext
 
-from books.fields import EANField, ISBNField, ISSNField
+from books.fields import EANField, ISBNField, ISSNField, DeweyField
 
 
 def current_year() -> int:
@@ -219,7 +219,7 @@ class BookEntry(models.Model):
     subtitle = models.CharField(verbose_name=_("Subtitle"), max_length=4096, null=True)
 
     # - Dewey - Ταξινομικός Αριθμός Dewey
-    dewey = models.CharField(verbose_name=_("Dewey"), max_length=15, null=True)
+    dewey = DeweyField(verbose_name=_("Dewey"), max_length=15, null=True)
 
     # - Language - Γλώσσα
     language = models.CharField(verbose_name=_("Language"), max_length=8, null=True)

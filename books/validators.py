@@ -1,3 +1,5 @@
+import re
+
 import stdnum.exceptions
 import stdnum.isbn
 import stdnum.issn
@@ -72,3 +74,25 @@ def EANValidator(raw_ean):
         raise ValidationError(_("Invalid EAN: Only upper case allowed"))
 
     return True
+
+
+strict_dewey_res = [
+    re.compile(r"[0-9]{3}\.[0-9]{1,6} [A-ZΑ-Ω]+"),
+    re.compile(r"[0-9]{3}\.[0-9]{1,6}"),
+    re.compile(r"[0-9]{3} [A-ZΑ-Ω]+"),
+    re.compile(r"[0-9]{3}"),
+]
+
+
+def DeweyValidator(raw_dewey):
+
+    if not isinstance(raw_dewey, str):
+        raise ValidationError(_("Invalid Dewey: Not a string"))
+
+    if raw_dewey != raw_dewey.upper():
+        raise ValidationError(_("Invalid Dewey: Only upper case allowed"))
+    for dewey_re in strict_dewey_res:
+        if dewey_re.fullmatch(raw_dewey):
+            return True
+
+    raise ValidationError(_("Invalid Dewey: Invalid format"))
