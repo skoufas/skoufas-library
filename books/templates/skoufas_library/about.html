@@ -1,0 +1,142 @@
+{% extends "skoufas_library/layout.html" %}
+{% load bootstrap5 %}
+{% load i18n %}
+{% block title %}
+    {% translate "About the Skoufas Library" %}
+{% endblock title %}
+{% block content %}
+    <p>
+        {% blocktranslate %}
+        One of the first achievements of the Skoufas Association since its foundation in April 1896 was establishing a library in Arta.
+        In July 1896, letters were sent to the University of Athens, to the "PARNASSOS" Association and to all the people of Arta who wanted to donate books.
+        The first donations were made and the foundations were laid for the establishment of the Library.
+        In the years that followed, efforts were made to enrich the Library, with old and new publications.
+        Many of our fellow citizens, named and anonymous, have donated books ever since.
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        The first donations to the Library came from the members of the first Board of Directors, Theod. Thomopoulos, the Association "PARNASSOS",
+        the Association "MIKROS OMILOS" (after its dissolution in 1927 its library was offered to the Association),
+        the lawyer K. Anagnostopoulos (in 1962 he donated to the Library a large series of legal books in Greek and foreign languages),
+        the Society of Continental Studies, the Eugenides Foundation and Emporiki Bank.
+        Eumorfia Kotzioula, Haril. Bletsos and Michalis Peranthis also offered books. The library of the poet Kostas Krystallis enriched our shelves.
+        A major donor to the Library is Petros Garoufalias, who donated a large number of books in foreign languages and in Greek.
+        Furthermore, Ioannis Papavasiliou donated a remarkable series of books of great intellectual value.
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        Among the major donors are the family of Giannis Banias, who donated 1,451 book titles to the Library from his personal library,
+        Mr. Dimitris Tomboulidis, who has so far donated over 2,000 book titles for the Pontic and Asia Minor Hellenism department along with archival material,
+        Mr. Kon/nos Tsiligiannis, who gave the Association his personal Library and photographic material, as well as the family Dim. Portovara.
+        Various authors also sent poems, short stories or whatever they had published.
+        The Ministry of Education has also provided a large number of valuable publications.
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        In 1991 the Board of Directors of the "SKOUFAS" Association hired a graduate Librarian in order to properly organize the Library.
+        In 1992, the Library was moved to the ground floor of Garoufalia's house, on Apokaykou Street 1, which belongs to the ELEI of Arta.
+        In the same year, a small reading room was created and the organization of the Library begins according to international standards.
+        More than 30.000 books have since been catalogued using a Dewey variant in the Library's legacy database.
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        In 2019, a volunteer effort was started to modernise its ageing cataloguing system.
+        The legacy DBF database was reverse engineered and a long effort to clear the results of years of labor from inconsistencies caused
+        by the limitations of the format was started.
+        That work can be tracked in the <a href="https://github.com/skoufas/skoufas-dbf-reader">skoufas-dbf-reader</a> GitHub project.
+        In 2022, a second volunteed project was started to allow the personnel of the libary to make use of more modern technologies, as a stepping stone towards a
+        full-fledged electronic libary solution. The code for that project, the website you're reading now, can be found in the
+        <a href="https://github.com/skoufas/skoufas-library">skoufas-library</a> GitHub project.
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        We welcome feedback and volunteer contributions to the code! Please email rockdreamer at gmail dot com for more information.
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        Currently the Library operates a lending service for most of its books, except for rare books and manuscripts.
+        Access to the latter must be agreed and coordinated beforehand. Please contact us for more information.
+        It is enrolled in the ATLAS program of the Universities of Greece and DASTA for the TEI.
+        Its <a href="https://www.loc.gov/marc/organizations/org-search.php">MARC Org Code</a> is GR-ArMPA (Id 43410).
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        Some of the rare publications available in the Library of the SKOUFAS Association are:
+        <ul>
+            <li>History of Macedonian Hellenism – Droysen – 1899</li>
+             <li>Apanda Solomos – Sakellarios – 1901</li>
+             <li>Apanda Loucianos – Fexis – 1911</li>
+             <li>Lectures of Greek Poets - Estia - 1925</li>
+             <li>Legal Philosophies – H. Anastasiadou – 1927</li>
+             <li>Continental Glossary (Aravantinou) – Petrakou – 1909</li>
+             <li>Eastern Thrace – Netr Vei – 1927</li>
+             <li>Wedding in Crete (Pavlos Vlastou) – 1893</li>
+             <li>The Holy City of Jerusalem (Beniamin Ioannidou) – 1877</li>
+             <li>Biographical Notes (Claudio Badaloukas) – 1876</li>
+             <li>General Introduction to Christian Archeology (G. Lampaki) – 1897</li>
+             <li>On Doubt –SherwoodEddy– 1920</li>
+             <li>Reflections on the Municipal Song (Alki Thrylou) – Kallergi – 1928</li>
+             <li>Enochikon Dikaion (E.Dernburg) – Fexi – 1909</li>
+             <li>Psychology (Dim. Moraitou) – 1926</li>
+             <li>Handbook of Empirical Psychology (Gust. Ed. Linder) – Korinnis – 1884</li>
+             <li>The Age of Renaissance (W.Pater) – Vassiliou – 1923</li>
+             <li>The drama of Lefktra (Theoch. Tsoutsinos) – Hatziioannou – 1924</li>
+             <li>The Protomaster (Kalomoiri) – Panathinaeon – 1910</li>
+             <li>Biography of Heroes: M. Botsaris-G. Karaiskakis (Georgios Gazis) – 1828</li>
+             <li>Maximus the Greek – Papamichael – 1920</li>
+             <li>Ignatius Metropolitan of Hungary-Wallachia (1766-1828) – Cantor – 1919</li>
+             <li>The Agrarian Question in Epirus (Georgiou Pachy) – 1882</li>
+             <li>Turkish-occupied Greece – Sathas – 1869</li>
+             <li>Historical Dissertations – Sathas – 1870</li>
+             <li>Friendly Society (I. Philimonos) – Koltoura – 1834</li>
+             <li>Historical Essay on the Revolution (I. Philimonos) – 1859</li>
+             <li>Histories of the Greek Palingenesis (M. Economou) – 1873</li>
+             <li>History of Attila and his Successors (T.Amedee) – Eleftheroudakis – 1903</li>
+             <li>Capodistria Letters (DavidFreming) – 1841</li>
+             <li>Charilaos Trikoupis (G. Tsokopoulos) – Fexis – 1896</li>
+        </ul>
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        Rare Manuscripts:
+        <ul>
+            <li>Protocols of Swearing of the Citizens of Arta as Greek Citizens in 1881</li>
+            <li>Arta in the archives of Venice (K.D. Mertzios)</li>
+            <li>Handwritten originals with documents on the Turkish occupation</li>
+            <li>Manuscript documents from the Karapanos archive</li>
+            <li>Manuscripts of Ecclesiastical Content</li>
+            <li>Manuscript (about 250 years old) with texts of ancient and ecclesiastical authors</li>
+            <li>Archives of the Russian Consulate in Arta – Preveza from 1858 – 1881</li>
+        </ul>
+        {% endblocktranslate %}
+    </p>
+    <p>
+        {% blocktranslate %}
+        Publications of the SKOUFAS Association:
+        <ul>
+            <li>Essay on Arta and Preveza by Seraphim Xenopoulos</li>
+            <li>Pyrrhus the King of Epirus by Petros Garoufalias</li>
+            <li>Olympia of Petros Garoufalia</li>
+            <li>Ambrakia of Chrysiida Tzouvara – Souli</li>
+            <li>Museological meditations – Eurydice Anjoulatou – Retsila</li>
+            <li>Education as a value - Eurydiki Anjoulatou - Retsila</li>
+            <li>"Skoufas" magazine</li>
+            <li>About the Despotate of Epirus - Ioannis Romanos</li>
+            <li>The Arta of war and occupation - Con/nos Vayas</li>
+            <li>Thomas I Angelos Komnenos Doukas - Kon/nos Tsiligiannis</li>
+            <li>Proceedings of "Despotate of Epirus"</li>
+            <li>Proceedings "Byzantine Arta and its region"</li>
+            <li>Texts and memories from the tragic December 1944 – Dim. Garufalias</li>
+            <li>The passage of time – Arts and professions in Arta of yesterday – Yiannis Koutsoumbas</li>
+        </ul>
+        {% endblocktranslate %}
+    </p>
+{% endblock content %}

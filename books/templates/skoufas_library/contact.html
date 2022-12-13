@@ -1,0 +1,41 @@
+{% extends "skoufas_library/layout.html" %}
+{% load bootstrap5 %}
+{% load i18n %}
+{% block title %}
+    {% translate "Find Us" %}
+{% endblock title %}
+{% block content %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{% translate "Contact Info" %}</h5>
+                        <p class="card-text">
+                            <i class="bi bi-map"></i> ΑΠΟΚΑΥΚΟΥ 1
+                            <br/>
+                            Τ.Κ. 47100
+                            <br/>
+                            ΑΡΤΑ
+                        </p>
+                        <p>
+                            <a href="tel:+302681022795" class="card-link"><i class="bi bi-telephone"></i> +30 26810 22795</a>
+                        </p>
+                        <p>
+                            <a href="mailto:info@skoufas.gr" class="card-link"><i class="bi bi-envelope-at"></i> info @ skoufas.gr</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3093.6898213404393!2d20.982851!3d39.159036!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x135c1b6923049def%3A0x8673d1eae5b0bb05!2zzpkuIM6Rz4DOv866zrHPhc66zr_PhSAxLCDOhs-Bz4TOsSA0NzEgMDA!5e0!3m2!1sel!2sgr!4v1670886614650!5m2!1sel!2sgr"
+                            class="embed-responsive-item"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -4,10 +4,11 @@ from typing import Any
 
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
-from django.utils.translation import gettext_lazy as _
+from django.utils.text import format_lazy
 from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
 
-from books.fields import EANField, ISBNField, ISSNField, DeweyField
+from books.fields import DeweyField, EANField, ISBNField, ISSNField
 
 
 def current_year() -> int:
@@ -154,7 +155,7 @@ class Editor(models.Model):
         if not self.place:
             return self.name
         if not self.name:
-            return gettext("Unknown editor in %(place)s") % {"place": self.place}
+            return str(format_lazy(gettext("Unknown editor in {}"), self.place))
         else:
             return f"{self.name}, {self.place}"
 

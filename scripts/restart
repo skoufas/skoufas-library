@@ -3,11 +3,13 @@
 PROJECT_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")"; cd ..; pwd)"
 cd "$PROJECT_DIR"
 pwd
-rm db.sqlite3
+rm -f db.sqlite3
 rm -rf books/migrations/00*.py
 rm -rf loaning/migrations/00*.py
 . venv/bin/activate
 
+dropdb skoufas
+createdb skoufas
 skoufas-library makemigrations
 skoufas-library migrate
 

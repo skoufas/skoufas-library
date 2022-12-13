@@ -1,0 +1,71 @@
+{% extends "skoufas_library/layout.html" %}
+{% load bootstrap5 %}
+{% load static %}
+{% load i18n %}
+{% block title %}
+    {% translate "Skoufas Library" %}
+{% endblock title %}
+{% block content %}
+    <div class="border rounded-6 shadow-2g text-center p-5 bg-dark">
+        <div class="container px-5">
+            <img src="{% static 'skoufas_library/logo-new-1-280x195.png' %}"
+                 class="img-fluid"
+                 alt="Skoufas Logo"
+                 width="280"
+                 height="195"
+                 loading="lazy"/>
+        </div>
+    </div>
+    <div class="container px-4 py-5" id="icon-grid">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4">
+                        <i class="bi bi-book"></i> {% translate "All Book Entries" %}
+                    </h3>
+                    <p>{% translate "View all books in the catalogue" %}</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4">
+                        <i class="bi bi-file-person"></i> {% translate "Book Entries by Author" %}
+                    </h3>
+                    <p>{% translate "View all books in the catalogue, ordered by author." %}</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4">
+                        <i class="bi bi-sort-down"></i> {% translate "Book Entries by Dewey" %}
+                    </h3>
+                    <p>{% translate "View all books in the catalogue, ordered by Dewey code." %}</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4">
+                        <i class="bi bi-list-ol"></i> {% translate "Calculated Fields" %}
+                    </h3>
+                    <p>{% translate "Reports showing values for fields." %}</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4">
+                        <i class="bi bi-card-checklist"></i> {% translate "Reports" %}
+                    </h3>
+                    <p>{% translate "Reports used to find issues in data." %}</p>
+                </div>
+            </div>
+            <div class="col d-flex align-items-start">
+                <div>
+                    <h3 class="fw-bold mb-0 fs-4">
+                        <i class="bi bi-balloon-heart-fill"></i> {% translate "Donors" %}
+                    </h3>
+                    <p>{% translate "People that have donated books." %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

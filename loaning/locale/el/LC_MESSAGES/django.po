@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-26 04:25+0000\n"
+"POT-Creation-Date: 2022-11-27 19:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,78 +17,87 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: apps.py:8
+
+#: loaning/apps.py:8
 msgid "loaning"
 msgstr "Δανεισμός"
 
-#: models.py:11
+#: loaning/models.py:12
 msgid "first name"
 msgstr "Όνομα"
 
-#: models.py:12
+#: loaning/models.py:13
 msgid "middle name"
 msgstr "Μεσαίο όνομα"
 
-#: models.py:13
+#: loaning/models.py:14
 msgid "surname"
 msgstr "Επίθετο"
 
-#: models.py:14
+#: loaning/models.py:15
 msgid "id number"
 msgstr "Αρ. Ταυτοποίησης"
 
-#: models.py:15
+#: loaning/models.py:16
 msgid "id type"
 msgstr "Είδος ταυτότητας"
 
-#: models.py:16
+#: loaning/models.py:17
 msgid "phone number"
 msgstr "Αρ. Τηλεφώνου"
 
-#: models.py:17
+#: loaning/models.py:18
 msgid "email"
 msgstr "email"
 
-#: models.py:18
+#: loaning/models.py:19
 msgid "address"
 msgstr "Διεύθηνση"
 
-#: models.py:22
+#: loaning/models.py:29
 msgid "Customer"
 msgstr "Δανειζόμενος"
 
-#: models.py:23
+#: loaning/models.py:30
 msgid "Customers"
 msgstr "Δανειζόμενοι"
 
-#: models.py:44
+#: loaning/models.py:51
 msgid "customer"
 msgstr "Δανειζόμενος"
 
-#: models.py:46
+#: loaning/models.py:53
 msgid "Entry number"
 msgstr "Αριθμός Εισαγωγής"
 
-#: models.py:47
+#: loaning/models.py:54
 msgid "start"
 msgstr "Έναρξη"
 
-#: models.py:48
+#: loaning/models.py:55
 msgid "expected end"
 msgstr "Επιστροφή έως"
 
-#: models.py:49
+#: loaning/models.py:56
 msgid "end"
 msgstr "Επιστροφή"
 
-#: models.py:50
+#: loaning/models.py:57
 msgid "note"
 msgstr "Σημειώσεις"
 
-#: models.py:54
+#: loaning/models.py:61
+msgid "No customer"
+msgstr "Άγνωστος Δανειζόμενος"
+
+#: loaning/models.py:64
+msgid "No end"
+msgstr "Δεν έχει επιστραφεί"
+
+#: loaning/models.py:70
 msgid "Loan"
 msgstr "Δανεισμός"
 
-#: models.py:55
+#: loaning/models.py:71
 msgid "Loans"
 msgstr "Δανεισμοί"
