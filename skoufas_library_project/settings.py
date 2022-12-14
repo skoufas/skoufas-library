@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
@@ -17,12 +18,14 @@ from django.utils.translation import gettext_lazy as _
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.environ["DJANGO_CURRENT_SECRET_KEY"]
+SECRET_KEY_FALLBACKS = [
+    os.environ["DJANGO_OLD_SECRET_KEY"],
+]
 
-ALLOWED_HOSTS: list[str] = []
+DEBUG = "DJANGO_DEBUG" in os.environ
+
+ALLOWED_HOSTS: list[str] = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
 
 # Application definition
@@ -76,11 +79,14 @@ WSGI_APPLICATION = "skoufas_library_project.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get("DJANGO_DATABASE_NAME"),
+        "USER": os.environ.get("DJANGO_DATABASE_USER"),
+        "PASSWORD": os.environ.get("DJANGO_DATABASE_PASSWORD"),
+        "HOST": os.environ.get("DJANGO_DATABASE_HOST"),
+        "PORT": os.environ.get("DJANGO_DATABASE_PORT"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -134,4 +140,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # A dedicated static file server is typically used in production to serve files
 # from this location, rather than relying on the app server to serve those files
 # from various locations in the app. Doing so results in better overall performance.
-STATIC_ROOT = BASE_DIR / "static_collected"
+STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", BASE_DIR / "static_collected")
