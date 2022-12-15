@@ -1,6 +1,6 @@
 [build-system]
-requires = ["flit"]
-build-backend = "flit.buildapi"
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name =  "skoufas-library"
@@ -20,7 +20,7 @@ requires-python = ">=3.10"
 dynamic = ["version"]
 dependencies = [
     "Django>=4.1.3",
-    "psycopg2>=2.9.5",
+    "psycopg2",
     "django-bootstrap-v5",
     "pytz==2022.6",
     "skoufas-dbf-reader==0.0.1",
@@ -62,6 +62,7 @@ django_settings_module = "skoufas_library_project.settings"
 
 [project.scripts]
 skoufas-library = "manage:main"
+"manage.py" = "manage:main"
 
 [project.urls]
 Documentation = "https://github.com/skoufas/skoufas-library#readme"
@@ -72,8 +73,10 @@ Tracker = "https://github.com/skoufas/skoufas-library/issues"
 line-length = 120
 fast = true
 
-[tool.flit.module]
-name = "skoufas_library_project"
+[tool.setuptools.packages.find]
+include = ["books*", "loaning*", "skoufas_library_project*"]  # package names should match these glob patterns (["*"] by default)
+exclude = ["my_package.tests*"]  # exclude packages matching these glob patterns (empty by default)
+
 
 [tool.flit.sdist]
 include = ["manage.py", "books", "loaning"]
