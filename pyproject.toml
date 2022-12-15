@@ -62,7 +62,6 @@ django_settings_module = "skoufas_library_project.settings"
 
 [project.scripts]
 skoufas-library = "manage:main"
-"manage.py" = "manage:main"
 
 [project.urls]
 Documentation = "https://github.com/skoufas/skoufas-library#readme"
@@ -75,4 +74,7 @@ fast = true
 
 [tool.flit.module]
 name = "skoufas_library_project"
+
+[tool.flit.sdist]
+include = ["manage.py", "books", "loaning"]
 
