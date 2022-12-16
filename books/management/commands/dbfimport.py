@@ -1,24 +1,15 @@
 import datetime
+import os
 
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
-
 from skoufas_dbf_reader.field_extractors import *
+from skoufas_dbf_reader.generate_reports import (check_ean, check_isbn,
+                                                 check_issn)
 from skoufas_dbf_reader.utilities import all_entries
-from skoufas_dbf_reader.generate_reports import check_ean, check_isbn, check_issn
 
-from books.models import (
-    Author,
-    Translator,
-    Curator,
-    Donor,
-    BookEntry,
-    DbfEntry,
-    DbfEntryRow,
-    Editor,
-    EntryNumber,
-    Topic,
-)
+from books.models import (Author, BookEntry, Curator, DbfEntry, DbfEntryRow,
+                          Donor, Editor, EntryNumber, Topic, Translator)
 
 
 class Command(BaseCommand):
@@ -372,8 +363,8 @@ class Command(BaseCommand):
                 self.stdout.write(f"{entry[0]}: Added entry number {entry_number}")
 
     def handle(self, *args, **options):
-        usr = User.objects.get(username="admin")
-        usr.set_password("admin")
+        usr = User.objects.get(username="rockdreamer@gmail.com")
+        usr.set_password(os.environ.get("DJANGO_ADMIN_INITIAL_PASSWORD", "admin"))
         usr.save()
         now = datetime.datetime.utcnow()
 
