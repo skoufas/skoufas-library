@@ -62,7 +62,6 @@ django_settings_module = "skoufas_library_project.settings"
 
 [project.scripts]
 skoufas-library = "manage:main"
-"manage.py" = "manage:main"
 
 [project.urls]
 Documentation = "https://github.com/skoufas/skoufas-library#readme"
@@ -78,6 +77,6 @@ include = ["books*", "loaning*", "skoufas_library_project*"]  # package names sh
 exclude = ["my_package.tests*"]  # exclude packages matching these glob patterns (empty by default)
 
 
-[tool.flit.sdist]
-include = ["manage.py", "books", "loaning"]
+
+
 
