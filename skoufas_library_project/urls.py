@@ -17,8 +17,12 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include
 from django.urls import path
+from django.views.generic import TemplateView
 
 urlpatterns = [
-    path("", include("books.urls")),
+    path("", TemplateView.as_view(template_name="skoufas_library/home.html"), name="home"),
+    path("about/", TemplateView.as_view(template_name="skoufas_library/about.html"), name="about"),
+    path("contact/", TemplateView.as_view(template_name="skoufas_library/contact.html"), name="contact"),
+    path("books/", include("books.urls")),
     path("admin/", admin.site.urls),
 ] + staticfiles_urlpatterns()

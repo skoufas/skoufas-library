@@ -12,9 +12,6 @@ from django.views.generic import TemplateView
 # )
 
 urlpatterns: list[URLPattern | URLResolver] = [
-    path("", TemplateView.as_view(template_name="skoufas_library/home.html"), name="home"),
-    path("about/", TemplateView.as_view(template_name="skoufas_library/about.html"), name="about"),
-    path("contact/", TemplateView.as_view(template_name="skoufas_library/contact.html"), name="contact"),
     # path("hello/<name>", views.hello_there, name="hello_there"),
     # path("about/", views.about, name="about"),
     # path("contact/", views.contact, name="contact"),
