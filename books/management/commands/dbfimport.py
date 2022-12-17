@@ -32,6 +32,15 @@ def read_all_entries(entries_file: str) -> Any:
     return result
 
 
+def entry_is_empty(entry: dict[str, Any]):
+    """Check for empty entries."""
+    if not entry["authors"]:
+        if "title" not in entry:
+            return True
+        return len(entry["title"]) == 0
+    return False
+
+
 class Command(BaseCommand):
     """Import books."""
 
@@ -242,8 +251,8 @@ class Command(BaseCommand):
         # Original DBF Entry
         dbf_entry, entry_created = DbfEntry.objects.get_or_create(
             dbf_sequence=entry["dbase_number"],
-            book_entry=book_entry,
             defaults={
+                "book_entry": book_entry,
                 "import_time": import_time,
             },
         )
@@ -329,7 +338,8 @@ class Command(BaseCommand):
                 self.stdout.write(f"{entry['dbase_number']}: Added book entry")
             else:
                 self.stderr.write(
-                    f"{entry['dbase_number']}: Reusing book entry. " f"Previous sequence { book_entry.dbf_sequence() }"
+                    f"{entry['dbase_number']}: Reusing book entry. "
+                    f"Previous sequence { book_entry.dbf_sequence() }: {book_entry}"
                 )
         return book_entry
 
@@ -376,27 +386,35 @@ class Command(BaseCommand):
         all_entries = read_all_entries(entries_file=options["entries"])
         start_time = datetime.datetime.utcnow()
         for entry in all_entries:
-            self.stdout.write(f"\n---- {entry['dbase_number']} ----")
-            authors = self.add_authors(entry)
-            translators = self.add_translators(entry)
-            curators = self.add_curator(entry)
-            donors = self.add_donors(entry)
-            editor = self.add_editor(entry)
-            topics = self.add_topics(entry)
-            book_entry = self.add_book_entry(
-                entry=entry,
-                authors=authors,
-                translators=translators,
-                curators=curators,
-                donors=donors,
-                editor=editor,
-                topics=topics,
-            )
-            entry_numbers = self.add_entry_numbers(entry=entry, book_entry=book_entry, donors=donors)
+            if entry_is_empty(entry):
+                self.stdout.write(f"\n---- EMPTY: {entry['dbase_number']} ----")
+                self.add_original_entry(
+                    entry,
+                    None,
+                    start_time,
+                )
+            else:
+                self.stdout.write(f"\n---- {entry['dbase_number']} ----")
+                authors = self.add_authors(entry)
+                translators = self.add_translators(entry)
+                curators = self.add_curator(entry)
+                donors = self.add_donors(entry)
+                editor = self.add_editor(entry)
+                topics = self.add_topics(entry)
+                book_entry = self.add_book_entry(
+                    entry=entry,
+                    authors=authors,
+                    translators=translators,
+                    curators=curators,
+                    donors=donors,
+                    editor=editor,
+                    topics=topics,
+                )
+                entry_numbers = self.add_entry_numbers(entry=entry, book_entry=book_entry, donors=donors)
 
-            self.add_original_entry(
-                entry,
-                book_entry,
-                start_time,
-            )
+                self.add_original_entry(
+                    entry,
+                    book_entry,
+                    start_time,
+                )
         print(f"Inserted {len(all_entries)} entries in {(datetime.datetime.now()-start_time).seconds}s", flush=True)

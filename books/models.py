@@ -380,7 +380,12 @@ class DbfEntry(models.Model):
         ordering = ["-import_time", "dbf_sequence"]
         verbose_name = _("DBF entry")
         verbose_name_plural = _("DBF entries")
-        unique_together = [["import_time", "dbf_sequence"]]
+        constraints = [
+            models.UniqueConstraint(
+                name="unique_dbf_sequence",
+                fields=["dbf_sequence"],
+            )
+        ]
 
 
 class DbfEntryRow(models.Model):
