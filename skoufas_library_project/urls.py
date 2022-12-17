@@ -25,4 +25,5 @@ urlpatterns = [
     path("contact/", TemplateView.as_view(template_name="skoufas_library/contact.html"), name="contact"),
     path("books/", include("books.urls", namespace="books")),
     path("admin/", admin.site.urls),
+    path("i18n/", include("django.conf.urls.i18n")),
 ] + staticfiles_urlpatterns()

@@ -15,8 +15,8 @@
         href="{% static 'skoufas_library/favicon.png' %}"
         rel="icon"/>
   <meta name="theme-color" content="#8a2a42" />
-{% block skoufas_library_extra_head %}
-{% endblock skoufas_library_extra_head %}
+  {% block skoufas_library_extra_head %}
+  {% endblock skoufas_library_extra_head %}
 {% endblock bootstrap5_extra_head %}
 {% block bootstrap5_content %}
   <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -53,6 +53,33 @@
                href="{% url 'contact' %}"
                {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>{% translate "Contact" %}</a>
           </li>
+          {% get_current_language as LANGUAGE_CODE %}
+          {% get_language_info for LANGUAGE_CODE as lang %}
+          {% get_available_languages as LANGUAGES %}
+          {% get_language_info_list for LANGUAGES as languages %}
+          <form name="set_session_language"
+                action="{% url 'set_language' %}"
+                method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ redirect_to }}" />
+            <input name="language" type="hidden"/>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"
+                 data-bs-toggle="dropdown"
+                 href="#"
+                 role="button"
+                 aria-expanded="false"><i class="bi bi-translate"></i></a>
+              <ul class="dropdown-menu">
+                {% for language in languages %}
+                  <li>
+                    <a href="#"
+                       class="dropdown-item"
+                       onclick="document.set_session_language.language.value='{{ language.code }}'; document.set_session_language.submit();">{{ language.name_local }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </li>
+          </form>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2"
