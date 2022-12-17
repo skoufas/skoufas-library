@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-14 01:45+0200\n"
+"POT-Creation-Date: 2022-12-17 22:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,788 +18,354 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: books/apps.py:8
+#: books/apps.py:11
 msgid "books"
 msgstr "Βιβλία"
 
-#: books/fields.py:9
+#: books/fields.py:15
 msgid "ISBN-10 or ISBN-13"
 msgstr "ISBN-10 ή ISBN-13"
 
-#: books/fields.py:13
+#: books/fields.py:20 books/templates/books/bookentry_detail.html:185
 msgid "ISBN"
 msgstr "ISBN"
 
-#: books/fields.py:39 books/fields.py:43
+#: books/fields.py:49 books/fields.py:54
+#: books/templates/books/bookentry_detail.html:193
 msgid "ISSN"
 msgstr "ISSN"
 
-#: books/fields.py:69
+#: books/fields.py:83
 msgid "EAN-14, EAN-13, EAN-12, EAN-8"
 msgstr "EAN-14, EAN-13, EAN-12, EAN-8"
 
-#: books/fields.py:73
+#: books/fields.py:88 books/templates/books/bookentry_detail.html:201
 msgid "EAN"
 msgstr "EAN"
 
-#: books/fields.py:99
+#: books/fields.py:117
 msgid "Dewey format XXX, XXX ABC, XXX.XXX, XXX.XXX ABC"
 msgstr "Αριθμός Dewey NNN, ΝΝΝ ΑΒΓ, ΝΝΝ.ΝΝΝ, ΝΝΝ.ΝΝΝ ΑΒΓ"
 
-#: books/fields.py:103 books/models.py:223
+#: books/fields.py:122 books/models.py:248
+#: books/templates/books/bookentry_detail.html:38
 msgid "Dewey"
 msgstr "Ταξινομικός Αριθμός Dewey"
 
-#: books/models.py:25 books/models.py:56 books/models.py:87 books/models.py:118
+#: books/models.py:32 books/models.py:66 books/models.py:100
+#: books/models.py:134
 msgid "first name"
 msgstr "Όνομα"
 
-#: books/models.py:26 books/models.py:57 books/models.py:88 books/models.py:119
+#: books/models.py:33 books/models.py:67 books/models.py:101
+#: books/models.py:135
 msgid "middle name"
 msgstr "Μεσαίο Όνομα"
 
-#: books/models.py:27 books/models.py:58 books/models.py:89 books/models.py:120
+#: books/models.py:34 books/models.py:68 books/models.py:102
+#: books/models.py:136
 msgid "surname"
 msgstr "Επίθετο"
 
-#: books/models.py:28 books/models.py:59 books/models.py:90 books/models.py:121
+#: books/models.py:35 books/models.py:69 books/models.py:103
+#: books/models.py:137
 msgid "organisation name"
 msgstr "Οργάνωση"
 
-#: books/models.py:35
+#: books/models.py:43
 msgid "Nameless author"
 msgstr "Συγγραφέας χωρίς όνομα"
 
-#: books/models.py:43 books/models.py:199
+#: books/models.py:53 books/models.py:224
 msgid "Author"
 msgstr "Συγγραφέας"
 
-#: books/models.py:44
+#: books/models.py:54 books/templates/books/bookentry_detail.html:25
 msgid "Authors"
 msgstr "Συγγραφείς"
 
-#: books/models.py:66
+#: books/models.py:77
 msgid "Nameless translator"
 msgstr "Μεταφραστής χωρίς όνομα"
 
-#: books/models.py:74 books/models.py:205
+#: books/models.py:87 books/models.py:230
 msgid "Translator"
 msgstr "Μεταφραστής"
 
-#: books/models.py:75
+#: books/models.py:88 books/templates/books/bookentry_detail.html:131
 msgid "Translators"
 msgstr "Μεταφραστές"
 
-#: books/models.py:97
+#: books/models.py:111
 msgid "Nameless curator"
 msgstr "Επιμελητής χωρίς όνομα"
 
-#: books/models.py:105 books/models.py:208
+#: books/models.py:121 books/models.py:233
 msgid "Curator"
 msgstr "Επιμελητής"
 
-#: books/models.py:106
+#: books/models.py:122 books/templates/books/bookentry_detail.html:145
 msgid "Curators"
 msgstr "Επιμελητές"
 
-#: books/models.py:128
+#: books/models.py:145
 msgid "Nameless donor"
 msgstr "Δωρητής χωρίς όνομα"
 
-#: books/models.py:136 books/models.py:243 books/models.py:303
+#: books/models.py:155 books/models.py:268 books/models.py:338
 msgid "Donor"
 msgstr "Δωρητής"
 
-#: books/models.py:137 books/templates/skoufas_library/home.html:64
+#: books/models.py:156 books/templates/books/bookentry_detail.html:159
 msgid "Donors"
 msgstr "Δωρητές"
 
-#: books/models.py:149 books/models.py:164
+#: books/models.py:168 books/models.py:186
+#: books/templates/books/bookentry_detail.html:83
 msgid "Editor"
 msgstr "Εκδότης"
 
-#: books/models.py:150
+#: books/models.py:169
 msgid "Editor place"
 msgstr "Τόπος Έκδοσης"
 
-#: books/models.py:154
+#: books/models.py:174
 msgid "Nameless editor"
 msgstr "Εκδότης χωρίς όνομα"
 
-#: books/models.py:158
+#: books/models.py:178
 msgid "Unknown editor in {}"
 msgstr "Άγνωστος εκδότης απο {}"
 
-#: books/models.py:165
+#: books/models.py:187
 msgid "Editors"
 msgstr "Εκδότες"
 
-#: books/models.py:177
+#: books/models.py:199
 msgid "topic"
 msgstr "Θέμα"
 
-#: books/models.py:184 books/models.py:211
+#: books/models.py:209 books/models.py:236
 msgid "Topic"
 msgstr "Θέμα"
 
-#: books/models.py:185
+#: books/models.py:210 books/templates/books/bookentry_detail.html:65
 msgid "Topics"
 msgstr "Θέματα"
 
-#: books/models.py:214
+#: books/models.py:239
 msgid "editor"
 msgstr "Εκδότης"
 
-#: books/models.py:217
+#: books/models.py:242
 msgid "Title"
 msgstr "Τίτλος"
 
-#: books/models.py:220
+#: books/models.py:245 books/templates/books/bookentry_detail.html:18
 msgid "Subtitle"
 msgstr "Υπότιτλος"
 
-#: books/models.py:226
+#: books/models.py:251 books/templates/books/bookentry_detail.html:75
 msgid "Language"
 msgstr "Γλώσσα"
 
-#: books/models.py:229
+#: books/models.py:254 books/templates/books/bookentry_detail.html:91
 msgid "Edition"
 msgstr "Εκδότης"
 
-#: books/models.py:233
+#: books/models.py:258 books/templates/books/bookentry_detail.html:99
 msgid "Edition Year"
 msgstr "Έτος έκδοσης"
 
-#: books/models.py:237
+#: books/models.py:262 books/templates/books/bookentry_detail.html:107
 msgid "Pages"
 msgstr "Σελίδες"
 
-#: books/models.py:240 books/models.py:296
+#: books/models.py:265 books/models.py:331
+#: books/templates/books/bookentry_detail.html:115
 msgid "Copies"
 msgstr "Αντίτυπα"
 
-#: books/models.py:246
+#: books/models.py:271 books/templates/books/bookentry_detail.html:123
 msgid "Volumes"
 msgstr "Τεύχη/Τόμοι"
 
-#: books/models.py:249
+#: books/models.py:274 books/templates/books/bookentry_detail.html:169
 msgid "Notes"
 msgstr "Σημειώσεις"
 
-#: books/models.py:252
+#: books/models.py:277 books/templates/books/bookentry_detail.html:177
 msgid "Material"
 msgstr "Υλικό"
 
-#: books/models.py:264
+#: books/models.py:289 books/templates/books/bookentry_detail.html:208
 msgid "Offprint"
 msgstr "Ανάτυπο"
 
-#: books/models.py:268
+#: books/models.py:293 books/templates/books/bookentry_detail.html:218
 msgid "Has CD"
 msgstr "Έχει CD"
 
-#: books/models.py:273
+#: books/models.py:298 books/templates/books/bookentry_detail.html:228
 msgid "Has DVD"
 msgstr "Έχει DVD"
 
-#: books/models.py:278
+#: books/models.py:304
 msgid "Book with no title and subtitle"
 msgstr "Βιβλίο χωρίς τιτλο και υπότιτλο"
 
-#: books/models.py:287 books/models.py:298 books/models.py:328
+#: books/models.py:322 books/models.py:333 books/models.py:366
 msgid "Book Entry"
 msgstr "Κάρτα Βιβλίου"
 
-#: books/models.py:288
+#: books/models.py:323
 msgid "Book Entries"
 msgstr "Κάρτες Βιβλίου"
 
-#: books/models.py:294
+#: books/models.py:329
 msgid "Entry number"
 msgstr "Αριθμός εισαγωγής"
 
-#: books/models.py:315
+#: books/models.py:353
 msgid "Entry Number"
 msgstr "Αριθμός εισαγωγής"
 
-#: books/models.py:316
+#: books/models.py:354 books/templates/books/bookentry_detail.html:46
 msgid "Entry Numbers"
 msgstr "Αριθμοί εισαγωγής"
 
-#: books/models.py:329
+#: books/models.py:367
 msgid "DBF Sequence"
 msgstr "Οθόνες DBF"
 
-#: books/models.py:330
+#: books/models.py:368
 msgid "Import Time"
 msgstr "Ώρα εισαγωγής"
 
-#: books/models.py:340 books/models.py:348
+#: books/models.py:385 books/models.py:398
 msgid "DBF entry"
 msgstr "Οθόνη DBF"
 
-#: books/models.py:341
+#: books/models.py:386
 msgid "DBF entries"
 msgstr "Οθόνες DBF"
 
-#: books/models.py:350
+#: books/models.py:400
 msgid "Code"
 msgstr "Κωδικός"
 
-#: books/models.py:354
+#: books/models.py:404
 msgid "Value"
 msgstr "Τιμή"
 
-#: books/models.py:364
+#: books/models.py:417
 msgid "DBF row"
 msgstr "Πεδίο DBF"
 
-#: books/models.py:365
+#: books/models.py:418
 msgid "DBF rows"
 msgstr "Πεδία DBF"
 
-#: books/templates/skoufas_library/about.html:5
-msgid "About the Skoufas Library"
-msgstr "Βιβλιοθήκη Σκουφά: Πληροφορίες"
+#: books/templates/books/bookentry_detail.html:32
+msgid "Book with no authors"
+msgstr "Βιβλίο χωρίς συγγραφέα"
 
-#: books/templates/skoufas_library/about.html:9
-msgid ""
-"\n"
-"        One of the first achievements of the Skoufas Association since its "
-"foundation in April 1896 was establishing a library in Arta.\n"
-"        In July 1896, letters were sent to the University of Athens, to the "
-"\"PARNASSOS\" Association and to all the people of Arta who wanted to donate "
-"books.\n"
-"        The first donations were made and the foundations were laid for the "
-"establishment of the Library.\n"
-"        In the years that followed, efforts were made to enrich the Library, "
-"with old and new publications.\n"
-"        Many of our fellow citizens, named and anonymous, have donated books "
-"ever since.\n"
-"        "
-msgstr ""
-"\n"
-"        Ένα από τα πρώτα επιτεύγματα του Συλλόγου Σκουφάς ήδη από την ιδρυση "
-"του τον Απρίλιο του 1896 ήταν η συγκρότηση Βιβλιοθήκης στην Άρτα.\n"
-"        Τον Ιούλιο του 1896 εστάλησαν επιστολές στο Πανεπιστήμιο Αθηνών, στο "
-"Σύλλογο «ΠΑΡΝΑΣΣΟΣ» και σε όλους τους Αρτινούς που ήθελαν να δωρίσουν  "
-"βιβλία.\n"
-"         Έγιναν οι πρώτες δωρεές και μπήκαν τα θεμέλια για την ίδρυση της "
-"Βιβλιοθήκης.\n"
-"        Στα χρόνια που ακολούθησαν έγιναν προσπάθειες για εμπλουτισμό της "
-"Βιβλιοθήκης, με παλιές και νέες εκδόσεις.\n"
-"        Πολλοί συμπολίτες μας έκτοτε, επώνυμοι και ανώνυμοι, χάρισαν "
-"βιβλία.\n"
-"        "
+#: books/templates/books/bookentry_detail.html:54
+#, python-format
+msgid "(1 copy)"
+msgid_plural "(%(entrynumber.copies)s copies)"
+msgstr[0] "(1 αντίτυπο)"
+msgstr[1] "(%(entrynumber.copies)s αντίτυπα)"
 
-#: books/templates/skoufas_library/about.html:18
-msgid ""
-"\n"
-"        The first donations to the Library came from the members of the "
-"first Board of Directors, Theod. Thomopoulos, the Association "
-"\"PARNASSOS\",\n"
-"        the Association \"MIKROS OMILOS\" (after its dissolution in 1927 its "
-"library was offered to the Association),\n"
-"        the lawyer K. Anagnostopoulos (in 1962 he donated to the Library a "
-"large series of legal books in Greek and foreign languages),\n"
-"        the Society of Continental Studies, the Eugenides Foundation and "
-"Emporiki Bank.\n"
-"        Eumorfia Kotzioula, Haril. Bletsos and Michalis Peranthis also "
-"offered books. The library of the poet Kostas Krystallis enriched our "
-"shelves.\n"
-"        A major donor to the Library is Petros Garoufalias, who donated a "
-"large number of books in foreign languages and in Greek.\n"
-"        Furthermore, Ioannis Papavasiliou donated a remarkable series of "
-"books of great intellectual value.\n"
-"        "
-msgstr ""
-"\n"
-"        Οι πρώτες δωρεές προς την Βιβλιοθήκη προέρχονται από τα μέλη του "
-"πρώτου Διοικητικού Συμβουλίου, τον Θεοδ. Θωμόπουλο, το Σύλλογο «ΠΑΡΝΑΣΣΟΣ»,\n"
-"        το Σωματείο «ΜΙΚΡΟΣ ΟΜΙΛΟΣ» (μετά τη διάλυσή του το 1927  πρόσφερε "
-"τη βιβλιοθήκη του στο Σύλλογο),\n"
-"        το δικηγόρο Κ. Αναγνωστόπουλο ( το 1962 δώρισε στη Βιβλιοθήκη μια  "
-"μεγάλη σειρά νομικών βιβλίων στην ελληνική και σε ξένες γλώσσες),\n"
-"        την Εταιρεία Ηπειρωτικών Μελετών, το Ευγενίδειο Ίδρυμα και την "
-"Εμπορική Τράπεζα.\n"
-"       Προσφορές έγιναν απο την Ευμορφία Κοτζιούλα, Χαρίλ. Μπλέτσο και "
-"Μιχάλη Περάνθη, ενώ στη βιβλιοθήκη περιήλθε και εκείνη του ποιητή Κώστα "
-"Κρυστάλλη.\n"
-"        Μεγάλος δωρητής της Βιβλιοθήκης θεωρείται ο Πέτρος Γαρουφαλιάς, που "
-"πρόσφερε ένα μεγάλο αριθμό βιβλίων ξενόγλωσσων και ελληνικών.\n"
-"        Ακόμη, ο Ιωάννης Παπαβασιλείου δώρισε μια αξιόλογη σειρά βιβλίων "
-"μεγάλης πνευματικής αξίας.\n"
-"        "
+#: books/templates/books/bookentry_detail.html:58
+msgid "Book with no entry numbers"
+msgstr "Βιβλίο χωρίς αριθμό εισαγωγής"
 
-#: books/templates/skoufas_library/about.html:29
-msgid ""
-"\n"
-"        Among the major donors are the family of Giannis Banias, who donated "
-"1,451 book titles to the Library from his personal library,\n"
-"        Mr. Dimitris Tomboulidis, who has so far donated over 2,000 book "
-"titles for the Pontic and Asia Minor Hellenism department along with "
-"archival material,\n"
-"        Mr. Kon/nos Tsiligiannis, who gave the Association his personal "
-"Library and photographic material, as well as the family Dim. Portovara.\n"
-"        Various authors also sent poems, short stories or whatever they had "
-"published.\n"
-"        The Ministry of Education has also provided a large number of "
-"valuable publications.\n"
-"        "
-msgstr ""
-"\n"
-"        Στους μεγάλους δωρητές συγκαταλέγονται η οικογένεια του Γιάννη "
-"Μπανιά, που δώρισε στη Βιβλιοθήκη 1.451 τίτλους βιβλίων από την προσωπική "
-"βιβλιοθήκη του Γιάννη,\n"
-"        ο κ. Δημήτρης Τομπουλίδης , που μέχρι στιγμής πρόσφερε πάνω από "
-"2.000 τίτλους βιβλίων για το τμήμα του Ποντιακού και Μικρασιάτικου "
-"Ελληνισμού καθώς και δωρεές υλικού για την αρχειοθέτηση,\n"
-"        ο Κων/νος Τσιλιγιάννης, που παραχώρησε στο Σύλλογο την προσωπική του "
-"Βιβλιοθήκη και φωτογραφικό υλικό, καθώς και η οικογένεια Δημ. Πορτοβάρα.\n"
-"        Διάφοροι συγγραφείς έστειλαν και αυτοί ποιήματα, διηγήματα ή ό,τι "
-"είχαν εκδώσει.\n"
-"        Το Υπουργείο Παιδείας με απόφασή του έστειλε ένα μεγάλο αριθμό "
-"πολύτιμων εκδόσεων.\n"
-"        "
+#: books/templates/books/bookentry_detail.html:138
+msgid "Book with no translators"
+msgstr "Βιβλίο χωρίς μεταφραστή"
 
-#: books/templates/skoufas_library/about.html:38
-msgid ""
-"\n"
-"        In 1991 the Board of Directors of the \"SKOUFAS\" Association hired "
-"a graduate Librarian in order to properly organize the Library.\n"
-"        In 1992, the Library was moved to the ground floor of Garoufalia's "
-"house, on Apokaykou Street 1, which belongs to the ELEI of Arta.\n"
-"        In the same year, a small reading room was created and the "
-"organization of the Library begins according to international standards.\n"
-"        More than 30.000 books have since been catalogued using a Dewey "
-"variant in the Library's legacy database.\n"
-"        "
-msgstr ""
-"\n"
-"        Το 1991, το Δ.Σ. του Συλλόγου «ΣΚΟΥΦΑΣ» προσέλαβε πτυχιούχο "
-"Βιβλιοθηκονομίας με σκοπό την ορθή οργάνωση της Βιβλιοθήκης.\n"
-"        Το 1992, η Βιβλιοθήκη μεταφέρθηκε στο ισόγειο της οικίας του "
-"Γαρουφαλιά , επί της οδού Αποκαύκου 1, που ανήκει στα ΕΛΕΗ Άρτας.\n"
-"       Την ίδια χρονιά δημιουργείται μικρό αναγνωστήριο και αρχίζει η "
-"οργάνωση της Βιβλιοθήκης σύμφωνα με διεθνή πρότυπα.\n"
-"        Πάνω απο 30.000 βιβλία έχουν καταλογραφηθεί με σύστημα Dewey σε βάση "
-"δεδομένων παλαιού τύπου.\n"
-"        "
+#: books/templates/books/bookentry_detail.html:152
+msgid "Book with no curators"
+msgstr "Βιβλίο χωρίς επιμελητή"
 
-#: books/templates/skoufas_library/about.html:46
-msgid ""
-"\n"
-"        In 2019, a volunteer effort was started to modernise its ageing "
-"cataloguing system.\n"
-"        The legacy DBF database was reverse engineered and a long effort to "
-"clear the results of years of labor from inconsistencies caused\n"
-"        by the limitations of the format was started.\n"
-"        That work can be tracked in the <a href=\"https://github.com/skoufas/"
-"skoufas-dbf-reader\">skoufas-dbf-reader</a> GitHub project.\n"
-"        In 2022, a second volunteed project was started to allow the "
-"personnel of the libary to make use of more modern technologies, as a "
-"stepping stone towards a\n"
-"        full-fledged electronic libary solution. The code for that project, "
-"the website you're reading now, can be found in the\n"
-"        <a href=\"https://github.com/skoufas/skoufas-library\">skoufas-"
-"library</a> GitHub project.\n"
-"        "
-msgstr ""
-"\n"
-"        Το 2019, άρχισε εθελοντική προσπάθεια εκμοντερνισμού του συστήματος "
-"καταλογογράφησης.\n"
-"        Έγινε αποκωδικοποίηση της βάσης δεδομένων απο μορφή DBF και άρχισε "
-"μια μακρά προσπάθεια καθαρισμού της βάσης απο ασυνέπειες που οφείλονταν σε\n"
-"        περιορισμούς του αρχικού προγράμματος.\n"
-"        Ο κώδικας και η εξέλιξη αυτής της προσπάθειας είναι διαθέσιμοι στο "
-"<a href=\"https://github.com/skoufas/skoufas-dbf-reader\">skoufas-dbf-"
-"reader</a>.\n"
-"        Το 2022 άρχισε δέυτερο εθελοντικό έργο για να επιτρέψει  στο "
-"προσωπικό της βιβλιοθήκης να χρησιμοποιήσει σύγχρονες τεχνολογίες, ενα βήμα "
-"στην εξέλιξη της βιβλιοθήκης με\n"
-"        απότερο σκοπό τη χρήση μιας πλήρης βιβλιοθηκονομικής εφαρμογής. Ο "
-"κώδικας για αυτό το έργο, ο ιστότοπος που διαβάζετε τώρα, είναι ανοιχτός και "
-"διαθέσιμος στο GitHub project \n"
-"        <a href=\"https://github.com/skoufas/skoufas-library\">skoufas-"
-"library</a>.\n"
-"        "
+#: books/templates/books/bookentry_detail.html:246
+msgid "Show original DBF entry"
+msgstr "Εμφάνιση πεδίων DBF"
 
-#: books/templates/skoufas_library/about.html:57
-msgid ""
-"\n"
-"        We welcome feedback and volunteer contributions to the code! Please "
-"email rockdreamer at gmail dot com for more information.\n"
-"        "
-msgstr ""
-"\n"
-"        Σας προτρύνουμε να στείλετε σχόλια και να βοηθήσετε στην εξέλιξη του "
-"κώδικα! Παρακαλώ στείλτε μύνημα στο rockdreamer παπάκι gmail τελεία com για "
-"περισσότερες πληροφορίες.\n"
-"        "
-
-#: books/templates/skoufas_library/about.html:62
-msgid ""
-"\n"
-"        Currently the Library operates a lending service for most of its "
-"books, except for rare books and manuscripts.\n"
-"        Access to the latter must be agreed and coordinated beforehand. "
-"Please contact us for more information.\n"
-"        It is enrolled in the ATLAS program of the Universities of Greece "
-"and DASTA for the TEI.\n"
-"        Its <a href=\"https://www.loc.gov/marc/organizations/org-search."
-"php\">MARC Org Code</a> is GR-ArMPA (Id 43410).\n"
-"        "
-msgstr ""
-"\n"
-"        Η Βιβλιοθήκη λειτουργεί ως δανειστική για το μεγαλύτερο μέρος των "
-"βιβλίων της , εκτός των σπάνιων βιβλίων και των χειρογράφων.\n"
-"        Πρόσβαση στα σπάνια βιβλία γίνεται κατόπιν συνεννόησης. Παρακαλώ "
-"επικοινωνήστε μαζί μας για περεταίρω πληροφορίες.\n"
-"        Είναι εγγεγραμμένη στο πρόγραμμα ΑΤΛΑΣ των Πανεπιστημίων της Ελλάδας "
-"και DASTA για το ΤΕΙ.\n"
-"        Ο  <a href=\"https://www.loc.gov/marc/organizations/org-search."
-"php\">κωδικός οργάνωσης MARC</a> είναι GR-ArMPA (Id 43410).\n"
-"        "
-
-#: books/templates/skoufas_library/about.html:70
-msgid ""
-"\n"
-"        Some of the rare publications available in the Library of the "
-"SKOUFAS Association are:\n"
-"        <ul>\n"
-"            <li>History of Macedonian Hellenism – Droysen – 1899</li>\n"
-"             <li>Apanda Solomos – Sakellarios – 1901</li>\n"
-"             <li>Apanda Loucianos – Fexis – 1911</li>\n"
-"             <li>Lectures of Greek Poets - Estia - 1925</li>\n"
-"             <li>Legal Philosophies – H. Anastasiadou – 1927</li>\n"
-"             <li>Continental Glossary (Aravantinou) – Petrakou – 1909</li>\n"
-"             <li>Eastern Thrace – Netr Vei – 1927</li>\n"
-"             <li>Wedding in Crete (Pavlos Vlastou) – 1893</li>\n"
-"             <li>The Holy City of Jerusalem (Beniamin Ioannidou) – 1877</"
-"li>\n"
-"             <li>Biographical Notes (Claudio Badaloukas) – 1876</li>\n"
-"             <li>General Introduction to Christian Archeology (G. Lampaki) – "
-"1897</li>\n"
-"             <li>On Doubt –SherwoodEddy– 1920</li>\n"
-"             <li>Reflections on the Municipal Song (Alki Thrylou) – Kallergi "
-"– 1928</li>\n"
-"             <li>Enochikon Dikaion (E.Dernburg) – Fexi – 1909</li>\n"
-"             <li>Psychology (Dim. Moraitou) – 1926</li>\n"
-"             <li>Handbook of Empirical Psychology (Gust. Ed. Linder) – "
-"Korinnis – 1884</li>\n"
-"             <li>The Age of Renaissance (W.Pater) – Vassiliou – 1923</li>\n"
-"             <li>The drama of Lefktra (Theoch. Tsoutsinos) – Hatziioannou – "
-"1924</li>\n"
-"             <li>The Protomaster (Kalomoiri) – Panathinaeon – 1910</li>\n"
-"             <li>Biography of Heroes: M. Botsaris-G. Karaiskakis (Georgios "
-"Gazis) – 1828</li>\n"
-"             <li>Maximus the Greek – Papamichael – 1920</li>\n"
-"             <li>Ignatius Metropolitan of Hungary-Wallachia (1766-1828) – "
-"Cantor – 1919</li>\n"
-"             <li>The Agrarian Question in Epirus (Georgiou Pachy) – 1882</"
-"li>\n"
-"             <li>Turkish-occupied Greece – Sathas – 1869</li>\n"
-"             <li>Historical Dissertations – Sathas – 1870</li>\n"
-"             <li>Friendly Society (I. Philimonos) – Koltoura – 1834</li>\n"
-"             <li>Historical Essay on the Revolution (I. Philimonos) – 1859</"
-"li>\n"
-"             <li>Histories of the Greek Palingenesis (M. Economou) – 1873</"
-"li>\n"
-"             <li>History of Attila and his Successors (T.Amedee) – "
-"Eleftheroudakis – 1903</li>\n"
-"             <li>Capodistria Letters (DavidFreming) – 1841</li>\n"
-"             <li>Charilaos Trikoupis (G. Tsokopoulos) – Fexis – 1896</li>\n"
-"        </ul>\n"
-"        "
-msgstr ""
-"\n"
-"        Κατάλογος μερικών από τις σπάνιες εκδόσεις που διαθέτει η Βιβλιοθήκη "
-"του Συλλόγου ΣΚΟΥΦΑΣ:\n"
-"        <ul>\n"
-"            <li>Ιστορία του Μακεδονικού Ελληνισμού – Δρόϋσεν – 1899</li>\n"
-"             <li>Άπαντα Σολωμού – Σακελλαρίου – 1901</li>\n"
-"             <li>Άπαντα Λουκιανού – Φέξη – 1911</li>\n"
-"             <li>Διαλέξεις Ελλήνων Ποιητών – Εστία – 1925</li>\n"
-"             <li>Νομικά Φιλοσοφήματα – Η. Αναστασιάδου – 1927</li>\n"
-"             <li>Ηπειρωτικόν Γλωσσάριον (Αραβαντινού) – Πετράκου – 1909</"
-"li>\n"
-"             <li>Ανατολική Θράκη – Νετρ Βέη – 1927</li>\n"
-"             <li>Γάμος εν Κρήτη (Παύλου Βλαστού) – 1893</li>\n"
-"             <li>Η Αγία Πόλις Ιερουσαλήμ (Βενιαμίν Ιωαννίδου) – 1877</li>\n"
-"             <li>Βιογραφικαί Σημειώσεις (Κλαυδίου Μπανταλούκα) – 1876</li>\n"
-"             <li>Γενική Εισαγωγή εις την Χριστιανικήν Αρχαιολογίαν (Γ. "
-"Λαμπάκη) – 1897</li>\n"
-"             <li>Περί Αμφιβολίας –SherwoodEddy– 1920</li>\n"
-"             <li>Στοχασμοί για το Δημοτικό Τραγούδι (Άλκη Θρύλου) – Καλλέργη "
-"– 1928</li>\n"
-"             <li>Ενοχικόν Δίκαιον (E.Dernburg) – Φέξη – 1909</li>\n"
-"             <li>Ψυχολογία (Δημ. Μωραΐτου) – 1926</li>\n"
-"             <li>Εγχειρίδιον Εμπειρικής Ψυχολογίας (Γουστ. Αδ. Λίνδερ) – "
-"Κορίννης – 1884</li>\n"
-"             <li>Η Εποχή της Αναγεννήσεως (W.Pater) – Βασιλείου – 1923</li>\n"
-"             <li>Το δράμα των Λεύκτρων (Θεοχ. Τσούτσινος) – Χατζηιωάννου – "
-"1924</li>\n"
-"             <li>Ο Πρωτομάστορας (Καλομοίρη) – Παναθηναίων – 1910</li>\n"
-"             <li>Βιογραφία Ηρώων: Μ. Μπότσαρης-Γ. Καραϊσκάκης (Γεώργιος "
-"Γαζής) – 1828</li>\n"
-"             <li>Μάξιμος ο Γραικός – Παπαμιχαήλ – 1920</li>\n"
-"             <li>Ιγνάτιος Μητροπολίτης Ουγγροβλαχίας (1766-1828) – "
-"Πρωτοψάλτης – 1919</li>\n"
-"             <li>Το εν Ηπείρω Αγροτικόν Ζήτημα (Γεωργίου Παχύ) – 1882</li>\n"
-"             <li>Τουρκοκρατούμενη Ελλάς – Σάθας – 1869</li>\n"
-"             <li>Ιστορικαί Διατριβαί – Σάθας – 1870</li>\n"
-"             <li>Φιλική Εταιρεία (Ι. Φιλήμονος) – Κολτούρα – 1834</li>\n"
-"             <li>Δοκίμιον Ιστορικόν Περί της Επαναστάσεως (Ι. Φιλήμονος) – "
-"1859</li>\n"
-"             <li>Ιστορικά της Ελληνικής Παλιγγενεσίας (Μ. Οικονόμου) – 1873</"
-"li>\n"
-"             <li>Ιστορία του Αττίλα και των διαδόχων του (T.Amedee) – "
-"Ελευθερουδάκης – 1903</li>\n"
-"             <li>Επιστολαί Καποδίστρια (David Freming) – 1841</li>\n"
-"             <li>Χαρίλαος Τρικούπης (Γ. Τσοκόπουλος) – Φέξης – 1896</li>\n"
-"        </ul>\n"
-"        "
-
-#: books/templates/skoufas_library/about.html:108
-msgid ""
-"\n"
-"        Rare Manuscripts:\n"
-"        <ul>\n"
-"            <li>Protocols of Swearing of the Citizens of Arta as Greek "
-"Citizens in 1881</li>\n"
-"            <li>Arta in the archives of Venice (K.D. Mertzios)</li>\n"
-"            <li>Handwritten originals with documents on the Turkish "
-"occupation</li>\n"
-"            <li>Manuscript documents from the Karapanos archive</li>\n"
-"            <li>Manuscripts of Ecclesiastical Content</li>\n"
-"            <li>Manuscript (about 250 years old) with texts of ancient and "
-"ecclesiastical authors</li>\n"
-"            <li>Archives of the Russian Consulate in Arta – Preveza from "
-"1858 – 1881</li>\n"
-"        </ul>\n"
-"        "
-msgstr ""
-"\n"
-"        Σπάνια χειρόγραφα:\n"
-"        <ul>\n"
-"            <li>Πρωτόκολλα Ορκωμοσίας των Αρτινών ως Ελλήνων Πολιτών το "
-"1881</li>\n"
-"            <li>Η Άρτα εις τα αρχεία της Βενετίας (Κ.Δ. Μέρτζιος)</li>\n"
-"            <li>Χειρόγραφα πρωτότυπα με έγγραφα επί Τουρκοκρατίας</li>\n"
-"            <li>Έγγραφα χειρόγραφα από το αρχείο Καραπάνου</li>\n"
-"            <li>Χειρόγραφα Εκκλησιαστικού Περιεχομένου</li>\n"
-"            <li>Χειρόγραφο (250 ετών περίπου) με κείμενα αρχαίων και "
-"εκκλησιαστικών συγγραφέων</li>\n"
-"            <li>Αρχεία Ρωσικού Υποπροξενείου Άρτης – Πρεβέζης περιόδων 1858 "
-"– 1881</li>\n"
-"        </ul>\n"
-"        "
-
-#: books/templates/skoufas_library/about.html:122
-msgid ""
-"\n"
-"        Publications of the SKOUFAS Association:\n"
-"        <ul>\n"
-"            <li>Essay on Arta and Preveza by Seraphim Xenopoulos</li>\n"
-"            <li>Pyrrhus the King of Epirus by Petros Garoufalias</li>\n"
-"            <li>Olympia of Petros Garoufalia</li>\n"
-"            <li>Ambrakia of Chrysiida Tzouvara – Souli</li>\n"
-"            <li>Museological meditations – Eurydice Anjoulatou – Retsila</"
-"li>\n"
-"            <li>Education as a value - Eurydiki Anjoulatou - Retsila</li>\n"
-"            <li>\"Skoufas\" magazine</li>\n"
-"            <li>About the Despotate of Epirus - Ioannis Romanos</li>\n"
-"            <li>The Arta of war and occupation - Con/nos Vayas</li>\n"
-"            <li>Thomas I Angelos Komnenos Doukas - Kon/nos Tsiligiannis</"
-"li>\n"
-"            <li>Proceedings of \"Despotate of Epirus\"</li>\n"
-"            <li>Proceedings \"Byzantine Arta and its region\"</li>\n"
-"            <li>Texts and memories from the tragic December 1944 – Dim. "
-"Garufalias</li>\n"
-"            <li>The passage of time – Arts and professions in Arta of "
-"yesterday – Yiannis Koutsoumbas</li>\n"
-"        </ul>\n"
-"        "
-msgstr ""
-"\n"
-"        Εκδόσεις του Συλλόγου ΣΚΟΥΦΑΣ:\n"
-"        <ul>\n"
-"            <li>Δοκίμιον περί Άρτης και Πρεβέζης του Σεραφείμ Ξενοπούλου</"
-"li>\n"
-"            <li>Πύρρος ο Βασιλιάς της Ηπείρου του Πέτρου Γαρουφαλιά</li>\n"
-"            <li>Ολύμπιας του Πέτρου Γαρουφαλιά</li>\n"
-"            <li>Αμβρακία της Χρυσηίδας Τζουβάρα – Σούλη</li>\n"
-"            <li>Μουσειολογικοί διαλογισμοί – Ευρυδίκη Αντζουλάτου – Ρετσίλα</"
-"li>\n"
-"            <li>Η παιδεία ως αξία – Ευρυδίκη Αντζουλάτου – Ρετσίλα</li>\n"
-"            <li>Περιοδικό «Σκουφάς»</li>\n"
-"            <li>Περί του Δεσποτάτου της Ηπείρου – Ιωάννου Ρωμανού</li>\n"
-"            <li>Η Άρτα του πολέμου και της κατοχής – Κων/νος Βάγιας</li>\n"
-"            <li>Θωμάς Α’ Άγγελος Κομνηνός Δούκας – Κων/νος Τσιλιγιάννης</"
-"li>\n"
-"            <li>Πρακτικά «Δεσποτάτου της Ηπείρου»</li>\n"
-"            <li>Πρακτικά «Η Βυζαντινή Άρτα και η περιοχή της»</li>\n"
-"            <li>Κείμενα και αναμνήσεις από τον τραγικό Δεκέμβριο 1944 – Δημ. "
-"Γαρουφαλιάς</li>\n"
-"            <li>Στου χρόνου τα γυρίσματα – Τέχνες και επαγγέλματα στην Άρτα "
-"του χτες του – Γιάννη Κουτσούμπα</li>\n"
-"        </ul>\n"
-"        "
-
-#: books/templates/skoufas_library/contact.html:5
-msgid "Find Us"
-msgstr "Βρείτε μας"
-
-#: books/templates/skoufas_library/contact.html:13
-msgid "Contact Info"
-msgstr "Στοιχεία επικοινωνίας"
-
-#: books/templates/skoufas_library/home.html:6
-msgid "Skoufas Library"
-msgstr "Βιβλιοθήκη Σκουφά"
-
-#: books/templates/skoufas_library/home.html:24
-msgid "All Book Entries"
-msgstr "Κάρτες Βιβλίου"
-
-#: books/templates/skoufas_library/home.html:26
-msgid "View all books in the catalogue"
-msgstr "Όλα τα βιβλία στον κατάλογο."
-
-#: books/templates/skoufas_library/home.html:32
-msgid "Book Entries by Author"
-msgstr "Κάρτες Βιβλίου κατα Συγγραφέα"
-
-#: books/templates/skoufas_library/home.html:34
-msgid "View all books in the catalogue, ordered by author."
-msgstr "Όλα τα βιβλία στον κατάλογο, κατα συγγραφέα."
-
-#: books/templates/skoufas_library/home.html:40
-msgid "Book Entries by Dewey"
-msgstr "Κάρτες Βιβλίου κατα Dewey"
-
-#: books/templates/skoufas_library/home.html:42
-msgid "View all books in the catalogue, ordered by Dewey code."
-msgstr "Όλα τα βιβλία στον κατάλογο, κατα Dewey."
-
-#: books/templates/skoufas_library/home.html:48
-msgid "Calculated Fields"
-msgstr "Πεδία"
-
-#: books/templates/skoufas_library/home.html:50
-msgid "Reports showing values for fields."
-msgstr "Τιμές για καθε πεδίο (για έλεγχο)."
-
-#: books/templates/skoufas_library/home.html:56
-msgid "Reports"
-msgstr "Αναφορές"
-
-#: books/templates/skoufas_library/home.html:58
-msgid "Reports used to find issues in data."
-msgstr "Προς έυρεση λαθών στα δεδομένα."
-
-#: books/templates/skoufas_library/home.html:66
-msgid "People that have donated books."
-msgstr "Που έχουν προσφέρει βιβλία στον κατάλογο."
-
-#: books/templates/skoufas_library/layout.html:42
-msgid "Home"
-msgstr "Αρχική"
-
-#: books/templates/skoufas_library/layout.html:47
-msgid "About"
-msgstr "Περί"
-
-#: books/templates/skoufas_library/layout.html:52
-msgid "Contact"
-msgstr "Επικοινωνία"
-
-#: books/templates/skoufas_library/layout.html:58
-#: books/templates/skoufas_library/layout.html:60
-msgid "Search"
-msgstr "Αναζήτηση"
-
-#: books/templates/skoufas_library/layout.html:86
-msgid "Skoufas Association"
-msgstr "Μουσικοφιλολογικός Σύλλογος Σκουφάς"
-
-#: books/templates/skoufas_library/layout.html:86
-msgid "Design - Construction: Claudio Bantaloukas"
-msgstr "Σχεδιασμός - Τεχνική κατασκευή: Κλαύδιος Μπανταλούκας"
-
-#: books/validators.py:14
+#: books/validators.py:15
 msgid "Invalid ISBN: Not a string"
 msgstr "Λανθασμένο ISBN: λάθος τύπος"
 
-#: books/validators.py:21
+#: books/validators.py:22
 msgid "Invalid ISBN: wrong checksum"
 msgstr "Λανθασμένο ISBN: λάθος στο τελευταίο ψηφίο"
 
-#: books/validators.py:23
+#: books/validators.py:24
 msgid "Invalid ISBN: component not one of 978, 979"
 msgstr "Λανθασμένο ISBN: δεν αρχιζει με 978, 979"
 
-#: books/validators.py:25
+#: books/validators.py:26
 msgid "Invalid ISBN: length not 10 or 13"
 msgstr "Λανθασμένο ISBN: χρειάζονται 10 ή 13 ψηφία"
 
-#: books/validators.py:27
+#: books/validators.py:28
 msgid "Invalid ISBN"
 msgstr "Λανθασμένο ISBN"
 
-#: books/validators.py:30
+#: books/validators.py:31
 msgid "Invalid ISBN: Only upper case allowed"
 msgstr "Λανθασμένο ISBN: επιτρέπονται μόνο κεφαλαία"
 
-#: books/validators.py:38
+#: books/validators.py:39
 msgid "Invalid ISSN: Not a string"
 msgstr "Λανθασμένο ISSN: λάθος τύπος"
 
-#: books/validators.py:45
+#: books/validators.py:46
 msgid "Invalid ISSN: wrong checksum"
 msgstr "Λανθασμένο ISSN: λάθος στο τελευταίο ψηφίο"
 
-#: books/validators.py:47
+#: books/validators.py:48
 msgid "Invalid ISSN: length not 8"
 msgstr "Λανθασμένο ISSN: χρειάζονται 8 ψηφία"
 
-#: books/validators.py:49
+#: books/validators.py:50
 msgid "Invalid ISSN"
 msgstr "Λανθασμένο ISSN"
 
-#: books/validators.py:52
+#: books/validators.py:53
 msgid "Invalid ISSN: Only upper case allowed"
 msgstr "Λανθασμένο ISSN: επιτρέπονται μόνο κεφαλαία"
 
-#: books/validators.py:60
+#: books/validators.py:61
 msgid "Invalid EAN: Not a string"
 msgstr "Λανθασμένο EAN: λάθος τύπος"
 
-#: books/validators.py:67
+#: books/validators.py:68
 msgid "Invalid EAN: wrong checksum"
 msgstr "Λανθασμένο EAN: λάθος στο τελευταίο ψηφίο"
 
-#: books/validators.py:69
+#: books/validators.py:70
 msgid "Invalid EAN: length not one of 14, 13, 12, 8"
 msgstr "Λανθασμένο EAN: χρειάζονται 14 ή 13 ή 12 ή 8 ψηφία"
 
-#: books/validators.py:71
+#: books/validators.py:72
 msgid "Invalid EAN"
 msgstr "Λανθασμένο EAN"
 
-#: books/validators.py:74
+#: books/validators.py:75
 msgid "Invalid EAN: Only upper case allowed"
 msgstr "Λανθασμένο EAN: επιτρέπονται μόνο κεφαλαία"
 
-#: books/validators.py:90
+#: books/validators.py:91
 msgid "Invalid Dewey: Not a string"
 msgstr "Λανθασμένο Dewey: λάθος τύπος"
 
-#: books/validators.py:93
+#: books/validators.py:94
 msgid "Invalid Dewey: Only upper case allowed"
 msgstr "Λανθασμένο Dewey: επιτρέπονται μόνο κεφαλαία"
 
-#: books/validators.py:98
+#: books/validators.py:99
 msgid "Invalid Dewey: Invalid format"
 msgstr ""
 "Λανθασμένο Dewey: επιτρέπονται μόνο αριθμοί στην αρχή, μια τελεία μετα το "
