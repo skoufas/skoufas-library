@@ -374,6 +374,10 @@ class DbfEntry(models.Model):
         else:
             return f"{self.dbf_sequence:05}"
 
+    def as_yaml(self):
+        """Extract a yaml-like representation."""
+        return "\n".join(["---"] + [f"{row.code}: {row.value}" for row in self.dbfentryrow_set.all()])
+
     class Meta:
         """Meta for DbfEntry."""
 

@@ -23,6 +23,6 @@ urlpatterns = [
     path("", TemplateView.as_view(template_name="skoufas_library/home.html"), name="home"),
     path("about/", TemplateView.as_view(template_name="skoufas_library/about.html"), name="about"),
     path("contact/", TemplateView.as_view(template_name="skoufas_library/contact.html"), name="contact"),
-    path("books/", include("books.urls")),
+    path("books/", include("books.urls", namespace="books")),
     path("admin/", admin.site.urls),
 ] + staticfiles_urlpatterns()

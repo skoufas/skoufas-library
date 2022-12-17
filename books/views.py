@@ -1,8 +1,17 @@
 """Views on Books."""
-from django.views.generic import TemplateView
+from django.utils import timezone
+from django.views.generic.detail import DetailView
+
+from books.models import BookEntry
 
 
-class HomePageView(TemplateView):
-    """Home page."""
+class BookEntryDetailView(DetailView):
+    """View Book details."""
 
-    template_name = "home.html"
+    model = BookEntry
+
+    def get_context_data(self, **kwargs):
+        """Add details."""
+        context = super().get_context_data(**kwargs)
+        context["now"] = timezone.now()
+        return context
