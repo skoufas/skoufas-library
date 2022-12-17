@@ -1,13 +1,13 @@
-"""Models for library customers and loans"""
+"""Models for library customers and loans."""
 from django.db import models
-from django.utils.translation import gettext_lazy as _
 from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
 
 from books.models import EntryNumber
 
 
 class Customer(models.Model):
-    """Πελάτης"""
+    """Πελάτης."""
 
     first_name = models.CharField(verbose_name=_("first name"), max_length=200)
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
@@ -19,12 +19,15 @@ class Customer(models.Model):
     address = models.CharField(verbose_name=_("address"), max_length=200)
 
     def __str__(self):
+        """Print customer name."""
         if self.middle_name:
             return f"{self.surname}, {self.first_name} {self.middle_name}"
         else:
             return f"{self.surname}, {self.first_name}"
 
     class Meta:
+        """Meta for Customer."""
+
         ordering = ["surname", "middle_name", "first_name"]
         verbose_name = _("Customer")
         verbose_name_plural = _("Customers")
@@ -44,7 +47,7 @@ class Customer(models.Model):
 
 
 class Loan(models.Model):
-    """Δανεισμός"""
+    """Δανεισμός."""
 
     # Για 2 χρόνια, παραμένει ο δανειζόμενος
     # Μετά τα 2 χρόνια, γίνεται ανώνυμος
@@ -57,6 +60,7 @@ class Loan(models.Model):
     note = models.CharField(verbose_name=_("note"), blank=True, max_length=4096)
 
     def __str__(self):
+        """Print Loan details."""
         return "%(customer)s / %(start)s - %(expected)s - %(end)s / %(entry)s" % {
             "customer": self.customer if self.customer else gettext("No customer"),
             "start": self.start,
@@ -66,6 +70,8 @@ class Loan(models.Model):
         }
 
     class Meta:
+        """Meta for Loan."""
+
         ordering = ["end", "expected_end", "entry_number", "customer"]
         verbose_name = _("Loan")
         verbose_name_plural = _("Loans")

@@ -1,26 +1,32 @@
-"""Models for book entries and directly related data"""
+"""Models for book entries and directly related data."""
 import datetime
 from typing import Any
 
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import MaxValueValidator
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.text import format_lazy
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
-from books.fields import DeweyField, EANField, ISBNField, ISSNField
+from books.fields import DeweyField
+from books.fields import EANField
+from books.fields import ISBNField
+from books.fields import ISSNField
 
 
 def current_year() -> int:
+    """Get the current year."""
     return datetime.date.today().year
 
 
 def max_value_current_year(value: Any):
+    """Check that the value is at most the current year."""
     return MaxValueValidator(current_year())(value)
 
 
 class Author(models.Model):
-    """Συγγραφέας"""
+    """Συγγραφέας."""
 
     first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
@@ -28,6 +34,7 @@ class Author(models.Model):
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
     def __str__(self):
+        """Print author."""
         if self.organisation_name and str(self.organisation_name):
             return str(self.organisation_name)
         else:
@@ -39,6 +46,8 @@ class Author(models.Model):
                 return f"{self.surname}, {self.first_name}"
 
     class Meta:
+        """Meta for author."""
+
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
         verbose_name = _("Author")
         verbose_name_plural = _("Authors")
@@ -51,7 +60,7 @@ class Author(models.Model):
 
 
 class Translator(models.Model):
-    """Μεταφραστής"""
+    """Μεταφραστής."""
 
     first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
@@ -59,6 +68,7 @@ class Translator(models.Model):
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
     def __str__(self):
+        """Print Translator."""
         if self.organisation_name and str(self.organisation_name):
             return str(self.organisation_name)
         else:
@@ -70,6 +80,8 @@ class Translator(models.Model):
                 return f"{self.surname}, {self.first_name}"
 
     class Meta:
+        """Meta for Translator."""
+
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
         verbose_name = _("Translator")
         verbose_name_plural = _("Translators")
@@ -82,7 +94,7 @@ class Translator(models.Model):
 
 
 class Curator(models.Model):
-    """Επιμελητής"""
+    """Επιμελητής."""
 
     first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
@@ -90,6 +102,7 @@ class Curator(models.Model):
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
     def __str__(self):
+        """Print Curator."""
         if self.organisation_name and str(self.organisation_name):
             return str(self.organisation_name)
         else:
@@ -101,6 +114,8 @@ class Curator(models.Model):
                 return f"{self.surname}, {self.first_name}"
 
     class Meta:
+        """Meta for Curator."""
+
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
         verbose_name = _("Curator")
         verbose_name_plural = _("Curators")
@@ -113,7 +128,7 @@ class Curator(models.Model):
 
 
 class Donor(models.Model):
-    """Δωρητής"""
+    """Δωρητής."""
 
     first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
@@ -121,6 +136,7 @@ class Donor(models.Model):
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
 
     def __str__(self):
+        """Print Donor."""
         if self.organisation_name and str(self.organisation_name):
             return str(self.organisation_name)
         else:
@@ -132,6 +148,8 @@ class Donor(models.Model):
                 return f"{self.surname}, {self.first_name}"
 
     class Meta:
+        """Meta for Donor."""
+
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
         verbose_name = _("Donor")
         verbose_name_plural = _("Donors")
@@ -144,12 +162,13 @@ class Donor(models.Model):
 
 
 class Editor(models.Model):
-    """Εκδότης"""
+    """Εκδότης."""
 
     name = models.CharField(verbose_name=_("Editor"), max_length=200, null=True)
     place = models.CharField(verbose_name=_("Editor place"), max_length=200, null=True)
 
     def __str__(self):
+        """Print Editor."""
         if not self.place and not self.name:
             return gettext("Nameless editor")
         if not self.place:
@@ -160,6 +179,8 @@ class Editor(models.Model):
             return f"{self.name}, {self.place}"
 
     class Meta:
+        """Meta for Editor."""
+
         ordering = ["name", "place"]
         verbose_name = _("Editor")
         verbose_name_plural = _("Editors")
@@ -172,14 +193,17 @@ class Editor(models.Model):
 
 
 class Topic(models.Model):
-    """Θέμα"""
+    """Θέμα."""
 
     topic_name = models.CharField(verbose_name=_("topic"), max_length=200)
 
     def __str__(self):
+        """Print Topic."""
         return str(self.topic_name)
 
     class Meta:
+        """Meta for Topic."""
+
         ordering = ["topic_name"]
         verbose_name = _("Topic")
         verbose_name_plural = _("Topics")
@@ -192,7 +216,7 @@ class Topic(models.Model):
 
 
 class BookEntry(models.Model):
-    """Καρτέλα Βιβλίου"""
+    """Καρτέλα Βιβλίου."""
 
     # ### Authorship (Many-to-Many)
     authors = models.ManyToManyField(
@@ -274,6 +298,7 @@ class BookEntry(models.Model):
     )
 
     def __str__(self):
+        """Print Book entry's Title."""
         if not self.title and not self.subtitle:
             return gettext("Book with no title and subtitle")
         if not self.title:
@@ -283,13 +308,15 @@ class BookEntry(models.Model):
         return f"{self.title} - {self.subtitle}"
 
     class Meta:
+        """Meta for Book Entry."""
+
         ordering = ["title", "subtitle"]
         verbose_name = _("Book Entry")
         verbose_name_plural = _("Book Entries")
 
 
 class EntryNumber(models.Model):
-    """Αριθμός Εισαγωγής"""
+    """Αριθμός Εισαγωγής."""
 
     entry_number = models.CharField(verbose_name=_("Entry number"), max_length=200)
 
@@ -305,12 +332,15 @@ class EntryNumber(models.Model):
     )
 
     def __str__(self):
+        """Print Book entry number, plus the entry title."""
         if self.book_entry:
             return f"{self.entry_number}: {self.book_entry}"
         else:
             return f"{self.entry_number}"
 
     class Meta:
+        """Meta for EntryNumber."""
+
         ordering = ["entry_number"]
         verbose_name = _("Entry Number")
         verbose_name_plural = _("Entry Numbers")
@@ -323,19 +353,22 @@ class EntryNumber(models.Model):
 
 
 class DbfEntry(models.Model):
-    """Καρτέλα DBASE"""
+    """Καρτέλα DBASE."""
 
     book_entry = models.ForeignKey(BookEntry, verbose_name=_("Book Entry"), null=True, on_delete=models.CASCADE)
     dbf_sequence = models.IntegerField(verbose_name=_("DBF Sequence"), default=0, editable=False)
     import_time = models.DateTimeField(verbose_name=_("Import Time"), editable=False)
 
     def __str__(self):
+        """Print dbf entry number, plus the entry title."""
         if self.book_entry:
             return f"{self.dbf_sequence:05}: {self.book_entry}"
         else:
             return f"{self.dbf_sequence:05}"
 
     class Meta:
+        """Meta for DbfEntry."""
+
         ordering = ["-import_time", "dbf_sequence"]
         verbose_name = _("DBF entry")
         verbose_name_plural = _("DBF entries")
@@ -343,7 +376,7 @@ class DbfEntry(models.Model):
 
 
 class DbfEntryRow(models.Model):
-    """Γραμμή σε καρτέλα DBASE"""
+    """Γραμμή σε καρτέλα DBASE."""
 
     dbfentry = models.ForeignKey(DbfEntry, verbose_name=_("DBF entry"), on_delete=models.CASCADE, editable=False)
     code = models.IntegerField(
@@ -354,12 +387,15 @@ class DbfEntryRow(models.Model):
     value = models.CharField(verbose_name=_("Value"), max_length=65)
 
     def __str__(self):
+        """Print dbf row and value."""
         if self.value:
             return f"{self.dbfentry.dbf_sequence:05}/{self.code:02}: {self.value}"
         else:
             return f"{self.dbfentry.dbf_sequence:05}/{self.code:02}:"
 
     class Meta:
+        """Meta for DbfEntryRow."""
+
         order_with_respect_to = "dbfentry"
         verbose_name = _("DBF row")
         verbose_name_plural = _("DBF rows")

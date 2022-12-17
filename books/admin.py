@@ -1,3 +1,4 @@
+"""Book admin section customisation."""
 from django.contrib import admin
 
 from . import models
@@ -13,10 +14,14 @@ admin.site.register(models.Topic)
 
 
 class DbfEntryRowInline(admin.TabularInline):
+    """Customisation for DbfEntryRow."""
+
     model = models.DbfEntryRow
 
 
 class DbfEntryAdmin(admin.ModelAdmin):
+    """Customisation for DbfEntry."""
+
     inlines = [
         DbfEntryRowInline,
     ]

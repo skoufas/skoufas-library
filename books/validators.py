@@ -1,15 +1,16 @@
+"""Validators for book related values."""
 import re
 
+import stdnum.ean
 import stdnum.exceptions
 import stdnum.isbn
 import stdnum.issn
-import stdnum.ean
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 
 def ISBNValidator(raw_isbn):
-
+    """Validate ISBN values."""
     if not isinstance(raw_isbn, str):
         raise ValidationError(_("Invalid ISBN: Not a string"))
 
@@ -33,7 +34,7 @@ def ISBNValidator(raw_isbn):
 
 
 def ISSNValidator(raw_issn):
-
+    """Validate ISSN values."""
     if not isinstance(raw_issn, str):
         raise ValidationError(_("Invalid ISSN: Not a string"))
 
@@ -55,7 +56,7 @@ def ISSNValidator(raw_issn):
 
 
 def EANValidator(raw_ean):
-
+    """Validate EAN values."""
     if not isinstance(raw_ean, str):
         raise ValidationError(_("Invalid EAN: Not a string"))
 
@@ -85,7 +86,7 @@ strict_dewey_res = [
 
 
 def DeweyValidator(raw_dewey):
-
+    """Validate Dewey values according to skoufas library."""
     if not isinstance(raw_dewey, str):
         raise ValidationError(_("Invalid Dewey: Not a string"))
 
