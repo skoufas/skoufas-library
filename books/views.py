@@ -33,5 +33,4 @@ class BookEntryByEntryNumberDetailView(DetailView):
         entry_number = context["object"]
         context["entry_number"] = entry_number
         context["object"] = entry_number.book_entry
-        print(context)
         return context

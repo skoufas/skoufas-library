@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+import sys
 from pathlib import Path
 
 from django.utils.translation import gettext_lazy as _
@@ -27,6 +28,31 @@ DEBUG = "DJANGO_DEBUG" in os.environ
 
 ALLOWED_HOSTS: list[str] = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
 
+LOGGING = {
+    "version": 1,  # the dictConfig format version
+    "disable_existing_loggers": False,  # retain the default loggers
+    "handlers": {
+        "out": {
+            "class": "logging.StreamHandler",
+            "stream": sys.stdout,
+        },
+        "err": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "loggers": {
+        "": {
+            "level": "ERROR",
+            "handlers": ["err"],
+            "propagate": False,
+        },
+        "": {
+            "level": os.getenv("DJANGO_LOG_LEVEL", "WARNING"),
+            "handlers": ["out"],
+            "propagate": False,
+        },
+    },
+}
 
 # Application definition
 
