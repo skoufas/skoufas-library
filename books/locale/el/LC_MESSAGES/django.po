@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-17 22:43+0200\n"
+"POT-Creation-Date: 2022-12-18 00:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -267,6 +267,7 @@ msgid "DBF rows"
 msgstr "Πεδία DBF"
 
 #: books/templates/books/bookentry_detail.html:32
+#: books/templates/books/bookentry_list.html:46
 msgid "Book with no authors"
 msgstr "Βιβλίο χωρίς συγγραφέα"
 
@@ -292,6 +293,20 @@ msgstr "Βιβλίο χωρίς επιμελητή"
 #: books/templates/books/bookentry_detail.html:246
 msgid "Show original DBF entry"
 msgstr "Εμφάνιση πεδίων DBF"
+
+#: books/templates/books/bookentry_list.html:6
+msgid "All Books"
+msgstr "Όλα τα Βιβλία"
+
+#: books/templates/books/bookentry_list.html:17
+#: books/templates/books/bookentry_list.html:60
+msgid "Previous"
+msgstr "Προηγούμενη"
+
+#: books/templates/books/bookentry_list.html:25
+#: books/templates/books/bookentry_list.html:68
+msgid "Next"
+msgstr "Επόμενη"
 
 #: books/validators.py:15
 msgid "Invalid ISBN: Not a string"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-17 22:43+0200\n"
+"POT-Creation-Date: 2022-12-18 00:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
 #: templates/skoufas_library/about.html:5
 msgid "About the Skoufas Library"
 msgstr "Βιβλιοθήκη Σκουφά: Πληροφορίες"
@@ -417,51 +418,51 @@ msgstr "Στοιχεία επικοινωνίας"
 msgid "Skoufas Library"
 msgstr "Βιβλιοθήκη Σκουφά"
 
-#: templates/skoufas_library/home.html:24
+#: templates/skoufas_library/home.html:25
 msgid "All Book Entries"
 msgstr "Κάρτες Βιβλίου"
 
-#: templates/skoufas_library/home.html:26
+#: templates/skoufas_library/home.html:27
 msgid "View all books in the catalogue"
 msgstr "Όλα τα βιβλία στον κατάλογο."
 
-#: templates/skoufas_library/home.html:32
+#: templates/skoufas_library/home.html:34
 msgid "Book Entries by Author"
 msgstr "Κάρτες Βιβλίου κατα Συγγραφέα"
 
-#: templates/skoufas_library/home.html:34
+#: templates/skoufas_library/home.html:36
 msgid "View all books in the catalogue, ordered by author."
 msgstr "Όλα τα βιβλία στον κατάλογο, κατα συγγραφέα."
 
-#: templates/skoufas_library/home.html:40
+#: templates/skoufas_library/home.html:42
 msgid "Book Entries by Dewey"
 msgstr "Κάρτες Βιβλίου κατα Dewey"
 
-#: templates/skoufas_library/home.html:42
+#: templates/skoufas_library/home.html:44
 msgid "View all books in the catalogue, ordered by Dewey code."
 msgstr "Όλα τα βιβλία στον κατάλογο, κατα Dewey."
 
-#: templates/skoufas_library/home.html:48
+#: templates/skoufas_library/home.html:50
 msgid "Calculated Fields"
 msgstr "Πεδία"
 
-#: templates/skoufas_library/home.html:50
+#: templates/skoufas_library/home.html:52
 msgid "Reports showing values for fields."
 msgstr "Τιμές για καθε πεδίο (για έλεγχο)."
 
-#: templates/skoufas_library/home.html:56
+#: templates/skoufas_library/home.html:58
 msgid "Reports"
 msgstr "Αναφορές"
 
-#: templates/skoufas_library/home.html:58
+#: templates/skoufas_library/home.html:60
 msgid "Reports used to find issues in data."
 msgstr "Προς έυρεση λαθών στα δεδομένα."
 
-#: templates/skoufas_library/home.html:64
+#: templates/skoufas_library/home.html:66
 msgid "Donors"
 msgstr "Δωρητές"
 
-#: templates/skoufas_library/home.html:66
+#: templates/skoufas_library/home.html:68
 msgid "People that have donated books."
 msgstr "Που έχουν προσφέρει βιβλία στον κατάλογο."
 

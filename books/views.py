@@ -1,9 +1,23 @@
 """Views on Books."""
 from django.utils import timezone
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 
 from books.models import BookEntry
 from books.models import EntryNumber
+
+
+class BookEntryListView(ListView):
+    """View All books."""
+
+    model = BookEntry
+    paginate_by = 100
+
+    def get_context_data(self, **kwargs):
+        """Add details."""
+        context = super().get_context_data(**kwargs)
+        context["now"] = timezone.now()
+        return context
 
 
 class BookEntryDetailView(DetailView):

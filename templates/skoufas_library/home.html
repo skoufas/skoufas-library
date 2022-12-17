@@ -20,10 +20,12 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 g-4 py-5">
             <div class="col d-flex align-items-start">
                 <div>
-                    <h3 class="fw-bold mb-0 fs-4">
-                        <i class="bi bi-book"></i> {% translate "All Book Entries" %}
-                    </h3>
-                    <p>{% translate "View all books in the catalogue" %}</p>
+                    <a href="{% url 'books:book-list' %}">
+                        <h3 class="fw-bold mb-0 fs-4">
+                            <i class="bi bi-book"></i> {% translate "All Book Entries" %}
+                        </h3>
+                        <p>{% translate "View all books in the catalogue" %}</p>
+                    </a>
                 </div>
             </div>
             <div class="col d-flex align-items-start">
