@@ -10,6 +10,7 @@ rm -rf loaning/migrations/00*.py
 
 dropdb skoufas
 createdb skoufas
+
 skoufas-library makemigrations
 skoufas-library migrate
 

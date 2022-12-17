@@ -7,5 +7,5 @@ rm -rf ./venv
 python -m venv venv
 
 source venv/bin/activate
-python -m pip install -U pip setuptools
-python -m pip install -e '.[test]'
+python -m pip install -U pip hatch
+pip install -e '.[test]'
