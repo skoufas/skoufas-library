@@ -34,7 +34,7 @@ test = [
     "bandit[toml]==1.7.4",
     "black==22.10.0",
     "check-manifest==0.48",
-    "django-stubs[compatible-mypy]==1.13.0",
+    "django-stubs[compatible-mypy]==1.13.1",
     "djlint==1.19.7",
     "flake8-bugbear==22.10.27",
     "flake8-docstrings",
@@ -49,7 +49,9 @@ test = [
     "pytest-mock<3.10.1",
     "pytest-runner",
     "pytest==7.2.0",
-    "shellcheck-py==0.8.0.4"
+    "reorder-python-imports",
+    "shellcheck-py==0.8.0.4",
+    "toml",
 ]
 
 [tool.hatch.version]
@@ -66,13 +68,18 @@ exclude = [
     "/venv",
 ]
 
+[tool.django-stubs]
+django_settings_module = "skoufas_library_project.settings"
+
 [tool.mypy]
 plugins = [
     "mypy_django_plugin.main",
 ]
-
-[tool.django-stubs]
-django_settings_module = "skoufas_library_project.settings"
+exclude =  '''(?x)(
+    migrations    # files named "one.py"
+    | two\.pyi$  # or files ending with "two.pyi"
+    | ^three\.   # or files starting with "three."
+)'''
 
 [project.scripts]
 skoufas-library = "manage:main"
