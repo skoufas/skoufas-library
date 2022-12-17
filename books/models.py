@@ -1,6 +1,7 @@
 """Models for book entries and directly related data."""
 import datetime
 from typing import Any
+from typing import Optional
 
 from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
@@ -267,7 +268,7 @@ class BookEntry(models.Model):
     entry_donors = models.ManyToManyField(verbose_name=_("Donor"), to=Donor, blank=True)
 
     # - Volumes - Τόμοι/Τεύχη
-    volumes = models.CharField(verbose_name=_("Volumes"), max_length=100, null=True)
+    volumes = models.CharField(verbose_name=_("Volumes"), max_length=200, null=True)
 
     # - Notes - Σημειώσεις
     notes = models.CharField(verbose_name=_("Notes"), max_length=4096, null=True)
@@ -306,6 +307,13 @@ class BookEntry(models.Model):
         if not self.subtitle:
             return str(self.title)
         return f"{self.title} - {self.subtitle}"
+
+    def dbf_sequence(self) -> Optional[int]:
+        """Numeric sequence in the original DBF file, if present."""
+        s = DbfEntry.objects.filter(book_entry=self)
+        if s.count() == 0:
+            return None
+        return s.all()[0:1].get().dbf_sequence
 
     class Meta:
         """Meta for Book Entry."""

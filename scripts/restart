@@ -14,6 +14,6 @@ createdb skoufas
 skoufas-library makemigrations
 skoufas-library migrate
 
-skoufas-library createsuperuser --username admin --email a@a.com --noinput
+skoufas-library createsuperuser --username rockdreamer@gmail.com --email rockdreamer@gmail.com --noinput
 
-skoufas-library dbfimport 2>junk/dbfimport-errors.log >junk/dbfimport.log
+skoufas-library dbfimport ../skoufas-dbf-reader/src/skoufas_dbf_reader/data/converted_entries.yml 2>junk/dbfimport-errors.log >junk/dbfimport.log
