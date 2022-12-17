@@ -13,6 +13,7 @@ from books import views
 app_name = "books"
 urlpatterns: list[URLPattern | URLResolver] = [
     path(r"by-db-id/<int:pk>", views.BookEntryDetailView.as_view(), name="book-by-id"),
+    path(r"by-entry-number/<int:pk>", views.BookEntryByEntryNumberDetailView.as_view(), name="book-by-entry-number"),
     # path("about/", views.about, name="about"),
     # path("contact/", views.contact, name="contact"),
     # path("log/", views.log_message, name="log"),
