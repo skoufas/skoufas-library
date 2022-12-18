@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "bootstrap5",
     "books",
+    "djangoql",
     "loaning",
 ]
 
