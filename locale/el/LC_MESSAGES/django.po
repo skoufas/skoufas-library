@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 00:01+0200\n"
+"POT-Creation-Date: 2022-12-18 11:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -237,7 +237,7 @@ msgid ""
 "             <li>Wedding in Crete (Pavlos Vlastou) – 1893</li>\n"
 "             <li>The Holy City of Jerusalem (Beniamin Ioannidou) – 1877</"
 "li>\n"
-"             <li>Biographical Notes (Claudio Badaloukas) – 1876</li>\n"
+"             <li>Biographical Notes (Claudio Badaloukas) – 1976</li>\n"
 "             <li>General Introduction to Christian Archeology (G. Lampaki) – "
 "1897</li>\n"
 "             <li>On Doubt –SherwoodEddy– 1920</li>\n"
@@ -286,7 +286,7 @@ msgstr ""
 "             <li>Ανατολική Θράκη – Νετρ Βέη – 1927</li>\n"
 "             <li>Γάμος εν Κρήτη (Παύλου Βλαστού) – 1893</li>\n"
 "             <li>Η Αγία Πόλις Ιερουσαλήμ (Βενιαμίν Ιωαννίδου) – 1877</li>\n"
-"             <li>Βιογραφικαί Σημειώσεις (Κλαυδίου Μπανταλούκα) – 1876</li>\n"
+"             <li>Βιογραφικαί Σημειώσεις (Κλαυδίου Μπανταλούκα) – 1976</li>\n"
 "             <li>Γενική Εισαγωγή εις την Χριστιανικήν Αρχαιολογίαν (Γ. "
 "Λαμπάκη) – 1897</li>\n"
 "             <li>Περί Αμφιβολίας –SherwoodEddy– 1920</li>\n"
@@ -478,15 +478,15 @@ msgstr "Περί"
 msgid "Contact"
 msgstr "Επικοινωνία"
 
-#: templates/skoufas_library/layout.html:87
 #: templates/skoufas_library/layout.html:89
+#: templates/skoufas_library/layout.html:91
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: templates/skoufas_library/layout.html:115
+#: templates/skoufas_library/layout.html:117
 msgid "Skoufas Association"
 msgstr "Μουσικοφιλολογικός Σύλλογος Σκουφάς"
 
-#: templates/skoufas_library/layout.html:115
+#: templates/skoufas_library/layout.html:117
 msgid "Design - Construction: Claudio Bantaloukas"
 msgstr "Σχεδιασμός - Τεχνική κατασκευή: Κλαύδιος Μπανταλούκας"
