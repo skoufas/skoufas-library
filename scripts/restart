@@ -8,9 +8,7 @@ rm -rf books/migrations/00*.py
 rm -rf loaning/migrations/00*.py
 . venv/bin/activate
 
-dropdb skoufas
-createdb skoufas
-
+skoufas-library reset_db --no-input
 skoufas-library makemigrations
 skoufas-library migrate
 

@@ -1,0 +1,100 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/postgres
+{
+	"name": "Skoufas Library Web App",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/dhoeric/features/act:1": {}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// This can be used to network with other containers or the host.
+	"forwardPorts": [
+		8000,
+		5432
+	],
+	"portsAttributes": {
+		"8000": {
+			"label": "Django service port",
+			"protocol": "http"
+		},
+		"5432": {
+			"label": "PostgreSQL port"
+		}
+	},
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "pip install -e '.[test]'",
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"editor.formatOnPaste": true,
+				"editor.formatOnSave": true,
+				"editor.trimAutoWhitespace": true,
+				"files.autoSave": "onFocusChange",
+				"files.trimTrailingWhitespace": true,
+				"python.analysis.typeCheckingMode": "strict",
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+				"python.formatting.blackArgs": [
+					"--config",
+					"pyproject.toml"
+				],
+				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+				"python.formatting.provider": "black",
+				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+				"python.linting.banditArgs": [
+					"--configfile",
+					"pyproject.toml"
+				],
+				"python.linting.banditEnabled": true,
+				"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+				"python.linting.enabled": true,
+				"python.linting.flake8Args": [
+					"--config",
+					".flake8"
+				],
+				"python.linting.flake8Enabled": true,
+				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+				"python.linting.lintOnSave": true,
+				"python.linting.mypyArgs": [
+					"--config-file",
+					".pyproject.toml"
+				],
+				"python.linting.mypyEnabled": true,
+				"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+				"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
+				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+				"python.linting.pylintEnabled": true,
+				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
+				"python.testing.pytestPath": "/usr/local/py-utils/bin/pytest"
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-azuretools.vscode-docker",
+				//
+				"eamodio.gitlens",
+				"GitHub.vscode-pull-request-github",
+				"mhutchie.git-graph",
+				//
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				//
+				"batisteo.vscode-django",
+				"bungcip.better-toml",
+				"monosans.djlint",
+				"ms-python.black-formatter",
+				"ms-python.flake8",
+				"ms-python.isort",
+				"ms-python.pylint",
+				"redhat.vscode-yaml"
+			]
+		}
+	},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	"remoteUser": "vscode"
+}

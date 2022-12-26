@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+
+    volumes:
+      - ../..:/workspaces:cached
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+    network_mode: service:db
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+    # Set up environment. See skoufas_library_project/settings.py
+    environment:
+      DJANGO_ALLOWED_HOSTS: '*'
+      DJANGO_CURRENT_SECRET_KEY: "Not really safe: F0874YHFG`89HDKBWUZYT67ZTUYG879y676yv,wkjdhcbeu6f3b4rbm,/.;[pl`09wu7"
+      DJANGO_OLD_SECRET_KEY: "Not really safe: n`4908ryb49`08tyhuichnKJCXH1298-06WT`167EY;OIRTFNBRKJ."
+      DJANGO_DEBUG: 1
+      DJANGO_DATABASE_NAME: postgres
+      DJANGO_DATABASE_USER: postgres
+      DJANGO_LOG_LEVEL: DEBUG
+      DJANGO_DATABASE_PASSWORD: postgres
+      DJANGO_DATABASE_HOST: db
+      DJANGO_DATABASE_PORT: 5432
+      # DJANGO_STATIC_ROOT:
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: postgres
+    # Add "forwardPorts": ["5432"] to **devcontainer.json** to forward PostgreSQL locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+volumes:
+  postgres-data:

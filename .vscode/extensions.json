@@ -1,8 +1,0 @@
-{
-    "recommendations": [
-        "ms-python.black-formatter",
-        "ms-python.pylint",
-        "ms-python.flake8",
-        "redhat.vscode-yaml"
-    ]
-}
