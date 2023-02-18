@@ -29,6 +29,10 @@ class DbfEntryRowAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
 class DbfEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for DbfEntry."""
 
+    autocomplete_fields = [
+        "book_entry",
+    ]
+
     inlines = [
         DbfEntryRowInline,
     ]
@@ -61,13 +65,7 @@ class BookEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     inlines = [
         EntryNumberInline,
     ]
-    autocomplete_fields = [
-        "authors",
-        "translators",
-        "curators",
-        "editor",
-        "entry_donors",
-    ]
+    autocomplete_fields = ["authors", "translators", "curators", "editor", "entry_donors", "topics"]
     search_fields = [
         "title",
         "subtitle",
@@ -139,3 +137,7 @@ class EditorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
 @admin.register(Topic)
 class Topicdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Topic."""
+
+    search_fields = [
+        "topic_name",
+    ]
