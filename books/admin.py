@@ -39,10 +39,19 @@ class EntryNumberInline(admin.StackedInline):
 
     model = EntryNumber
 
+    autocomplete_fields = [
+        "entry_number_donors",
+    ]
+
 
 @admin.register(EntryNumber)
 class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for EntryNumber."""
+
+    autocomplete_fields = [
+        "entry_number_donors",
+        "book_entry",
+    ]
 
 
 @admin.register(BookEntry)
@@ -52,31 +61,79 @@ class BookEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     inlines = [
         EntryNumberInline,
     ]
+    autocomplete_fields = [
+        "authors",
+        "translators",
+        "curators",
+        "editor",
+        "entry_donors",
+    ]
+    search_fields = [
+        "title",
+        "subtitle",
+        "authors__organisation_name",
+        "authors__surname",
+        "authors__first_name",
+        "authors__middle_name",
+    ]
 
 
 @admin.register(Author)
 class AuthorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Author."""
 
+    search_fields = [
+        "organisation_name",
+        "surname",
+        "first_name",
+        "middle_name",
+    ]
+
 
 @admin.register(Curator)
 class CuratorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Curator."""
+
+    search_fields = [
+        "organisation_name",
+        "surname",
+        "first_name",
+        "middle_name",
+    ]
 
 
 @admin.register(Donor)
 class DonorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Donor."""
 
+    search_fields = [
+        "organisation_name",
+        "surname",
+        "first_name",
+        "middle_name",
+    ]
+
 
 @admin.register(Translator)
 class TranslatorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Translator."""
 
+    search_fields = [
+        "organisation_name",
+        "surname",
+        "first_name",
+        "middle_name",
+    ]
+
 
 @admin.register(Editor)
 class EditorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Editor."""
+
+    search_fields = [
+        "name",
+        "place",
+    ]
 
 
 @admin.register(Topic)
