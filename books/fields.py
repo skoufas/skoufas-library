@@ -3,10 +3,10 @@ from django.core.validators import EMPTY_VALUES
 from django.db.models import CharField
 from django.utils.translation import gettext_lazy as _
 
-from books.validators import DeweyValidator
-from books.validators import EANValidator
-from books.validators import ISBNValidator
-from books.validators import ISSNValidator
+from books.validators import validate_ean
+from books.validators import validate_isbn
+from books.validators import validate_issn
+from books.validators import validate_skoufas_dewey
 
 
 class ISBNField(CharField):
@@ -18,17 +18,17 @@ class ISBNField(CharField):
         """Construct a field."""
         kwargs["max_length"] = 28
         kwargs["verbose_name"] = _("ISBN")
-        kwargs["validators"] = [ISBNValidator]
-        super(ISBNField, self).__init__(*args, **kwargs)
+        kwargs["validators"] = [validate_isbn]
+        super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
         """Construct a form field."""
         defaults = {
             "min_length": 10,
-            "validators": [ISBNValidator],
+            "validators": [validate_isbn],
         }
         defaults.update(kwargs)
-        return super(ISBNField, self).formfield(**defaults)
+        return super().formfield(**defaults)
 
     def pre_save(self, model_instance, add):
         """Cleanup."""
@@ -36,11 +36,7 @@ class ISBNField(CharField):
         if value not in EMPTY_VALUES:
             cleaned_isbn = value.replace(" ", "").replace("-", "").upper()
             setattr(model_instance, self.attname, cleaned_isbn)
-        return super(ISBNField, self).pre_save(model_instance, add)
-
-    # def __unicode__(self) -> str:
-    #     """Return the field value."""
-    #     return self.value
+        return super().pre_save(model_instance, add)
 
 
 class ISSNField(CharField):
@@ -52,17 +48,17 @@ class ISSNField(CharField):
         """Construct a field."""
         kwargs["max_length"] = 16
         kwargs["verbose_name"] = _("ISSN")
-        kwargs["validators"] = [ISSNValidator]
-        super(ISSNField, self).__init__(*args, **kwargs)
+        kwargs["validators"] = [validate_issn]
+        super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
         """Construct a form field."""
         defaults = {
             "min_length": 8,
-            "validators": [ISSNValidator],
+            "validators": [validate_issn],
         }
         defaults.update(kwargs)
-        return super(ISSNField, self).formfield(**defaults)
+        return super().formfield(**defaults)
 
     def pre_save(self, model_instance, add):
         """Cleanup."""
@@ -70,11 +66,7 @@ class ISSNField(CharField):
         if value not in EMPTY_VALUES:
             cleaned_issn = value.replace(" ", "").replace("-", "").upper()
             setattr(model_instance, self.attname, cleaned_issn)
-        return super(ISSNField, self).pre_save(model_instance, add)
-
-    # def __unicode__(self) -> str:
-    #     """Return the field value."""
-    #     return self.value
+        return super().pre_save(model_instance, add)
 
 
 class EANField(CharField):
@@ -86,17 +78,17 @@ class EANField(CharField):
         """Construct a field."""
         kwargs["max_length"] = 28
         kwargs["verbose_name"] = _("EAN")
-        kwargs["validators"] = [EANValidator]
-        super(EANField, self).__init__(*args, **kwargs)
+        kwargs["validators"] = [validate_ean]
+        super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
         """Construct a form field."""
         defaults = {
             "min_length": 8,
-            "validators": [EANValidator],
+            "validators": [validate_ean],
         }
         defaults.update(kwargs)
-        return super(EANField, self).formfield(**defaults)
+        return super().formfield(**defaults)
 
     def pre_save(self, model_instance, add):
         """Cleanup."""
@@ -104,11 +96,7 @@ class EANField(CharField):
         if value not in EMPTY_VALUES:
             cleaned_ean = value.replace(" ", "").replace("-", "").upper()
             setattr(model_instance, self.attname, cleaned_ean)
-        return super(EANField, self).pre_save(model_instance, add)
-
-    # def __unicode__(self) -> str:
-    #     """Return the field value."""
-    #     return self.value
+        return super().pre_save(model_instance, add)
 
 
 class DeweyField(CharField):
@@ -120,17 +108,17 @@ class DeweyField(CharField):
         """Construct a field."""
         kwargs["max_length"] = 28
         kwargs["verbose_name"] = _("Dewey")
-        kwargs["validators"] = [DeweyValidator]
-        super(DeweyField, self).__init__(*args, **kwargs)
+        kwargs["validators"] = [validate_skoufas_dewey]
+        super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
         """Construct a form field."""
         defaults = {
             "min_length": 3,
-            "validators": [DeweyValidator],
+            "validators": [validate_skoufas_dewey],
         }
         defaults.update(kwargs)
-        return super(DeweyField, self).formfield(**defaults)
+        return super().formfield(**defaults)
 
     def pre_save(self, model_instance, add):
         """Cleanup."""
@@ -138,8 +126,4 @@ class DeweyField(CharField):
         if value not in EMPTY_VALUES:
             value = value.replace("  ", " ").replace("-", "").upper()
             setattr(model_instance, self.attname, value)
-        return super(DeweyField, self).pre_save(model_instance, add)
-
-    # def __unicode__(self) -> str:
-    #     """Return the field value."""
-    #     return self.value
+        return super().pre_save(model_instance, add)

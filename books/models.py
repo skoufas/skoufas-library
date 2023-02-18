@@ -310,10 +310,10 @@ class BookEntry(models.Model):
 
     def dbf_sequence(self) -> Optional[int]:
         """Numeric sequence in the original DBF file, if present."""
-        s = DbfEntry.objects.filter(book_entry=self)
-        if s.count() == 0:
+        sequence_objects = DbfEntry.objects.filter(book_entry=self)
+        if sequence_objects.count() == 0:
             return None
-        return s.all()[0:1].get().dbf_sequence
+        return sequence_objects.all()[0:1].get().dbf_sequence
 
     class Meta:
         """Meta for Book Entry."""

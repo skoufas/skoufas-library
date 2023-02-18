@@ -38,17 +38,13 @@ LOGGING = {
         },
         "err": {
             "class": "logging.StreamHandler",
+            "level": "ERROR",
         },
     },
     "loggers": {
         "": {
-            "level": "ERROR",
-            "handlers": ["err"],
-            "propagate": False,
-        },
-        "": {
             "level": os.getenv("DJANGO_LOG_LEVEL", "WARNING"),
-            "handlers": ["out"],
+            "handlers": ["err", "out"],
             "propagate": False,
         },
     },

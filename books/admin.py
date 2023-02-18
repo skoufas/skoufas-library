@@ -24,8 +24,6 @@ class DbfEntryRowInline(admin.TabularInline):
 class DbfEntryRowAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for DbfEntryRow."""
 
-    pass
-
 
 @admin.register(DbfEntry)
 class DbfEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
@@ -46,8 +44,6 @@ class EntryNumberInline(admin.StackedInline):
 class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for EntryNumber."""
 
-    pass
-
 
 @admin.register(BookEntry)
 class BookEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
@@ -62,39 +58,27 @@ class BookEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
 class AuthorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Author."""
 
-    pass
-
 
 @admin.register(Curator)
 class CuratorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Curator."""
-
-    pass
 
 
 @admin.register(Donor)
 class DonorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Donor."""
 
-    pass
-
 
 @admin.register(Translator)
 class TranslatorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Translator."""
-
-    pass
 
 
 @admin.register(Editor)
 class EditorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Editor."""
 
-    pass
-
 
 @admin.register(Topic)
 class Topicdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Topic."""
-
-    pass

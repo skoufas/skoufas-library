@@ -9,7 +9,7 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import gettext_lazy as _
 
 
-def ISBNValidator(raw_isbn):
+def validate_isbn(raw_isbn):
     """Validate ISBN values."""
     if not isinstance(raw_isbn, str):
         raise ValidationError(_("Invalid ISBN: Not a string"))
@@ -18,14 +18,14 @@ def ISBNValidator(raw_isbn):
 
     try:
         stdnum.isbn.validate(isbn)
-    except stdnum.exceptions.InvalidChecksum:
-        raise ValidationError(_("Invalid ISBN: wrong checksum"))
-    except stdnum.exceptions.InvalidComponent:
-        raise ValidationError(_("Invalid ISBN: component not one of 978, 979"))
-    except stdnum.exceptions.InvalidLength:
-        raise ValidationError(_("Invalid ISBN: length not 10 or 13"))
-    except stdnum.exceptions.InvalidFormat:
-        raise ValidationError(_("Invalid ISBN"))
+    except stdnum.exceptions.InvalidChecksum as exc:
+        raise ValidationError(_("Invalid ISBN: wrong checksum")) from exc
+    except stdnum.exceptions.InvalidComponent as exc:
+        raise ValidationError(_("Invalid ISBN: component not one of 978, 979")) from exc
+    except stdnum.exceptions.InvalidLength as exc:
+        raise ValidationError(_("Invalid ISBN: length not 10 or 13")) from exc
+    except stdnum.exceptions.InvalidFormat as exc:
+        raise ValidationError(_("Invalid ISBN")) from exc
 
     if isbn != isbn.upper():
         raise ValidationError(_("Invalid ISBN: Only upper case allowed"))
@@ -33,7 +33,7 @@ def ISBNValidator(raw_isbn):
     return True
 
 
-def ISSNValidator(raw_issn):
+def validate_issn(raw_issn):
     """Validate ISSN values."""
     if not isinstance(raw_issn, str):
         raise ValidationError(_("Invalid ISSN: Not a string"))
@@ -42,12 +42,12 @@ def ISSNValidator(raw_issn):
 
     try:
         stdnum.issn.validate(issn)
-    except stdnum.exceptions.InvalidChecksum:
-        raise ValidationError(_("Invalid ISSN: wrong checksum"))
-    except stdnum.exceptions.InvalidLength:
-        raise ValidationError(_("Invalid ISSN: length not 8"))
-    except stdnum.exceptions.InvalidFormat:
-        raise ValidationError(_("Invalid ISSN"))
+    except stdnum.exceptions.InvalidChecksum as exc:
+        raise ValidationError(_("Invalid ISSN: wrong checksum")) from exc
+    except stdnum.exceptions.InvalidLength as exc:
+        raise ValidationError(_("Invalid ISSN: length not 8")) from exc
+    except stdnum.exceptions.InvalidFormat as exc:
+        raise ValidationError(_("Invalid ISSN")) from exc
 
     if issn != issn.upper():
         raise ValidationError(_("Invalid ISSN: Only upper case allowed"))
@@ -55,7 +55,7 @@ def ISSNValidator(raw_issn):
     return True
 
 
-def EANValidator(raw_ean):
+def validate_ean(raw_ean):
     """Validate EAN values."""
     if not isinstance(raw_ean, str):
         raise ValidationError(_("Invalid EAN: Not a string"))
@@ -64,12 +64,12 @@ def EANValidator(raw_ean):
 
     try:
         stdnum.ean.validate(ean)
-    except stdnum.exceptions.InvalidChecksum:
-        raise ValidationError(_("Invalid EAN: wrong checksum"))
-    except stdnum.exceptions.InvalidLength:
-        raise ValidationError(_("Invalid EAN: length not one of 14, 13, 12, 8"))
-    except stdnum.exceptions.InvalidFormat:
-        raise ValidationError(_("Invalid EAN"))
+    except stdnum.exceptions.InvalidChecksum as exc:
+        raise ValidationError(_("Invalid EAN: wrong checksum")) from exc
+    except stdnum.exceptions.InvalidLength as exc:
+        raise ValidationError(_("Invalid EAN: length not one of 14, 13, 12, 8")) from exc
+    except stdnum.exceptions.InvalidFormat as exc:
+        raise ValidationError(_("Invalid EAN")) from exc
 
     if ean != ean.upper():
         raise ValidationError(_("Invalid EAN: Only upper case allowed"))
@@ -85,7 +85,7 @@ strict_dewey_res = [
 ]
 
 
-def DeweyValidator(raw_dewey):
+def validate_skoufas_dewey(raw_dewey):
     """Validate Dewey values according to skoufas library."""
     if not isinstance(raw_dewey, str):
         raise ValidationError(_("Invalid Dewey: Not a string"))

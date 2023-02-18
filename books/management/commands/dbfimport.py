@@ -258,7 +258,7 @@ class Command(BaseCommand):
         )
 
         # Original DBF Rows
-        for (k, v) in entry["original_entry"].items():
+        for k, v in entry["original_entry"].items():
             if v:
                 DbfEntryRow.objects.get_or_create(
                     dbfentry=dbf_entry,
@@ -350,7 +350,6 @@ class Command(BaseCommand):
 
         if not entry_numbers:
             return
-        result = []
         for entry_number in entry_numbers:
             entry_number_object, entry_created = EntryNumber.objects.get_or_create(
                 entry_number=entry_number,
@@ -410,7 +409,7 @@ class Command(BaseCommand):
                     editor=editor,
                     topics=topics,
                 )
-                entry_numbers = self.add_entry_numbers(entry=entry, book_entry=book_entry, donors=donors)
+                self.add_entry_numbers(entry=entry, book_entry=book_entry, donors=donors)
 
                 self.add_original_entry(
                     entry,

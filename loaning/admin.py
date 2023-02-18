@@ -16,8 +16,6 @@ class LoanInline(admin.TabularInline):
 class LoanAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Loan."""
 
-    pass
-
 
 @admin.register(Customer)
 class CustomerAdmin(DjangoQLSearchMixin, admin.ModelAdmin):

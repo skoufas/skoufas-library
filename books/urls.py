@@ -5,7 +5,7 @@ from django.urls.resolvers import URLResolver
 
 from books import views
 
-app_name = "books"
+app_name = "books"  # pylint: disable=invalid-name
 urlpatterns: list[URLPattern | URLResolver] = [
     path(r"", views.BookEntryListView.as_view(), name="book-list"),
     path(r"by-db-id/<int:pk>", views.BookEntryDetailView.as_view(), name="book-by-id"),
