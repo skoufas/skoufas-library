@@ -9,14 +9,14 @@ from books.models import EntryNumber
 class Customer(models.Model):
     """Πελάτης."""
 
-    first_name = models.CharField(verbose_name=_("first name"), max_length=200)
-    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
-    surname = models.CharField(verbose_name=_("surname"), max_length=200)
-    id_number = models.CharField(verbose_name=_("id number"), max_length=200)
-    id_type = models.CharField(verbose_name=_("id type"), max_length=200)
-    phone_number = models.CharField(verbose_name=_("phone number"), max_length=200)
-    email = models.CharField(verbose_name=_("email"), max_length=200)
-    address = models.CharField(verbose_name=_("address"), max_length=200)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, blank=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True, blank=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, blank=True)
+    id_number = models.CharField(verbose_name=_("id number"), max_length=200, blank=True)
+    id_type = models.CharField(verbose_name=_("id type"), max_length=200, blank=True)
+    phone_number = models.CharField(verbose_name=_("phone number"), max_length=200, blank=True)
+    email = models.CharField(verbose_name=_("email"), max_length=200, blank=True)
+    address = models.CharField(verbose_name=_("address"), max_length=200, blank=True)
 
     def __str__(self):
         """Print customer name."""
@@ -51,7 +51,7 @@ class Loan(models.Model):
 
     # Για 2 χρόνια, παραμένει ο δανειζόμενος
     # Μετά τα 2 χρόνια, γίνεται ανώνυμος
-    customer = models.ForeignKey(Customer, verbose_name=_("customer"), null=True, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, verbose_name=_("customer"), null=True, on_delete=models.CASCADE, blank=True)
 
     entry_number = models.ForeignKey(EntryNumber, verbose_name=_("Entry number"), on_delete=models.CASCADE)
     start = models.DateField(verbose_name=_("start"))

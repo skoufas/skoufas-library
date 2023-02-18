@@ -29,10 +29,10 @@ def max_value_current_year(value: Any):
 class Author(models.Model):
     """Συγγραφέας."""
 
-    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
-    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
-    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
-    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True, blank=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True, blank=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True, blank=True)
+    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True, blank=True)
 
     def __str__(self):
         """Print author."""
@@ -63,10 +63,10 @@ class Author(models.Model):
 class Translator(models.Model):
     """Μεταφραστής."""
 
-    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
-    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
-    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
-    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True, blank=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True, blank=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True, blank=True)
+    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True, blank=True)
 
     def __str__(self):
         """Print Translator."""
@@ -97,10 +97,10 @@ class Translator(models.Model):
 class Curator(models.Model):
     """Επιμελητής."""
 
-    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
-    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
-    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
-    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True, blank=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True, blank=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True, blank=True)
+    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True, blank=True)
 
     def __str__(self):
         """Print Curator."""
@@ -131,10 +131,10 @@ class Curator(models.Model):
 class Donor(models.Model):
     """Δωρητής."""
 
-    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True)
-    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True)
-    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True)
-    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True)
+    first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True, blank=True)
+    middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True, blank=True)
+    surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True, blank=True)
+    organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True, blank=True)
 
     def __str__(self):
         """Print Donor."""
@@ -165,8 +165,8 @@ class Donor(models.Model):
 class Editor(models.Model):
     """Εκδότης."""
 
-    name = models.CharField(verbose_name=_("Editor"), max_length=200, null=True)
-    place = models.CharField(verbose_name=_("Editor place"), max_length=200, null=True)
+    name = models.CharField(verbose_name=_("Editor"), max_length=200, null=True, blank=True)
+    place = models.CharField(verbose_name=_("Editor place"), max_length=200, null=True, blank=True)
 
     def __str__(self):
         """Print Editor."""
@@ -236,54 +236,57 @@ class BookEntry(models.Model):
     topics = models.ManyToManyField(verbose_name=_("Topic"), to=Topic, blank=True)
 
     # - EditorId (FK: Editor)
-    editor = models.ForeignKey(Editor, verbose_name=_("editor"), null=True, on_delete=models.CASCADE)
+    editor = models.ForeignKey(Editor, verbose_name=_("editor"), null=True, on_delete=models.CASCADE, blank=True)
 
     # - Title - Τίτλος
-    title = models.CharField(verbose_name=_("Title"), max_length=4096, null=True)
+    title = models.CharField(verbose_name=_("Title"), max_length=4096, null=True, blank=False)
 
     # - Subtitle - Υπότιτλος
-    subtitle = models.CharField(verbose_name=_("Subtitle"), max_length=4096, null=True)
+    subtitle = models.CharField(verbose_name=_("Subtitle"), max_length=4096, null=True, blank=True)
 
     # - Dewey - Ταξινομικός Αριθμός Dewey
-    dewey = DeweyField(verbose_name=_("Dewey"), max_length=15, null=True)
+    dewey = DeweyField(verbose_name=_("Dewey"), max_length=15, null=True, blank=True)
 
     # - Language - Γλώσσα
-    language = models.CharField(verbose_name=_("Language"), max_length=8, null=True)
+    language = models.CharField(verbose_name=_("Language"), max_length=8, null=True, blank=True)
 
     # - Edition - Έκδοση
-    edition = models.CharField(verbose_name=_("Edition"), max_length=60, null=True)
+    edition = models.CharField(verbose_name=_("Edition"), max_length=60, null=True, blank=True)
 
     # - EditionDate - Έτος Έκδοσης
     edition_year = models.IntegerField(
-        verbose_name=_("Edition Year"), validators=[MinValueValidator(1200), max_value_current_year], null=True
+        verbose_name=_("Edition Year"),
+        validators=[MinValueValidator(1200), max_value_current_year],
+        null=True,
+        blank=True,
     )
 
     # - Pages - Σελίδες Αριθμητικά
-    pages = models.IntegerField(verbose_name=_("Pages"), null=True)
+    pages = models.IntegerField(verbose_name=_("Pages"), null=True, blank=True)
 
     # - Copies - Αντίτυπα Αριθμητικά
-    copies = models.IntegerField(verbose_name=_("Copies"), null=True)
+    copies = models.IntegerField(verbose_name=_("Copies"), null=True, blank=True)
 
     # Donors (Many-to-Many)
     entry_donors = models.ManyToManyField(verbose_name=_("Donor"), to=Donor, blank=True)
 
     # - Volumes - Τόμοι/Τεύχη
-    volumes = models.CharField(verbose_name=_("Volumes"), max_length=200, null=True)
+    volumes = models.CharField(verbose_name=_("Volumes"), max_length=200, null=True, blank=True)
 
     # - Notes - Σημειώσεις
-    notes = models.CharField(verbose_name=_("Notes"), max_length=4096, null=True)
+    notes = models.CharField(verbose_name=_("Notes"), max_length=4096, null=True, blank=True)
 
     # - Material - Υλικό
-    material = models.CharField(verbose_name=_("Material"), max_length=4096, null=True)
+    material = models.CharField(verbose_name=_("Material"), max_length=4096, null=True, blank=True)
 
     # - ISBN
-    isbn = ISBNField(null=True)
+    isbn = ISBNField(null=True, blank=True)
 
     # - ISSN
-    issn = ISSNField(null=True)
+    issn = ISSNField(null=True, blank=True)
 
     # - EAN
-    ean = EANField(null=True)
+    ean = EANField(null=True, blank=True)
 
     # - Offprint - ΑΝΑΤΥΠΟ
     offprint = models.BooleanField(verbose_name=_("Offprint"))
@@ -328,7 +331,7 @@ class EntryNumber(models.Model):
 
     entry_number = models.CharField(verbose_name=_("Entry number"), max_length=200)
 
-    copies = models.IntegerField(verbose_name=_("Copies"), default=0, null=True)
+    copies = models.IntegerField(verbose_name=_("Copies"), default=0, null=True, blank=True)
 
     book_entry = models.ForeignKey(BookEntry, verbose_name=_("Book Entry"), on_delete=models.CASCADE)
 
