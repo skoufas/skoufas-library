@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "books",
     "djangoql",
     "loaning",
+    "watson",
 ] + (
     [
         "django_extensions",
@@ -79,6 +80,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "watson.middleware.SearchContextMiddleware",
 ] + (
     []
     if DEBUG
@@ -185,3 +187,6 @@ STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", BASE_DIR / "static_collected"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+WATSON_POSTGRES_SEARCH_CONFIG = "pg_catalog.greek"
+WATSON_BACKEND = "watson.backends.PostgresSearchBackend"

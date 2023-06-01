@@ -81,12 +81,14 @@
             </li>
           </form>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2"
+        <form class="d-flex" role="search" action="{% url 'watson:search' %}">
+          <input name="q"
+                 value="{{ request.GET.q }}"
+                 class="form-control me-2"
                  type="search"
                  placeholder="{% translate "Search" %}"
                  aria-label="Search"/>
-          <button class="btn btn-outline-success" type="submit">{% translate "Search" %}</button>
+          <button class="btn btn-outline-success" type="submit" value="Go">{% translate "Search" %}</button>
         </form>
       </div>
     </div>

@@ -1,0 +1,29 @@
+{% extends "skoufas_library/layout.html" %}
+{% load bootstrap5 %}
+{% load i18n %}
+{% load static %}
+{% load watson %}
+{% block title %}
+    {% blocktranslate %}Search results{% endblocktranslate %}
+    {% if query %}
+        {% blocktranslate %}for &ldquo;{{ query }}&rdquo;{% endblocktranslate %}
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    {% if search_results %}
+        {% search_results search_results %}
+    {% else %}
+        {% if query %}
+            <p>
+                <em>{% blocktranslate %}There are no results to display.{% endblocktranslate %}</em>
+            </p>
+            <p>
+                <em>{% blocktranslate %}Try entering a less specific search term.{% endblocktranslate %}</em>
+            </p>
+        {% else %}
+            <p>
+                <em>{% blocktranslate %}Please enter a query in the search form.{% endblocktranslate %}</em>
+            </p>
+        {% endif %}
+    {% endif %}
+{% endblock content %}

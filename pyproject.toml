@@ -27,6 +27,7 @@ dependencies = [
     "python-stdnum",
     "pytz",
     "pyyaml",
+    "django-watson",
 ]
 
 [project.optional-dependencies]

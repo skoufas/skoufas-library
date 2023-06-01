@@ -26,4 +26,7 @@ urlpatterns = [
     path("books/", include("books.urls", namespace="books")),
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
+    path(
+        "search/", include("watson.urls", namespace="watson"), {"template_name": "skoufas_library/search_results.html"}
+    ),
 ] + staticfiles_urlpatterns()

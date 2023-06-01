@@ -12,6 +12,7 @@ rm -rf loaning/migrations/00*.py
 skoufas-library reset_db --no-input
 skoufas-library makemigrations
 skoufas-library migrate
+skoufas-library installwatson
 
 skoufas-library createsuperuser --username rockdreamer@gmail.com --email rockdreamer@gmail.com --noinput
 

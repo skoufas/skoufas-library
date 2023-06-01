@@ -6,6 +6,7 @@ from typing import Optional
 from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.urls import reverse
 from django.utils.text import format_lazy
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
@@ -311,6 +312,10 @@ class BookEntry(models.Model):
             return str(self.title)
         return f"{self.title} - {self.subtitle}"
 
+    def get_absolute_url(self):
+        """URL to book."""
+        return reverse("books:book-by-id", kwargs={"pk": self.pk})
+
     def dbf_sequence(self) -> Optional[int]:
         """Numeric sequence in the original DBF file, if present."""
         sequence_objects = DbfEntry.objects.filter(book_entry=self)
@@ -348,6 +353,10 @@ class EntryNumber(models.Model):
             return f"{self.entry_number}: {self.book_entry}"
         else:
             return f"{self.entry_number}"
+
+    def get_absolute_url(self):
+        """URL to book entry."""
+        return reverse("books:book-by-entry-number", kwargs={"pk": self.pk})
 
     class Meta:
         """Meta for EntryNumber."""
