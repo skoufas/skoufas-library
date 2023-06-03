@@ -67,29 +67,47 @@ INSTALLED_APPS = [
 ] + (
     [
         "django_extensions",
+        "debug_toolbar",
     ]
     if DEBUG
     else []
 )
 
-MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "watson.middleware.SearchContextMiddleware",
-] + (
-    []
-    if DEBUG
-    else [
-        # clickjacking protection is incompatible with webviews, like vscode's simple browser
-        "django.middleware.clickjacking.XFrameOptionsMiddleware",
+MIDDLEWARE = (
+    (
+        [
+            "debug_toolbar.middleware.DebugToolbarMiddleware",
+        ]
+        if DEBUG
+        else []
+    )
+    + [
+        "django.middleware.security.SecurityMiddleware",
+        "django.contrib.sessions.middleware.SessionMiddleware",
+        "django.middleware.locale.LocaleMiddleware",
+        "django.middleware.common.CommonMiddleware",
+        "django.middleware.csrf.CsrfViewMiddleware",
+        "django.contrib.auth.middleware.AuthenticationMiddleware",
+        "django.contrib.messages.middleware.MessageMiddleware",
+        "watson.middleware.SearchContextMiddleware",
     ]
+    + (
+        []
+        if DEBUG
+        else [
+            # clickjacking protection is incompatible with webviews, like vscode's simple browser
+            "django.middleware.clickjacking.XFrameOptionsMiddleware",
+        ]
+    )
 )
 
+
+if DEBUG:
+    # Deal with Docker
+    import socket
+
+    ips = socket.gethostbyname_ex(socket.gethostname())[2]
+    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
 
 ROOT_URLCONF = "skoufas_library_project.urls"
 
