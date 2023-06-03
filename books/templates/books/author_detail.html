@@ -1,0 +1,27 @@
+{% extends "skoufas_library/layout.html" %}
+{% load bootstrap5 %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {{ object }}
+{% endblock title %}
+{% block content %}
+    <dt>
+        {% translate "Books by the author" %}
+    </dt>
+    <dd>
+        <ul class="list-group">
+            {% for book_entry in object.bookentry_set.all %}
+                <a href="{% url 'books:book-by-id' book_entry.id %}"
+                   class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ book_entry.title }}</h5>
+                    </div>
+                    {% if book_entry.subtitle %}<small class="text-muted">{{ book_entry.subtitle }}</small>{% endif %}
+                </a>
+            {% empty %}
+                <li>{% translate "Author with no books" %}</li>
+            {% endfor %}
+        </ul>
+    </dd>
+{% endblock content %}

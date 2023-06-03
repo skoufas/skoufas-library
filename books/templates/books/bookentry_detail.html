@@ -26,8 +26,10 @@
         </dt>
         <dd class="col-sm-9">
             <ul>
-                {% for author in object.authors.all %}
-                    <li>{{ author }}</li>
+                {% for author_entry in object.authors.all %}
+                    <li>
+                        <a href="{% url 'books:author-by-id' author_entry.id %}">{{ author_entry }}</a>
+                    </li>
                 {% empty %}
                     <li>{% translate "Book with no authors" %}</li>
                 {% endfor %}

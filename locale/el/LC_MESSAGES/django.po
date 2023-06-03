@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-18 11:20+0200\n"
+"POT-Creation-Date: 2023-06-03 13:31+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,8 +56,8 @@ msgstr ""
 msgid ""
 "\n"
 "        The first donations to the Library came from the members of the "
-"first Board of Directors, Theod. Thomopoulos, the Association "
-"\"PARNASSOS\",\n"
+"first Board of Directors, Theod. Thomopoulos, the Association \"PARNASSOS"
+"\",\n"
 "        the Association \"MIKROS OMILOS\" (after its dissolution in 1927 its "
 "library was offered to the Association),\n"
 "        the lawyer K. Anagnostopoulos (in 1962 he donated to the Library a "
@@ -206,8 +206,8 @@ msgid ""
 "Please contact us for more information.\n"
 "        It is enrolled in the ATLAS program of the Universities of Greece "
 "and DASTA for the TEI.\n"
-"        Its <a href=\"https://www.loc.gov/marc/organizations/org-search."
-"php\">MARC Org Code</a> is GR-ArMPA (Id 43410).\n"
+"        Its <a href=\"https://www.loc.gov/marc/organizations/org-search.php"
+"\">MARC Org Code</a> is GR-ArMPA (Id 43410).\n"
 "        "
 msgstr ""
 "\n"
@@ -217,8 +217,8 @@ msgstr ""
 "επικοινωνήστε μαζί μας για περεταίρω πληροφορίες.\n"
 "        Είναι εγγεγραμμένη στο πρόγραμμα ΑΤΛΑΣ των Πανεπιστημίων της Ελλάδας "
 "και DASTA για το ΤΕΙ.\n"
-"        Ο  <a href=\"https://www.loc.gov/marc/organizations/org-search."
-"php\">κωδικός οργάνωσης MARC</a> είναι GR-ArMPA (Id 43410).\n"
+"        Ο  <a href=\"https://www.loc.gov/marc/organizations/org-search.php"
+"\">κωδικός οργάνωσης MARC</a> είναι GR-ArMPA (Id 43410).\n"
 "        "
 
 #: templates/skoufas_library/about.html:70
@@ -426,43 +426,43 @@ msgstr "Κάρτες Βιβλίου"
 msgid "View all books in the catalogue"
 msgstr "Όλα τα βιβλία στον κατάλογο."
 
-#: templates/skoufas_library/home.html:34
-msgid "Book Entries by Author"
-msgstr "Κάρτες Βιβλίου κατα Συγγραφέα"
+#: templates/skoufas_library/home.html:35
+msgid "All Authors"
+msgstr "Όλοι οι συγγραφείς"
 
-#: templates/skoufas_library/home.html:36
-msgid "View all books in the catalogue, ordered by author."
-msgstr "Όλα τα βιβλία στον κατάλογο, κατα συγγραφέα."
+#: templates/skoufas_library/home.html:37
+msgid "View all authors in the catalogue, and their books."
+msgstr "Όλοι οι συγγραφείς στον κατάλογο, και τα βιβλία τους."
 
-#: templates/skoufas_library/home.html:42
+#: templates/skoufas_library/home.html:44
 msgid "Book Entries by Dewey"
 msgstr "Κάρτες Βιβλίου κατα Dewey"
 
-#: templates/skoufas_library/home.html:44
+#: templates/skoufas_library/home.html:46
 msgid "View all books in the catalogue, ordered by Dewey code."
 msgstr "Όλα τα βιβλία στον κατάλογο, κατα Dewey."
 
-#: templates/skoufas_library/home.html:50
+#: templates/skoufas_library/home.html:52
 msgid "Calculated Fields"
 msgstr "Πεδία"
 
-#: templates/skoufas_library/home.html:52
+#: templates/skoufas_library/home.html:54
 msgid "Reports showing values for fields."
 msgstr "Τιμές για καθε πεδίο (για έλεγχο)."
 
-#: templates/skoufas_library/home.html:58
+#: templates/skoufas_library/home.html:60
 msgid "Reports"
 msgstr "Αναφορές"
 
-#: templates/skoufas_library/home.html:60
+#: templates/skoufas_library/home.html:62
 msgid "Reports used to find issues in data."
 msgstr "Προς έυρεση λαθών στα δεδομένα."
 
-#: templates/skoufas_library/home.html:66
+#: templates/skoufas_library/home.html:68
 msgid "Donors"
 msgstr "Δωρητές"
 
-#: templates/skoufas_library/home.html:68
+#: templates/skoufas_library/home.html:70
 msgid "People that have donated books."
 msgstr "Που έχουν προσφέρει βιβλία στον κατάλογο."
 
@@ -490,3 +490,24 @@ msgstr "Μουσικοφιλολογικός Σύλλογος Σκουφάς"
 #: templates/skoufas_library/layout.html:117
 msgid "Design - Construction: Claudio Bantaloukas"
 msgstr "Σχεδιασμός - Τεχνική κατασκευή: Κλαύδιος Μπανταλούκας"
+
+#: templates/skoufas_library/search_results.html:7
+msgid "Search results"
+msgstr "Αποτελέσματα Αναζήτησης"
+
+#: templates/skoufas_library/search_results.html:9
+#, python-format
+msgid "for &ldquo;%(query)s&rdquo;"
+msgstr "&ldquo;%(query)s&rdquo;"
+
+#: templates/skoufas_library/search_results.html:18
+msgid "There are no results to display."
+msgstr "Δεν βρέθηκαν αποτελέσματα"
+
+#: templates/skoufas_library/search_results.html:21
+msgid "Try entering a less specific search term."
+msgstr "Προσπαθήστε με λιγότερο συγκεκριμένη αναζήτηση."
+
+#: templates/skoufas_library/search_results.html:25
+msgid "Please enter a query in the search form."
+msgstr "Παρακαλώ εισάγετε μια αναζήτηση στο πεδίο αναζήτησης."

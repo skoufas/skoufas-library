@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
+from books.models import Author
 from books.models import BookEntry
 from books.models import EntryNumber
 
@@ -47,4 +48,29 @@ class BookEntryByEntryNumberDetailView(DetailView):
         entry_number = context["object"]
         context["entry_number"] = entry_number
         context["object"] = entry_number.book_entry
+        return context
+
+
+class AuthorListView(ListView):
+    """View All authors."""
+
+    model = Author
+    paginate_by = 100
+
+    def get_context_data(self, **kwargs):
+        """Add details."""
+        context = super().get_context_data(**kwargs)
+        context["now"] = timezone.now()
+        return context
+
+
+class AuthorDetailView(DetailView):
+    """View Author details."""
+
+    model = Author
+
+    def get_context_data(self, **kwargs):
+        """Add details."""
+        context = super().get_context_data(**kwargs)
+        context["now"] = timezone.now()
         return context

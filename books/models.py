@@ -47,6 +47,10 @@ class Author(models.Model):
             else:
                 return f"{self.surname}, {self.first_name}"
 
+    def get_absolute_url(self):
+        """URL to author."""
+        return reverse("books:author-by-id", kwargs={"pk": self.pk})
+
     class Meta:
         """Meta for author."""
 
