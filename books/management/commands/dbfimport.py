@@ -74,7 +74,7 @@ class Command(BaseCommand):
                 author_created = False
 
             if not author_entry:
-                self.stderr.write(f"{entry['dbase_number']}: Cannot create translator {author}")
+                self.stderr.write(f"{entry['dbase_number']}: Cannot create author {author}")
             else:
                 result.append(author_entry)
                 if author_created:
@@ -341,6 +341,10 @@ class Command(BaseCommand):
                     f"{entry['dbase_number']}: Reusing book entry. "
                     f"Previous sequence { book_entry.dbf_sequence() }: {book_entry}"
                 )
+                for donor in donors:
+                    book_entry.entry_donors.add(donor)
+                book_entry.save()
+
         return book_entry
 
     def add_entry_numbers(self, entry, book_entry, donors):

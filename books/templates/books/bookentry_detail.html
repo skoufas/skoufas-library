@@ -53,8 +53,12 @@
                         <li>
                             {{ entrynumber.entry_number }}
                             {% if entrynumber.copies %}
-                                {% blocktranslate count counter=entrynumber.copies %}(1 copy){% plural %}({{ entrynumber.copies }} copies){% endblocktranslate %}
+                                {% blocktranslate count counter=entrynumber.copies %} (1 copy){% plural %}({{ counter }} copies){% endblocktranslate %}
                             {% endif %}
+                            {% for donor in entrynumber.entry_number_donors.all %}
+                                {% url 'books:donor-by-id' donor.id as donor_url %}
+                                {% blocktranslate %}(Donated by <a href="{{ donor_url }}">{{ donor }}</a>).{% endblocktranslate %}
+                            {% endfor %}
                         </li>
                     {% empty %}
                         <li>{% translate "Book with no entry numbers" %}</li>
@@ -156,13 +160,17 @@
                 </ul>
             </dd>
         {% endif %}
-        {% if object.donors %}
+        {% if object.entry_donors %}
             <dt class="col-sm-3">
                 {% translate "Donors" %}
             </dt>
             <dd class="col-sm-9">
                 <ul>
-                    {% for donor in object.donors.all %}<li>{{ donor }}</li>{% endfor %}
+                    {% for donor in object.entry_donors.all %}
+                        <li>
+                            <a href="{% url 'books:donor-by-id' donor.id %}">{{ donor }}</a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </dd>
         {% endif %}

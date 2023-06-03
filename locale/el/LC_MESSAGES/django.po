@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-03 13:31+0300\n"
+"POT-Creation-Date: 2023-06-03 16:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -458,11 +458,11 @@ msgstr "Αναφορές"
 msgid "Reports used to find issues in data."
 msgstr "Προς έυρεση λαθών στα δεδομένα."
 
-#: templates/skoufas_library/home.html:68
+#: templates/skoufas_library/home.html:69
 msgid "Donors"
 msgstr "Δωρητές"
 
-#: templates/skoufas_library/home.html:70
+#: templates/skoufas_library/home.html:71
 msgid "People that have donated books."
 msgstr "Που έχουν προσφέρει βιβλία στον κατάλογο."
 

@@ -12,4 +12,6 @@ urlpatterns: list[URLPattern | URLResolver] = [
     path(r"by-entry-number/<int:pk>", views.BookEntryByEntryNumberDetailView.as_view(), name="book-by-entry-number"),
     path(r"authors", views.AuthorListView.as_view(), name="author-list"),
     path(r"authors/by-db-id/<int:pk>", views.AuthorDetailView.as_view(), name="author-by-id"),
+    path(r"donors", views.DonorListView.as_view(), name="donor-list"),
+    path(r"donors/by-db-id/<int:pk>", views.DonorDetailView.as_view(), name="donor-by-id"),
 ]
