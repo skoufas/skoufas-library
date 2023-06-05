@@ -58,6 +58,7 @@ class AuthorListView(ListView):
 
     model = Author
     paginate_by = 100
+    ordering = ["organisation_name", "surname", "middle_name", "first_name"]
 
     def get_context_data(self, **kwargs):
         """Add details."""
@@ -84,7 +85,7 @@ class DonorListView(ListView):
     model = Donor
     paginate_by = 100
     queryset = Donor.objects.annotate(book_donation_count=Count("bookentry"))
-    ordering = ["-book_donation_count"]
+    ordering = ["-book_donation_count", "organisation_name", "surname", "middle_name", "first_name"]
 
     def get_context_data(self, **kwargs):
         """Add details."""
