@@ -15,4 +15,4 @@ class BooksConfig(AppConfig):
         """Set up watson indices."""
         watson_search.register(self.get_model("Author"))
         watson_search.register(self.get_model("BookEntry"))
-        watson_search.register(self.get_model("EntryNumber"))
+        watson_search.register(self.get_model("EntryNumber"), fields=("entry_number",))
