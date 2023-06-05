@@ -15,6 +15,21 @@
         href="{% static 'skoufas_library/favicon.png' %}"
         rel="icon"/>
   <meta name="theme-color" content="#8a2a42" />
+  <!-- Matomo -->
+  <script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//analysis.rdfm.org/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+  </script>
+  <!-- End Matomo Code -->
   {% block skoufas_library_extra_head %}
   {% endblock skoufas_library_extra_head %}
 {% endblock bootstrap5_extra_head %}
