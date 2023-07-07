@@ -81,7 +81,7 @@
                 {% translate "Language" %}
             </dt>
             <dd class="col-sm-9">
-                {{ object.language }}
+                {{ object.get_language_display }}
             </dd>
         {% endif %}
         {% if object.editor %}

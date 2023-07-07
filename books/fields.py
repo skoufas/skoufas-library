@@ -127,3 +127,18 @@ class DeweyField(CharField):
             value = value.replace("  ", " ").replace("-", "").upper()
             setattr(model_instance, self.attname, value)
         return super().pre_save(model_instance, add)
+
+
+class LanguageField(CharField):
+    """A language field for Django models."""
+
+    def __init__(self, *args, **kwargs):
+        """Choice is one of languages defined."""
+        # Local import so the languages aren't loaded unless they are needed.
+        from .languages import LANGUAGES
+
+        kwargs.setdefault("max_length", 3)
+        kwargs.setdefault("choices", LANGUAGES)
+        kwargs.setdefault("db_collation", None)
+
+        super().__init__(*args, **kwargs)

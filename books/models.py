@@ -15,6 +15,7 @@ from books.fields import DeweyField
 from books.fields import EANField
 from books.fields import ISBNField
 from books.fields import ISSNField
+from books.fields import LanguageField
 
 
 def current_year() -> int:
@@ -253,7 +254,7 @@ class BookEntry(models.Model):
     dewey = DeweyField(verbose_name=_("Dewey"), max_length=15, null=True, blank=True)
 
     # - Language - Γλώσσα
-    language = models.CharField(verbose_name=_("Language"), max_length=8, null=True, blank=True)
+    language = LanguageField(verbose_name=_("Language"), null=True, blank=True)
 
     # - Edition - Έκδοση
     edition = models.CharField(verbose_name=_("Edition"), max_length=60, null=True, blank=True)
