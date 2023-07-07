@@ -4,6 +4,9 @@
 {% load static %}
 {% block title %}
     {{ object.title }}
+    {% if perms.books.change_bookentry %}
+        <a href="{% url 'admin:books_bookentry_change' object.id %}"><i class="bi bi-pencil-fill"></i></a>
+    {% endif %}
 {% endblock title %}
 {% block skoufas_library_extra_head %}
     <link rel="stylesheet" href="{% static 'books/prism.css' %}"/>

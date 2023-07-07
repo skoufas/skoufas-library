@@ -225,6 +225,12 @@ class Topic(models.Model):
 class BookEntry(models.Model):
     """Καρτέλα Βιβλίου."""
 
+    # - Title - Τίτλος
+    title = models.CharField(verbose_name=_("Title"), max_length=4096, null=True, blank=False)
+
+    # - Subtitle - Υπότιτλος
+    subtitle = models.CharField(verbose_name=_("Subtitle"), max_length=4096, null=True, blank=True)
+
     # ### Authorship (Many-to-Many)
     authors = models.ManyToManyField(
         verbose_name=_("Author"),
@@ -243,12 +249,6 @@ class BookEntry(models.Model):
 
     # - EditorId (FK: Editor)
     editor = models.ForeignKey(Editor, verbose_name=_("editor"), null=True, on_delete=models.CASCADE, blank=True)
-
-    # - Title - Τίτλος
-    title = models.CharField(verbose_name=_("Title"), max_length=4096, null=True, blank=False)
-
-    # - Subtitle - Υπότιτλος
-    subtitle = models.CharField(verbose_name=_("Subtitle"), max_length=4096, null=True, blank=True)
 
     # - Dewey - Ταξινομικός Αριθμός Dewey
     dewey = DeweyField(verbose_name=_("Dewey"), max_length=15, null=True, blank=True)
@@ -272,9 +272,6 @@ class BookEntry(models.Model):
 
     # - Copies - Αντίτυπα Αριθμητικά
     copies = models.IntegerField(verbose_name=_("Copies"), null=True, blank=True)
-
-    # Donors (Many-to-Many)
-    entry_donors = models.ManyToManyField(verbose_name=_("Donor"), to=Donor, blank=True)
 
     # - Volumes - Τόμοι/Τεύχη
     volumes = models.CharField(verbose_name=_("Volumes"), max_length=200, null=True, blank=True)
@@ -306,6 +303,9 @@ class BookEntry(models.Model):
     has_dvd = models.BooleanField(
         verbose_name=_("Has DVD"),
     )
+
+    # Donors (Many-to-Many)
+    entry_donors = models.ManyToManyField(verbose_name=_("Donor"), to=Donor, blank=True)
 
     def __str__(self):
         """Print Book entry's Title."""
@@ -430,7 +430,8 @@ class DbfEntryRow(models.Model):
     class Meta:
         """Meta for DbfEntryRow."""
 
-        order_with_respect_to = "dbfentry"
+        ordering = ["dbfentry", "code"]
+
         verbose_name = _("DBF row")
         verbose_name_plural = _("DBF rows")
         unique_together = [["dbfentry", "code"]]

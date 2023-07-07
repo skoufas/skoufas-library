@@ -4,24 +4,33 @@
 {% load static %}
 {% block title %}
     {{ object }}
+    {% if perms.books.change_donor %}
+        <a href="{% url 'admin:books_donor_change' object.id %}"><i class="bi bi-pencil-fill"></i></a>
+    {% endif %}
 {% endblock title %}
 {% block content %}
     <dt>
         {% blocktranslate %}Books donated by {{ object }}{% endblocktranslate%}
     </dt>
     <dd>
-        <ul class="list-group">
+        <div class="list-group ">
             {% for book_entry in object.bookentry_set.all %}
-                <a href="{% url 'books:book-by-id' book_entry.id %}"
-                   class="list-group-item list-group-item-action">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">
-                            <i class="bi bi-book"></i> {{ book_entry.title }}
-                        </h5>
-                    </div>
-                    {% if book_entry.subtitle %}<small class="text-muted">{{ book_entry.subtitle }}</small>{% endif %}
-                </a>
+                <div class="list-group-item d-flex w-100 justify-content-between">
+                    <a href="{% url 'books:book-by-id' book_entry.id %}"
+                       class="list-group-item-action col-9">
+                        <i class="bi bi-book"></i> {{ book_entry.title }}
+                        {% if book_entry.subtitle %}
+                            <div>
+                                <small class="text-muted">{{ book_entry.subtitle }}</small>
+                            </div>
+                        {% endif %}
+                    </a>
+                    {% if perms.books.change_bookentry %}
+                        <a href="{% url 'admin:books_bookentry_change' book_entry.id %}"
+                           class="list-group-item-action col-1-auto"><span class="badge bg-primary rounded-pill"><i class="bi bi-pencil-fill"></i></span></a>
+                    {% endif %}
+                </div>
             {% endfor %}
-        </ul>
+        </div>
     </dd>
 {% endblock content %}
