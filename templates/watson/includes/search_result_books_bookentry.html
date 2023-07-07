@@ -1,0 +1,17 @@
+{% load i18n %}
+<a href="{{ result.url }}"
+   class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">
+            <i class="bi bi-book"></i> {{ obj.title }}
+        </h5>
+    </div>
+    {% if obj.subtitle %}<small class="text-muted">{{ obj.subtitle }}</small>{% endif %}
+    <p class="mb-1">
+        {% for author in obj.authors.all %}
+            {{ author }}
+        {% empty %}
+            {% translate "Book with no authors" %}
+        {% endfor %}
+    </p>
+</a>

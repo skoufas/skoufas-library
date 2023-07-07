@@ -28,7 +28,7 @@
             <ul>
                 {% for author_entry in object.authors.all %}
                     <li>
-                        <a href="{% url 'books:author-by-id' author_entry.id %}">{{ author_entry }}</a>
+                        <a href="{% url 'books:author-by-id' author_entry.id %}"><i class="bi bi-file-person"></i> {{ author_entry }}</a>
                     </li>
                 {% empty %}
                     <li>{% translate "Book with no authors" %}</li>

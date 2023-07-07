@@ -15,7 +15,9 @@
                 <a href="{% url 'books:book-by-id' book_entry.id %}"
                    class="list-group-item list-group-item-action">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{ book_entry.title }}</h5>
+                        <h5 class="mb-1">
+                            <i class="bi bi-book"></i> {{ book_entry.title }}
+                        </h5>
                     </div>
                     {% if book_entry.subtitle %}<small class="text-muted">{{ book_entry.subtitle }}</small>{% endif %}
                 </a>

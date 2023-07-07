@@ -28,7 +28,12 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
     path(
-        "search/", include("watson.urls", namespace="watson"), {"template_name": "skoufas_library/search_results.html"}
+        "search/",
+        include("watson.urls", namespace="watson"),
+        {
+            "template_name": "skoufas_library/search_results.html",
+            "paginate_by": 50,
+        },
     ),
 ] + staticfiles_urlpatterns()
 
