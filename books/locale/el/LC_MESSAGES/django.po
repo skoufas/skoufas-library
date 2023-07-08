@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-08 09:45+0300\n"
+"POT-Creation-Date: 2023-07-08 13:11+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,8 @@ msgstr "EAN"
 
 #: books/fields.py:105
 msgid "Skoufas classification format XXX, XXX ABC, XXX.XXX, XXX.XXX ABC"
-msgstr "Ταξινομικός Αριθμός βιβλιοθήκης Σκουφά NNN, ΝΝΝ ΑΒΓ, ΝΝΝ.ΝΝΝ, ΝΝΝ.ΝΝΝ ΑΒΓ"
+msgstr ""
+"Ταξινομικός Αριθμός βιβλιοθήκης Σκουφά NNN, ΝΝΝ ΑΒΓ, ΝΝΝ.ΝΝΝ, ΝΝΝ.ΝΝΝ ΑΒΓ"
 
 #: books/fields.py:110 books/templates/books/bookentry_detail.html:43
 msgid "Classification"
@@ -603,7 +604,7 @@ msgstr ""
 msgid "Pushto"
 msgstr ""
 
-#: books/languages.py:152 books/skoufas_classification_classes.py:588
+#: books/languages.py:152 books/skoufas_classification_classes.py:591
 msgid "Portuguese"
 msgstr ""
 
@@ -1251,7 +1252,7 @@ msgstr ""
 msgid "Aeka"
 msgstr ""
 
-#: books/languages.py:315 books/skoufas_classification_classes.py:611
+#: books/languages.py:315 books/skoufas_classification_classes.py:614
 msgid "Afro-Asiatic languages"
 msgstr ""
 
@@ -23699,7 +23700,7 @@ msgstr ""
 msgid "Singa"
 msgstr ""
 
-#: books/languages.py:6041 books/skoufas_classification_classes.py:538
+#: books/languages.py:6041 books/skoufas_classification_classes.py:541
 msgid "Sign languages"
 msgstr ""
 
@@ -31863,1043 +31864,1027 @@ msgstr ""
 msgid "Zuojiang Zhuang"
 msgstr ""
 
-#: books/models.py:34 books/models.py:72 books/models.py:106
-#: books/models.py:140
+#: books/models.py:35 books/models.py:73 books/models.py:107
+#: books/models.py:141
 msgid "first name"
 msgstr "Όνομα"
 
-#: books/models.py:35 books/models.py:73 books/models.py:107
-#: books/models.py:141
+#: books/models.py:36 books/models.py:74 books/models.py:108
+#: books/models.py:142
 msgid "middle name"
 msgstr "Μεσαίο Όνομα"
 
-#: books/models.py:36 books/models.py:74 books/models.py:108
-#: books/models.py:142
+#: books/models.py:37 books/models.py:75 books/models.py:109
+#: books/models.py:143
 msgid "surname"
 msgstr "Επίθετο"
 
-#: books/models.py:37 books/models.py:75 books/models.py:109
-#: books/models.py:143
+#: books/models.py:38 books/models.py:76 books/models.py:110
+#: books/models.py:144
 msgid "organisation name"
 msgstr "Οργάνωση"
 
-#: books/models.py:45
+#: books/models.py:46
 msgid "Nameless author"
 msgstr "Συγγραφέας χωρίς όνομα"
 
-#: books/models.py:59 books/models.py:236
+#: books/models.py:60 books/models.py:237
 msgid "Author"
 msgstr "Συγγραφέας"
 
-#: books/models.py:60 books/templates/books/bookentry_detail.html:28
+#: books/models.py:61 books/templates/books/bookentry_detail.html:28
 msgid "Authors"
 msgstr "Συγγραφείς"
 
-#: books/models.py:83
+#: books/models.py:84
 msgid "Nameless translator"
 msgstr "Μεταφραστής χωρίς όνομα"
 
-#: books/models.py:93 books/models.py:242
+#: books/models.py:94 books/models.py:243
 msgid "Translator"
 msgstr "Μεταφραστής"
 
-#: books/models.py:94 books/templates/books/bookentry_detail.html:141
+#: books/models.py:95 books/templates/books/bookentry_detail.html:141
 msgid "Translators"
 msgstr "Μεταφραστές"
 
-#: books/models.py:117
+#: books/models.py:118
 msgid "Nameless curator"
 msgstr "Επιμελητής χωρίς όνομα"
 
-#: books/models.py:127 books/models.py:245
+#: books/models.py:128 books/models.py:246
 msgid "Curator"
 msgstr "Επιμελητής"
 
-#: books/models.py:128 books/templates/books/bookentry_detail.html:155
+#: books/models.py:129 books/templates/books/bookentry_detail.html:155
 msgid "Curators"
 msgstr "Επιμελητές"
 
-#: books/models.py:151
+#: books/models.py:152
 msgid "Nameless donor"
 msgstr "Δωρητής χωρίς όνομα"
 
-#: books/models.py:161 books/models.py:310 books/models.py:371
+#: books/models.py:162 books/models.py:311 books/models.py:373
 msgid "Donor"
 msgstr "Δωρητής"
 
-#: books/models.py:162 books/templates/books/bookentry_detail.html:169
+#: books/models.py:163 books/templates/books/bookentry_detail.html:169
 msgid "Donors"
 msgstr "Δωρητές"
 
-#: books/models.py:174 books/models.py:192
+#: books/models.py:175 books/models.py:193
 #: books/templates/books/bookentry_detail.html:93
 msgid "Editor"
 msgstr "Εκδότης"
 
-#: books/models.py:175
+#: books/models.py:176
 msgid "Editor place"
 msgstr "Τόπος Έκδοσης"
 
-#: books/models.py:180
+#: books/models.py:181
 msgid "Nameless editor"
 msgstr "Εκδότης χωρίς όνομα"
 
-#: books/models.py:184
+#: books/models.py:185
 msgid "Unknown editor in {}"
 msgstr "Άγνωστος εκδότης απο {}"
 
-#: books/models.py:193
+#: books/models.py:194
 msgid "Editors"
 msgstr "Εκδότες"
 
-#: books/models.py:205
+#: books/models.py:206
 msgid "topic"
 msgstr "Θέμα"
 
-#: books/models.py:215 books/models.py:248
+#: books/models.py:216 books/models.py:249
 msgid "Topic"
 msgstr "Θέμα"
 
-#: books/models.py:216 books/templates/books/bookentry_detail.html:75
+#: books/models.py:217 books/templates/books/bookentry_detail.html:75
 msgid "Topics"
 msgstr "Θέματα"
 
-#: books/models.py:229
+#: books/models.py:230
 msgid "Title"
 msgstr "Τίτλος"
 
-#: books/models.py:232 books/templates/books/bookentry_detail.html:21
+#: books/models.py:233 books/templates/books/bookentry_detail.html:21
 msgid "Subtitle"
 msgstr "Υπότιτλος"
 
-#: books/models.py:251
+#: books/models.py:252
 msgid "editor"
 msgstr "Εκδότης"
 
-#: books/models.py:255
+#: books/models.py:256
 msgid "Skoufas Classification"
 msgstr "Ταξινόμιση βιβλιοθήκης Σκουφά"
 
-#: books/models.py:259 books/skoufas_classification_classes.py:15
-#: books/skoufas_classification_classes.py:64
-#: books/skoufas_classification_classes.py:519
+#: books/models.py:260 books/skoufas_classification_classes.py:18
+#: books/skoufas_classification_classes.py:67
+#: books/skoufas_classification_classes.py:522
 #: books/templates/books/bookentry_detail.html:85
 msgid "Language"
 msgstr "Γλώσσα"
 
-#: books/models.py:262 books/templates/books/bookentry_detail.html:101
+#: books/models.py:263 books/templates/books/bookentry_detail.html:101
 msgid "Edition"
 msgstr "Έκδοση"
 
-#: books/models.py:266 books/templates/books/bookentry_detail.html:109
+#: books/models.py:267 books/templates/books/bookentry_detail.html:109
 msgid "Edition Year"
 msgstr "Έτος έκδοσης"
 
-#: books/models.py:273 books/templates/books/bookentry_detail.html:117
+#: books/models.py:274 books/templates/books/bookentry_detail.html:117
 msgid "Pages"
 msgstr "Σελίδες"
 
-#: books/models.py:276 books/models.py:364
+#: books/models.py:277 books/models.py:366
 #: books/templates/books/bookentry_detail.html:125
 msgid "Copies"
 msgstr "Αντίτυπα"
 
-#: books/models.py:279 books/templates/books/bookentry_detail.html:133
+#: books/models.py:280 books/templates/books/bookentry_detail.html:133
 msgid "Volumes"
 msgstr "Τεύχη/Τόμοι"
 
-#: books/models.py:282 books/templates/books/bookentry_detail.html:183
+#: books/models.py:283 books/templates/books/bookentry_detail.html:183
 msgid "Notes"
 msgstr "Σημειώσεις"
 
-#: books/models.py:285 books/templates/books/bookentry_detail.html:191
+#: books/models.py:286 books/templates/books/bookentry_detail.html:191
 msgid "Material"
 msgstr "Υλικό"
 
-#: books/models.py:297 books/templates/books/bookentry_detail.html:222
+#: books/models.py:298 books/templates/books/bookentry_detail.html:222
 msgid "Offprint"
 msgstr "Ανάτυπο"
 
-#: books/models.py:301 books/templates/books/bookentry_detail.html:232
+#: books/models.py:302 books/templates/books/bookentry_detail.html:232
 msgid "Has CD"
 msgstr "Έχει CD"
 
-#: books/models.py:306 books/templates/books/bookentry_detail.html:242
+#: books/models.py:307 books/templates/books/bookentry_detail.html:242
 msgid "Has DVD"
 msgstr "Έχει DVD"
 
-#: books/models.py:314
+#: books/models.py:315
 msgid "Skoufas Classification Class"
 msgstr "Βασική Ταξινόμιση βιβλιοθήκης Σκουφά"
 
-#: books/models.py:327
+#: books/models.py:329
 msgid "Book with no title and subtitle"
 msgstr "Βιβλίο χωρίς τιτλο και υπότιτλο"
 
-#: books/models.py:355 books/models.py:366 books/models.py:403
+#: books/models.py:357 books/models.py:368 books/models.py:405
 msgid "Book Entry"
 msgstr "Κάρτα Βιβλίου"
 
-#: books/models.py:356
+#: books/models.py:358
 msgid "Book Entries"
 msgstr "Κάρτες Βιβλίου"
 
-#: books/models.py:362
+#: books/models.py:364
 msgid "Entry number"
 msgstr "Αριθμός εισαγωγής"
 
-#: books/models.py:390
+#: books/models.py:392
 msgid "Entry Number"
 msgstr "Αριθμός εισαγωγής"
 
-#: books/models.py:391 books/templates/books/bookentry_detail.html:52
+#: books/models.py:393 books/templates/books/bookentry_detail.html:52
 msgid "Entry Numbers"
 msgstr "Αριθμοί εισαγωγής"
 
-#: books/models.py:404
+#: books/models.py:406
 msgid "DBF Sequence"
 msgstr "Οθόνες DBF"
 
-#: books/models.py:405
+#: books/models.py:407
 msgid "Import Time"
 msgstr "Ώρα εισαγωγής"
 
-#: books/models.py:422 books/models.py:435
+#: books/models.py:424 books/models.py:437
 msgid "DBF entry"
 msgstr "Οθόνη DBF"
 
-#: books/models.py:423
+#: books/models.py:425
 msgid "DBF entries"
 msgstr "Οθόνες DBF"
 
-#: books/models.py:437
+#: books/models.py:439
 msgid "Code"
 msgstr "Κωδικός"
 
-#: books/models.py:441
+#: books/models.py:443
 msgid "Value"
 msgstr "Τιμή"
 
-#: books/models.py:455
+#: books/models.py:457
 msgid "DBF row"
 msgstr "Πεδίο DBF"
 
-#: books/models.py:456
+#: books/models.py:458
 msgid "DBF rows"
 msgstr "Πεδία DBF"
 
-#: books/skoufas_classification_classes.py:11
-#: books/skoufas_classification_classes.py:127
+#: books/skoufas_classification_classes.py:14
+#: books/skoufas_classification_classes.py:130
 msgid "Computer science, information and general works"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:12
-#: books/skoufas_classification_classes.py:217
+#: books/skoufas_classification_classes.py:15
+#: books/skoufas_classification_classes.py:220
 msgid "Philosophy and psychology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:13
-#: books/skoufas_classification_classes.py:44
-#: books/skoufas_classification_classes.py:317
-#: books/skoufas_classification_classes.py:876
+#: books/skoufas_classification_classes.py:16
+#: books/skoufas_classification_classes.py:47
+#: books/skoufas_classification_classes.py:320
+#: books/skoufas_classification_classes.py:879
 msgid "Religion"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:14
-#: books/skoufas_classification_classes.py:417
+#: books/skoufas_classification_classes.py:17
+#: books/skoufas_classification_classes.py:420
 msgid "Social sciences"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:16
-#: books/skoufas_classification_classes.py:74
+#: books/skoufas_classification_classes.py:19
+#: books/skoufas_classification_classes.py:77
 msgid "Science"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:17
-#: books/skoufas_classification_classes.py:84
+#: books/skoufas_classification_classes.py:20
+#: books/skoufas_classification_classes.py:87
 msgid "Technology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:18
+#: books/skoufas_classification_classes.py:21
 msgid "Arts and recreation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:19
+#: books/skoufas_classification_classes.py:22
 msgid "Literature"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:20
+#: books/skoufas_classification_classes.py:23
 msgid "History and geography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:24
+#: books/skoufas_classification_classes.py:27
 msgid "Computer science, knowledge and systems"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:25
-#: books/skoufas_classification_classes.py:138
+#: books/skoufas_classification_classes.py:28
+#: books/skoufas_classification_classes.py:141
 msgid "Bibliographies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:26
-#: books/skoufas_classification_classes.py:147
+#: books/skoufas_classification_classes.py:29
+#: books/skoufas_classification_classes.py:150
 msgid "Library and information sciences"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:27
+#: books/skoufas_classification_classes.py:30
 msgid "Encyclopedias and books of facts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:28
+#: books/skoufas_classification_classes.py:31
 msgid "Unassigned (formerly Biographies)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:29
+#: books/skoufas_classification_classes.py:32
 msgid "Magazines, journals and serials"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:30
+#: books/skoufas_classification_classes.py:33
 msgid "Associations, organizations and museums"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:31
+#: books/skoufas_classification_classes.py:34
 msgid "News media, journalism and publishing"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:32
+#: books/skoufas_classification_classes.py:35
 msgid "Quotations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:33
-#: books/skoufas_classification_classes.py:207
+#: books/skoufas_classification_classes.py:36
+#: books/skoufas_classification_classes.py:210
 msgid "Manuscripts and rare books"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:34
+#: books/skoufas_classification_classes.py:37
 msgid "Philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:35
-#: books/skoufas_classification_classes.py:227
+#: books/skoufas_classification_classes.py:38
+#: books/skoufas_classification_classes.py:230
 msgid "Metaphysics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:36
+#: books/skoufas_classification_classes.py:39
 msgid "Epistemology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:37
-#: books/skoufas_classification_classes.py:247
+#: books/skoufas_classification_classes.py:40
+#: books/skoufas_classification_classes.py:250
 msgid "Parapsychology and occultism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:38
+#: books/skoufas_classification_classes.py:41
 msgid "Philosophical schools of thought"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:39
-#: books/skoufas_classification_classes.py:267
+#: books/skoufas_classification_classes.py:42
+#: books/skoufas_classification_classes.py:270
 msgid "Psychology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:40
-#: books/skoufas_classification_classes.py:277
+#: books/skoufas_classification_classes.py:43
+#: books/skoufas_classification_classes.py:280
 msgid "Philosophical logic"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:41
+#: books/skoufas_classification_classes.py:44
 msgid "Ethics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:42
+#: books/skoufas_classification_classes.py:45
 msgid "Ancient, medieval, and Eastern philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:43
+#: books/skoufas_classification_classes.py:46
 msgid "Modern Western philosophy (19th-century, 20th-century)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:45
-#: books/skoufas_classification_classes.py:327
+#: books/skoufas_classification_classes.py:48
+#: books/skoufas_classification_classes.py:330
 msgid "Philosophy and theory of religion"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:46
+#: books/skoufas_classification_classes.py:49
 msgid "The Bible"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:47
-#: books/skoufas_classification_classes.py:347
+#: books/skoufas_classification_classes.py:50
+#: books/skoufas_classification_classes.py:350
 msgid "Christianity"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:48
+#: books/skoufas_classification_classes.py:51
 msgid "Christian practice and observance"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:49
+#: books/skoufas_classification_classes.py:52
 msgid "Christian orders and local church"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:50
+#: books/skoufas_classification_classes.py:53
 msgid "Social and ecclesiastical theology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:51
+#: books/skoufas_classification_classes.py:54
 msgid "History of Christianity"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:52
+#: books/skoufas_classification_classes.py:55
 msgid "Christian denominations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:53
-#: books/skoufas_classification_classes.py:407
+#: books/skoufas_classification_classes.py:56
+#: books/skoufas_classification_classes.py:410
 msgid "Other religions"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:54
+#: books/skoufas_classification_classes.py:57
 msgid "Social sciences, sociology and anthropology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:55
+#: books/skoufas_classification_classes.py:58
 msgid "Statistics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:56
+#: books/skoufas_classification_classes.py:59
 msgid "Political science"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:57
-#: books/skoufas_classification_classes.py:449
+#: books/skoufas_classification_classes.py:60
+#: books/skoufas_classification_classes.py:452
 msgid "Economics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:58
-#: books/skoufas_classification_classes.py:459
+#: books/skoufas_classification_classes.py:61
+#: books/skoufas_classification_classes.py:462
 msgid "Law"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:59
-#: books/skoufas_classification_classes.py:469
+#: books/skoufas_classification_classes.py:62
+#: books/skoufas_classification_classes.py:472
 msgid "Public administration and military science"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:60
+#: books/skoufas_classification_classes.py:63
 msgid "Social problems and social services"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:61
-#: books/skoufas_classification_classes.py:489
+#: books/skoufas_classification_classes.py:64
+#: books/skoufas_classification_classes.py:492
 msgid "Education"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:62
+#: books/skoufas_classification_classes.py:65
 msgid "Commerce, communications and transportation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:63
+#: books/skoufas_classification_classes.py:66
 msgid "Customs, etiquette and folklore"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:65
-#: books/skoufas_classification_classes.py:529
+#: books/skoufas_classification_classes.py:68
+#: books/skoufas_classification_classes.py:532
 msgid "Linguistics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:66
+#: books/skoufas_classification_classes.py:69
 msgid "English and Old English languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:67
-#: books/skoufas_classification_classes.py:549
+#: books/skoufas_classification_classes.py:70
+#: books/skoufas_classification_classes.py:552
 msgid "German and related languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:68
+#: books/skoufas_classification_classes.py:71
 msgid "French and related languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:69
+#: books/skoufas_classification_classes.py:72
 msgid "Italian, Romanian and related languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:70
-#: books/skoufas_classification_classes.py:579
+#: books/skoufas_classification_classes.py:73
+#: books/skoufas_classification_classes.py:582
 msgid "Spanish, Portuguese, Galician"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:71
+#: books/skoufas_classification_classes.py:74
 msgid "Latin and Italic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:72
+#: books/skoufas_classification_classes.py:75
 msgid "Classical and modern Greek languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:73
-#: books/skoufas_classification_classes.py:609
+#: books/skoufas_classification_classes.py:76
+#: books/skoufas_classification_classes.py:612
 msgid "Other languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:75
-#: books/skoufas_classification_classes.py:629
+#: books/skoufas_classification_classes.py:78
+#: books/skoufas_classification_classes.py:632
 msgid "Mathematics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:76
+#: books/skoufas_classification_classes.py:79
 msgid "Astronomy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:77
-#: books/skoufas_classification_classes.py:649
+#: books/skoufas_classification_classes.py:80
+#: books/skoufas_classification_classes.py:652
 msgid "Physics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:78
+#: books/skoufas_classification_classes.py:81
 msgid "Chemistry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:79
+#: books/skoufas_classification_classes.py:82
 msgid "Earth sciences and geology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:80
+#: books/skoufas_classification_classes.py:83
 msgid "Fossils and prehistoric life"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:81
-#: books/skoufas_classification_classes.py:691
+#: books/skoufas_classification_classes.py:84
+#: books/skoufas_classification_classes.py:694
 msgid "Biology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:82
-#: books/skoufas_classification_classes.py:701
+#: books/skoufas_classification_classes.py:85
+#: books/skoufas_classification_classes.py:704
 msgid "Plants"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:83
+#: books/skoufas_classification_classes.py:86
 msgid "Animals (Zoology)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:85
-#: books/skoufas_classification_classes.py:731
+#: books/skoufas_classification_classes.py:88
+#: books/skoufas_classification_classes.py:734
 msgid "Medicine and health"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:86
+#: books/skoufas_classification_classes.py:89
 msgid "Engineering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:87
+#: books/skoufas_classification_classes.py:90
 msgid "Agriculture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:88
-#: books/skoufas_classification_classes.py:761
+#: books/skoufas_classification_classes.py:91
+#: books/skoufas_classification_classes.py:764
 msgid "Home and family management"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:89
+#: books/skoufas_classification_classes.py:92
 msgid "Management and public relations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:90
+#: books/skoufas_classification_classes.py:93
 msgid "Chemical engineering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:91
-#: books/skoufas_classification_classes.py:791
+#: books/skoufas_classification_classes.py:94
+#: books/skoufas_classification_classes.py:794
 msgid "Manufacturing"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:92
+#: books/skoufas_classification_classes.py:95
 msgid "Manufacture for specific uses"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:93
-#: books/skoufas_classification_classes.py:811
+#: books/skoufas_classification_classes.py:96
+#: books/skoufas_classification_classes.py:814
 msgid "Construction of buildings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:94
+#: books/skoufas_classification_classes.py:97
 msgid "Arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:95
-#: books/skoufas_classification_classes.py:831
+#: books/skoufas_classification_classes.py:98
+#: books/skoufas_classification_classes.py:834
 msgid "Area planning and landscape architecture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:96
-#: books/skoufas_classification_classes.py:841
+#: books/skoufas_classification_classes.py:99
+#: books/skoufas_classification_classes.py:844
 msgid "Architecture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:97
+#: books/skoufas_classification_classes.py:100
 msgid "Sculpture, ceramics and metalwork"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:98
+#: books/skoufas_classification_classes.py:101
 msgid "Graphic arts and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:99
+#: books/skoufas_classification_classes.py:102
 msgid "Painting"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:100
-#: books/skoufas_classification_classes.py:881
+#: books/skoufas_classification_classes.py:103
+#: books/skoufas_classification_classes.py:884
 msgid "Printmaking and prints"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:101
+#: books/skoufas_classification_classes.py:104
 msgid "Photography, computer art, film, video"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:102
-#: books/skoufas_classification_classes.py:901
+#: books/skoufas_classification_classes.py:105
+#: books/skoufas_classification_classes.py:904
 msgid "Music"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:103
+#: books/skoufas_classification_classes.py:106
 msgid "Outline of sports, games and entertainment"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:104
+#: books/skoufas_classification_classes.py:107
 msgid "Literature, rhetoric and criticism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:105
-#: books/skoufas_classification_classes.py:931
+#: books/skoufas_classification_classes.py:108
+#: books/skoufas_classification_classes.py:934
 msgid "American literature in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:106
+#: books/skoufas_classification_classes.py:109
 msgid "English and Old English literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:107
+#: books/skoufas_classification_classes.py:110
 msgid "German and related literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:108
+#: books/skoufas_classification_classes.py:111
 msgid "French and related literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:109
+#: books/skoufas_classification_classes.py:112
 msgid "Italian, Romanian and related literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:110
+#: books/skoufas_classification_classes.py:113
 msgid "Spanish, Portuguese, Galician literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:111
+#: books/skoufas_classification_classes.py:114
 msgid "Latin and Italic literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:112
+#: books/skoufas_classification_classes.py:115
 msgid "Classical and modern Greek literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:113
+#: books/skoufas_classification_classes.py:116
 msgid "Other literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:114
+#: books/skoufas_classification_classes.py:117
 msgid "History"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:115
-#: books/skoufas_classification_classes.py:1035
+#: books/skoufas_classification_classes.py:118
+#: books/skoufas_classification_classes.py:1038
 msgid "Geography and travel"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:116
+#: books/skoufas_classification_classes.py:119
 msgid "Biography and genealogy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:117
+#: books/skoufas_classification_classes.py:120
 msgid "History of ancient world (to c. 499)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:118
-#: books/skoufas_classification_classes.py:1067
+#: books/skoufas_classification_classes.py:121
+#: books/skoufas_classification_classes.py:1070
 msgid "History of Europe"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:119
-#: books/skoufas_classification_classes.py:1077
+#: books/skoufas_classification_classes.py:122
+#: books/skoufas_classification_classes.py:1080
 msgid "History of Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:120
-#: books/skoufas_classification_classes.py:1087
+#: books/skoufas_classification_classes.py:123
+#: books/skoufas_classification_classes.py:1090
 msgid "History of Africa"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:121
-#: books/skoufas_classification_classes.py:1097
+#: books/skoufas_classification_classes.py:124
+#: books/skoufas_classification_classes.py:1100
 msgid "History of North America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:122
-#: books/skoufas_classification_classes.py:1107
+#: books/skoufas_classification_classes.py:125
+#: books/skoufas_classification_classes.py:1110
 msgid "History of South America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:123
+#: books/skoufas_classification_classes.py:126
 msgid "History of other areas"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:128
+#: books/skoufas_classification_classes.py:131
 msgid "Knowledge"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:129
+#: books/skoufas_classification_classes.py:132
 msgid "The book (writing, libraries, and book-related topics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:130
+#: books/skoufas_classification_classes.py:133
 msgid "Systems"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:131
+#: books/skoufas_classification_classes.py:134
 msgid "Data processing and computer science"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:132
+#: books/skoufas_classification_classes.py:135
 msgid "Computer programming, programs and data"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:133
+#: books/skoufas_classification_classes.py:136
 msgid "Special computer methods (e.g. AI, multimedia, VR)[4]"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:134
-#: books/skoufas_classification_classes.py:135
-#: books/skoufas_classification_classes.py:136
-#: books/skoufas_classification_classes.py:140
-#: books/skoufas_classification_classes.py:151
-#: books/skoufas_classification_classes.py:156
+#: books/skoufas_classification_classes.py:137
+#: books/skoufas_classification_classes.py:138
+#: books/skoufas_classification_classes.py:139
+#: books/skoufas_classification_classes.py:143
+#: books/skoufas_classification_classes.py:154
+#: books/skoufas_classification_classes.py:159
 msgid "[Unassigned]"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:137
+#: books/skoufas_classification_classes.py:140
 msgid "Bibliography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:139
+#: books/skoufas_classification_classes.py:142
 msgid "Bibliographies of individuals"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:141
+#: books/skoufas_classification_classes.py:144
 msgid "Bibliographies of anonymous and pseudonymous works"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:142
+#: books/skoufas_classification_classes.py:145
 msgid "Bibliographies of works from specific places"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:143
+#: books/skoufas_classification_classes.py:146
 msgid "Bibliographies of works on specific subjects"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:144
+#: books/skoufas_classification_classes.py:147
 msgid "General subject catalogs"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:145
+#: books/skoufas_classification_classes.py:148
 msgid "Catalogs arranged by author, date, etc."
 msgstr ""
 
-#: books/skoufas_classification_classes.py:146
+#: books/skoufas_classification_classes.py:149
 msgid "Dictionary catalogs"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:148
+#: books/skoufas_classification_classes.py:151
 msgid "Library relationships (with archives, information centers, etc.)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:149
+#: books/skoufas_classification_classes.py:152
 msgid "Administration of physical plant"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:150
+#: books/skoufas_classification_classes.py:153
 msgid "Personnel management"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:152
+#: books/skoufas_classification_classes.py:155
 msgid "Library operations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:153
+#: books/skoufas_classification_classes.py:156
 msgid "Libraries for specific subjects"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:154
+#: books/skoufas_classification_classes.py:157
 msgid "General libraries"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:155
+#: books/skoufas_classification_classes.py:158
 msgid "Reading and use of other information media"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:157
+#: books/skoufas_classification_classes.py:160
 msgid "General encyclopedic works"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:158
+#: books/skoufas_classification_classes.py:161
 msgid "Encyclopedias in American English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:159
+#: books/skoufas_classification_classes.py:162
 msgid "Encyclopedias in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:160
+#: books/skoufas_classification_classes.py:163
 msgid "Encyclopedias in other Germanic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:161
+#: books/skoufas_classification_classes.py:164
 msgid "Encyclopedias in French, Occitan, and Catalan"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:162
+#: books/skoufas_classification_classes.py:165
 msgid "Encyclopedias in Italian, Romanian, and related languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:163
+#: books/skoufas_classification_classes.py:166
 msgid "Encyclopedias in Spanish and Portuguese"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:164
+#: books/skoufas_classification_classes.py:167
 msgid "Encyclopedias in Slavic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:165
+#: books/skoufas_classification_classes.py:168
 msgid "Encyclopedias in Scandinavian languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:166
+#: books/skoufas_classification_classes.py:169
 msgid "Encyclopedias in other languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:167
+#: books/skoufas_classification_classes.py:170
 msgid "General serial publications"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:168
+#: books/skoufas_classification_classes.py:171
 msgid "Serials in American English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:169
+#: books/skoufas_classification_classes.py:172
 msgid "Serials in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:170
+#: books/skoufas_classification_classes.py:173
 msgid "Serials in other Germanic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:171
+#: books/skoufas_classification_classes.py:174
 msgid "Serials in French, Occitan, and Catalan"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:172
+#: books/skoufas_classification_classes.py:175
 msgid "Serials in Italian, Romanian, and related languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:173
+#: books/skoufas_classification_classes.py:176
 msgid "Serials in Spanish and Portuguese"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:174
+#: books/skoufas_classification_classes.py:177
 msgid "Serials in Slavic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:175
+#: books/skoufas_classification_classes.py:178
 msgid "Serials in Scandinavian languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:176
+#: books/skoufas_classification_classes.py:179
 msgid "Serials in other languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:177
+#: books/skoufas_classification_classes.py:180
 msgid "General organizations and museum science"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:178
+#: books/skoufas_classification_classes.py:181
 msgid "Organizations in North America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:179
+#: books/skoufas_classification_classes.py:182
 msgid "Organizations in British Isles; in England"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:180
+#: books/skoufas_classification_classes.py:183
 msgid "Organizations in central Europe; in Germany"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:181
+#: books/skoufas_classification_classes.py:184
 msgid "Organizations in France and Monaco"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:182
+#: books/skoufas_classification_classes.py:185
 msgid "Organizations in Italy and adjacent islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:183
+#: books/skoufas_classification_classes.py:186
 msgid "Organizations in Iberian peninsula and adjacent islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:184
+#: books/skoufas_classification_classes.py:187
 msgid "Organizations in eastern Europe; in Russia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:185
+#: books/skoufas_classification_classes.py:188
 msgid "Organizations in other geographic areas"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:186
+#: books/skoufas_classification_classes.py:189
 msgid "Museum science"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:187
+#: books/skoufas_classification_classes.py:190
 msgid "News media, journalism, and publishing"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:188
+#: books/skoufas_classification_classes.py:191
 msgid "Newspapers in North America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:189
+#: books/skoufas_classification_classes.py:192
 msgid "Newspapers in British Isles; in England"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:190
+#: books/skoufas_classification_classes.py:193
 msgid "Newspapers in central Europe; in Germany"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:191
+#: books/skoufas_classification_classes.py:194
 msgid "Newspapers in France and Monaco"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:192
+#: books/skoufas_classification_classes.py:195
 msgid "Newspapers in Italy and adjacent islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:193
+#: books/skoufas_classification_classes.py:196
 msgid "Newspapers in Iberian peninsula and adjacent islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:194
+#: books/skoufas_classification_classes.py:197
 msgid "Newspapers in eastern Europe; in Russia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:195
+#: books/skoufas_classification_classes.py:198
 msgid "Newspapers in Scandinavia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:196
+#: books/skoufas_classification_classes.py:199
 msgid "Newspapers in other geographic areas"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:197
+#: books/skoufas_classification_classes.py:200
 msgid "General collections"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:198
+#: books/skoufas_classification_classes.py:201
 msgid "Collections in American English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:199
+#: books/skoufas_classification_classes.py:202
 msgid "Collections in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:200
+#: books/skoufas_classification_classes.py:203
 msgid "Collections in other Germanic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:201
+#: books/skoufas_classification_classes.py:204
 msgid "Collections in French, Occitan, Catalan"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:202
+#: books/skoufas_classification_classes.py:205
 msgid "Collections in Italian, Romanian, and related languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:203
+#: books/skoufas_classification_classes.py:206
 msgid "Collections in Spanish and Portuguese"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:204
+#: books/skoufas_classification_classes.py:207
 msgid "Collections in Slavic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:205
+#: books/skoufas_classification_classes.py:208
 msgid "Collections in Scandinavian languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:206
+#: books/skoufas_classification_classes.py:209
 msgid "Collections in other languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:208
+#: books/skoufas_classification_classes.py:211
 msgid "Manuscripts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:209
+#: books/skoufas_classification_classes.py:212
 msgid "Block books"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:210
+#: books/skoufas_classification_classes.py:213
 msgid "Incunabula"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:211
+#: books/skoufas_classification_classes.py:214
 msgid "Printed books"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:212
+#: books/skoufas_classification_classes.py:215
 msgid "Books notable for bindings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:213
+#: books/skoufas_classification_classes.py:216
 msgid "Books notable for illustrations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:214
+#: books/skoufas_classification_classes.py:217
 msgid "Books notable for ownership or origin"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:215
+#: books/skoufas_classification_classes.py:218
 msgid "Prohibited works, forgeries, and hoaxes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:216
+#: books/skoufas_classification_classes.py:219
 msgid "Books notable for format"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:218
-msgid "Theory of philosophy"
-msgstr ""
-
-#: books/skoufas_classification_classes.py:219
-#: books/skoufas_classification_classes.py:521
-#: books/skoufas_classification_classes.py:621
-#: books/skoufas_classification_classes.py:723
-#: books/skoufas_classification_classes.py:923
-msgid "Miscellany"
-msgstr ""
-
-#: books/skoufas_classification_classes.py:220
-msgid "Dictionaries and encyclopedias"
-msgstr ""
-
 #: books/skoufas_classification_classes.py:221
-msgid "No longer used — formerly Essays"
+msgid "Theory of philosophy"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:222
@@ -32907,3261 +32892,3277 @@ msgstr ""
 #: books/skoufas_classification_classes.py:624
 #: books/skoufas_classification_classes.py:726
 #: books/skoufas_classification_classes.py:926
-msgid "Serial publications"
+msgid "Miscellany"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:223
-#: books/skoufas_classification_classes.py:525
-#: books/skoufas_classification_classes.py:625
-#: books/skoufas_classification_classes.py:927
-msgid "Organizations and management"
+msgid "Dictionaries and encyclopedias"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:224
-msgid "Education, research, related topics of philosophy"
+msgid "No longer used — formerly Essays"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:225
-#: books/skoufas_classification_classes.py:422
 #: books/skoufas_classification_classes.py:527
-msgid "Groups of people"
+#: books/skoufas_classification_classes.py:627
+#: books/skoufas_classification_classes.py:729
+#: books/skoufas_classification_classes.py:929
+msgid "Serial publications"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:226
-msgid "History and collected biography"
+#: books/skoufas_classification_classes.py:528
+#: books/skoufas_classification_classes.py:628
+#: books/skoufas_classification_classes.py:930
+msgid "Organizations and management"
+msgstr ""
+
+#: books/skoufas_classification_classes.py:227
+msgid "Education, research, related topics of philosophy"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:228
-msgid "Ontology"
+#: books/skoufas_classification_classes.py:425
+#: books/skoufas_classification_classes.py:530
+msgid "Groups of people"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:229
-msgid "No longer used — formerly Methodology"
-msgstr ""
-
-#: books/skoufas_classification_classes.py:230
-msgid "Cosmology (Philosophy of nature)"
+msgid "History and collected biography"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:231
-msgid "Space"
+msgid "Ontology"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:232
-msgid "Time"
+msgid "No longer used — formerly Methodology"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:233
-msgid "Change"
+msgid "Cosmology (Philosophy of nature)"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:234
-msgid "Structure"
+msgid "Space"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:235
-msgid "Force and energy"
+msgid "Time"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:236
-msgid "Number and quantity"
+msgid "Change"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:237
-msgid "Epistemology, causation, and humankind"
+msgid "Structure"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:238
-msgid "Epistemology (Theory of knowledge)"
+msgid "Force and energy"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:239
-msgid "Causation"
+msgid "Number and quantity"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:240
-msgid "Determinism and indeterminism"
+msgid "Epistemology, causation, and humankind"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:241
-msgid "Teleology"
+msgid "Epistemology (Theory of knowledge)"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:242
-msgid "No longer used — formerly Infinity"
+msgid "Causation"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:243
-msgid "The self"
+msgid "Determinism and indeterminism"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:244
-msgid "The unconscious and the subconscious"
+msgid "Teleology"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:245
-#: books/skoufas_classification_classes.py:335
-#: books/skoufas_classification_classes.py:350
-msgid "Humankind"
+msgid "No longer used — formerly Infinity"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:246
-msgid "Origin and destiny of individual souls"
+msgid "The self"
+msgstr ""
+
+#: books/skoufas_classification_classes.py:247
+msgid "The unconscious and the subconscious"
 msgstr ""
 
 #: books/skoufas_classification_classes.py:248
+#: books/skoufas_classification_classes.py:338
+#: books/skoufas_classification_classes.py:353
+msgid "Humankind"
+msgstr ""
+
+#: books/skoufas_classification_classes.py:249
+msgid "Origin and destiny of individual souls"
+msgstr ""
+
+#: books/skoufas_classification_classes.py:251
 msgid ""
 "Parapsychological and occult methods for achieving well-being, happiness, "
 "success"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:249
+#: books/skoufas_classification_classes.py:252
 msgid "No longer used — formerly Mental derangements"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:250
+#: books/skoufas_classification_classes.py:253
 msgid "Specific topics in parapsychology and occultism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:251
+#: books/skoufas_classification_classes.py:254
 msgid "No longer used — formerly Mesmerism and Clairvoyance"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:252
+#: books/skoufas_classification_classes.py:255
 msgid "Dreams and mysteries"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:253
+#: books/skoufas_classification_classes.py:256
 msgid "No longer used — formerly Mental characteristics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:254
+#: books/skoufas_classification_classes.py:257
 msgid "Divinatory graphology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:255
+#: books/skoufas_classification_classes.py:258
 msgid "Physiognomy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:256
+#: books/skoufas_classification_classes.py:259
 msgid "Phrenology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:257
+#: books/skoufas_classification_classes.py:260
 msgid "Specific philosophical schools and viewpoints"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:258
+#: books/skoufas_classification_classes.py:261
 msgid "Idealism and related systems and doctrines"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:259
+#: books/skoufas_classification_classes.py:262
 msgid "Critical philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:260
+#: books/skoufas_classification_classes.py:263
 msgid "Bergsonism and intuitionism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:261
+#: books/skoufas_classification_classes.py:264
 msgid "Humanism and related systems and doctrines"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:262
+#: books/skoufas_classification_classes.py:265
 msgid "Sensationalism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:263
+#: books/skoufas_classification_classes.py:266
 msgid "Naturalism and related systems and doctrines"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:264
+#: books/skoufas_classification_classes.py:267
 msgid "Pantheism and related systems and doctrines"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:265
+#: books/skoufas_classification_classes.py:268
 msgid "Dogmatism, eclecticism, liberalism, syncretism, and traditionalism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:266
+#: books/skoufas_classification_classes.py:269
 msgid "Other philosophical systems and doctrines"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:268
+#: books/skoufas_classification_classes.py:271
 msgid "No longer used — formerly Intellect"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:269
+#: books/skoufas_classification_classes.py:272
 msgid "Sensory perception, movement, emotions, and physiological drives"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:270
+#: books/skoufas_classification_classes.py:273
 msgid "Conscious mental processes and intelligence"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:271
+#: books/skoufas_classification_classes.py:274
 msgid "Subconscious and altered states and processes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:272
+#: books/skoufas_classification_classes.py:275
 msgid "Differential and developmental psychology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:273
+#: books/skoufas_classification_classes.py:276
 msgid "Comparative psychology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:274
+#: books/skoufas_classification_classes.py:277
 msgid "No longer used — formerly Emotions"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:275
+#: books/skoufas_classification_classes.py:278
 msgid "Applied psychology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:276
+#: books/skoufas_classification_classes.py:279
 msgid "No longer used — formerly Will"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:278
+#: books/skoufas_classification_classes.py:281
 msgid "Induction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:279
+#: books/skoufas_classification_classes.py:282
 msgid "Deduction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:280
-#: books/skoufas_classification_classes.py:281
-#: books/skoufas_classification_classes.py:448
-#: books/skoufas_classification_classes.py:553
-#: books/skoufas_classification_classes.py:555
-#: books/skoufas_classification_classes.py:563
-#: books/skoufas_classification_classes.py:565
-#: books/skoufas_classification_classes.py:573
-#: books/skoufas_classification_classes.py:575
-#: books/skoufas_classification_classes.py:583
-#: books/skoufas_classification_classes.py:585
-#: books/skoufas_classification_classes.py:593
-#: books/skoufas_classification_classes.py:595
-#: books/skoufas_classification_classes.py:603
-#: books/skoufas_classification_classes.py:605
-#: books/skoufas_classification_classes.py:623
-#: books/skoufas_classification_classes.py:636
-#: books/skoufas_classification_classes.py:643
-#: books/skoufas_classification_classes.py:695
-#: books/skoufas_classification_classes.py:747
-#: books/skoufas_classification_classes.py:775
-#: books/skoufas_classification_classes.py:776
-#: books/skoufas_classification_classes.py:777
-#: books/skoufas_classification_classes.py:810
-#: books/skoufas_classification_classes.py:820
-#: books/skoufas_classification_classes.py:877
-#: books/skoufas_classification_classes.py:883
-#: books/skoufas_classification_classes.py:889
-#: books/skoufas_classification_classes.py:910
-#: books/skoufas_classification_classes.py:925
-#: books/skoufas_classification_classes.py:1120
-#: books/skoufas_classification_classes.py:1121
+#: books/skoufas_classification_classes.py:283
+#: books/skoufas_classification_classes.py:284
+#: books/skoufas_classification_classes.py:451
+#: books/skoufas_classification_classes.py:556
+#: books/skoufas_classification_classes.py:558
+#: books/skoufas_classification_classes.py:566
+#: books/skoufas_classification_classes.py:568
+#: books/skoufas_classification_classes.py:576
+#: books/skoufas_classification_classes.py:578
+#: books/skoufas_classification_classes.py:586
+#: books/skoufas_classification_classes.py:588
+#: books/skoufas_classification_classes.py:596
+#: books/skoufas_classification_classes.py:598
+#: books/skoufas_classification_classes.py:606
+#: books/skoufas_classification_classes.py:608
+#: books/skoufas_classification_classes.py:626
+#: books/skoufas_classification_classes.py:639
+#: books/skoufas_classification_classes.py:646
+#: books/skoufas_classification_classes.py:698
+#: books/skoufas_classification_classes.py:750
+#: books/skoufas_classification_classes.py:778
+#: books/skoufas_classification_classes.py:779
+#: books/skoufas_classification_classes.py:780
+#: books/skoufas_classification_classes.py:813
+#: books/skoufas_classification_classes.py:823
+#: books/skoufas_classification_classes.py:880
+#: books/skoufas_classification_classes.py:886
+#: books/skoufas_classification_classes.py:892
+#: books/skoufas_classification_classes.py:913
+#: books/skoufas_classification_classes.py:928
+#: books/skoufas_classification_classes.py:1123
+#: books/skoufas_classification_classes.py:1124
 msgid "Not assigned or no longer used"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:282
+#: books/skoufas_classification_classes.py:285
 msgid "Fallacies and sources of error"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:283
+#: books/skoufas_classification_classes.py:286
 msgid "Syllogisms"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:284
+#: books/skoufas_classification_classes.py:287
 msgid "Hypotheses"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:285
+#: books/skoufas_classification_classes.py:288
 msgid "Argument and persuasion"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:286
+#: books/skoufas_classification_classes.py:289
 msgid "Analogy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:287
+#: books/skoufas_classification_classes.py:290
 msgid "Ethics (Moral philosophy)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:288
+#: books/skoufas_classification_classes.py:291
 msgid "Ethical systems"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:289
+#: books/skoufas_classification_classes.py:292
 msgid "Political ethics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:290
+#: books/skoufas_classification_classes.py:293
 msgid "Ethics of family relationships"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:291
+#: books/skoufas_classification_classes.py:294
 msgid "Occupational ethics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:292
+#: books/skoufas_classification_classes.py:295
 msgid "Ethics of recreation, leisure, public performances, communication"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:293
+#: books/skoufas_classification_classes.py:296
 msgid "Ethics of sex and reproduction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:294
+#: books/skoufas_classification_classes.py:297
 msgid "Ethics of social relations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:295
+#: books/skoufas_classification_classes.py:298
 msgid "Ethics of consumption"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:296
+#: books/skoufas_classification_classes.py:299
 msgid "Other ethical norms"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:297
+#: books/skoufas_classification_classes.py:300
 msgid "Ancient, medieval, eastern philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:298
+#: books/skoufas_classification_classes.py:301
 msgid "Eastern philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:299
+#: books/skoufas_classification_classes.py:302
 msgid "Pre-Socratic Greek philosophies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:300
+#: books/skoufas_classification_classes.py:303
 msgid "Sophistic, Socratic, related Greek philosophies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:301
+#: books/skoufas_classification_classes.py:304
 msgid "Platonic philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:302
+#: books/skoufas_classification_classes.py:305
 msgid "Aristotelian philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:303
+#: books/skoufas_classification_classes.py:306
 msgid "Skeptic and Neoplatonic philosophies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:304
+#: books/skoufas_classification_classes.py:307
 msgid "Epicurean philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:305
+#: books/skoufas_classification_classes.py:308
 msgid "Stoic philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:306
+#: books/skoufas_classification_classes.py:309
 msgid "Medieval Western philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:307
+#: books/skoufas_classification_classes.py:310
 msgid "Modern Western and other noneastern philosophy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:308
+#: books/skoufas_classification_classes.py:311
 msgid "Philosophy of the United States and Canada"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:309
+#: books/skoufas_classification_classes.py:312
 msgid "Philosophy of the British Isles"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:310
+#: books/skoufas_classification_classes.py:313
 msgid "Philosophy of Germany and Austria"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:311
+#: books/skoufas_classification_classes.py:314
 msgid "Philosophy of France"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:312
+#: books/skoufas_classification_classes.py:315
 msgid "Philosophy of Italy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:313
+#: books/skoufas_classification_classes.py:316
 msgid "Philosophy of Spain and Portugal"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:314
+#: books/skoufas_classification_classes.py:317
 msgid "Philosophy of Russia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:315
+#: books/skoufas_classification_classes.py:318
 msgid "Philosophy of Scandinavia and Finland"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:316
+#: books/skoufas_classification_classes.py:319
 msgid "Philosophy in other geographic areas"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:318
+#: books/skoufas_classification_classes.py:321
 msgid ""
 "Religious mythology, general classes of religion, interreligious relations "
 "and attitudes, social theology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:319
+#: books/skoufas_classification_classes.py:322
 msgid "Doctrines"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:320
+#: books/skoufas_classification_classes.py:323
 msgid "Public worship and other practices"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:321
+#: books/skoufas_classification_classes.py:324
 msgid "Religious experience, life, practice"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:322
+#: books/skoufas_classification_classes.py:325
 msgid "Religious ethics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:323
+#: books/skoufas_classification_classes.py:326
 msgid "Leaders and organization"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:324
+#: books/skoufas_classification_classes.py:327
 msgid "Missions and religious education"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:325
+#: books/skoufas_classification_classes.py:328
 msgid "Sources"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:326
+#: books/skoufas_classification_classes.py:329
 msgid "Sects and reform movements"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:328
+#: books/skoufas_classification_classes.py:331
 msgid "Concepts of God"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:329
+#: books/skoufas_classification_classes.py:332
 msgid "Existence, ways of knowing God, attributes of God"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:330
+#: books/skoufas_classification_classes.py:333
 msgid "Creation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:331
+#: books/skoufas_classification_classes.py:334
 msgid "Theodicy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:332
+#: books/skoufas_classification_classes.py:335
 msgid "Science and religion"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:333
+#: books/skoufas_classification_classes.py:336
 msgid "No longer used—formerly Evil"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:334
+#: books/skoufas_classification_classes.py:337
 msgid "No longer used—formerly Prayer"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:336
+#: books/skoufas_classification_classes.py:339
 msgid "No longer used—formerly Analogies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:337
+#: books/skoufas_classification_classes.py:340
 msgid "Bible"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:338
+#: books/skoufas_classification_classes.py:341
 msgid "Old Testament (Tanakh)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:339
+#: books/skoufas_classification_classes.py:342
 msgid "Historical books of Old Testament"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:340
+#: books/skoufas_classification_classes.py:343
 msgid "Poetic books of Old Testament"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:341
+#: books/skoufas_classification_classes.py:344
 msgid "Prophetic books of Old Testament"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:342
+#: books/skoufas_classification_classes.py:345
 msgid "New Testament"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:343
+#: books/skoufas_classification_classes.py:346
 msgid "Gospels and Acts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:344
+#: books/skoufas_classification_classes.py:347
 msgid "Epistles"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:345
+#: books/skoufas_classification_classes.py:348
 msgid "Revelation (Apocalypse)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:346
+#: books/skoufas_classification_classes.py:349
 msgid "Apocrypha, pseudepigrapha, and inter-testamental works"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:348
+#: books/skoufas_classification_classes.py:351
 msgid "God"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:349
+#: books/skoufas_classification_classes.py:352
 msgid "Jesus Christ and his family"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:351
+#: books/skoufas_classification_classes.py:354
 msgid "Salvation and grace"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:352
+#: books/skoufas_classification_classes.py:355
 msgid "Spiritual beings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:353
+#: books/skoufas_classification_classes.py:356
 msgid "Eschatology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:354
+#: books/skoufas_classification_classes.py:357
 msgid "No longer used—formerly Future state"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:355
+#: books/skoufas_classification_classes.py:358
 msgid "Creeds, confessions of faith, covenants, and catechisms"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:356
+#: books/skoufas_classification_classes.py:359
 msgid "Apologetics and polemics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:357
+#: books/skoufas_classification_classes.py:360
 msgid "Christian moral and devotional theology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:358
+#: books/skoufas_classification_classes.py:361
 msgid "Christian ethics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:359
+#: books/skoufas_classification_classes.py:362
 msgid "Devotional literature"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:360
+#: books/skoufas_classification_classes.py:363
 msgid "Evangelistic writings for individuals and families"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:361
+#: books/skoufas_classification_classes.py:364
 msgid "No longer used—formerly Religious fiction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:362
+#: books/skoufas_classification_classes.py:365
 msgid "No longer used—formerly Hymnology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:363
+#: books/skoufas_classification_classes.py:366
 msgid "Use of art in Christianity"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:364
+#: books/skoufas_classification_classes.py:367
 msgid "Church furnishings and related articles"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:365
+#: books/skoufas_classification_classes.py:368
 msgid "Christian experience, practice, life"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:366
+#: books/skoufas_classification_classes.py:369
 msgid "Christian observances in family life"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:367
+#: books/skoufas_classification_classes.py:370
 msgid "Local Christian church and Christian religious orders"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:368
+#: books/skoufas_classification_classes.py:371
 msgid "Preaching (Homiletics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:369
+#: books/skoufas_classification_classes.py:372
 msgid "Texts of sermons"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:370
+#: books/skoufas_classification_classes.py:373
 msgid "Pastoral office and work (Pastoral theology)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:371
+#: books/skoufas_classification_classes.py:374
 msgid "Parish administration"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:372
+#: books/skoufas_classification_classes.py:375
 msgid "Religious congregations and orders"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:373
+#: books/skoufas_classification_classes.py:376
 msgid "No longer used — formerly Religious societies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:374
+#: books/skoufas_classification_classes.py:377
 msgid "No longer used — formerly Parochial schools, libraries, etc."
 msgstr ""
 
-#: books/skoufas_classification_classes.py:375
+#: books/skoufas_classification_classes.py:378
 msgid "No longer used — formerly Parochial medicine"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:376
+#: books/skoufas_classification_classes.py:379
 msgid "Pastoral care of families, of specific groups of people"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:377
+#: books/skoufas_classification_classes.py:380
 msgid "Christian social and ecclesiastical theology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:378
+#: books/skoufas_classification_classes.py:381
 msgid "Social theology and interreligious relations and attitudes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:379
+#: books/skoufas_classification_classes.py:382
 msgid "Ecclesiology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:380
+#: books/skoufas_classification_classes.py:383
 msgid "Days, times, places of religious observance"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:381
+#: books/skoufas_classification_classes.py:384
 msgid "Public worship"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:382
+#: books/skoufas_classification_classes.py:385
 msgid "Sacraments, other rites and acts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:383
+#: books/skoufas_classification_classes.py:386
 msgid "Missions"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:384
+#: books/skoufas_classification_classes.py:387
 msgid "Associations for religious work"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:385
+#: books/skoufas_classification_classes.py:388
 msgid "Religious education"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:386
+#: books/skoufas_classification_classes.py:389
 msgid "Spiritual renewal"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:387
+#: books/skoufas_classification_classes.py:390
 msgid "History, geographic treatment, biography of Christianity"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:388
+#: books/skoufas_classification_classes.py:391
 msgid "Religious congregations and orders in church history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:389
+#: books/skoufas_classification_classes.py:392
 msgid "Persecutions in church history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:390
+#: books/skoufas_classification_classes.py:393
 msgid "Doctrinal controversies and heresies in general church history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:391
+#: books/skoufas_classification_classes.py:394
 msgid "Christianity in Europe"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:392
+#: books/skoufas_classification_classes.py:395
 msgid "Christianity in Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:393
+#: books/skoufas_classification_classes.py:396
 msgid "Christianity in Africa"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:394
+#: books/skoufas_classification_classes.py:397
 msgid "Christianity in North America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:395
+#: books/skoufas_classification_classes.py:398
 msgid "Christianity in South America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:396
+#: books/skoufas_classification_classes.py:399
 msgid "History of Christianity in other areas"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:397
+#: books/skoufas_classification_classes.py:400
 msgid "Denominations and sects of Christian church"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:398
+#: books/skoufas_classification_classes.py:401
 msgid "Early church and Eastern churches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:399
+#: books/skoufas_classification_classes.py:402
 msgid "Roman Catholic Church"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:400
+#: books/skoufas_classification_classes.py:403
 msgid "Anglican churches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:401
+#: books/skoufas_classification_classes.py:404
 msgid "Protestant denominations of Continental origin and related body"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:402
+#: books/skoufas_classification_classes.py:405
 msgid ""
 "Presbyterian churches, Reformed churches centered in America, Congregational "
 "churches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:403
+#: books/skoufas_classification_classes.py:406
 msgid "Baptist, Restoration Movement, Adventist churches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:404
+#: books/skoufas_classification_classes.py:407
 msgid "Methodist churches; churches related to Methodism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:405
+#: books/skoufas_classification_classes.py:408
 msgid "No longer used — formerly Unitarian"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:406
+#: books/skoufas_classification_classes.py:409
 msgid "Other denominations and sects"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:408
+#: books/skoufas_classification_classes.py:411
 msgid "No longer used — formerly Comparative religion"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:409
+#: books/skoufas_classification_classes.py:412
 msgid "Classical religion (Greek and Roman religion)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:410
+#: books/skoufas_classification_classes.py:413
 msgid "Germanic religion"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:411
+#: books/skoufas_classification_classes.py:414
 msgid "Religions of Indic origin"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:412
+#: books/skoufas_classification_classes.py:415
 msgid "Zoroastrianism (Mazdaism, Parseeism)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:413
+#: books/skoufas_classification_classes.py:416
 msgid "Judaism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:414
+#: books/skoufas_classification_classes.py:417
 msgid "Islam, Bábism and Baháʼí Faith"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:415
+#: books/skoufas_classification_classes.py:418
 msgid "No longer used — formerly Mormonism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:416
+#: books/skoufas_classification_classes.py:419
 msgid "Religions not provided for elsewhere"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:418
+#: books/skoufas_classification_classes.py:421
 msgid "Sociology and anthropology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:419
+#: books/skoufas_classification_classes.py:422
 msgid "Social interaction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:420
+#: books/skoufas_classification_classes.py:423
 msgid "Social processes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:421
+#: books/skoufas_classification_classes.py:424
 msgid "Factors affecting social behavior"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:423
+#: books/skoufas_classification_classes.py:426
 msgid "Culture and institutions"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:424
+#: books/skoufas_classification_classes.py:427
 msgid "Communities"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:425
+#: books/skoufas_classification_classes.py:428
 msgid "No longer used — formerly Polygraphy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:426
+#: books/skoufas_classification_classes.py:429
 msgid "No longer used — formerly History of sociology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:427
+#: books/skoufas_classification_classes.py:430
 msgid "Collections of general statistics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:428
+#: books/skoufas_classification_classes.py:431
 msgid "No longer used — formerly Theory and methods"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:429
+#: books/skoufas_classification_classes.py:432
 msgid "No longer used — formerly Population"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:430
+#: books/skoufas_classification_classes.py:433
 msgid "No longer used — formerly Special topics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:431
+#: books/skoufas_classification_classes.py:434
 msgid "General statistics of Europe"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:432
+#: books/skoufas_classification_classes.py:435
 msgid "General statistics of Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:433
+#: books/skoufas_classification_classes.py:436
 msgid "General statistics of Africa"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:434
+#: books/skoufas_classification_classes.py:437
 msgid "General statistics of North America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:435
+#: books/skoufas_classification_classes.py:438
 msgid "General statistics of South America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:437
+#: books/skoufas_classification_classes.py:440
 msgid ""
 "General statistics of Australasia, Pacific Ocean islands, Atlantic Ocean "
 "islands, Arctic islands, Antarctica"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:439
+#: books/skoufas_classification_classes.py:442
 msgid "Political science (Politics and government)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:440
+#: books/skoufas_classification_classes.py:443
 msgid "Systems of governments and states"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:441
+#: books/skoufas_classification_classes.py:444
 msgid "Relation of state to organized groups and their members"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:442
+#: books/skoufas_classification_classes.py:445
 msgid "Civil and political rights"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:443
+#: books/skoufas_classification_classes.py:446
 msgid "The political process"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:444
+#: books/skoufas_classification_classes.py:447
 msgid "International migration and colonization"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:445
+#: books/skoufas_classification_classes.py:448
 msgid "Slavery and emancipation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:446
+#: books/skoufas_classification_classes.py:449
 msgid "International relations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:447
+#: books/skoufas_classification_classes.py:450
 msgid "The legislative process"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:450
+#: books/skoufas_classification_classes.py:453
 msgid "Labor economics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:451
+#: books/skoufas_classification_classes.py:454
 msgid "Financial economics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:452
+#: books/skoufas_classification_classes.py:455
 msgid "Economics of land and energy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:453
+#: books/skoufas_classification_classes.py:456
 msgid "Cooperatives"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:454
+#: books/skoufas_classification_classes.py:457
 msgid "Socialism and related systems"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:455
+#: books/skoufas_classification_classes.py:458
 msgid "Public finance"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:456
+#: books/skoufas_classification_classes.py:459
 msgid "International economics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:457
+#: books/skoufas_classification_classes.py:460
 msgid "Production"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:458
+#: books/skoufas_classification_classes.py:461
 msgid "Macroeconomics and related topics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:460
+#: books/skoufas_classification_classes.py:463
 msgid "Law of nations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:461
+#: books/skoufas_classification_classes.py:464
 msgid "Constitutional and administrative law"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:462
+#: books/skoufas_classification_classes.py:465
 msgid ""
 "Military, defense, public property, public finance, tax, commerce (trade), "
 "industrial law"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:463
+#: books/skoufas_classification_classes.py:466
 msgid "Labor, social service, education, cultural law"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:464
+#: books/skoufas_classification_classes.py:467
 msgid "Criminal law"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:465
+#: books/skoufas_classification_classes.py:468
 msgid "Private law"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:466
+#: books/skoufas_classification_classes.py:469
 msgid "Procedure and courts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:467
+#: books/skoufas_classification_classes.py:470
 msgid "Laws, regulations, cases"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:468
+#: books/skoufas_classification_classes.py:471
 msgid ""
 "Law of specific jurisdictions, areas, socioeconomic regions, regional "
 "intergovernmental organizations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:470
+#: books/skoufas_classification_classes.py:473
 msgid "Public administration"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:471
+#: books/skoufas_classification_classes.py:474
 msgid "General considerations of public administration"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:472
+#: books/skoufas_classification_classes.py:475
 msgid "Specific fields of public administration"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:473
+#: books/skoufas_classification_classes.py:476
 msgid "Public administration of economy and environment"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:474
+#: books/skoufas_classification_classes.py:477
 msgid "Military science"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:475
+#: books/skoufas_classification_classes.py:478
 msgid "Foot forces and warfare"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:476
+#: books/skoufas_classification_classes.py:479
 msgid "Mounted forces and warfare"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:477
+#: books/skoufas_classification_classes.py:480
 msgid ""
 "Air and other specialized forces and warfare; engineering and related "
 "services"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:478
+#: books/skoufas_classification_classes.py:481
 msgid "Sea forces and warfare"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:479
+#: books/skoufas_classification_classes.py:482
 msgid "Social problems and services; associations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:480
+#: books/skoufas_classification_classes.py:483
 msgid "Social problems and services"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:481
+#: books/skoufas_classification_classes.py:484
 msgid "Social problems of and services to groups of people"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:482
+#: books/skoufas_classification_classes.py:485
 msgid "Other social problems and services"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:483
+#: books/skoufas_classification_classes.py:486
 msgid "Criminology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:484
+#: books/skoufas_classification_classes.py:487
 msgid "Penal and related institutions"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:485
+#: books/skoufas_classification_classes.py:488
 msgid "Secret associations and societies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:486
+#: books/skoufas_classification_classes.py:489
 msgid "General clubs"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:487
+#: books/skoufas_classification_classes.py:490
 msgid "Insurance"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:488
+#: books/skoufas_classification_classes.py:491
 msgid "Associations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:490
+#: books/skoufas_classification_classes.py:493
 msgid "Schools and their activities, special education"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:491
+#: books/skoufas_classification_classes.py:494
 msgid "Primary education (elementary education)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:492
+#: books/skoufas_classification_classes.py:495
 msgid "Secondary education"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:493
+#: books/skoufas_classification_classes.py:496
 msgid "Adult education"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:494
+#: books/skoufas_classification_classes.py:497
 msgid "Curricula"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:495
+#: books/skoufas_classification_classes.py:498
 msgid "No longer used — formerly Education of women"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:496
+#: books/skoufas_classification_classes.py:499
 msgid "No longer used — formerly Ethical education"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:497
+#: books/skoufas_classification_classes.py:500
 msgid "Higher education (Tertiary education)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:498
+#: books/skoufas_classification_classes.py:501
 msgid "Public policy issues in education"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:499
+#: books/skoufas_classification_classes.py:502
 msgid "Commerce, communications transportation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:500
+#: books/skoufas_classification_classes.py:503
 msgid "Commerce (Trade)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:501
+#: books/skoufas_classification_classes.py:504
 msgid "International commerce (Foreign trade)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:502
+#: books/skoufas_classification_classes.py:505
 msgid "Postal communication"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:503
+#: books/skoufas_classification_classes.py:506
 msgid "Communications"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:504
+#: books/skoufas_classification_classes.py:507
 msgid "Railroad transportation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:505
+#: books/skoufas_classification_classes.py:508
 msgid "Inland waterway and ferry transportation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:506
+#: books/skoufas_classification_classes.py:509
 msgid "Water, air, space transportation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:507
+#: books/skoufas_classification_classes.py:510
 msgid "Transportation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:508
+#: books/skoufas_classification_classes.py:511
 msgid "Metrology and standardization"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:509
+#: books/skoufas_classification_classes.py:512
 msgid "Customs, etiquette, folklore"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:510
+#: books/skoufas_classification_classes.py:513
 msgid "Costume and personal appearance"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:511
+#: books/skoufas_classification_classes.py:514
 msgid "Customs of life cycle and domestic life"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:512
+#: books/skoufas_classification_classes.py:515
 msgid "Death customs"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:513
+#: books/skoufas_classification_classes.py:516
 msgid "General customs"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:514
+#: books/skoufas_classification_classes.py:517
 msgid "Etiquette (Manners)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:515
+#: books/skoufas_classification_classes.py:518
 msgid "No longer used — formerly Women's position and treatment"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:516
+#: books/skoufas_classification_classes.py:519
 msgid "No longer used — formerly outcast studies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:517
+#: books/skoufas_classification_classes.py:520
 msgid "Folklore"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:518
+#: books/skoufas_classification_classes.py:521
 msgid "Customs of war and diplomacy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:520
+#: books/skoufas_classification_classes.py:523
 msgid "Philosophy and theory, international languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:522
-#: books/skoufas_classification_classes.py:622
-#: books/skoufas_classification_classes.py:724
-#: books/skoufas_classification_classes.py:924
+#: books/skoufas_classification_classes.py:525
+#: books/skoufas_classification_classes.py:625
+#: books/skoufas_classification_classes.py:727
+#: books/skoufas_classification_classes.py:927
 msgid "Dictionaries, encyclopedias, concordances"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:523
+#: books/skoufas_classification_classes.py:526
 msgid "Special topics of language"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:526
-#: books/skoufas_classification_classes.py:626
-#: books/skoufas_classification_classes.py:728
-#: books/skoufas_classification_classes.py:928
+#: books/skoufas_classification_classes.py:529
+#: books/skoufas_classification_classes.py:629
+#: books/skoufas_classification_classes.py:731
+#: books/skoufas_classification_classes.py:931
 msgid "Education, research, related topics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:528
+#: books/skoufas_classification_classes.py:531
 msgid "Geographic treatment and biography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:530
+#: books/skoufas_classification_classes.py:533
 msgid "Writing systems of standard forms of languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:531
+#: books/skoufas_classification_classes.py:534
 msgid "Etymology of standard forms of languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:532
+#: books/skoufas_classification_classes.py:535
 msgid "Dictionaries of standard forms of languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:533
+#: books/skoufas_classification_classes.py:536
 msgid "Phonology and phonetics of standard forms of languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:534
+#: books/skoufas_classification_classes.py:537
 msgid "Grammar of standard forms of languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:535
+#: books/skoufas_classification_classes.py:538
 msgid "No longer used — formerly Prosody"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:536
+#: books/skoufas_classification_classes.py:539
 msgid "Dialectology and historical linguistics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:537
+#: books/skoufas_classification_classes.py:540
 msgid "Standard usage (Prescriptive linguistics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:539
+#: books/skoufas_classification_classes.py:542
 msgid "English and Old English (Anglo-Saxon)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:540
+#: books/skoufas_classification_classes.py:543
 msgid "Writing system, phonology, phonetics of standard English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:541
+#: books/skoufas_classification_classes.py:544
 msgid "Etymology of standard English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:542
+#: books/skoufas_classification_classes.py:545
 msgid "Dictionaries of standard English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:543
+#: books/skoufas_classification_classes.py:546
 msgid "No longer used — formerly English thesauruses"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:544
+#: books/skoufas_classification_classes.py:547
 msgid "Grammar of standard English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:545
+#: books/skoufas_classification_classes.py:548
 msgid "No longer used — formerly English prosodies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:546
+#: books/skoufas_classification_classes.py:549
 msgid ""
 "Historical and geographical variations, modern nongeographic variations of "
 "English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:547
+#: books/skoufas_classification_classes.py:550
 msgid "Standard English usage (Prescriptive linguistics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:548
+#: books/skoufas_classification_classes.py:551
 msgid "Old English (Anglo-Saxon)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:550
+#: books/skoufas_classification_classes.py:553
 msgid "Writing systems, phonology, phonetics of standard German"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:551
+#: books/skoufas_classification_classes.py:554
 msgid "Etymology of standard German"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:552
+#: books/skoufas_classification_classes.py:555
 msgid "Dictionaries of standard German"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:554
+#: books/skoufas_classification_classes.py:557
 msgid "Grammar of standard German"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:556
+#: books/skoufas_classification_classes.py:559
 msgid ""
 "Historical and geographic variations, modern nongeographic variations of "
 "German"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:557
+#: books/skoufas_classification_classes.py:560
 msgid "Standard German usage (Prescriptive linguistics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:558
+#: books/skoufas_classification_classes.py:561
 msgid "Other Germanic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:559
+#: books/skoufas_classification_classes.py:562
 msgid "French and related Romance languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:560
+#: books/skoufas_classification_classes.py:563
 msgid "Writing systems, phonology, phonetics of standard French"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:561
+#: books/skoufas_classification_classes.py:564
 msgid "Etymology of standard French"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:562
+#: books/skoufas_classification_classes.py:565
 msgid "Dictionaries of standard French"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:564
+#: books/skoufas_classification_classes.py:567
 msgid "Grammar of standard French"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:566
+#: books/skoufas_classification_classes.py:569
 msgid ""
 "Historical and geographic variations, modern nongeographic variations of "
 "French"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:567
+#: books/skoufas_classification_classes.py:570
 msgid "Standard French usage (Prescriptive linguistics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:568
+#: books/skoufas_classification_classes.py:571
 msgid "Occitan Catalan, Franco-Provençal"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:569
+#: books/skoufas_classification_classes.py:572
 msgid "Italian, Dalmatian, Romanian, Rhaetian, Sardinian, Corsican"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:570
+#: books/skoufas_classification_classes.py:573
 msgid "Writing systems, phonology, phonetics of standard Italian"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:571
+#: books/skoufas_classification_classes.py:574
 msgid "Etymology of standard Italian"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:572
+#: books/skoufas_classification_classes.py:575
 msgid "Dictionaries of standard Italian"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:574
+#: books/skoufas_classification_classes.py:577
 msgid "Grammar of standard Italian"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:576
+#: books/skoufas_classification_classes.py:579
 msgid ""
 "Historical and geographic variations, modern nongeographic variations of "
 "Italian"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:577
+#: books/skoufas_classification_classes.py:580
 msgid "Standard Italian usage (Prescriptive linguistics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:578
+#: books/skoufas_classification_classes.py:581
 msgid "Romanian, Rhaetian, Sardinian, Corsican"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:580
+#: books/skoufas_classification_classes.py:583
 msgid "Writing systems, phonology, phonetics of standard Spanish"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:581
+#: books/skoufas_classification_classes.py:584
 msgid "Etymology of standard Spanish"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:582
+#: books/skoufas_classification_classes.py:585
 msgid "Dictionaries of standard Spanish"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:584
+#: books/skoufas_classification_classes.py:587
 msgid "Grammar of standard Spanish"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:586
+#: books/skoufas_classification_classes.py:589
 msgid ""
 "Historical and geographic variations, modern nongeographic variations of "
 "Spanish"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:587
+#: books/skoufas_classification_classes.py:590
 msgid "Standard Spanish usage (Prescriptive linguistics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:589
+#: books/skoufas_classification_classes.py:592
 msgid "Latin and related Italic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:590
+#: books/skoufas_classification_classes.py:593
 msgid "Writing systems, phonology, phonetics of classical Latin"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:591
+#: books/skoufas_classification_classes.py:594
 msgid "Etymology of classical Latin"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:592
+#: books/skoufas_classification_classes.py:595
 msgid "Dictionaries of classical Latin"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:594
+#: books/skoufas_classification_classes.py:597
 msgid "Grammar of classical Latin"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:596
+#: books/skoufas_classification_classes.py:599
 msgid "Old, postclassical, Vulgar Latin"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:597
+#: books/skoufas_classification_classes.py:600
 msgid "Classical Latin usage (Prescriptive linguistics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:598
+#: books/skoufas_classification_classes.py:601
 msgid "Other Italic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:599
+#: books/skoufas_classification_classes.py:602
 msgid "Classical Greek and related Hellenic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:600
+#: books/skoufas_classification_classes.py:603
 msgid "Writing systems, phonology, phonetics of classical Greek"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:601
+#: books/skoufas_classification_classes.py:604
 msgid "Etymology of classical Greek"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:602
+#: books/skoufas_classification_classes.py:605
 msgid "Dictionaries of classical Greek"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:604
+#: books/skoufas_classification_classes.py:607
 msgid "Grammar of classical Greek"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:606
+#: books/skoufas_classification_classes.py:609
 msgid "Preclassical and postclassical Greek"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:607
+#: books/skoufas_classification_classes.py:610
 msgid "Classical Greek usage (Prescriptive linguistics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:608
+#: books/skoufas_classification_classes.py:611
 msgid "Other Hellenic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:610
+#: books/skoufas_classification_classes.py:613
 msgid "East Indo-European and Celtic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:612
+#: books/skoufas_classification_classes.py:615
 msgid "Non-Semitic Afro-Asiatic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:613
+#: books/skoufas_classification_classes.py:616
 msgid ""
 "Altic, Uralic, Hyperborean, Dravidian languages, miscellaneous languages of "
 "south Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:614
+#: books/skoufas_classification_classes.py:617
 msgid "Languages of East and Southeast Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:615
+#: books/skoufas_classification_classes.py:618
 msgid "African languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:616
+#: books/skoufas_classification_classes.py:619
 msgid "North American native languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:617
+#: books/skoufas_classification_classes.py:620
 msgid "South American native languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:618
+#: books/skoufas_classification_classes.py:621
 msgid ""
 "Non-Austronesian languages of Oceania, Austronesian languages, miscellaneous "
 "languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:619
+#: books/skoufas_classification_classes.py:622
 msgid "Natural sciences and mathematics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:620
-#: books/skoufas_classification_classes.py:722
-#: books/skoufas_classification_classes.py:922
+#: books/skoufas_classification_classes.py:623
+#: books/skoufas_classification_classes.py:725
+#: books/skoufas_classification_classes.py:925
 msgid "Philosophy and theory"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:627
+#: books/skoufas_classification_classes.py:630
 msgid "Natural history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:628
-#: books/skoufas_classification_classes.py:730
-#: books/skoufas_classification_classes.py:830
-#: books/skoufas_classification_classes.py:880
+#: books/skoufas_classification_classes.py:631
+#: books/skoufas_classification_classes.py:733
+#: books/skoufas_classification_classes.py:833
+#: books/skoufas_classification_classes.py:883
 msgid "History, geographic treatment, biography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:630
+#: books/skoufas_classification_classes.py:633
 msgid "General principles of mathematics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:631
+#: books/skoufas_classification_classes.py:634
 msgid "Algebra"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:632
+#: books/skoufas_classification_classes.py:635
 msgid "Arithmetic"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:633
+#: books/skoufas_classification_classes.py:636
 msgid "Topology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:634
+#: books/skoufas_classification_classes.py:637
 msgid "Analysis"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:635
+#: books/skoufas_classification_classes.py:638
 msgid "Geometry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:637
+#: books/skoufas_classification_classes.py:640
 msgid "Numerical analysis"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:638
+#: books/skoufas_classification_classes.py:641
 msgid "Probabilities and applied mathematics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:639
+#: books/skoufas_classification_classes.py:642
 msgid "Astronomy and allied sciences"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:640
+#: books/skoufas_classification_classes.py:643
 msgid "Celestial mechanics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:641
-#: books/skoufas_classification_classes.py:661
-#: books/skoufas_classification_classes.py:892
+#: books/skoufas_classification_classes.py:644
+#: books/skoufas_classification_classes.py:664
+#: books/skoufas_classification_classes.py:895
 msgid "Techniques, procedures, apparatus, equipment, materials"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:642
+#: books/skoufas_classification_classes.py:645
 msgid "Specific celestial bodies and phenomena"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:644
+#: books/skoufas_classification_classes.py:647
 msgid "Earth (Astronomical geography)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:645
+#: books/skoufas_classification_classes.py:648
 msgid "Mathematical geography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:646
+#: books/skoufas_classification_classes.py:649
 msgid "Celestial navigation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:647
+#: books/skoufas_classification_classes.py:650
 msgid "Ephemerides"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:648
+#: books/skoufas_classification_classes.py:651
 msgid "Chronology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:650
+#: books/skoufas_classification_classes.py:653
 msgid "Classical mechanics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:651
+#: books/skoufas_classification_classes.py:654
 msgid "Fluid mechanics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:652
+#: books/skoufas_classification_classes.py:655
 msgid "Pneumatics (Gas mechanics)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:653
+#: books/skoufas_classification_classes.py:656
 msgid "Sound and related vibrations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:654
+#: books/skoufas_classification_classes.py:657
 msgid "Light and related radiation"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:655
+#: books/skoufas_classification_classes.py:658
 msgid "Heat"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:656
+#: books/skoufas_classification_classes.py:659
 msgid "Electricity and electronics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:657
+#: books/skoufas_classification_classes.py:660
 msgid "Magnetism"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:658
+#: books/skoufas_classification_classes.py:661
 msgid "Modern physics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:659
+#: books/skoufas_classification_classes.py:662
 msgid "Chemistry and allied sciences"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:660
+#: books/skoufas_classification_classes.py:663
 msgid "Physical chemistry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:662
+#: books/skoufas_classification_classes.py:665
 msgid "Analytical chemistry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:663
+#: books/skoufas_classification_classes.py:666
 msgid "No longer used — formerly Qualitative analysis"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:664
+#: books/skoufas_classification_classes.py:667
 msgid "No longer used — formerly Quantitative analysis"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:665
+#: books/skoufas_classification_classes.py:668
 msgid "Inorganic chemistry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:666
+#: books/skoufas_classification_classes.py:669
 msgid "Organic chemistry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:667
+#: books/skoufas_classification_classes.py:670
 msgid "Crystallography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:668
+#: books/skoufas_classification_classes.py:671
 msgid "Mineralogy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:669
+#: books/skoufas_classification_classes.py:672
 msgid "Earth sciences"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:670
+#: books/skoufas_classification_classes.py:673
 msgid "Geology, hydrology, meteorology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:671
+#: books/skoufas_classification_classes.py:674
 msgid "Petrology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:672
+#: books/skoufas_classification_classes.py:675
 msgid "Economic geology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:673
+#: books/skoufas_classification_classes.py:676
 msgid "Earth sciences of Europe"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:674
+#: books/skoufas_classification_classes.py:677
 msgid "Earth sciences of Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:675
+#: books/skoufas_classification_classes.py:678
 msgid "Earth sciences of Africa"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:676
+#: books/skoufas_classification_classes.py:679
 msgid "Earth sciences of North America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:677
+#: books/skoufas_classification_classes.py:680
 msgid "Earth sciences of South America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:679
+#: books/skoufas_classification_classes.py:682
 msgid ""
 "Earth sciences of Australasia, Pacific Ocean islands, Atlantic Ocean "
 "islands, Arctic islands, Antarctica, extraterrestrial worlds"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:681
+#: books/skoufas_classification_classes.py:684
 msgid "Paleontology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:682
+#: books/skoufas_classification_classes.py:685
 msgid "Paleobotany, fossil microorganisms"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:683
+#: books/skoufas_classification_classes.py:686
 msgid "Fossil invertebrates"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:684
+#: books/skoufas_classification_classes.py:687
 msgid "Miscellaneous fossil marine and seashore invertebrates"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:685
+#: books/skoufas_classification_classes.py:688
 msgid "Fossil Mollusca and Molluscoidea"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:686
+#: books/skoufas_classification_classes.py:689
 msgid "Fossil Arthropoda"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:687
+#: books/skoufas_classification_classes.py:690
 msgid "Fossil Chordata"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:688
+#: books/skoufas_classification_classes.py:691
 msgid "Fossil cold-blooded vertebrates"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:689
+#: books/skoufas_classification_classes.py:692
 msgid "Fossil Aves (birds)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:690
+#: books/skoufas_classification_classes.py:693
 msgid "Fossil Mammalia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:692
+#: books/skoufas_classification_classes.py:695
 msgid "Physiology and related subjects"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:693
+#: books/skoufas_classification_classes.py:696
 msgid "Biochemistry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:694
+#: books/skoufas_classification_classes.py:697
 msgid ""
 "Specific physiological systems in animals, regional histology and physiology "
 "in animals"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:696
+#: books/skoufas_classification_classes.py:699
 msgid "Specific parts of and physiological systems in plants"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:697
+#: books/skoufas_classification_classes.py:700
 msgid "Genetics and evolution"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:698
+#: books/skoufas_classification_classes.py:701
 msgid "Ecology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:699
+#: books/skoufas_classification_classes.py:702
 msgid "Natural history of organisms and related subjects"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:700
+#: books/skoufas_classification_classes.py:703
 msgid "Natural history of microorganisms, fungi, algae"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:702
+#: books/skoufas_classification_classes.py:705
 msgid "Specific topics in natural history of plants"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:703
+#: books/skoufas_classification_classes.py:706
 msgid "Plants noted for specific vegetative characteristics and flowers"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:704
+#: books/skoufas_classification_classes.py:707
 msgid "Magnoliopsida (Dicotyledones)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:705
+#: books/skoufas_classification_classes.py:708
 msgid "Liliopsida (Monocotyledones)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:706
+#: books/skoufas_classification_classes.py:709
 msgid "Pinophyta (Gymnosperms)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:707
+#: books/skoufas_classification_classes.py:710
 msgid "Cryptogamia (Seedless plants)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:708
+#: books/skoufas_classification_classes.py:711
 msgid "Pteridophyta"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:709
+#: books/skoufas_classification_classes.py:712
 msgid "Bryophyta"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:710
+#: books/skoufas_classification_classes.py:713
 msgid "No longer used—formerly Forestry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:711
+#: books/skoufas_classification_classes.py:714
 msgid "Animals"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:712
+#: books/skoufas_classification_classes.py:715
 msgid "Specific topics in natural history of animals"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:713
+#: books/skoufas_classification_classes.py:716
 msgid "Invertebrates"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:714
+#: books/skoufas_classification_classes.py:717
 msgid "Miscellaneous marine and seashore invertebrates"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:715
+#: books/skoufas_classification_classes.py:718
 msgid "Mollusca and Molluscoidea"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:716
+#: books/skoufas_classification_classes.py:719
 msgid "Arthropoda"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:717
+#: books/skoufas_classification_classes.py:720
 msgid "Chordata"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:718
+#: books/skoufas_classification_classes.py:721
 msgid "Cold-blooded vertebrates"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:719
+#: books/skoufas_classification_classes.py:722
 msgid "Aves (Birds)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:720
+#: books/skoufas_classification_classes.py:723
 msgid "Mammalia (Mammals)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:721
+#: books/skoufas_classification_classes.py:724
 msgid "Technology (Applied sciences)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:725
+#: books/skoufas_classification_classes.py:728
 msgid "Technical drawing, hazardous materials technology; groups of people"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:727
+#: books/skoufas_classification_classes.py:730
 msgid "Organizations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:729
+#: books/skoufas_classification_classes.py:732
 msgid "Patents"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:732
+#: books/skoufas_classification_classes.py:735
 msgid "Human anatomy, cytology, histology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:733
+#: books/skoufas_classification_classes.py:736
 msgid "Human physiology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:734
+#: books/skoufas_classification_classes.py:737
 msgid "Personal health and safety"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:735
+#: books/skoufas_classification_classes.py:738
 msgid ""
 "Forensic medicine; incidence of injuries, wounds, disease; public preventive "
 "medicine"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:736
+#: books/skoufas_classification_classes.py:739
 msgid "Pharmacology and therapeutics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:737
+#: books/skoufas_classification_classes.py:740
 msgid "Diseases"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:738
+#: books/skoufas_classification_classes.py:741
 msgid ""
 "Surgery, regional medicine, dentistry, ophthalmology, otology, audiology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:739
+#: books/skoufas_classification_classes.py:742
 msgid "Gynecology, obstetrics, pediatrics, geriatrics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:740
+#: books/skoufas_classification_classes.py:743
 msgid "No longer used—formerly Experimental medicine"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:741
+#: books/skoufas_classification_classes.py:744
 msgid "Engineering and applied operations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:742
+#: books/skoufas_classification_classes.py:745
 msgid "Applied physics"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:743
+#: books/skoufas_classification_classes.py:746
 msgid "Mining and related operations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:744
+#: books/skoufas_classification_classes.py:747
 msgid "Military and nautical engineering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:745
+#: books/skoufas_classification_classes.py:748
 msgid "Civil engineering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:746
+#: books/skoufas_classification_classes.py:749
 msgid "Engineering of railroads, roads"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:748
+#: books/skoufas_classification_classes.py:751
 msgid "Hydraulic engineering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:749
+#: books/skoufas_classification_classes.py:752
 msgid "Sanitary engineering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:750
+#: books/skoufas_classification_classes.py:753
 msgid "Other branches of engineering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:751
+#: books/skoufas_classification_classes.py:754
 msgid "Agriculture and related technologies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:752
+#: books/skoufas_classification_classes.py:755
 msgid "Specific techniques; apparatus, equipment, materials"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:753
+#: books/skoufas_classification_classes.py:756
 msgid "Plant injuries, diseases, pests"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:754
+#: books/skoufas_classification_classes.py:757
 msgid "Field and plantation crops"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:755
+#: books/skoufas_classification_classes.py:758
 msgid "Orchards, fruits, forestry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:756
+#: books/skoufas_classification_classes.py:759
 msgid "Garden crops (Horticulture)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:757
+#: books/skoufas_classification_classes.py:760
 msgid "Animal husbandry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:758
+#: books/skoufas_classification_classes.py:761
 msgid "Processing dairy and related products"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:759
+#: books/skoufas_classification_classes.py:762
 msgid "Insect culture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:760
+#: books/skoufas_classification_classes.py:763
 msgid "Hunting, fishing, conservation, related technologies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:762
+#: books/skoufas_classification_classes.py:765
 msgid "Food and drink"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:763
+#: books/skoufas_classification_classes.py:766
 msgid "Meals and table service"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:764
+#: books/skoufas_classification_classes.py:767
 msgid "Housing and household equipment"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:765
+#: books/skoufas_classification_classes.py:768
 msgid "Household utilities"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:766
+#: books/skoufas_classification_classes.py:769
 msgid "Household furnishings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:767
+#: books/skoufas_classification_classes.py:770
 msgid "Sewing, clothing, management of personal and family life"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:768
+#: books/skoufas_classification_classes.py:771
 msgid "Management of public households (Institutional housekeeping)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:769
+#: books/skoufas_classification_classes.py:772
 msgid "Housekeeping"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:770
+#: books/skoufas_classification_classes.py:773
 msgid "Child rearing; home care of people with disabilities and illnesses"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:771
+#: books/skoufas_classification_classes.py:774
 msgid "Management and auxiliary services"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:772
+#: books/skoufas_classification_classes.py:775
 msgid "Office services"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:773
+#: books/skoufas_classification_classes.py:776
 msgid "Processes of written communication"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:774
+#: books/skoufas_classification_classes.py:777
 msgid "Shorthand"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:778
+#: books/skoufas_classification_classes.py:781
 msgid "Accounting"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:779
+#: books/skoufas_classification_classes.py:782
 msgid "General management"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:780
+#: books/skoufas_classification_classes.py:783
 msgid "Advertising and public relations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:781
+#: books/skoufas_classification_classes.py:784
 msgid "Chemical engineering and related technologies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:782
+#: books/skoufas_classification_classes.py:785
 msgid "Technology of industrial chemicals"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:783
+#: books/skoufas_classification_classes.py:786
 msgid "Technology of explosives, fuels, related products"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:784
+#: books/skoufas_classification_classes.py:787
 msgid "Beverage technology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:785
+#: books/skoufas_classification_classes.py:788
 msgid "Food technology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:786
+#: books/skoufas_classification_classes.py:789
 msgid "Technology of industrial oils, fats, waxes, gases"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:787
+#: books/skoufas_classification_classes.py:790
 msgid "Ceramic and allied technologies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:788
+#: books/skoufas_classification_classes.py:791
 msgid "Cleaning, color, coating, related technologies"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:789
+#: books/skoufas_classification_classes.py:792
 msgid "Technology of other organic products"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:790
+#: books/skoufas_classification_classes.py:793
 msgid "Metallurgy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:792
+#: books/skoufas_classification_classes.py:795
 msgid "Metalworking processes and primary metal products"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:793
+#: books/skoufas_classification_classes.py:796
 msgid "Iron, steel, other iron alloys"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:794
+#: books/skoufas_classification_classes.py:797
 msgid "Nonferrous metals"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:795
+#: books/skoufas_classification_classes.py:798
 msgid "Lumber processing, wood products, cork"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:796
+#: books/skoufas_classification_classes.py:799
 msgid "Leather and fur processing"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:797
+#: books/skoufas_classification_classes.py:800
 msgid "Pulp and paper technology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:798
+#: books/skoufas_classification_classes.py:801
 msgid "Textiles"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:799
+#: books/skoufas_classification_classes.py:802
 msgid "Elastomers and elastomer products"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:800
+#: books/skoufas_classification_classes.py:803
 msgid "Other products of specific kinds of materials"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:801
+#: books/skoufas_classification_classes.py:804
 msgid "Manufacture of products for specific uses"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:802
+#: books/skoufas_classification_classes.py:805
 msgid "Precision instruments and other devices"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:803
+#: books/skoufas_classification_classes.py:806
 msgid "Small forge work (Blacksmithing)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:804
+#: books/skoufas_classification_classes.py:807
 msgid "Hardware and household appliances"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:805
+#: books/skoufas_classification_classes.py:808
 msgid "Furnishings and home workshops"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:806
+#: books/skoufas_classification_classes.py:809
 msgid "Leather and fur goods, and related products"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:807
+#: books/skoufas_classification_classes.py:810
 msgid "Printing and related activities"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:808
+#: books/skoufas_classification_classes.py:811
 msgid "Clothing and accessories"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:809
+#: books/skoufas_classification_classes.py:812
 msgid "Other final products, and packaging technology"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:812
+#: books/skoufas_classification_classes.py:815
 msgid "Building materials"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:813
+#: books/skoufas_classification_classes.py:816
 msgid "Auxiliary construction practices"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:814
+#: books/skoufas_classification_classes.py:817
 msgid "Construction in specific types of materials and for specific purposes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:815
+#: books/skoufas_classification_classes.py:818
 msgid "Wood construction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:816
+#: books/skoufas_classification_classes.py:819
 msgid "Roof covering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:817
+#: books/skoufas_classification_classes.py:820
 msgid "Utilities"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:818
+#: books/skoufas_classification_classes.py:821
 msgid "Heating, ventilating, air-conditioning engineering"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:819
+#: books/skoufas_classification_classes.py:822
 msgid "Detail finishing"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:821
+#: books/skoufas_classification_classes.py:824
 msgid "The Arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:822
+#: books/skoufas_classification_classes.py:825
 msgid "Philosophy and theory of fine and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:823
+#: books/skoufas_classification_classes.py:826
 msgid "Miscellany of fine and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:824
+#: books/skoufas_classification_classes.py:827
 msgid "Dictionaries, encyclopedias, concordances of fine and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:825
+#: books/skoufas_classification_classes.py:828
 msgid "Special topics in fine and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:826
+#: books/skoufas_classification_classes.py:829
 msgid "Serial publications of fine and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:827
+#: books/skoufas_classification_classes.py:830
 msgid "Organizations and management of fine and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:828
+#: books/skoufas_classification_classes.py:831
 msgid "Education, research, related topics of fine and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:829
+#: books/skoufas_classification_classes.py:832
 msgid "Galleries, museums, private collections of fine and decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:832
+#: books/skoufas_classification_classes.py:835
 msgid "Area planning (Civic art)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:833
+#: books/skoufas_classification_classes.py:836
 msgid "Landscape architecture (Landscape design)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:834
+#: books/skoufas_classification_classes.py:837
 msgid "Landscape architecture of trafficways"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:835
+#: books/skoufas_classification_classes.py:838
 msgid "Water features in landscape architecture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:836
+#: books/skoufas_classification_classes.py:839
 msgid "Woody plants in landscape architecture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:837
+#: books/skoufas_classification_classes.py:840
 msgid "Herbaceous plants in landscape architecture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:838
+#: books/skoufas_classification_classes.py:841
 msgid "Structures in landscape architecture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:839
+#: books/skoufas_classification_classes.py:842
 msgid "Landscape design of cemeteries"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:840
+#: books/skoufas_classification_classes.py:843
 msgid "Natural landscapes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:842
+#: books/skoufas_classification_classes.py:845
 msgid "Architectural materials and structural elements"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:843
+#: books/skoufas_classification_classes.py:846
 msgid "Architecture from earliest times to c. 300"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:844
+#: books/skoufas_classification_classes.py:847
 msgid "Architecture from c. 300 to 1399"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:845
+#: books/skoufas_classification_classes.py:848
 msgid "Architecture from 1400"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:846
+#: books/skoufas_classification_classes.py:849
 msgid "Public structures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:847
+#: books/skoufas_classification_classes.py:850
 msgid "Buildings for religious and related purposes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:848
+#: books/skoufas_classification_classes.py:851
 msgid "Buildings for educational and research purposes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:849
+#: books/skoufas_classification_classes.py:852
 msgid "Residential and related buildings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:850
+#: books/skoufas_classification_classes.py:853
 msgid "Design and decoration of structures and accessories"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:851
+#: books/skoufas_classification_classes.py:854
 msgid "Sculpture and related arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:852
+#: books/skoufas_classification_classes.py:855
 msgid "Processes, forms, subjects of sculpture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:853
+#: books/skoufas_classification_classes.py:856
 msgid ""
 "Sculpture from earliest times to c. 500, sculpture of non-literate peoples"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:854
+#: books/skoufas_classification_classes.py:857
 msgid "Greek, Etruscan, Roman sculpture"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:855
+#: books/skoufas_classification_classes.py:858
 msgid "Sculpture from ca 500 to 1399"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:856
+#: books/skoufas_classification_classes.py:859
 msgid "Sculpture from 1400"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:857
+#: books/skoufas_classification_classes.py:860
 msgid "Carving and carvings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:858
+#: books/skoufas_classification_classes.py:861
 msgid "Numismatics and sigillography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:859
+#: books/skoufas_classification_classes.py:862
 msgid "Ceramic arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:860
+#: books/skoufas_classification_classes.py:863
 msgid "Art metalwork"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:861
+#: books/skoufas_classification_classes.py:864
 msgid "Graphic arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:862
+#: books/skoufas_classification_classes.py:865
 msgid "Drawing and drawings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:863
+#: books/skoufas_classification_classes.py:866
 msgid "Perspective in drawing"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:864
+#: books/skoufas_classification_classes.py:867
 msgid "Drawing and drawings by subject"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:865
+#: books/skoufas_classification_classes.py:868
 msgid "Communication design and visual design (proposed[5])"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:866
+#: books/skoufas_classification_classes.py:869
 msgid "Decorative arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:867
+#: books/skoufas_classification_classes.py:870
 msgid "Textile arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:868
+#: books/skoufas_classification_classes.py:871
 msgid "Interior decoration"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:869
+#: books/skoufas_classification_classes.py:872
 msgid "Glass"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:870
+#: books/skoufas_classification_classes.py:873
 msgid "Furniture and accessories"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:871
+#: books/skoufas_classification_classes.py:874
 msgid "Painting and paintings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:872
+#: books/skoufas_classification_classes.py:875
 msgid "Techniques, procedures, apparatus, equipment, materials, forms"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:873
+#: books/skoufas_classification_classes.py:876
 msgid "Color"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:874
+#: books/skoufas_classification_classes.py:877
 msgid "Symbolism, allegory, mythology, legend"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:875
+#: books/skoufas_classification_classes.py:878
 msgid "Genre paintings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:878
+#: books/skoufas_classification_classes.py:881
 msgid "Human figures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:879
+#: books/skoufas_classification_classes.py:882
 msgid "Nature, architectural subjects and cityscapes, other specific subjects"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:882
+#: books/skoufas_classification_classes.py:885
 msgid "Relief processes (Block printing)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:884
+#: books/skoufas_classification_classes.py:887
 msgid "Lithographic processes (Planographic processes)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:885
+#: books/skoufas_classification_classes.py:888
 msgid "Chromolithography and serigraphy"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:886
+#: books/skoufas_classification_classes.py:889
 msgid "Metal engraving"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:887
+#: books/skoufas_classification_classes.py:890
 msgid "Mezzotinting, aquatinting, and related processes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:888
+#: books/skoufas_classification_classes.py:891
 msgid "Etching and drypoint"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:890
+#: books/skoufas_classification_classes.py:893
 msgid "Prints"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:891
+#: books/skoufas_classification_classes.py:894
 msgid "Photography, computer art, cinematography, videography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:893
+#: books/skoufas_classification_classes.py:896
 msgid "Metallic salt processes"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:894
+#: books/skoufas_classification_classes.py:897
 msgid "Pigment processes of printing"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:895
+#: books/skoufas_classification_classes.py:898
 msgid "No longer used—formerly Holography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:896
+#: books/skoufas_classification_classes.py:899
 msgid "No longer used—formerly Digital photography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:897
+#: books/skoufas_classification_classes.py:900
 msgid "Computer art (Digital art)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:898
+#: books/skoufas_classification_classes.py:901
 msgid "Cinematography and Videography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:899
+#: books/skoufas_classification_classes.py:902
 msgid "Specific fields and special kinds of photography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:900
+#: books/skoufas_classification_classes.py:903
 msgid "Photographic images"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:902
+#: books/skoufas_classification_classes.py:905
 msgid "General principles and musical forms"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:903
+#: books/skoufas_classification_classes.py:906
 msgid "Vocal music"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:904
+#: books/skoufas_classification_classes.py:907
 msgid "Music for single voices"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:905
+#: books/skoufas_classification_classes.py:908
 msgid "Instruments and Instrumental ensembles and their music"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:906
+#: books/skoufas_classification_classes.py:909
 msgid "Ensembles with only one instrument per part"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:907
+#: books/skoufas_classification_classes.py:910
 msgid "Keyboard, mechanical, electrophonic, percussion instruments"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:908
+#: books/skoufas_classification_classes.py:911
 msgid "Stringed instruments (Chordophones)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:909
+#: books/skoufas_classification_classes.py:912
 msgid "Wind instruments (Aerophones)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:911
+#: books/skoufas_classification_classes.py:914
 msgid "Recreational and performing arts"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:912
+#: books/skoufas_classification_classes.py:915
 msgid "Public performances"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:913
+#: books/skoufas_classification_classes.py:916
 msgid "Stage presentations"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:914
+#: books/skoufas_classification_classes.py:917
 msgid "Indoor games and amusements"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:915
+#: books/skoufas_classification_classes.py:918
 msgid "Indoor games of skill"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:916
+#: books/skoufas_classification_classes.py:919
 msgid "Games of chance"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:917
+#: books/skoufas_classification_classes.py:920
 msgid "Athletic and outdoor sports and games"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:918
+#: books/skoufas_classification_classes.py:921
 msgid "Aquatic and air sports"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:919
+#: books/skoufas_classification_classes.py:922
 msgid "Equestrian sports and animal racing"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:920
+#: books/skoufas_classification_classes.py:923
 msgid "Fishing, hunting, shooting"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:921
+#: books/skoufas_classification_classes.py:924
 msgid "Literature (Belles-lettres) and rhetoric"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:929
+#: books/skoufas_classification_classes.py:932
 msgid ""
 "Rhetoric and collections of literary texts from more than two literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:930
+#: books/skoufas_classification_classes.py:933
 msgid "History, description, critical appraisal of more than two literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:932
+#: books/skoufas_classification_classes.py:935
 msgid "American poetry in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:933
+#: books/skoufas_classification_classes.py:936
 msgid "American drama in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:934
+#: books/skoufas_classification_classes.py:937
 msgid "American fiction in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:935
+#: books/skoufas_classification_classes.py:938
 msgid "American essays in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:936
+#: books/skoufas_classification_classes.py:939
 msgid "American speeches in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:937
+#: books/skoufas_classification_classes.py:940
 msgid "American letters in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:938
+#: books/skoufas_classification_classes.py:941
 msgid "American humor and satire in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:939
+#: books/skoufas_classification_classes.py:942
 msgid "American miscellaneous writings in English"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:940
+#: books/skoufas_classification_classes.py:943
 msgid "No longer used—formerly Puzzle activities"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:941
+#: books/skoufas_classification_classes.py:944
 msgid "English and Old English (Anglo-Saxon) literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:942
+#: books/skoufas_classification_classes.py:945
 msgid "English Poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:943
+#: books/skoufas_classification_classes.py:946
 msgid "English drama"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:944
+#: books/skoufas_classification_classes.py:947
 msgid "English fiction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:945
+#: books/skoufas_classification_classes.py:948
 msgid "English essays"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:946
+#: books/skoufas_classification_classes.py:949
 msgid "English speeches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:947
+#: books/skoufas_classification_classes.py:950
 msgid "English letters"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:948
+#: books/skoufas_classification_classes.py:951
 msgid "English humor and satire"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:949
+#: books/skoufas_classification_classes.py:952
 msgid "English miscellaneous writings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:950
+#: books/skoufas_classification_classes.py:953
 msgid "Old English (Anglo-Saxon) literature"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:951
+#: books/skoufas_classification_classes.py:954
 msgid "German literature and literatures of related languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:952
+#: books/skoufas_classification_classes.py:955
 msgid "German poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:953
+#: books/skoufas_classification_classes.py:956
 msgid "German drama"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:954
+#: books/skoufas_classification_classes.py:957
 msgid "German fiction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:955
+#: books/skoufas_classification_classes.py:958
 msgid "German essays"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:956
+#: books/skoufas_classification_classes.py:959
 msgid "German speeches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:957
+#: books/skoufas_classification_classes.py:960
 msgid "German letters"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:958
+#: books/skoufas_classification_classes.py:961
 msgid "German humor and satire"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:959
+#: books/skoufas_classification_classes.py:962
 msgid "German miscellaneous writings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:960
+#: books/skoufas_classification_classes.py:963
 msgid "Other Germanic literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:961
+#: books/skoufas_classification_classes.py:964
 msgid "French literature and literatures of related Romance languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:962
+#: books/skoufas_classification_classes.py:965
 msgid "French poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:963
+#: books/skoufas_classification_classes.py:966
 msgid "French drama"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:964
+#: books/skoufas_classification_classes.py:967
 msgid "French fiction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:965
+#: books/skoufas_classification_classes.py:968
 msgid "French essays"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:966
+#: books/skoufas_classification_classes.py:969
 msgid "French speeches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:967
+#: books/skoufas_classification_classes.py:970
 msgid "French letters"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:968
+#: books/skoufas_classification_classes.py:971
 msgid "French humor and satire"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:969
+#: books/skoufas_classification_classes.py:972
 msgid "French miscellaneous writings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:970
+#: books/skoufas_classification_classes.py:973
 msgid "Occitan, Catalan, Franco-Provençal literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:971
+#: books/skoufas_classification_classes.py:974
 msgid ""
 "Literatures of Italian, Dalmatian, Romanian, Rhaetian, Sardinian, Corsican "
 "languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:972
+#: books/skoufas_classification_classes.py:975
 msgid "Italian poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:973
+#: books/skoufas_classification_classes.py:976
 msgid "Italian drama"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:974
+#: books/skoufas_classification_classes.py:977
 msgid "Italian fiction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:975
+#: books/skoufas_classification_classes.py:978
 msgid "Italian essays"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:976
+#: books/skoufas_classification_classes.py:979
 msgid "Italian speeches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:977
+#: books/skoufas_classification_classes.py:980
 msgid "Italian letters"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:978
+#: books/skoufas_classification_classes.py:981
 msgid "Italian humor and satire"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:979
+#: books/skoufas_classification_classes.py:982
 msgid "Italian miscellaneous writings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:980
+#: books/skoufas_classification_classes.py:983
 msgid "Literatures of Romanian, Rhaetian, Sardinian, Corsican languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:981
+#: books/skoufas_classification_classes.py:984
 msgid "Literatures of Spanish, Portuguese, Galician languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:982
+#: books/skoufas_classification_classes.py:985
 msgid "Spanish poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:983
+#: books/skoufas_classification_classes.py:986
 msgid "Spanish drama"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:984
+#: books/skoufas_classification_classes.py:987
 msgid "Spanish fiction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:985
+#: books/skoufas_classification_classes.py:988
 msgid "Spanish essays"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:986
+#: books/skoufas_classification_classes.py:989
 msgid "Spanish speeches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:987
+#: books/skoufas_classification_classes.py:990
 msgid "Spanish letters"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:988
+#: books/skoufas_classification_classes.py:991
 msgid "Spanish humor and satire"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:989
+#: books/skoufas_classification_classes.py:992
 msgid "Spanish miscellaneous writings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:990
+#: books/skoufas_classification_classes.py:993
 msgid "Literatures of Portuguese and Galician languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:991
+#: books/skoufas_classification_classes.py:994
 msgid "Latin literature and literatures of related Italic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:992
+#: books/skoufas_classification_classes.py:995
 msgid "Latin poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:993
+#: books/skoufas_classification_classes.py:996
 msgid "Latin dramatic poetry and drama"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:994
+#: books/skoufas_classification_classes.py:997
 msgid "Latin epic poetry and fiction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:995
+#: books/skoufas_classification_classes.py:998
 msgid "Latin lyric poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:996
+#: books/skoufas_classification_classes.py:999
 msgid "Latin speeches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:997
+#: books/skoufas_classification_classes.py:1000
 msgid "Latin letters"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:998
+#: books/skoufas_classification_classes.py:1001
 msgid "Latin humor and satire"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:999
+#: books/skoufas_classification_classes.py:1002
 msgid "Latin miscellaneous writings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1000
+#: books/skoufas_classification_classes.py:1003
 msgid "Literatures of other Italic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1001
+#: books/skoufas_classification_classes.py:1004
 msgid ""
 "Classical Greek literature and literatures of related Hellenic languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1002
+#: books/skoufas_classification_classes.py:1005
 msgid "Classical Greek poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1003
+#: books/skoufas_classification_classes.py:1006
 msgid "Classical Greek drama"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1004
+#: books/skoufas_classification_classes.py:1007
 msgid "Classical Greek epic poetry and fiction"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1005
+#: books/skoufas_classification_classes.py:1008
 msgid "Classical Greek lyric poetry"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1006
+#: books/skoufas_classification_classes.py:1009
 msgid "Classical Greek speeches"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1007
+#: books/skoufas_classification_classes.py:1010
 msgid "Classical Greek letters"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1008
+#: books/skoufas_classification_classes.py:1011
 msgid "Classical Greek humor and satire"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1009
+#: books/skoufas_classification_classes.py:1012
 msgid "Classical Greek miscellaneous writings"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1010
+#: books/skoufas_classification_classes.py:1013
 msgid "Modern Greek literature"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1011
+#: books/skoufas_classification_classes.py:1014
 msgid "Literatures of other specific languages and language families"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1012
+#: books/skoufas_classification_classes.py:1015
 msgid "East Indo-European and Celtic literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1013
+#: books/skoufas_classification_classes.py:1016
 msgid "Afro-Asiatic literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1014
+#: books/skoufas_classification_classes.py:1017
 msgid "Non-Semitic Afro-Asiatic literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1016
+#: books/skoufas_classification_classes.py:1019
 msgid ""
 "Literatures of Altaic, Uralic, Hyperborean, Dravidian languages; literatures "
 "of miscellaneous languages of South Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1018
+#: books/skoufas_classification_classes.py:1021
 msgid "Literatures of East and Southeast Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1019
+#: books/skoufas_classification_classes.py:1022
 msgid "African literatures"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1020
+#: books/skoufas_classification_classes.py:1023
 msgid "Literatures of North American native languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1021
+#: books/skoufas_classification_classes.py:1024
 msgid "Literatures of South American native languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1023
+#: books/skoufas_classification_classes.py:1026
 msgid ""
 "Literatures of non-Austronesian languages of Oceania, of Austronesian "
 "languages, of miscellaneous languages"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1025
+#: books/skoufas_classification_classes.py:1028
 msgid "History, geography, and auxiliary disciplines"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1026
+#: books/skoufas_classification_classes.py:1029
 msgid "Philosophy and theory of history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1027
+#: books/skoufas_classification_classes.py:1030
 msgid "Miscellany of history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1028
+#: books/skoufas_classification_classes.py:1031
 msgid "Dictionaries, encyclopedias, concordances of history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1029
+#: books/skoufas_classification_classes.py:1032
 msgid "Collected accounts of events"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1030
+#: books/skoufas_classification_classes.py:1033
 msgid "Serial publications of history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1031
+#: books/skoufas_classification_classes.py:1034
 msgid "Organizations and management of history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1032
+#: books/skoufas_classification_classes.py:1035
 msgid "Education, research, related topics of history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1033
+#: books/skoufas_classification_classes.py:1036
 msgid "History with respect to groups of people"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1034
+#: books/skoufas_classification_classes.py:1037
 msgid "World history"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1036
+#: books/skoufas_classification_classes.py:1039
 msgid "Historical geography"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1037
+#: books/skoufas_classification_classes.py:1040
 msgid ""
 "Graphic representations of surface of earth and of extraterrestrial worlds"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1038
+#: books/skoufas_classification_classes.py:1041
 msgid "Geography of and travel in the ancient world"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1039
+#: books/skoufas_classification_classes.py:1042
 msgid "Geography of and travel in Europe"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1040
+#: books/skoufas_classification_classes.py:1043
 msgid "Geography of and travel in Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1041
+#: books/skoufas_classification_classes.py:1044
 msgid "Geography of and travel in Africa"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1042
+#: books/skoufas_classification_classes.py:1045
 msgid "Geography of and travel in North America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1043
+#: books/skoufas_classification_classes.py:1046
 msgid "Geography of and travel in South America"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1045
+#: books/skoufas_classification_classes.py:1048
 msgid ""
 "Geography of and travel in Australasia, Pacific Ocean islands, Atlantic "
 "Ocean islands, Arctic islands, Antarctica, and on extraterrestrial worlds"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1047
+#: books/skoufas_classification_classes.py:1050
 msgid "Biography, genealogy, insignia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1048
-#: books/skoufas_classification_classes.py:1049
-#: books/skoufas_classification_classes.py:1050
 #: books/skoufas_classification_classes.py:1051
 #: books/skoufas_classification_classes.py:1052
 #: books/skoufas_classification_classes.py:1053
 #: books/skoufas_classification_classes.py:1054
 #: books/skoufas_classification_classes.py:1055
+#: books/skoufas_classification_classes.py:1056
+#: books/skoufas_classification_classes.py:1057
+#: books/skoufas_classification_classes.py:1058
 msgid "Biographies, shelved alphabetically by subject's last name."
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1056
+#: books/skoufas_classification_classes.py:1059
 msgid "Genealogy, names, insignia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1057
+#: books/skoufas_classification_classes.py:1060
 msgid "History of ancient world to c. 499"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1058
+#: books/skoufas_classification_classes.py:1061
 msgid "China to 420"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1059
+#: books/skoufas_classification_classes.py:1062
 msgid "Egypt to 640"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1060
+#: books/skoufas_classification_classes.py:1063
 msgid "Palestine to 70"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1061
+#: books/skoufas_classification_classes.py:1064
 msgid "South Asia to 647"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1062
+#: books/skoufas_classification_classes.py:1065
 msgid "Mesopotamia to 637 and Iranian Plateau to 637"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1063
+#: books/skoufas_classification_classes.py:1066
 msgid "Europe north and west of Italian Peninsula to c. 499"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1064
+#: books/skoufas_classification_classes.py:1067
 msgid "Italian Peninsula to 476 and adjacent territories to 476"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1065
+#: books/skoufas_classification_classes.py:1068
 msgid "Greece to 323"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1066
+#: books/skoufas_classification_classes.py:1069
 msgid "Other parts of ancient world"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1068
+#: books/skoufas_classification_classes.py:1071
 msgid "British Isles"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1069
+#: books/skoufas_classification_classes.py:1072
 msgid "England and Wales"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1070
+#: books/skoufas_classification_classes.py:1073
 msgid "Germany and neighboring central European countries"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1071
+#: books/skoufas_classification_classes.py:1074
 msgid "France and Monaco"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1072
+#: books/skoufas_classification_classes.py:1075
 msgid "Italy, San Marino, Vatican City, Malta"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1073
+#: books/skoufas_classification_classes.py:1076
 msgid "Spain, Andorra, Gibraltar, Portugal"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1074
+#: books/skoufas_classification_classes.py:1077
 msgid "Russia and neighboring east European countries"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1075
+#: books/skoufas_classification_classes.py:1078
 msgid "Scandinavia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1076
+#: books/skoufas_classification_classes.py:1079
 msgid "Other parts of Europe"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1078
+#: books/skoufas_classification_classes.py:1081
 msgid "China and adjacent areas"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1079
+#: books/skoufas_classification_classes.py:1082
 msgid "Japan"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1080
+#: books/skoufas_classification_classes.py:1083
 msgid "Arabian Peninsula and adjacent areas"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1081
+#: books/skoufas_classification_classes.py:1084
 msgid "India and neighboring south Asian countries;"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1082
+#: books/skoufas_classification_classes.py:1085
 msgid "Iran"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1083
+#: books/skoufas_classification_classes.py:1086
 msgid "Middle East (Near East)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1084
+#: books/skoufas_classification_classes.py:1087
 msgid "Siberia (Asiatic Russia)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1085
+#: books/skoufas_classification_classes.py:1088
 msgid "Central Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1086
+#: books/skoufas_classification_classes.py:1089
 msgid "Southeast Asia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1088
+#: books/skoufas_classification_classes.py:1091
 msgid "Tunisia and Libya"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1089
+#: books/skoufas_classification_classes.py:1092
 msgid "Egypt, Sudan, South Sudan"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1090
+#: books/skoufas_classification_classes.py:1093
 msgid "Ethiopia and Eritrea"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1091
+#: books/skoufas_classification_classes.py:1094
 msgid "Morocco, Ceuta, Melilla Western Sahara, Canary Islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1092
+#: books/skoufas_classification_classes.py:1095
 msgid "Algeria"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1093
+#: books/skoufas_classification_classes.py:1096
 msgid "West Africa and offshore islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1094
+#: books/skoufas_classification_classes.py:1097
 msgid "Central Africa and offshore islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1095
+#: books/skoufas_classification_classes.py:1098
 msgid "South Africa & southern Africa"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1096
+#: books/skoufas_classification_classes.py:1099
 msgid "South Indian Ocean islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1098
+#: books/skoufas_classification_classes.py:1101
 msgid "Canada"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1099
+#: books/skoufas_classification_classes.py:1102
 msgid "Mexico, Central America, West Indies, Bermuda"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1100
+#: books/skoufas_classification_classes.py:1103
 msgid "United States"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1101
+#: books/skoufas_classification_classes.py:1104
 msgid "Northeastern United States (New England and Middle Atlantic states)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1102
+#: books/skoufas_classification_classes.py:1105
 msgid "Southeastern United States (South Atlantic states)"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1103
+#: books/skoufas_classification_classes.py:1106
 msgid "South central United States"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1104
+#: books/skoufas_classification_classes.py:1107
 msgid "North central United States"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1105
+#: books/skoufas_classification_classes.py:1108
 msgid "Western United States"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1106
+#: books/skoufas_classification_classes.py:1109
 msgid "Great Basin and Pacific Slope region of United States"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1108
+#: books/skoufas_classification_classes.py:1111
 msgid "Brazil"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1109
+#: books/skoufas_classification_classes.py:1112
 msgid "Argentina"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1110
+#: books/skoufas_classification_classes.py:1113
 msgid "Chile"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1111
+#: books/skoufas_classification_classes.py:1114
 msgid "Bolivia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1112
+#: books/skoufas_classification_classes.py:1115
 msgid "Peru"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1113
+#: books/skoufas_classification_classes.py:1116
 msgid "Colombia and Ecuador"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1114
+#: books/skoufas_classification_classes.py:1117
 msgid "Venezuela"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1115
+#: books/skoufas_classification_classes.py:1118
 msgid "Guiana"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1116
+#: books/skoufas_classification_classes.py:1119
 msgid "Paraguay and Uruguay"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1118
+#: books/skoufas_classification_classes.py:1121
 msgid ""
 "History of Australasia, Pacific Ocean islands, Atlantic Ocean islands, "
 "Arctic islands, Antarctica, extraterrestrial worlds"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1122
+#: books/skoufas_classification_classes.py:1125
 msgid "New Zealand"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1123
+#: books/skoufas_classification_classes.py:1126
 msgid "Australia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1124
+#: books/skoufas_classification_classes.py:1127
 msgid "New Guinea and neighboring countries of Melanesia"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1125
+#: books/skoufas_classification_classes.py:1128
 msgid "Polynesia and other Pacific Ocean islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1126
+#: books/skoufas_classification_classes.py:1129
 msgid "Atlantic Ocean islands"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1127
+#: books/skoufas_classification_classes.py:1130
 msgid "Arctic islands and Antarctica"
 msgstr ""
 
-#: books/skoufas_classification_classes.py:1128
+#: books/skoufas_classification_classes.py:1131
 msgid "Extraterrestrial worlds"
 msgstr ""
 
@@ -36238,6 +36239,35 @@ msgstr "Εμφάνιση πεδίων DBF"
 #: books/templates/books/bookentry_list.html:6
 msgid "All Books"
 msgstr "Όλα τα Βιβλία"
+
+#: books/templates/books/class_list.html:6
+msgid "All Classes"
+msgstr "Όλοι οι κωδικοί ταξινόμισης"
+
+#: books/templates/books/class_list.html:11
+msgid ""
+"\n"
+"        The library's classification system loosely follows the Dewey "
+"classification.\n"
+"        "
+msgstr ""
+"\n"
+"Το σύστημα ταξινόμισης της βιβλιοθήκης ακολουθεί αλλά δεν ταυτίζεται με το "
+"σύστημα Dewey.\n"
+"        "
+
+#: books/templates/books/class_list.html:38
+#, python-format
+msgid ""
+"\n"
+"                                All books classified as "
+"%(classification_class)s - %(description)s\n"
+"                                "
+msgstr ""
+"\n"
+"                                Όλα τα βιβλία ταξινομημένα ως "
+"%(classification_class)s - %(description)s\n"
+"                                "
 
 #: books/templates/books/donor_detail.html:13
 #, python-format
@@ -36351,5 +36381,5 @@ msgstr "Λανθασμένος κωδικός ταξινόμισης: επιτρ
 #: books/validators.py:99
 msgid "Invalid classification: Invalid format"
 msgstr ""
-"Λανθασμένος κωδικός ταξινόμισης: επιτρέπονται μόνο αριθμοί στην αρχή, μια τελεία μετα το "
-"τρίτο ψηφίο και μονο κεφαλαία μετα απο ενα κενό"
+"Λανθασμένος κωδικός ταξινόμισης: επιτρέπονται μόνο αριθμοί στην αρχή, μια "
+"τελεία μετα το τρίτο ψηφίο και μονο κεφαλαία μετα απο ενα κενό"

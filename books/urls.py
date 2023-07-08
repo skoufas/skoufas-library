@@ -14,4 +14,15 @@ urlpatterns: list[URLPattern | URLResolver] = [
     path(r"authors/by-db-id/<int:pk>", views.AuthorDetailView.as_view(), name="author-by-id"),
     path(r"donors", views.DonorListView.as_view(), name="donor-list"),
     path(r"donors/by-db-id/<int:pk>", views.DonorDetailView.as_view(), name="donor-by-id"),
+    path(r"classes", views.ClassListView.as_view(), name="skoufas-class-list"),
+    path(
+        r"by-skoufas-main-class/<classification_class>",
+        views.BookEntryByMainClassListView.as_view(),
+        name="book-by-skoufas-main-class",
+    ),
+    path(
+        r"by-skoufas-classification/<skoufas_classification>",
+        views.BookEntryBySkoufasClassificationListView.as_view(),
+        name="book-by-skoufas-classification",
+    ),
 ]

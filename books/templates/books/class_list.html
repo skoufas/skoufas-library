@@ -1,0 +1,57 @@
+{% extends "skoufas_library/layout.html" %}
+{% load bootstrap5 %}
+{% load i18n %}
+{% load static %}
+{% block title %}
+    {% translate "All Classes" %}
+{% endblock title %}
+{% block content %}
+    <p>
+        {% url 'contact' as contact_url %}
+        {% blocktranslate %}
+        The library's classification system loosely follows the Dewey classification.
+        {% endblocktranslate %}
+    </p>
+    <div class="accordion" id="classAccordion">
+        {% for class in classes %}
+            <div class="accordion-item">
+                <h2 class="accordion-header"
+                    id="classification-{{ class.classification_class }}">
+                    <button class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-{{ class.classification_class }}"
+                            aria-expanded="false"
+                            aria-controls="collapse-{{ class.classification_class }}">
+                        {{ class.classification_class }} - {{ class.description }}
+                        &nbsp;<span class="badge rounded-pill bg-primary">{{ class.number_of_entries }}</span>
+                    </button>
+                </h2>
+                <div id="collapse-{{ class.classification_class }}"
+                     class="accordion-collapse collapse hide"
+                     aria-labelledby="classification-{{ class.classification_class }}"
+                     data-bs-parent="#classAccordion">
+                    <div class="accordion-body list-group">
+                        <a {% if class.classification_class %} href="{% url 'books:book-by-skoufas-main-class' class.classification_class %}" {% else %} href="{% url 'books:book-by-skoufas-main-class' 'None' %}" {% endif %}
+                           class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                {% blocktranslate with classification_class=class.classification_class description=class.description%}
+                                All books classified as {{ classification_class }} - {{ description }}
+                                {% endblocktranslate %}
+                            </div>
+                        </a>
+                        {% for subclass in class.subclasses %}
+                            <a {% if subclass.skoufas_classification %} href="{% url 'books:book-by-skoufas-classification' subclass.skoufas_classification %}" {% else %} href="{% url 'books:book-by-skoufas-classification' 'None' %}" {% endif %}
+                               class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    {{ subclass.skoufas_classification }}
+                                    <span class="badge rounded-pill bg-primary">{{ subclass.number_of_entries }}</span>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
