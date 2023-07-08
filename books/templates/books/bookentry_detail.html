@@ -38,12 +38,13 @@
                 {% endfor %}
             </ul>
         </dd>
-        {% if object.dewey %}
+        {% if object.skoufas_classification %}
             <dt class="col-sm-3">
-                {% translate "Dewey" %}
+                {% translate "Classification" %}
             </dt>
             <dd class="col-sm-9">
-                {{ object.dewey }}
+                {{ object.skoufas_classification }}
+                ({{ object.classification_class_str }})
             </dd>
         {% endif %}
         {% if object.entrynumber_set.all %}

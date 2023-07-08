@@ -288,7 +288,7 @@ class Command(BaseCommand):
         """Return a complete book object from an entry."""
         title = entry.get("title")
         subtitle = entry.get("subtitle")
-        dewey = entry.get("dewey")
+        skoufas_classification = entry.get("dewey")
         language = entry.get("language")
         edition = entry.get("edition")
         edition_year = entry.get("edition_year")
@@ -308,7 +308,7 @@ class Command(BaseCommand):
             editor=editor,
             title=title,
             subtitle=subtitle,
-            dewey=dewey,
+            skoufas_classification=skoufas_classification,
             language=language,
             edition=edition,
             edition_year=edition_year,

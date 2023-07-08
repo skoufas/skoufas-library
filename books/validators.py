@@ -77,7 +77,7 @@ def validate_ean(raw_ean):
     return True
 
 
-strict_dewey_res = [
+strict_classification_res = [
     re.compile(r"[0-9]{3}\.[0-9]{1,6} [A-ZΑ-Ω]+"),
     re.compile(r"[0-9]{3}\.[0-9]{1,6}"),
     re.compile(r"[0-9]{3} [A-ZΑ-Ω]+"),
@@ -85,15 +85,15 @@ strict_dewey_res = [
 ]
 
 
-def validate_skoufas_dewey(raw_dewey):
-    """Validate Dewey values according to skoufas library."""
-    if not isinstance(raw_dewey, str):
-        raise ValidationError(_("Invalid Dewey: Not a string"))
+def validate_skoufas_classification(raw_classification):
+    """Validate SkoufasClassification values according to skoufas library."""
+    if not isinstance(raw_classification, str):
+        raise ValidationError(_("Invalid classification: Not a string"))
 
-    if raw_dewey != raw_dewey.upper():
-        raise ValidationError(_("Invalid Dewey: Only upper case allowed"))
-    for dewey_re in strict_dewey_res:
-        if dewey_re.fullmatch(raw_dewey):
+    if raw_classification != raw_classification.upper():
+        raise ValidationError(_("Invalid classification: Only upper case allowed"))
+    for classification_re in strict_classification_res:
+        if classification_re.fullmatch(raw_classification):
             return True
 
-    raise ValidationError(_("Invalid Dewey: Invalid format"))
+    raise ValidationError(_("Invalid classification: Invalid format"))

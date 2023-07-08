@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-07 11:44+0300\n"
+"POT-Creation-Date: 2023-07-08 09:45+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -435,12 +435,12 @@ msgid "View all authors in the catalogue, and their books."
 msgstr "Όλοι οι συγγραφείς στον κατάλογο, και τα βιβλία τους."
 
 #: templates/skoufas_library/home.html:44
-msgid "Book Entries by Dewey"
-msgstr "Κάρτες Βιβλίου κατα Dewey"
+msgid "Book Entries by Classification"
+msgstr "Κάρτες Βιβλίου κατα Ταξινομικό"
 
 #: templates/skoufas_library/home.html:46
-msgid "View all books in the catalogue, ordered by Dewey code."
-msgstr "Όλα τα βιβλία στον κατάλογο, κατα Dewey."
+msgid "View all books in the catalogue, ordered by local classification code."
+msgstr "Όλα τα βιβλία στον κατάλογο, κατα Ταξινομικό Κωδικό."
 
 #: templates/skoufas_library/home.html:52
 msgid "Calculated Fields"

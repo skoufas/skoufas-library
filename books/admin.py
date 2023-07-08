@@ -75,7 +75,7 @@ class BookEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
         "title",
         "subtitle",
         "authors_list",
-        "dewey",
+        "skoufas_classification",
         "language",
         "edition",
         "edition_year",

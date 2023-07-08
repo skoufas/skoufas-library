@@ -84,12 +84,12 @@
                 {% endfor %}
             </ul>
         </dd>
-        {% if object.dewey %}
+        {% if object.skoufas_classification %}
             <dt class="col-sm-3">
-                {% translate "Dewey" %}
+                {% translate "Classification" %}
             </dt>
             <dd class="col-sm-9">
-                {{ object.dewey }}
+                {{ object.skoufas_classification }}
             </dd>
         {% endif %}
         {% if object.entrynumber_set.all %}
@@ -284,7 +284,7 @@
             <div class="card card-body">
                 {% for dbfentry in object.dbfentry_set.all %}
                     <pre><code class="language-yaml">{{ dbfentry.as_yaml }}</code></pre>
-                                                                                                                                                                                                                                                                                                                                                                                                        {% endfor %}
+                                                                                                                                                                                                                                                                                                                                                                                                                    {% endfor %}
                                                                                                 </div>
                             </div>
 {% endif %} {% endcomment %}

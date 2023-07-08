@@ -6,7 +6,7 @@
 
 - Title - Τίτλος
 - Subtitle - Υπότιτλος
-- Dewey - Ταξινομικός Αριθμός Dewey
+- SkoufasClassification - Ταξινομικός Αριθμός
 - Edition - Έκδοση
 - EditionDate - Έτος Έκδοσης
 - EditorId (FK: Editor)

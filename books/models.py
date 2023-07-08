@@ -7,15 +7,16 @@ from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.urls import reverse
+from django.utils.functional import Promise as StrPromise
 from django.utils.text import format_lazy
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
-from books.fields import DeweyField
 from books.fields import EANField
 from books.fields import ISBNField
 from books.fields import ISSNField
 from books.fields import LanguageField
+from books.fields import SkoufasClassificationField
 
 
 def current_year() -> int:
@@ -250,8 +251,10 @@ class BookEntry(models.Model):
     # - EditorId (FK: Editor)
     editor = models.ForeignKey(Editor, verbose_name=_("editor"), null=True, on_delete=models.CASCADE, blank=True)
 
-    # - Dewey - Ταξινομικός Αριθμός Dewey
-    dewey = DeweyField(verbose_name=_("Dewey"), max_length=15, null=True, blank=True)
+    # - SkoufasClassification - Ταξινομικός Αριθμός
+    skoufas_classification = SkoufasClassificationField(
+        verbose_name=_("Skoufas Classification"), max_length=15, null=True, blank=True
+    )
 
     # - Language - Γλώσσα
     language = LanguageField(verbose_name=_("Language"), null=True, blank=True)
@@ -307,6 +310,19 @@ class BookEntry(models.Model):
     # Donors (Many-to-Many)
     entry_donors = models.ManyToManyField(verbose_name=_("Donor"), to=Donor, blank=True)
 
+    # Not editable, see save method
+    classification_class = models.IntegerField(
+        verbose_name=_("Skoufas Classification Class"), null=True, blank=True, editable=False
+    )
+
+    def save(self, *args, **kwargs):
+        """Update classification_class based on classification string."""
+        if self.skoufas_classification:
+            self.classification_class = int(self.skoufas_classification[0:3])
+        else:
+            self.classification_class = None
+        super().save(*args, **kwargs)  # Call the "real" save() method.
+
     def __str__(self):
         """Print Book entry's Title."""
         if not self.title and not self.subtitle:
@@ -327,6 +343,12 @@ class BookEntry(models.Model):
         if sequence_objects.count() == 0:
             return None
         return sequence_objects.all()[0:1].get().dbf_sequence
+
+    def classification_class_str(self) -> Optional[str] | StrPromise:
+        """Full text of classification."""
+        from .skoufas_classification_classes import classification
+
+        return classification(self.classification_class)
 
     class Meta:
         """Meta for Book Entry."""

@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from books.validators import validate_ean
 from books.validators import validate_isbn
 from books.validators import validate_issn
-from books.validators import validate_skoufas_dewey
+from books.validators import validate_skoufas_classification
 
 
 class ISBNField(CharField):
@@ -99,23 +99,23 @@ class EANField(CharField):
         return super().pre_save(model_instance, add)
 
 
-class DeweyField(CharField):
-    """Custom Field for Dewey values."""
+class SkoufasClassificationField(CharField):
+    """Custom Field for skoufas classification values."""
 
-    description = _("Dewey format XXX, XXX ABC, XXX.XXX, XXX.XXX ABC")
+    description = _("Skoufas classification format XXX, XXX ABC, XXX.XXX, XXX.XXX ABC")
 
     def __init__(self, *args, **kwargs):
         """Construct a field."""
         kwargs["max_length"] = 28
-        kwargs["verbose_name"] = _("Dewey")
-        kwargs["validators"] = [validate_skoufas_dewey]
+        kwargs["verbose_name"] = _("Classification")
+        kwargs["validators"] = [validate_skoufas_classification]
         super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
         """Construct a form field."""
         defaults = {
             "min_length": 3,
-            "validators": [validate_skoufas_dewey],
+            "validators": [validate_skoufas_classification],
         }
         defaults.update(kwargs)
         return super().formfield(**defaults)
