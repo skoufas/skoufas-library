@@ -53,6 +53,7 @@ LOGGING = {
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -129,7 +130,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "skoufas_library_project.wsgi.application"
+ASGI_APPLICATION = "skoufas_library_project.asgi.application"
+# WSGI_APPLICATION = "skoufas_library_project.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases

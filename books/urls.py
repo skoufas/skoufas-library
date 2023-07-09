@@ -25,4 +25,9 @@ urlpatterns: list[URLPattern | URLResolver] = [
         views.BookEntryBySkoufasClassificationListView.as_view(),
         name="book-by-skoufas-classification",
     ),
+    path(
+        r"export/csv",
+        views.CSVExportView.as_view(),
+        name="export-csv",
+    ),
 ]
