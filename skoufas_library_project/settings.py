@@ -27,6 +27,8 @@ SECRET_KEY_FALLBACKS = [
 DEBUG = "DJANGO_DEBUG" in os.environ
 
 ALLOWED_HOSTS: list[str] = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split(",")
+# https://stackoverflow.com/questions/72584282/django-caddy-csrf-protection-issues
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 LOGGING = {
     "version": 1,  # the dictConfig format version
@@ -131,7 +133,6 @@ TEMPLATES = [
 ]
 
 ASGI_APPLICATION = "skoufas_library_project.asgi.application"
-# WSGI_APPLICATION = "skoufas_library_project.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
