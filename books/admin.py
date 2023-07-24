@@ -121,6 +121,7 @@ class AuthorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
         "surname",
         "first_name",
         "middle_name",
+        "pseudonym",
     ]
 
     search_fields = [
@@ -128,6 +129,7 @@ class AuthorAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
         "surname",
         "first_name",
         "middle_name",
+        "pseudonym",
     ]
 
 

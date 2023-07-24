@@ -54,12 +54,26 @@ class Command(BaseCommand):
             self.stdout.write(f"{entry['dbase_number']}: No authors for {entry['dbase_number']}")
             return result
         for author in authors:
+            pseudonym = None
+            split_author_pseudonym = author.split("@")
+            if len(split_author_pseudonym) == 2:
+                author = split_author_pseudonym[0]
+                pseudonym = split_author_pseudonym[1]
             split_author = author.split(",")
             if len(split_author) == 2:
                 author_entry, author_created = Author.objects.get_or_create(
                     first_name=split_author[1],
                     surname=split_author[0],
                     middle_name="",
+                    pseudonym=pseudonym,
+                    organisation_name=None,
+                )
+            elif len(split_author) == 3:
+                author_entry, author_created = Author.objects.get_or_create(
+                    first_name=split_author[1],
+                    surname=split_author[0],
+                    middle_name=split_author[2],
+                    pseudonym=pseudonym,
                     organisation_name=None,
                 )
             elif len(split_author) == 1:
@@ -67,6 +81,7 @@ class Command(BaseCommand):
                     first_name=None,
                     surname=None,
                     middle_name=None,
+                    pseudonym=pseudonym,
                     organisation_name=split_author[0],
                 )
             else:

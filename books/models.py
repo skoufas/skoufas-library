@@ -35,19 +35,28 @@ class Author(models.Model):
     first_name = models.CharField(verbose_name=_("first name"), max_length=200, null=True, blank=True)
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True, blank=True)
     surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True, blank=True)
+    pseudonym = models.CharField(verbose_name=_("pseudonym"), max_length=200, null=True, blank=True)
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True, blank=True)
 
     def __str__(self):
         """Print author."""
-        if self.organisation_name and str(self.organisation_name):
+        parts = []
+        if self.surname:
+            parts.append(self.surname)
+        if self.first_name:
+            parts.append(self.first_name)
+        if self.middle_name:
+            parts.append(self.middle_name)
+        if not parts and self.organisation_name:
             return str(self.organisation_name)
-        else:
-            if not self.first_name and not self.surname:
-                return gettext("Nameless author")
-            if self.middle_name:
-                return f"{self.surname}, {self.first_name} {self.middle_name}"
-            else:
-                return f"{self.surname}, {self.first_name}"
+        elif not parts and self.pseudonym:
+            return str(self.pseudonym)
+        elif not parts:
+            return gettext("Nameless author")
+        ret = ", ".join(parts)
+        if self.pseudonym:
+            ret = f"{ret} ({self.pseudonym})"
+        return ret
 
     def get_absolute_url(self):
         """URL to author."""
@@ -56,13 +65,13 @@ class Author(models.Model):
     class Meta:
         """Meta for author."""
 
-        ordering = ["organisation_name", "surname", "middle_name", "first_name"]
+        ordering = ["organisation_name", "surname", "middle_name", "first_name", "pseudonym"]
         verbose_name = _("Author")
         verbose_name_plural = _("Authors")
         constraints = [
             models.UniqueConstraint(
                 name="unique_author",
-                fields=["organisation_name", "surname", "middle_name", "first_name"],
+                fields=["organisation_name", "surname", "middle_name", "first_name", "pseudonym"],
             )
         ]
 
