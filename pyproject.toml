@@ -72,6 +72,13 @@ exclude = [
     "/venv",
 ]
 
+[tool.hatch.build.targets.wheel]
+packages = [
+    "books",
+    "loaning",
+    "skoufas_library_project",
+]
+
 [tool.django-stubs]
 django_settings_module = "skoufas_library_project.settings"
 
