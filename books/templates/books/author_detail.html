@@ -11,6 +11,12 @@
 {% block content %}
     <dt>
         {% translate "Books by the author" %}
+        <a class="text-nowrap"
+           href="https://duckduckgo.com/?q={{ object | urlencode }}">
+            <i class="bi bi-search"></i></a>
+        <a class="text-nowrap"
+           href="https://google.com/search?q={{ object | urlencode }}">
+            <i class="bi bi-google"></i></a>
     </dt>
     <dd>
         <div class="list-group ">

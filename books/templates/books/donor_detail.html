@@ -9,9 +9,7 @@
     {% endif %}
 {% endblock title %}
 {% block content %}
-    <dt>
-        {% blocktranslate %}Books donated by {{ object }}{% endblocktranslate%}
-    </dt>
+    <dt>{% blocktranslate %}Books donated by {{ object }}{% endblocktranslate%}</dt>
     <dd>
         <div class="list-group ">
             {% for book_entry in object.bookentry_set.all %}

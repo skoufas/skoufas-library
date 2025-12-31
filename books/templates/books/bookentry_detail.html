@@ -9,7 +9,7 @@
     {% endif %}
 {% endblock title %}
 {% block skoufas_library_extra_head %}
-    <link rel="stylesheet" href="{% static 'books/prism.css' %}"/>
+    <link rel="stylesheet" href="{% static 'books/prism.css' %}" />
 {% endblock skoufas_library_extra_head %}
 {% block bootstrap5_extra_script %}
     <script src="{% static 'books/prism.js' %}"></script>
@@ -17,21 +17,23 @@
 {% block content %}
     <dl class="row">
         {% if object.subtitle %}
-            <dt class="col-sm-3">
-                {% translate "Subtitle" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Subtitle" %}</dt>
             <dd class="col-sm-9">
                 {{ object.subtitle }}
             </dd>
         {% endif %}
-        <dt class="col-sm-3">
-            {% translate "Authors" %}
-        </dt>
+        <dt class="col-sm-3">{% translate "Authors" %}</dt>
         <dd class="col-sm-9">
             <ul>
                 {% for author_entry in object.authors.all %}
                     <li>
                         <a href="{% url 'books:author-by-id' author_entry.id %}"><i class="bi bi-file-person"></i> {{ author_entry }}</a>
+                        <a class="text-nowrap"
+                           href="https://duckduckgo.com/?q={{ author_entry | urlencode }}">
+                            <i class="bi bi-search"></i></a>
+                        <a class="text-nowrap"
+                           href="https://google.com/search?q={{ author_entry | urlencode }}">
+                            <i class="bi bi-google"></i></a>
                     </li>
                 {% empty %}
                     <li>{% translate "Book with no authors" %}</li>
@@ -39,18 +41,14 @@
             </ul>
         </dd>
         {% if object.skoufas_classification %}
-            <dt class="col-sm-3">
-                {% translate "Classification" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Classification" %}</dt>
             <dd class="col-sm-9">
                 {{ object.skoufas_classification }}
                 ({{ object.classification_class_str }})
             </dd>
         {% endif %}
         {% if object.entrynumber_set.all %}
-            <dt class="col-sm-3">
-                {% translate "Entry Numbers" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Entry Numbers" %}</dt>
             <dd class="col-sm-9">
                 <ul>
                     {% for entrynumber in object.entrynumber_set.all %}
@@ -71,9 +69,7 @@
             </dd>
         {% endif %}
         {% if object.topics.all %}
-            <dt class="col-sm-3">
-                {% translate "Topics" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Topics" %}</dt>
             <dd class="col-sm-9">
                 <ul>
                     {% for topic in object.topics.all %}<li>{{ topic }}</li>{% endfor %}
@@ -81,65 +77,49 @@
             </dd>
         {% endif %}
         {% if object.language %}
-            <dt class="col-sm-3">
-                {% translate "Language" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Language" %}</dt>
             <dd class="col-sm-9">
                 {{ object.get_language_display }}
             </dd>
         {% endif %}
         {% if object.editor %}
-            <dt class="col-sm-3">
-                {% translate "Editor" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Editor" %}</dt>
             <dd class="col-sm-9">
                 {{ object.editor }}
             </dd>
         {% endif %}
         {% if object.edition %}
-            <dt class="col-sm-3">
-                {% translate "Edition" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Edition" %}</dt>
             <dd class="col-sm-9">
                 {{ object.edition }}
             </dd>
         {% endif %}
         {% if object.edition_year %}
-            <dt class="col-sm-3">
-                {% translate "Edition Year" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Edition Year" %}</dt>
             <dd class="col-sm-9">
                 {{ object.edition_year }}
             </dd>
         {% endif %}
         {% if object.pages %}
-            <dt class="col-sm-3">
-                {% translate "Pages" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Pages" %}</dt>
             <dd class="col-sm-9">
                 {{ object.pages }}
             </dd>
         {% endif %}
         {% if object.copies %}
-            <dt class="col-sm-3">
-                {% translate "Copies" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Copies" %}</dt>
             <dd class="col-sm-9">
                 {{ object.copies }}
             </dd>
         {% endif %}
         {% if object.volumes %}
-            <dt class="col-sm-3">
-                {% translate "Volumes" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Volumes" %}</dt>
             <dd class="col-sm-9">
                 {{ object.volumes }}
             </dd>
         {% endif %}
         {% if object.translators.all %}
-            <dt class="col-sm-3">
-                {% translate "Translators" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Translators" %}</dt>
             <dd class="col-sm-9">
                 <ul>
                     {% for translator in object.translators.all %}
@@ -151,9 +131,7 @@
             </dd>
         {% endif %}
         {% if object.curators.all %}
-            <dt class="col-sm-3">
-                {% translate "Curators" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Curators" %}</dt>
             <dd class="col-sm-9">
                 <ul>
                     {% for curator in object.curators.all %}
@@ -165,9 +143,7 @@
             </dd>
         {% endif %}
         {% if object.entry_donors %}
-            <dt class="col-sm-3">
-                {% translate "Donors" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Donors" %}</dt>
             <dd class="col-sm-9">
                 <ul>
                     {% for donor in object.entry_donors.all %}
@@ -179,87 +155,107 @@
             </dd>
         {% endif %}
         {% if object.notes %}
-            <dt class="col-sm-3">
-                {% translate "Notes" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Notes" %}</dt>
             <dd class="col-sm-9">
                 {{ object.notes }}
             </dd>
         {% endif %}
         {% if object.material %}
-            <dt class="col-sm-3">
-                {% translate "Material" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "Material" %}</dt>
             <dd class="col-sm-9">
                 {{ object.material }}
             </dd>
         {% endif %}
         {% if object.isbn %}
-            <dt class="col-sm-3">
-                {% translate "ISBN" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "ISBN" %}</dt>
             <dd class="col-sm-9">
                 {{ object.isbn }}
             </dd>
         {% endif %}
         {% if object.issn %}
-            <dt class="col-sm-3">
-                {% translate "ISSN" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "ISSN" %}</dt>
             <dd class="col-sm-9">
                 {{ object.issn }}
             </dd>
         {% endif %}
         {% if object.ean %}
-            <dt class="col-sm-3">
-                {% translate "EAN" %}
-            </dt>
+            <dt class="col-sm-3">{% translate "EAN" %}</dt>
             <dd class="col-sm-9">
                 {{ object.ean }}
             </dd>
         {% endif %}
-        <dt class="col-sm-3">
-            {% translate "Offprint" %}
-        </dt>
+        <dt class="col-sm-3">{% translate "Offprint" %}</dt>
         <dd class="col-sm-9">
             <input class="form-check-input"
                    type="checkbox"
                    value=""
                    id="offprintCheck"
-                   {% if object.offprint %}checked{% endif %}/>
+                   {% if object.offprint %}checked{% endif %} />
         </dd>
-        <dt class="col-sm-3">
-            {% translate "Has CD" %}
-        </dt>
+        <dt class="col-sm-3">{% translate "Has CD" %}</dt>
         <dd class="col-sm-9">
             <input class="form-check-input"
                    type="checkbox"
                    value=""
                    id="hasCdCheck"
-                   {% if object.has_cd %}checked{% endif %}/>
+                   {% if object.has_cd %}checked{% endif %} />
         </dd>
-        <dt class="col-sm-3">
-            {% translate "Has DVD" %}
-        </dt>
+        <dt class="col-sm-3">{% translate "Has DVD" %}</dt>
         <dd class="col-sm-9">
             <input class="form-check-input"
                    type="checkbox"
                    value=""
                    id="hasCdCheck"
-                   {% if object.has_dvd %}checked{% endif %}/>
+                   {% if object.has_dvd %}checked{% endif %} />
         </dd>
     </dl>
-    {% if object.dbfentry_set.all %}
-        <p>
+    <p>
+        <button class="btn btn-primary"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseSearches"
+                aria-expanded="false"
+                aria-controls="collapseSearches">{% translate "Show searches" %}</button>
+        {% if object.dbfentry_set.all %}
             <button class="btn btn-primary"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseDBFEntry"
                     aria-expanded="false"
-                    aria-controls="collapseDBFEntry">
-                {% translate "Show original DBF entry" %}
-            </button>
-        </p>
+                    aria-controls="collapseDBFEntry">{% translate "Show original DBF entry" %}</button>
+        {% endif %}
+    </p>
+    <div class="collapse" id="collapseSearches">
+        <div class="card card-body">
+            {% if object.isbn %}
+                <ul>
+                    <li>
+                        <a href="https://www.google.com/search?tbs=bks:1&q=isbn:{{ object.isbn }}">
+                        {% translate "ISBN search on Google Books." %}</a>
+                    </li>
+                    <li>
+                        <a href="https://www.amazon.com/s?search-alias=stripbooks&field-isbn={{ object.isbn }}">
+                        {% translate "ISBN search on Amazon.com." %}</a>
+                    </li>
+                    <li>
+                        <a href="https://osdelnet.gr/adv-search/results?isbn13_search={{ object.isbn }}">
+                        {% translate "ISBN search on osdelnet." %}</a>
+                    </li>
+                    <li>
+                        <a href="https://www.bookia.gr/index.php?action=fts&searchtext={{ object.isbn }}">
+                        {% translate "ISBN search on Bookia." %}</a>
+                    </li>
+                    <li>
+                        <a href="https://search.worldcat.org/search?q=bn%3A{{ object.isbn }}">
+                        {% translate "ISBN search on worldcat.org." %}</a>
+                    </li>
+                </ul>
+            {% endif %}
+            {% if object.issn %}{{ object.issn }}{% endif %}
+            {% if object.ean %}{{ object.ean }}{% endif %}
+        </div>
+    </div>
+    {% if object.dbfentry_set.all %}
         <div class="collapse" id="collapseDBFEntry">
             <div class="card card-body">
                 {% for dbfentry in object.dbfentry_set.all %}

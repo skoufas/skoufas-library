@@ -33,17 +33,22 @@
     </nav>
     <ul class="list-group">
         {% for author_entry in page_obj %}
-            <a href="{% url 'books:author-by-id' author_entry.id %}"
-               class="list-group-item list-group-item-action">
-                <div class="d-flex w-100 justify-content-between">
+            <div class="d-flex w-100 justify-content-between list-group-item list-group-item-action">
+                <a href="{% url 'books:author-by-id' author_entry.id %}">
                     <h5 class="mb-1">
                         <i class="bi bi-file-person"></i> {{ author_entry }}
                     </h5>
-                    <small class="opacity-50 text-nowrap">
-                        {% blocktranslate count counter=author_entry.bookentry_set.count %}1 title{% plural %}{{ counter }} titles{% endblocktranslate %}
-                    </small>
-                </div>
-            </a>
+                </a>
+                <small class="opacity-50 text-nowrap">
+                    <a class="text-nowrap"
+                       href="https://duckduckgo.com/?q={{ author_entry | urlencode }}">
+                        <i class="bi bi-search"></i></a>
+                    <a class="text-nowrap"
+                       href="https://google.com/search?q={{ author_entry | urlencode }}">
+                        <i class="bi bi-google"></i></a>
+                    {% blocktranslate count counter=author_entry.bookentry_set.count %}1 title{% plural %}{{ counter }} titles{% endblocktranslate %}
+                </small>
+            </div>
         {% endfor %}
     </ul>
     <nav aria-label="Page navigation example">
