@@ -24,8 +24,7 @@
 			"label": "PostgreSQL port"
 		}
 	},
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "pip install -e '.[test]'",
+	"postStartCommand": "./scripts/restart-venv",
 	// Configure tool-specific properties.
 	"customizations": {
 		// Configure properties specific to VS Code.
@@ -38,60 +37,35 @@
 				"files.autoSave": "onFocusChange",
 				"files.trimTrailingWhitespace": true,
 				"python.analysis.typeCheckingMode": "strict",
-				"python.defaultInterpreterPath": "/usr/local/bin/python",
-				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
-				"python.formatting.blackArgs": [
-					"--config",
-					"pyproject.toml"
-				],
-				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
-				"python.formatting.provider": "black",
-				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
-				"python.linting.banditArgs": [
-					"--configfile",
-					"pyproject.toml"
-				],
-				"python.linting.banditEnabled": true,
-				"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
-				"python.linting.enabled": true,
-				"python.linting.flake8Args": [
-					"--config",
-					".flake8"
-				],
-				"python.linting.flake8Enabled": true,
-				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
-				"python.linting.lintOnSave": true,
-				"python.linting.mypyArgs": [
+				"python.defaultInterpreterPath": "/workspaces/skoufas-dbase/.venv/bin/python",
+				"mypy-type-checker.args": [
 					"--config-file",
-					".pyproject.toml"
-				],
-				"python.linting.mypyEnabled": true,
-				"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
-				"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
-				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
-				"python.linting.pylintEnabled": true,
-				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
-				"python.testing.pytestPath": "/usr/local/py-utils/bin/pytest"
+					"pyproject.toml"
+				]
 			},
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"ms-azuretools.vscode-docker",
-				//
-				"eamodio.gitlens",
+				"batisteo.vscode-django",
+				// "bungcip.better-toml",
+				"charliermarsh.ruff",
+				"elagil.pre-commit-helper",
+				"fill-labs.dependi",
+				"GitHub.vscode-github-actions",
 				"GitHub.vscode-pull-request-github",
 				"mhutchie.git-graph",
-				//
-				"ms-python.python",
-				"ms-python.vscode-pylance",
-				//
-				"batisteo.vscode-django",
-				"bungcip.better-toml",
 				"monosans.djlint",
-				"ms-python.black-formatter",
+				"ms-azuretools.vscode-docker",
+				"ms-python.debugpy",
 				"ms-python.flake8",
 				"ms-python.isort",
+				"ms-python.mypy-type-checker",
 				"ms-python.pylint",
-				"redhat.vscode-yaml"
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"ms-python.vscode-python-envs",
+				"redhat.vscode-yaml",
+				"ryanluker.vscode-coverage-gutters",
+				"tamasfe.even-better-toml"
 			]
 		}
 	},

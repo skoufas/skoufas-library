@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-24 10:03+0300\n"
+"POT-Creation-Date: 2025-12-31 10:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,10 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: skoufas_library_project/settings.py:176
+#: skoufas_library_project/settings.py:177
 msgid "Greek"
 msgstr "Ελληνικά"
 
-#: skoufas_library_project/settings.py:177
+#: skoufas_library_project/settings.py:178
 msgid "English"
 msgstr "Αγγλικά"

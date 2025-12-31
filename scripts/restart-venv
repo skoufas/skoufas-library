@@ -3,9 +3,9 @@
 PROJECT_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")"; cd ..; pwd)"
 cd "$PROJECT_DIR"
 pwd
-rm -rf ./venv
-python -m venv venv
+rm -rf ./.venv
+uv venv
 
-source venv/bin/activate
-python -m pip install -U pip hatch
-pip install -e '.[test]'
+source .venv/bin/activate
+# pip install 'git+https://github.com/math-a3k/django-bootstrap-v5.git#egg=django-bootstrap-v5'
+uv pip install -e '.[test]'

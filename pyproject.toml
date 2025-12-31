@@ -3,10 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name =  "skoufas-library"
-authors = [
-    {name = "Claudio Bantaloukas", email = "rockreamer@gmail.com"},
-]
+name = "skoufas-library"
+authors = [{ name = "Claudio Bantaloukas", email = "rockreamer@gmail.com" }]
 description = "Django Web Application for managing Skoufas library catalog"
 readme = "README.md"
 classifiers = [
@@ -14,15 +12,15 @@ classifiers = [
     "Intended Audience :: Other Audience",
     "License :: OSI Approved :: GNU Affero General Public License v3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.12",
 ]
-requires-python = ">=3.10"
-dynamic = ["version"]
+requires-python = ">=3.12"
+version = "1.0.0"
 dependencies = [
     "django-bootstrap-v5",
     "django-extensions",
     "daphne",
-    "django",
+    "django<6",
     "djangoql",
     "psycopg2",
     "python-stdnum",
@@ -33,55 +31,33 @@ dependencies = [
 
 [project.optional-dependencies]
 test = [
-    "autopep8==2.0.2",
-    "bandit[toml]==1.7.5",
-    "black==23.3.0",
-    "check-manifest==0.49",
-    "django-stubs[compatible-mypy]==4.2.0",
+    "bandit[toml]==1.7.9",
+    "check-manifest==0.51",
     "django-debug-toolbar",
-    "djlint==1.30.0",
-    "flake8-bugbear==23.5.9",
-    "flake8-docstrings",
-    "flake8-formatter_junit_xml",
-    "flake8==6.0.0",
-    "mypy>=1.2.0",
-    "pre-commit==3.3.2",
+    "django-stubs[com0.51ble-mypy]==5.2.8",
+    "djlint==1.36.4",
+    "mypy",
+    "pre-commit==4.5.1",
     "pylint_junit",
-    "pylint==2.17.4",
-    "pytest-cov==4.1.0",
+    "pylint==4.0.4",
+    "pytest-cov==7.0.0",
     "pytest-github-actions-annotate-failures",
     "pytest-mock<3.10.1",
     "pytest-runner",
-    "pytest==7.3.1",
+    "pytest==9.0.2",
     "reorder-python-imports",
-    "shellcheck-py==0.9.0.2",
+    "ruff",
+    "shellcheck-py==0.11.0.1",
     "toml",
 ]
 
-[tool.hatch.version]
-path = "skoufas_library_project/__init__.py"
-
 [tool.hatch.build.targets.sdist]
-include = [
-  "/",
-]
-exclude = [
-    "/.vscode",
-    "/junk",
-    "/scripts",
-    "/venv",
-]
+include = ["/"]
+exclude = ["/.vscode", "/junk", "/scripts", "/venv"]
 
 [tool.hatch.build.targets.wheel]
-include = [
-  "/",
-]
-exclude = [
-    "/.vscode",
-    "/junk",
-    "/scripts",
-    "/venv",
-]
+include = ["/"]
+exclude = ["/.vscode", "/junk", "/scripts", "/venv"]
 # packages = [
 #     "books",
 #     "loaning",
@@ -92,10 +68,8 @@ exclude = [
 django_settings_module = "skoufas_library_project.settings"
 
 [tool.mypy]
-plugins = [
-    "mypy_django_plugin.main",
-]
-exclude =  '''(?x)(
+plugins = ["mypy_django_plugin.main"]
+exclude = '''(?x)(
     migrations    # files named "one.py"
     | two\.pyi$  # or files ending with "two.pyi"
     | ^three\.   # or files starting with "three."
@@ -109,25 +83,19 @@ Documentation = "https://github.com/skoufas/skoufas-library#readme"
 Source = "https://github.com/skoufas/skoufas-library"
 Tracker = "https://github.com/skoufas/skoufas-library/issues"
 
-[tool.black]
+[tool.ruff]
 line-length = 120
-fast = true
 
 [tool.bandit]
-exclude_dirs = ["build","dist", "junk", "tests","scripts"]
+exclude_dirs = ["build", "dist", "junk", "tests", "scripts"]
 number = 4
 recursive = true
-targets = [
-    "books",
-    "loaning",
-    "skoufas_library_project",
-    "manage.py",
-]
+targets = ["books", "loaning", "skoufas_library_project", "manage.py"]
 
 reportMissingImports = true
 reportMissingTypeStubs = false
 
-pythonVersion = "3.11"
+pythonVersion = "3.12"
 pythonPlatform = "Linux"
 
 # [tool.pytest.ini_options]
@@ -154,20 +122,19 @@ pythonPlatform = "Linux"
 # """
 
 [tool.pylint]
-extension-pkg-whitelist= [
-]
-ignore="CVS,migrations"
-ignore-patterns="test.*?py,conftest.py"
-init-hook='import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())'
-jobs=0
-limit-inference-results=100
-persistent="yes"
-suggestion-mode="yes"
-unsafe-load-any-extension="no"
+extension-pkg-whitelist = []
+ignore = "CVS,migrations"
+ignore-patterns = "test.*?py,conftest.py"
+init-hook = 'import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())'
+jobs = 0
+limit-inference-results = 100
+persistent = "yes"
+suggestion-mode = "yes"
+unsafe-load-any-extension = "no"
 
 [tool.pylint.'MESSAGES CONTROL']
-enable="c-extension-no-member"
-disable=[
+enable = "c-extension-no-member"
+disable = [
     "too-few-public-methods",
     "no-else-return",
     "import-outside-toplevel",
@@ -175,136 +142,111 @@ disable=[
 ]
 
 [tool.pylint.'REPORTS']
-evaluation="10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)"
-output-format="text"
-reports="no"
-score="yes"
+evaluation = "10.0 - ((float(5 * error + warning + refactor + convention) / statement) * 10)"
+output-format = "text"
+reports = "no"
+score = "yes"
 
 [tool.pylint.'REFACTORING']
-max-nested-blocks=5
-never-returning-functions="sys.exit"
+max-nested-blocks = 5
+never-returning-functions = "sys.exit"
 
 [tool.pylint.'BASIC']
-argument-naming-style="snake_case"
-attr-naming-style="snake_case"
-bad-names= [
-    "foo",
-    "bar"
-]
-class-attribute-naming-style="any"
-class-naming-style="PascalCase"
-const-naming-style="UPPER_CASE"
-docstring-min-length=-1
-function-naming-style="snake_case"
-good-names= [
-    "i",
-    "j",
-    "k",
-    "ex",
-    "Run",
-    "_"
-]
-include-naming-hint="yes"
-inlinevar-naming-style="any"
-method-naming-style="snake_case"
-module-naming-style="any"
-no-docstring-rgx="^_"
-property-classes="abc.abstractproperty"
-variable-naming-style="snake_case"
+argument-naming-style = "snake_case"
+attr-naming-style = "snake_case"
+bad-names = ["foo", "bar"]
+class-attribute-naming-style = "any"
+class-naming-style = "PascalCase"
+const-naming-style = "UPPER_CASE"
+docstring-min-length = -1
+function-naming-style = "snake_case"
+good-names = ["i", "j", "k", "ex", "Run", "_"]
+include-naming-hint = "yes"
+inlinevar-naming-style = "any"
+method-naming-style = "snake_case"
+module-naming-style = "any"
+no-docstring-rgx = "^_"
+property-classes = "abc.abstractproperty"
+variable-naming-style = "snake_case"
 
 [tool.pylint.'FORMAT']
-ignore-long-lines="^\\s*(# )?.*['\"]?<?https?://\\S+>?"
-indent-after-paren=4
-indent-string='    '
-max-line-length=120
-max-module-lines=1000
-single-line-class-stmt="no"
-single-line-if-stmt="no"
+ignore-long-lines = "^\\s*(# )?.*['\"]?<?https?://\\S+>?"
+indent-after-paren = 4
+indent-string = '    '
+max-line-length = 120
+max-module-lines = 1000
+single-line-class-stmt = "no"
+single-line-if-stmt = "no"
 
 [tool.pylint.'LOGGING']
-logging-format-style="old"
-logging-modules="logging"
+logging-format-style = "old"
+logging-modules = "logging"
 
 [tool.pylint.'MISCELLANEOUS']
-notes= [
-    "FIXME",
-    "XXX",
-    "TODO"
-]
+notes = ["FIXME", "XXX", "TODO"]
 
 [tool.pylint.'SIMILARITIES']
-ignore-comments="yes"
-ignore-docstrings="yes"
-ignore-imports="yes"
-min-similarity-lines=7
+ignore-comments = "yes"
+ignore-docstrings = "yes"
+ignore-imports = "yes"
+min-similarity-lines = 7
 
 [tool.pylint.'SPELLING']
-max-spelling-suggestions=4
-spelling-store-unknown-words="no"
+max-spelling-suggestions = 4
+spelling-store-unknown-words = "no"
 
 [tool.pylint.'STRING']
-check-str-concat-over-line-jumps="no"
+check-str-concat-over-line-jumps = "no"
 
 [tool.pylint.'TYPECHECK']
-contextmanager-decorators="contextlib.contextmanager"
-generated-members="numpy.*,np.*,pyspark.sql.functions,collect_list"
-ignore-mixin-members="yes"
-ignore-none="yes"
-ignore-on-opaque-inference="yes"
-ignored-classes="optparse.Values,thread._local,_thread._local,numpy,torch,swagger_client"
-ignored-modules="numpy,torch,swagger_client,netCDF4,scipy"
-missing-member-hint="yes"
-missing-member-hint-distance=1
-missing-member-max-choices=1
+contextmanager-decorators = "contextlib.contextmanager"
+generated-members = "numpy.*,np.*,pyspark.sql.functions,collect_list"
+ignore-mixin-members = "yes"
+ignore-none = "yes"
+ignore-on-opaque-inference = "yes"
+ignored-classes = "optparse.Values,thread._local,_thread._local,numpy,torch,swagger_client"
+ignored-modules = "numpy,torch,swagger_client,netCDF4,scipy"
+missing-member-hint = "yes"
+missing-member-hint-distance = 1
+missing-member-max-choices = 1
 
 [tool.pylint.'VARIABLES']
-additional-builtins="dbutils"
-allow-global-unused-variables="yes"
-callbacks= [
-    "cb_",
-    "_cb"
-]
-dummy-variables-rgx="_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_"
-ignored-argument-names="_.*|^ignored_|^unused_"
-init-import="no"
-redefining-builtins-modules="six.moves,past.builtins,future.builtins,builtins,io"
+additional-builtins = "dbutils"
+allow-global-unused-variables = "yes"
+callbacks = ["cb_", "_cb"]
+dummy-variables-rgx = "_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_"
+ignored-argument-names = "_.*|^ignored_|^unused_"
+init-import = "no"
+redefining-builtins-modules = "six.moves,past.builtins,future.builtins,builtins,io"
 
 [tool.pylint.'CLASSES']
-defining-attr-methods= [
-    "__init__",
-    "__new__",
-    "setUp",
-    "__post_init__"
-]
-exclude-protected= [
-    "_asdict",
-    "_fields",
-    "_replace",
-    "_source",
-    "_make"
-]
-valid-classmethod-first-arg="cls"
-valid-metaclass-classmethod-first-arg="cls"
+defining-attr-methods = ["__init__", "__new__", "setUp", "__post_init__"]
+exclude-protected = ["_asdict", "_fields", "_replace", "_source", "_make"]
+valid-classmethod-first-arg = "cls"
+valid-metaclass-classmethod-first-arg = "cls"
 
 [tool.pylint.'DESIGN']
-max-args=5
-max-attributes=7
-max-bool-expr=5
-max-branches=12
-max-locals=15
-max-parents=7
-max-public-methods=20
-max-returns=6
-max-statements=50
-min-public-methods=2
+max-args = 5
+max-attributes = 7
+max-bool-expr = 5
+max-branches = 12
+max-locals = 15
+max-parents = 7
+max-public-methods = 20
+max-returns = 6
+max-statements = 50
+min-public-methods = 2
 
 [tool.pylint.'IMPORTS']
-allow-wildcard-with-all="no"
-analyse-fallback-blocks="no"
-deprecated-modules="optparse,tkinter.tix"
+allow-wildcard-with-all = "no"
+analyse-fallback-blocks = "no"
+deprecated-modules = "optparse,tkinter.tix"
 
 [tool.pylint.'EXCEPTIONS']
-overgeneral-exceptions= [
-    "builtins.BaseException",
-    "builtin.Exception"
-]
+overgeneral-exceptions = ["builtins.BaseException", "builtin.Exception"]
+
+[[tool.uv.index]]
+explicit = true
+name = "testpypi"
+publish-url = "https://test.pypi.org/legacy"
+url = "https://test.pypi.org/simple"

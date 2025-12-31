@@ -3,7 +3,8 @@
 PROJECT_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")"; cd ..; pwd)"
 cd "$PROJECT_DIR"
 pwd
-. venv/bin/activate
+. .venv/bin/activate
+export PYTHONPATH=$PROJECT_DIR:$PYTHONPATH
 
-skoufas-library makemessages -l el --ignore 'junk' --ignore manage.py --ignore venv
+skoufas-library makemessages -l el --ignore 'junk' --ignore manage.py --ignore .venv
 skoufas-library compilemessages
