@@ -1,5 +1,5 @@
 {% extends "skoufas_library/layout.html" %}
-{% load bootstrap5 %}
+{% load django_bootstrap5 %}
 {% load i18n %}
 {% load static %}
 {% block title %}
@@ -284,7 +284,7 @@
             <div class="card card-body">
                 {% for dbfentry in object.dbfentry_set.all %}
                     <pre><code class="language-yaml">{{ dbfentry.as_yaml }}</code></pre>
-                                                                                                                                                                                                                                                                                                                                                                                                                            {% endfor %}
+                                                                                                                                                                                                                                                                                                                                                                                                                                {% endfor %}
                                                                                                 </div>
                             </div>
 {% endif %} {% endcomment %}

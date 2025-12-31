@@ -7,5 +7,4 @@ rm -rf ./.venv
 uv venv
 
 source .venv/bin/activate
-# pip install 'git+https://github.com/math-a3k/django-bootstrap-v5.git#egg=django-bootstrap-v5'
 uv pip install -e '.[test]'

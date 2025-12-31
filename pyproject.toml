@@ -17,7 +17,7 @@ classifiers = [
 requires-python = ">=3.12"
 version = "1.0.0"
 dependencies = [
-    "django-bootstrap-v5",
+    "django-bootstrap5",
     "django-extensions",
     "daphne",
     "django<6",
