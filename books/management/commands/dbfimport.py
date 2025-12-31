@@ -1,4 +1,5 @@
 """Import data from converted books.dbf file."""
+
 import datetime
 import os
 from typing import Any
@@ -28,7 +29,7 @@ def read_all_entries(entries_file: str) -> Any:
     with open(entries_file, "r", encoding="utf-8") as stream:
         parsed_yaml = yaml.load(stream, Loader=CSafeLoader)  # nosec
         result = parsed_yaml["converted_entries"]
-        print(f"Read {len(result)} entries in {(datetime.datetime.now()-start).seconds}s", flush=True)
+        print(f"Read {len(result)} entries in {(datetime.datetime.now() - start).seconds}s", flush=True)
     return result
 
 
@@ -94,7 +95,7 @@ class Command(BaseCommand):
                 result.append(author_entry)
                 if author_created:
                     author_entry.save()
-                    self.stdout.write(f"{entry['dbase_number']}: Added author {author} with id { author_entry.id }")
+                    self.stdout.write(f"{entry['dbase_number']}: Added author {author} with id {author_entry.id}")
                 else:
                     self.stdout.write(f"{entry['dbase_number']}: Reusing author {author}")
         return result
@@ -133,7 +134,7 @@ class Command(BaseCommand):
                 if translator_created:
                     translator_entry.save()
                     self.stdout.write(
-                        f"{entry['dbase_number']}: Added translator {translator} with id { translator_entry.id }"
+                        f"{entry['dbase_number']}: Added translator {translator} with id {translator_entry.id}"
                     )
                 else:
                     self.stdout.write(f"{entry['dbase_number']}: Reusing translator {translator}")
@@ -170,7 +171,7 @@ class Command(BaseCommand):
             result.append(curator_entry)
             if curator_created:
                 curator_entry.save()
-                self.stdout.write(f"{entry['dbase_number']}: Added curator {curator} with id { curator_entry.id }")
+                self.stdout.write(f"{entry['dbase_number']}: Added curator {curator} with id {curator_entry.id}")
             else:
                 self.stdout.write(f"{entry['dbase_number']}: Reusing curator {curator}")
         return result
@@ -207,7 +208,7 @@ class Command(BaseCommand):
                 result.append(donor_entry)
                 if donor_created:
                     donor_entry.save()
-                    self.stdout.write(f"{entry['dbase_number']}: Added donor {donor} with id { donor_entry.id }")
+                    self.stdout.write(f"{entry['dbase_number']}: Added donor {donor} with id {donor_entry.id}")
                 else:
                     self.stdout.write(f"{entry['dbase_number']}: Reusing donor {donor}")
         return result
@@ -232,7 +233,7 @@ class Command(BaseCommand):
         else:
             if editor_created:
                 editor_entry.save()
-                self.stdout.write(f"{entry['dbase_number']}: Added editor {editor} {place} with id { editor_entry.id }")
+                self.stdout.write(f"{entry['dbase_number']}: Added editor {editor} {place} with id {editor_entry.id}")
             else:
                 self.stdout.write(f"{entry['dbase_number']}: Reusing editor {editor} {place}")
         return editor_entry
@@ -251,7 +252,7 @@ class Command(BaseCommand):
                 result.append(topic_entry)
                 if topic_created:
                     topic_entry.save()
-                    self.stdout.write(f"{entry['dbase_number']}: Added topic {topic} with id { topic_entry.id }")
+                    self.stdout.write(f"{entry['dbase_number']}: Added topic {topic} with id {topic_entry.id}")
                 else:
                     self.stdout.write(f"{entry['dbase_number']}: Reusing topic {topic}")
         return result
@@ -285,7 +286,7 @@ class Command(BaseCommand):
         else:
             if entry_created:
                 dbf_entry.save()
-                self.stdout.write(f"{entry['dbase_number']}: Added original dbf entry with id { dbf_entry.id }")
+                self.stdout.write(f"{entry['dbase_number']}: Added original dbf entry with id {dbf_entry.id}")
             else:
                 self.stderr.write(f"{entry['dbase_number']}: Reusing original dbf entry????")
         return dbf_entry
@@ -354,7 +355,7 @@ class Command(BaseCommand):
             else:
                 self.stderr.write(
                     f"{entry['dbase_number']}: Reusing book entry. "
-                    f"Previous sequence { book_entry.dbf_sequence() }: {book_entry}"
+                    f"Previous sequence {book_entry.dbf_sequence()}: {book_entry}"
                 )
                 for donor in donors:
                     book_entry.entry_donors.add(donor)
@@ -383,7 +384,7 @@ class Command(BaseCommand):
                     previous_book_entry = entry_number_object.book_entry
                     self.stderr.write(
                         f"{entry['dbase_number']}: entry number {entry_number} is already"
-                        f" used by { previous_book_entry.dbf_sequence() }:{previous_book_entry}."
+                        f" used by {previous_book_entry.dbf_sequence()}:{previous_book_entry}."
                         f" Replacing with {entry['dbase_number']}:{book_entry}"
                     )
                 entry_number_object.copies = copies
@@ -435,4 +436,4 @@ class Command(BaseCommand):
                     book_entry,
                     start_time,
                 )
-        print(f"Inserted {len(all_entries)} entries in {(datetime.datetime.now()-start_time).seconds}s", flush=True)
+        print(f"Inserted {len(all_entries)} entries in {(datetime.datetime.now() - start_time).seconds}s", flush=True)

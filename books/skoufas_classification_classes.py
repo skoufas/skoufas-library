@@ -3,6 +3,7 @@ List of valid dewey classes.
 
 Based on https://en.wikipedia.org/wiki/List_of_Dewey_Decimal_classes .
 """
+
 # flake8: noqa: E501
 from typing import Optional
 

@@ -1,4 +1,5 @@
 """Custom Fields for books."""
+
 from django.core.validators import EMPTY_VALUES
 from django.db.models import CharField
 from django.utils.translation import gettext_lazy as _

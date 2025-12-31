@@ -1,4 +1,5 @@
 """Models for book entries and directly related data."""
+
 import datetime
 from typing import Any
 from typing import Optional

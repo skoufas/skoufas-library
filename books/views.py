@@ -1,4 +1,5 @@
 """Views on Books."""
+
 import csv
 from typing import Any
 

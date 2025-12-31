@@ -1,4 +1,5 @@
 """Book admin section customisation."""
+
 from django.contrib import admin
 from djangoql.admin import DjangoQLSearchMixin
 

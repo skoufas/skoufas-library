@@ -1,4 +1,5 @@
 """Loaning related URLs."""
+
 from django.urls.resolvers import URLPattern
 from django.urls.resolvers import URLResolver
 

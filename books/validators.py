@@ -1,4 +1,5 @@
 """Validators for book related values."""
+
 import re
 
 import stdnum.ean
