@@ -466,4 +466,9 @@ class DbfEntryRow(models.Model):
 
         verbose_name = _("DBF row")
         verbose_name_plural = _("DBF rows")
-        unique_together = [["dbfentry", "code"]]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["dbfentry", "code"],
+                name="unique_dbf_entry_row_code",
+            )
+        ]

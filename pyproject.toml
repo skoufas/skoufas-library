@@ -12,9 +12,9 @@ classifiers = [
     "Intended Audience :: Other Audience",
     "License :: OSI Approved :: GNU Affero General Public License v3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.14",
 ]
-requires-python = ">=3.12"
+requires-python = ">=3.14"
 version = "1.0.0"
 dependencies = [
     "django-bootstrap5",
@@ -27,11 +27,12 @@ dependencies = [
     "pytz",
     "pyyaml",
     "django-watson",
+    "skoufas-dbf-reader==2026.4.8rc239.post1",
 ]
 
 [project.optional-dependencies]
 test = [
-    "bandit[toml]==1.7.9",
+    "bandit[toml]==1.9.4",
     "check-manifest==0.51",
     "django-debug-toolbar",
     "django-stubs[compatible-mypy]",
@@ -39,12 +40,12 @@ test = [
     "mypy",
     "pre-commit==4.5.1",
     "pylint_junit",
-    "pylint==4.0.4",
-    "pytest-cov==7.0.0",
+    "pylint==4.0.5",
+    "pytest-cov==7.1.0",
     "pytest-github-actions-annotate-failures",
     "pytest-mock<3.10.1",
     "pytest-runner",
-    "pytest==9.0.2",
+    "pytest==9.0.3",
     "reorder-python-imports",
     "ruff",
     "shellcheck-py==0.11.0.1",
@@ -58,11 +59,7 @@ exclude = ["/.vscode", "/junk", "/scripts", "/venv"]
 [tool.hatch.build.targets.wheel]
 include = ["/"]
 exclude = ["/.vscode", "/junk", "/scripts", "/venv"]
-# packages = [
-#     "books",
-#     "loaning",
-#     "skoufas_library_project",
-# ]
+packages = ["books", "loaning", "skoufas_library_project"]
 
 [tool.django-stubs]
 django_settings_module = "skoufas_library_project.settings"
@@ -76,7 +73,7 @@ exclude = '''(?x)(
 )'''
 
 [project.scripts]
-skoufas-library = "manage:main"
+skoufas-library = "skoufas_library_project.cli:main"
 
 [project.urls]
 Documentation = "https://github.com/skoufas/skoufas-library#readme"
