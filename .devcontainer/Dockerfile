@@ -37,15 +37,15 @@ RUN groupadd --gid 1000 vscode \
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-# VOLUME [ "/home" ]
+VOLUME [ "/home" ]
 
 # Switch to vs code user
-# USER vscode
-# WORKDIR /workspace
+USER vscode
+WORKDIR /workspace
 
 # Set /workspace as a safe git directory
-# RUN git config --global --add safe.directory /workspace
+RUN git config --global --add safe.directory /workspace
 
 # Back to root
-# USER root
+USER root
 
