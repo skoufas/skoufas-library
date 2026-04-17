@@ -63,6 +63,7 @@ packages = ["books", "loaning", "skoufas_library_project"]
 
 [tool.hatch.build.targets.wheel.force-include]
 "static" = "static"
+"templates" = "templates"
 
 [tool.django-stubs]
 django_settings_module = "skoufas_library_project.settings"
