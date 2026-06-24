@@ -1,0 +1,93 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Privacy Policy" %}
+{% endblock title %}
+{% block content %}
+    <div class="container">
+        <h2>{% translate "Privacy Policy" %}</h2>
+        <p class="text-muted">{% translate "Last updated: June 2026" %}</p>
+        <h3>{% translate "1. Who we are" %}</h3>
+        <p>
+            {% blocktranslate %}
+            This website is operated by the <strong>Skoufas Association</strong> (Σύλλογος Σκουφάς),
+            located at Αποκαύκου 1, 47100 Άρτα, Greece.
+            For privacy-related enquiries, contact us at
+            <a href="mailto:info@skoufas.gr">info@skoufas.gr</a>.
+            {% endblocktranslate %}
+        </p>
+        <h3>{% translate "2. What data we collect and why" %}</h3>
+        <h4>{% translate "2a. Site visit analytics" %}</h4>
+        <p>
+            {% blocktranslate %}
+            We collect anonymised information about which pages of this site are visited,
+            with the legitimate purpose of understanding how the site is used and improving it.
+            No personally identifiable information is stored as part of this process.
+            This data is processed by a third-party analytics service operated on our behalf;
+            it is not used for advertising and is not sold to any third party.
+            {% endblocktranslate %}
+        </p>
+        <h4>{% translate "2b. Library member data" %}</h4>
+        <p>
+            {% blocktranslate %}
+            If you are a registered library member, we store the personal data necessary
+            to manage your membership and loans, including your name and loan history.
+            This data is used solely for the operation of the library service and is not
+            disclosed to third parties.
+            We do not use your data for automated decision-making or profiling.
+            {% endblocktranslate %}
+        </p>
+        <h4>{% translate "2c. Data location" %}</h4>
+        <p>{% translate "Data may be stored and processed in the European Union and the United Kingdom." %}</p>
+        <h3>{% translate "3. Legal basis for processing" %}</h3>
+        <p>
+            {% blocktranslate %}
+            Site visit analytics are processed on the basis of our legitimate interest
+            in operating and improving this website (Article 6(1)(f) GDPR).
+            Personal data of library members is processed on the basis of our legitimate
+            interest in operating the library service (Article 6(1)(f) GDPR) and,
+            where applicable, your consent given at the time of registration (Article 6(1)(a) GDPR).
+            {% endblocktranslate %}
+        </p>
+        <h3>{% translate "4. Data retention" %}</h3>
+        <p>
+            {% blocktranslate %}
+            Member and loan records are retained for as long as your membership is active
+            and for up to 3 years thereafter for administrative purposes, after which they
+            are deleted or anonymised.
+            Anonymised visit analytics data is retained in aggregate form indefinitely.
+            {% endblocktranslate %}
+        </p>
+        <h3>{% translate "5. Your rights" %}</h3>
+        <p>{% translate "Under applicable data protection law (GDPR), you have the right to:" %}</p>
+        <ul>
+            <li>{% translate "Access the personal data we hold about you" %}</li>
+            <li>{% translate "Request correction of inaccurate data" %}</li>
+            <li>{% translate "Request erasure of your data, subject to legal obligations" %}</li>
+            <li>{% translate "Object to or restrict processing of your data" %}</li>
+            <li>{% translate "Receive your data in a portable format (data portability)" %}</li>
+            <li>{% translate "Withdraw your consent at any time, without affecting the lawfulness of processing carried out before withdrawal" %}</li>
+        </ul>
+        <p>
+            {% blocktranslate %}
+            To exercise any of these rights, contact us at
+            <a href="mailto:info@skoufas.gr">info@skoufas.gr</a>.
+            {% endblocktranslate %}
+        </p>
+        <h3>{% translate "6. Right to lodge a complaint" %}</h3>
+        <p>
+            {% blocktranslate %}
+            You have the right to lodge a complaint with the competent supervisory authority.
+            In Greece, this is the Hellenic Data Protection Authority (HDPA):
+            <a href="https://www.dpa.gr" target="_blank" rel="noopener noreferrer">www.dpa.gr</a>.
+            {% endblocktranslate %}
+        </p>
+        <h3>{% translate "7. Changes to this policy" %}</h3>
+        <p>
+            {% blocktranslate %}
+            We may update this policy from time to time. The date at the top of this page
+            indicates when it was last revised.
+            {% endblocktranslate %}
+        </p>
+    </div>
+{% endblock content %}

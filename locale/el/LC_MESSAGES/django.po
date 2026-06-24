@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-24 20:33+0300\n"
+"POT-Creation-Date: 2026-06-24 21:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -498,9 +498,264 @@ msgstr "Αναζήτηση"
 msgid "Skoufas Association"
 msgstr "Μουσικοφιλολογικός Σύλλογος Σκουφάς"
 
-#: templates/skoufas_library/layout.html:152
+#: templates/skoufas_library/layout.html:153
+#: templates/skoufas_library/privacy_policy.html:4
+#: templates/skoufas_library/privacy_policy.html:8
+msgid "Privacy Policy"
+msgstr "Πολιτική Απορρήτου"
+
+#: templates/skoufas_library/layout.html:154
 msgid "Design - Construction: Claudio Bantaloukas"
 msgstr "Σχεδιασμός - Τεχνική κατασκευή: Κλαύδιος Μπανταλούκας"
+
+#: templates/skoufas_library/privacy_policy.html:9
+msgid "Last updated: June 2026"
+msgstr "Τελευταία ενημέρωση: Ιούνιος 2026"
+
+#: templates/skoufas_library/privacy_policy.html:10
+msgid "1. Who we are"
+msgstr "1. Ποιοι είμαστε"
+
+#: templates/skoufas_library/privacy_policy.html:12
+msgid ""
+"\n"
+"            This website is operated by the <strong>Skoufas Association</"
+"strong> (Σύλλογος Σκουφάς),\n"
+"            located at Αποκαύκου 1, 47100 Άρτα, Greece.\n"
+"            For privacy-related enquiries, contact us at\n"
+"            <a href=\"mailto:info@skoufas.gr\">info@skoufas.gr</a>.\n"
+"            "
+msgstr ""
+"\n"
+"      Ο παρών ιστότοπος λειτουργεί από τον <strong>Σύλλογο Σκουφά</strong> "
+"(Σύλλογος Σκουφάς),\n"
+"      με έδρα στην Αποκαύκου 1, 47100 Άρτα, Ελλάδα.\n"
+"      Για ερωτήματα σχετικά με το απόρρητο, επικοινωνήστε μαζί μας\n"
+"      <a href=\"mailto:info@skoufas.gr\">info@skoufas.gr</a>.\n"
+"      "
+
+#: templates/skoufas_library/privacy_policy.html:19
+msgid "2. What data we collect and why"
+msgstr "2. Ποια δεδομένα συλλέγουμε και γιατί"
+
+#: templates/skoufas_library/privacy_policy.html:20
+msgid "2a. Site visit analytics"
+msgstr "2α. Στατιστικά επισκέψεων ιστότοπου"
+
+#: templates/skoufas_library/privacy_policy.html:22
+msgid ""
+"\n"
+"            We collect anonymised information about which pages of this site "
+"are visited,\n"
+"            with the legitimate purpose of understanding how the site is "
+"used and improving it.\n"
+"            No personally identifiable information is stored as part of this "
+"process.\n"
+"            This data is processed by a third-party analytics service "
+"operated on our behalf;\n"
+"            it is not used for advertising and is not sold to any third "
+"party.\n"
+"            "
+msgstr ""
+"\n"
+"      Συλλέγουμε ανωνυμοποιημένες πληροφορίες για το ποιες σελίδες του "
+"ιστότοπου επισκέπτονται οι χρήστες,\n"
+"      με θεμιτό σκοπό την κατανόηση του τρόπου χρήσης και τη βελτίωσή του.\n"
+"      Δεν αποθηκεύονται προσωπικά αναγνωρίσιμα στοιχεία στο πλαίσιο αυτής "
+"της διαδικασίας.\n"
+"      Τα δεδομένα αυτά επεξεργάζονται από τρίτη υπηρεσία ανάλυσης που "
+"λειτουργεί για λογαριασμό μας·\n"
+"      δεν χρησιμοποιούνται για διαφήμιση και δεν πωλούνται σε τρίτους.\n"
+"      "
+
+#: templates/skoufas_library/privacy_policy.html:30
+msgid "2b. Library member data"
+msgstr "2β. Δεδομένα μελών βιβλιοθήκης"
+
+#: templates/skoufas_library/privacy_policy.html:32
+msgid ""
+"\n"
+"            If you are a registered library member, we store the personal "
+"data necessary\n"
+"            to manage your membership and loans, including your name and "
+"loan history.\n"
+"            This data is used solely for the operation of the library "
+"service and is not\n"
+"            disclosed to third parties.\n"
+"            We do not use your data for automated decision-making or "
+"profiling.\n"
+"            "
+msgstr ""
+"\n"
+"      Εάν είστε εγγεγραμμένο μέλος της βιβλιοθήκης, αποθηκεύουμε τα "
+"προσωπικά δεδομένα που απαιτούνται\n"
+"      για τη διαχείριση της συνδρομής και των δανεισμών σας, "
+"συμπεριλαμβανομένου του ονόματός σας και του ιστορικού δανεισμού σας.\n"
+"      Τα δεδομένα αυτά χρησιμοποιούνται αποκλειστικά για τη λειτουργία της "
+"υπηρεσίας βιβλιοθήκης και δεν κοινοποιούνται σε τρίτους.\n"
+"      Δεν χρησιμοποιούμε τα δεδομένα σας για αυτοματοποιημένη λήψη αποφάσεων "
+"ή κατάρτιση προφίλ.\n"
+"      "
+
+#: templates/skoufas_library/privacy_policy.html:40
+msgid "2c. Data location"
+msgstr "2γ. Τόπος επεξεργασίας δεδομένων"
+
+#: templates/skoufas_library/privacy_policy.html:41
+msgid ""
+"Data may be stored and processed in the European Union and the United "
+"Kingdom."
+msgstr ""
+"Τα δεδομένα ενδέχεται να αποθηκεύονται και να επεξεργάζονται στην "
+"Ευρωπαϊκή Ένωση και το Ηνωμένο Βασίλειο."
+
+#: templates/skoufas_library/privacy_policy.html:42
+msgid "3. Legal basis for processing"
+msgstr "3. Νομική βάση επεξεργασίας"
+
+#: templates/skoufas_library/privacy_policy.html:44
+msgid ""
+"\n"
+"            Site visit analytics are processed on the basis of our "
+"legitimate interest\n"
+"            in operating and improving this website (Article 6(1)(f) GDPR).\n"
+"            Personal data of library members is processed on the basis of "
+"our legitimate\n"
+"            interest in operating the library service (Article 6(1)(f) GDPR) "
+"and,\n"
+"            where applicable, your consent given at the time of registration "
+"(Article 6(1)(a) GDPR).\n"
+"            "
+msgstr ""
+"\n"
+"      Τα στατιστικά επισκέψεων επεξεργάζονται βάσει του έννομου συμφέροντός "
+"μας\n"
+"      στη λειτουργία και βελτίωση του ιστότοπου (Άρθρο 6 παρ. 1 στοιχ. στ' "
+"ΓΚΠΔ).\n"
+"      Τα προσωπικά δεδομένα των μελών της βιβλιοθήκης επεξεργάζονται βάσει "
+"του έννομου συμφέροντός μας\n"
+"      στη λειτουργία της υπηρεσίας βιβλιοθήκης (Άρθρο 6 παρ. 1 στοιχ. στ' "
+"ΓΚΠΔ) και,\n"
+"      κατά περίπτωση, της συγκατάθεσής σας κατά την εγγραφή (Άρθρο 6 παρ. 1 "
+"στοιχ. α' ΓΚΠΔ).\n"
+"      "
+
+#: templates/skoufas_library/privacy_policy.html:52
+msgid "4. Data retention"
+msgstr "4. Διατήρηση δεδομένων"
+
+#: templates/skoufas_library/privacy_policy.html:54
+msgid ""
+"\n"
+"            Member and loan records are retained for as long as your "
+"membership is active\n"
+"            and for up to 3 years thereafter for administrative purposes, "
+"after which they\n"
+"            are deleted or anonymised.\n"
+"            Anonymised visit analytics data is retained in aggregate form "
+"indefinitely.\n"
+"            "
+msgstr ""
+"\n"
+"      Τα αρχεία μελών και δανεισμών διατηρούνται για όσο χρόνο η συνδρομή "
+"σας είναι ενεργή\n"
+"      και για έως 3 χρόνια στη συνέχεια για διοικητικούς σκοπούς, μετά από "
+"τα οποία διαγράφονται ή ανωνυμοποιούνται.\n"
+"      Τα ανωνυμοποιημένα δεδομένα επισκέψεων διατηρούνται σε συγκεντρωτική "
+"μορφή επ' αόριστον.\n"
+"      "
+
+#: templates/skoufas_library/privacy_policy.html:61
+msgid "5. Your rights"
+msgstr "5. Τα δικαιώματά σας"
+
+#: templates/skoufas_library/privacy_policy.html:62
+msgid "Under applicable data protection law (GDPR), you have the right to:"
+msgstr ""
+"Βάσει της ισχύουσας νομοθεσίας για την προστασία δεδομένων (ΓΚΠΔ), έχετε το "
+"δικαίωμα:"
+
+#: templates/skoufas_library/privacy_policy.html:64
+msgid "Access the personal data we hold about you"
+msgstr "Πρόσβασης στα προσωπικά δεδομένα που τηρούμε για εσάς"
+
+#: templates/skoufas_library/privacy_policy.html:65
+msgid "Request correction of inaccurate data"
+msgstr "Διόρθωσης ανακριβών δεδομένων"
+
+#: templates/skoufas_library/privacy_policy.html:66
+msgid "Request erasure of your data, subject to legal obligations"
+msgstr "Διαγραφής των δεδομένων σας, με την επιφύλαξη νομικών υποχρεώσεων"
+
+#: templates/skoufas_library/privacy_policy.html:67
+msgid "Object to or restrict processing of your data"
+msgstr "Εναντίωσης ή περιορισμού της επεξεργασίας των δεδομένων σας"
+
+#: templates/skoufas_library/privacy_policy.html:68
+msgid "Receive your data in a portable format (data portability)"
+msgstr "Λήψης των δεδομένων σας σε φορητή μορφή (φορητότητα δεδομένων)"
+
+#: templates/skoufas_library/privacy_policy.html:69
+msgid ""
+"Withdraw your consent at any time, without affecting the lawfulness of "
+"processing carried out before withdrawal"
+msgstr ""
+"Ανάκλησης της συγκατάθεσής σας ανά πάσα στιγμή, χωρίς να θίγεται η "
+"νομιμότητα της επεξεργασίας που πραγματοποιήθηκε πριν από την ανάκληση"
+
+#: templates/skoufas_library/privacy_policy.html:72
+msgid ""
+"\n"
+"            To exercise any of these rights, contact us at\n"
+"            <a href=\"mailto:info@skoufas.gr\">info@skoufas.gr</a>.\n"
+"            "
+msgstr ""
+"\n"
+"      Για να ασκήσετε οποιοδήποτε από αυτά τα δικαιώματα, επικοινωνήστε μαζί "
+"μας στο\n"
+"      <a href=\"mailto:info@skoufas.gr\">info@skoufas.gr</a>.\n"
+"      "
+
+#: templates/skoufas_library/privacy_policy.html:77
+msgid "6. Right to lodge a complaint"
+msgstr "6. Δικαίωμα υποβολής καταγγελίας"
+
+#: templates/skoufas_library/privacy_policy.html:79
+msgid ""
+"\n"
+"            You have the right to lodge a complaint with the competent "
+"supervisory authority.\n"
+"            In Greece, this is the Hellenic Data Protection Authority "
+"(HDPA):\n"
+"            <a href=\"https://www.dpa.gr\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">www.dpa.gr</a>.\n"
+"            "
+msgstr ""
+"\n"
+"      Έχετε το δικαίωμα να υποβάλετε καταγγελία στην αρμόδια εποπτική αρχή.\n"
+"      Στην Ελλάδα, αυτή είναι η Αρχή Προστασίας Δεδομένων Προσωπικού "
+"Χαρακτήρα (ΑΠΔΠΧ):\n"
+"      <a href=\"https://www.dpa.gr\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">www.dpa.gr</a>.\n"
+"      "
+
+#: templates/skoufas_library/privacy_policy.html:85
+msgid "7. Changes to this policy"
+msgstr "7. Αλλαγές στην παρούσα πολιτική"
+
+#: templates/skoufas_library/privacy_policy.html:87
+msgid ""
+"\n"
+"            We may update this policy from time to time. The date at the top "
+"of this page\n"
+"            indicates when it was last revised.\n"
+"            "
+msgstr ""
+"\n"
+"      Ενδέχεται να ενημερώνουμε κατά καιρούς την παρούσα πολιτική. Η "
+"ημερομηνία στην κορυφή αυτής της σελίδας\n"
+"      υποδεικνύει πότε αναθεωρήθηκε για τελευταία φορά.\n"
+"      "
 
 #: templates/skoufas_library/search_results.html:7
 msgid "Search results"

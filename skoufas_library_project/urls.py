@@ -25,6 +25,7 @@ urlpatterns = [
     path("", TemplateView.as_view(template_name="skoufas_library/home.html"), name="home"),
     path("about/", TemplateView.as_view(template_name="skoufas_library/about.html"), name="about"),
     path("contact/", TemplateView.as_view(template_name="skoufas_library/contact.html"), name="contact"),
+    path("privacy/", TemplateView.as_view(template_name="skoufas_library/privacy_policy.html"), name="privacy-policy"),
     path("books/", include("books.urls", namespace="books")),
     path("loaning/", include("loaning.urls", namespace="loaning")),
     path("admin/", admin.site.urls),
