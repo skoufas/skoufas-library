@@ -8,6 +8,7 @@ from typing import Optional
 import yaml
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
+from django.db.models import F
 from yaml import CSafeLoader
 
 from books.models import Author
@@ -366,7 +367,9 @@ class Command(BaseCommand):
     def add_entry_numbers(self, entry, book_entry, donors):
         """Add entry numbers to books."""
         entry_numbers = entry.get("entry_numbers")
-        copies = entry.get("copies")
+        copies = entry.get("copies", 1)
+        if not copies:
+            copies = 1
 
         if not entry_numbers:
             return
@@ -375,6 +378,7 @@ class Command(BaseCommand):
                 entry_number=entry_number,
                 defaults={
                     "book_entry": book_entry,
+                    "copies": copies,
                 },
             )
             if not entry_number_object:
@@ -384,13 +388,14 @@ class Command(BaseCommand):
                     previous_book_entry = entry_number_object.book_entry
                     self.stderr.write(
                         f"{entry['dbase_number']}: entry number {entry_number} is already"
-                        f" used by {previous_book_entry.dbf_sequence()}:{previous_book_entry}."
-                        f" Replacing with {entry['dbase_number']}:{book_entry}"
+                        f" used by dbf sequence {previous_book_entry.dbf_sequence()}:{previous_book_entry}."
+                        f" Replacing with dbase number {entry['dbase_number']}:{book_entry}"
                     )
                 entry_number_object.copies = copies
                 entry_number_object.book_entry = book_entry
                 entry_number_object.save()
                 entry_number_object.entry_number_donors.set(donors)
+                BookEntry.objects.filter(pk=entry_number_object.book_entry_id).update(copies=F("copies") + copies)
                 self.stdout.write(f"{entry['dbase_number']}: Added entry number {entry_number}")
 
     def add_arguments(self, parser):

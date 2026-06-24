@@ -1,20 +1,17 @@
 """Loaning related URLs."""
 
+from django.urls import path
 from django.urls.resolvers import URLPattern
 from django.urls.resolvers import URLResolver
 
-# from django.urls import path
-# from loaning import views
+from loaning import views
 
-# home_list_view = views.HomeListView.as_view(
-#     context_object_name="message_list",
-#     template_name="books/home.html",
-# )
-
+app_name = "loaning"  # pylint: disable=invalid-name
 urlpatterns: list[URLPattern | URLResolver] = [
-    # path("", home_list_view, name="home"),
-    # path("hello/<name>", views.hello_there, name="hello_there"),
-    # path("about/", views.about, name="about"),
-    # path("contact/", views.contact, name="contact"),
-    # path("log/", views.log_message, name="log"),
+    path("", views.LoanDeskView.as_view(), name="loan-desk"),
+    path("loans/<int:pk>/", views.LoanDetailView.as_view(), name="loan-detail"),
+    path("customers/", views.CustomerListView.as_view(), name="customer-list"),
+    path("customers/new/", views.CustomerCreateView.as_view(), name="customer-create"),
+    path("customers/<int:pk>/edit/", views.CustomerUpdateView.as_view(), name="customer-edit"),
+    path("customers/<int:pk>/delete/", views.CustomerDeleteView.as_view(), name="customer-delete"),
 ]

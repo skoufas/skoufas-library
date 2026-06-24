@@ -214,5 +214,7 @@ STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", BASE_DIR / "static_collected"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+LOGIN_URL = "admin:login"
+
 WATSON_POSTGRES_SEARCH_CONFIG = "pg_catalog.greek"
 WATSON_BACKEND = "watson.backends.PostgresSearchBackend"

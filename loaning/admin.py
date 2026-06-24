@@ -17,6 +17,10 @@ class LoanInline(admin.TabularInline):
 class LoanAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     """Customisation for Loan."""
 
+    list_display = ["customer", "entry_number", "status", "start", "expected_end", "end"]
+    list_filter = ["status", "start", "expected_end", "end"]
+    autocomplete_fields = ["customer", "entry_number"]
+
 
 @admin.register(Customer)
 class CustomerAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
@@ -24,4 +28,13 @@ class CustomerAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
 
     inlines = [
         LoanInline,
+    ]
+
+    search_fields = [
+        "surname",
+        "first_name",
+        "middle_name",
+        "phone_number",
+        "email",
+        "id_number",
     ]

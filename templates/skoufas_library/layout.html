@@ -68,6 +68,28 @@
                href="{% url 'contact' %}"
                {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>{% translate "Contact" %}</a>
           </li>
+          {% if perms.loaning.view_loan or perms.loaning.view_customer %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle {% if request.resolver_match.app_name == 'loaning' %}active{% endif %}"
+                 data-bs-toggle="dropdown"
+                 href="#"
+                 role="button"
+                 aria-expanded="false"
+                 {% if request.resolver_match.app_name == 'loaning' %}aria-current="page"{% endif %}>{% translate "Loaning" %}</a>
+              <ul class="dropdown-menu">
+                {% if perms.loaning.view_loan %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'loaning:loan-desk' %}">{% translate "Loan desk" %}</a>
+                  </li>
+                {% endif %}
+                {% if perms.loaning.view_customer %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'loaning:customer-list' %}">{% translate "Customers" %}</a>
+                  </li>
+                {% endif %}
+              </ul>
+            </li>
+          {% endif %}
           {% get_current_language as LANGUAGE_CODE %}
           {% get_language_info for LANGUAGE_CODE as lang %}
           {% get_available_languages as LANGUAGES %}

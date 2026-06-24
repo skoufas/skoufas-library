@@ -1,0 +1,79 @@
+{% extends "skoufas_library/layout.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% block title %}
+    {% translate "Customers" %}
+    {% if perms.loaning.add_customer and perms.loaning.change_customer %}
+        <a href="{% url 'loaning:customer-create' %}"
+           class="btn btn-sm btn-primary ms-3">
+            <i class="bi bi-person-plus-fill"></i> {% translate "New customer" %}
+        </a>
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    <form class="d-flex mb-3" method="get" role="search">
+        <input name="q"
+               value="{{ q }}"
+               class="form-control me-2"
+               type="search"
+               placeholder="{% translate "Search by name or phone" %}"
+               aria-label="{% translate "Search" %}" />
+        <button class="btn btn-outline-secondary" type="submit">{% translate "Search" %}</button>
+        {% if q %}
+            <a class="btn btn-outline-danger ms-2"
+               href="{% url 'loaning:customer-list' %}">{% translate "Clear" %}</a>
+        {% endif %}
+    </form>
+    <nav aria-label="{% translate "Page navigation" %}">
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link"
+                   href="?page=1{% if q %}&q={{ q|urlencode }}{% endif %}"
+                   aria-label="First">&laquo;</a>
+            </li>
+            <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+                <a class="page-link"
+                   href="{% if not page_obj.has_previous %}#{% else %}?page={{ page_obj.previous_page_number }}{% if q %}&q={{ q|urlencode }}{% endif %}{% endif %}"
+                   aria-label="Previous">{% translate "Previous" %}</a>
+            </li>
+            <li class="page-item active" aria-current="page">
+                <span class="page-link">{{ page_obj.number }}</span>
+            </li>
+            <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+                <a class="page-link"
+                   href="{% if not page_obj.has_next %}#{% else %}?page={{ page_obj.next_page_number }}{% if q %}&q={{ q|urlencode }}{% endif %}{% endif %}"
+                   aria-label="Next">{% translate "Next" %}</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link"
+                   href="?page={{ page_obj.paginator.num_pages }}{% if q %}&q={{ q|urlencode }}{% endif %}"
+                   aria-label="Last">&raquo;</a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="list-group">
+        {% for customer in page_obj %}
+            <div class="d-flex w-100 justify-content-between list-group-item list-group-item-action align-items-center">
+                <span>
+                    <i class="bi bi-person"></i>
+                    {% if perms.loaning.change_customer %}
+                        <a href="{% url 'loaning:customer-edit' customer.pk %}">{{ customer }}</a>
+                    {% else %}
+                        {{ customer }}
+                    {% endif %}
+                    {% if customer.phone_number %}
+                        <small class="text-muted ms-2"><i class="bi bi-telephone"></i> {{ customer.phone_number }}</small>
+                    {% endif %}
+                </span>
+                {% if perms.loaning.delete_customer %}
+                    <a href="{% url 'loaning:customer-delete' customer.pk %}"
+                       class="btn btn-sm btn-outline-danger ms-2">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                {% endif %}
+            </div>
+        {% empty %}
+            <li class="list-group-item text-muted">{% translate "No customers found." %}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}

@@ -26,6 +26,7 @@ urlpatterns = [
     path("about/", TemplateView.as_view(template_name="skoufas_library/about.html"), name="about"),
     path("contact/", TemplateView.as_view(template_name="skoufas_library/contact.html"), name="contact"),
     path("books/", include("books.urls", namespace="books")),
+    path("loaning/", include("loaning.urls", namespace="loaning")),
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
     path(

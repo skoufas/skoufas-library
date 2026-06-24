@@ -1,0 +1,156 @@
+{% extends "skoufas_library/layout.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% block title %}
+    {% if object %}
+        {% translate "Edit customer" %}: {{ object }}
+    {% else %}
+        {% translate "New customer" %}
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    <form method="post" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="{{ form.surname.id_for_label }}" class="form-label">{{ form.surname.label }}</label>
+                <input type="text"
+                       name="{{ form.surname.html_name }}"
+                       id="{{ form.surname.id_for_label }}"
+                       value="{{ form.surname.value|default:'' }}"
+                       class="form-control {% if form.surname.errors %}is-invalid{% endif %}"
+                       maxlength="200" />
+                {% for error in form.surname.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="{{ form.first_name.id_for_label }}" class="form-label">{{ form.first_name.label }}</label>
+                <input type="text"
+                       name="{{ form.first_name.html_name }}"
+                       id="{{ form.first_name.id_for_label }}"
+                       value="{{ form.first_name.value|default:'' }}"
+                       class="form-control {% if form.first_name.errors %}is-invalid{% endif %}"
+                       maxlength="200" />
+                {% for error in form.first_name.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="{{ form.middle_name.id_for_label }}" class="form-label">{{ form.middle_name.label }}</label>
+                <input type="text"
+                       name="{{ form.middle_name.html_name }}"
+                       id="{{ form.middle_name.id_for_label }}"
+                       value="{{ form.middle_name.value|default:'' }}"
+                       class="form-control {% if form.middle_name.errors %}is-invalid{% endif %}"
+                       maxlength="200" />
+                {% for error in form.middle_name.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="{{ form.id_type.id_for_label }}" class="form-label">{{ form.id_type.label }}</label>
+                <select name="{{ form.id_type.html_name }}"
+                        id="{{ form.id_type.id_for_label }}"
+                        class="form-select {% if form.id_type.errors %}is-invalid{% endif %}">
+                    {% for value, label in form.id_type.field.choices %}
+                        <option value="{{ value }}" {% if form.id_type.value == value %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+                {% for error in form.id_type.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="{{ form.id_number.id_for_label }}" class="form-label">{{ form.id_number.label }}</label>
+                <input type="text"
+                       name="{{ form.id_number.html_name }}"
+                       id="{{ form.id_number.id_for_label }}"
+                       value="{{ form.id_number.value|default:'' }}"
+                       class="form-control {% if form.id_number.errors %}is-invalid{% endif %}"
+                       maxlength="200" />
+                {% for error in form.id_number.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="{{ form.phone_number.id_for_label }}" class="form-label">{{ form.phone_number.label }}</label>
+                <input type="text"
+                       name="{{ form.phone_number.html_name }}"
+                       id="{{ form.phone_number.id_for_label }}"
+                       value="{{ form.phone_number.value|default:'' }}"
+                       class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}"
+                       maxlength="200" />
+                {% for error in form.phone_number.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.email.id_for_label }}" class="form-label">{{ form.email.label }}</label>
+                <input type="email"
+                       name="{{ form.email.html_name }}"
+                       id="{{ form.email.id_for_label }}"
+                       value="{{ form.email.value|default:'' }}"
+                       class="form-control {% if form.email.errors %}is-invalid{% endif %}"
+                       maxlength="200" />
+                {% for error in form.email.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="{{ form.address.id_for_label }}" class="form-label">{{ form.address.label }}</label>
+                <input type="text"
+                       name="{{ form.address.html_name }}"
+                       id="{{ form.address.id_for_label }}"
+                       value="{{ form.address.value|default:'' }}"
+                       class="form-control {% if form.address.errors %}is-invalid{% endif %}"
+                       maxlength="200" />
+                {% for error in form.address.errors %}<div class="invalid-feedback">{{ error }}</div>{% endfor %}
+            </div>
+        </div>
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger">
+                {% for error in form.non_field_errors %}<div>{{ error }}</div>{% endfor %}
+            </div>
+        {% endif %}
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-lg"></i>
+                {% if object %}
+                    {% translate "Save" %}
+                {% else %}
+                    {% translate "Create" %}
+                {% endif %}
+            </button>
+            <a href="{% url 'loaning:customer-list' %}"
+               class="btn btn-outline-secondary">{% translate "Cancel" %}</a>
+            {% if object and perms.loaning.delete_customer %}
+                <a href="{% url 'loaning:customer-delete' object.pk %}"
+                   class="btn btn-outline-danger ms-auto">
+                    <i class="bi bi-trash"></i> {% translate "Delete" %}
+                </a>
+            {% endif %}
+        </div>
+    </form>
+    {% if object %}
+        <hr />
+        <h2>{% translate "Loan history" %}</h2>
+        <h3>{% translate "Active loans" %}</h3>
+        <ul class="list-group mb-3">
+            {% for loan in active_loans %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <a href="{% url 'loaning:loan-detail' loan.pk %}">{{ loan.entry_number }}</a>
+                        {% if loan.is_overdue %}
+                            <span class="badge text-bg-warning ms-2">{% translate "Overdue" %}</span>
+                        {% endif %}
+                    </span>
+                    <span class="text-muted">{{ loan.start }} - {{ loan.expected_end }}</span>
+                </li>
+            {% empty %}
+                <li class="list-group-item text-muted">{% translate "No active loans." %}</li>
+            {% endfor %}
+        </ul>
+        <h3>{% translate "Closed loans" %}</h3>
+        <ul class="list-group">
+            {% for loan in closed_loans %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="{% url 'loaning:loan-detail' loan.pk %}">{{ loan.entry_number }}</a>
+                    <span class="text-muted">{{ loan.get_status_display }} / {{ loan.start }} - {{ loan.end }}</span>
+                </li>
+            {% empty %}
+                <li class="list-group-item text-muted">{% translate "No closed loans." %}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock content %}

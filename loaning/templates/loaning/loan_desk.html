@@ -1,0 +1,218 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Loan desk" %}
+{% endblock title %}
+{% block content %}
+    <div class="row g-4">
+        <section class="col-lg-6">
+            <h2>{% translate "Customer" %}</h2>
+            <form class="d-flex mb-3" method="get" role="search">
+                <input type="hidden"
+                       name="entry"
+                       value="{{ selected_entry_number.pk|default:'' }}" />
+                <input name="customer_q"
+                       value="{{ customer_q }}"
+                       class="form-control me-2"
+                       type="search"
+                       placeholder="{% translate "Search customers" %}"
+                       aria-label="{% translate "Search customers" %}" />
+                <button class="btn btn-outline-secondary" type="submit">{% translate "Search" %}</button>
+            </form>
+            {% if selected_customer %}
+                <div class="alert alert-success">
+                    <strong>{% translate "Selected customer" %}:</strong> {{ selected_customer }}
+                    {% if selected_customer.overdue_loan_count %}
+                        <span class="badge text-bg-warning ms-2">{% translate "Overdue loans" %}: {{ selected_customer.overdue_loan_count }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+            {% if customer_q %}
+                <ul class="list-group mb-4">
+                    {% for customer in customer_results %}
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between gap-3">
+                                <div>
+                                    <strong>{{ customer }}</strong>
+                                    <div class="small text-muted">
+                                        {% if customer.phone_number %}<i class="bi bi-telephone"></i> {{ customer.phone_number }}{% endif %}
+                                        {% if customer.email %}<i class="bi bi-envelope ms-2"></i> {{ customer.email }}{% endif %}
+                                        {% if customer.id_number %}
+                                            <i class="bi bi-person-vcard ms-2"></i> {{ customer.id_type }} {{ customer.id_number }}
+                                        {% endif %}
+                                    </div>
+                                    <span class="badge text-bg-secondary">{% translate "Active loans" %}: {{ customer.active_loan_count }}</span>
+                                    {% if customer.overdue_loan_count %}
+                                        <span class="badge text-bg-warning">{% translate "Overdue" %}: {{ customer.overdue_loan_count }}</span>
+                                    {% endif %}
+                                </div>
+                                <a class="btn btn-sm btn-primary align-self-start"
+                                   href="?customer={{ customer.pk }}{% if selected_entry_number %}&entry={{ selected_entry_number.pk }}{% endif %}">{% translate "Select" %}</a>
+                            </div>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item text-muted">{% translate "No customers found." %}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if perms.loaning.add_customer %}
+                <h3>{% translate "New customer" %}</h3>
+                <form method="post" class="mb-4">
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="create_customer" />
+                    <div class="row">
+                        {% for field in customer_form %}
+                            <div class="col-md-6 mb-3">
+                                <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                                {{ field }}
+                                {% for error in field.errors %}<div class="invalid-feedback d-block">{{ error }}</div>{% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {% for error in customer_form.non_field_errors %}<div class="alert alert-danger">{{ error }}</div>{% endfor %}
+                    <button type="submit" class="btn btn-outline-primary">
+                        <i class="bi bi-person-plus-fill"></i> {% translate "Create customer" %}
+                    </button>
+                </form>
+            {% endif %}
+        </section>
+        <section class="col-lg-6">
+            <h2>{% translate "Book" %}</h2>
+            <form class="d-flex mb-3" method="get" role="search">
+                <input type="hidden"
+                       name="customer"
+                       value="{{ selected_customer.pk|default:'' }}" />
+                <input name="book_q"
+                       value="{{ book_q }}"
+                       class="form-control me-2"
+                       type="search"
+                       placeholder="{% translate "Search entry numbers or books" %}"
+                       aria-label="{% translate "Search entry numbers or books" %}" />
+                <button class="btn btn-outline-secondary" type="submit">{% translate "Search" %}</button>
+            </form>
+            {% if selected_entry_number %}
+                <div class="alert alert-success">
+                    <strong>{% translate "Selected entry number" %}:</strong> {{ selected_entry_number }}
+                    <span class="badge text-bg-secondary ms-2">{% translate "Available" %}: {{ selected_entry_number.available_copies }}</span>
+                </div>
+            {% endif %}
+            {% if book_q %}
+                <ul class="list-group mb-4">
+                    {% for entry_number in entry_number_results %}
+                        <li class="list-group-item">
+                            <div class="d-flex justify-content-between gap-3">
+                                <div>
+                                    <strong>{{ entry_number.entry_number }}</strong>: {{ entry_number.book_entry.title }}
+                                    <div class="small text-muted">
+                                        {% for author in entry_number.book_entry.authors.all %}
+                                            {{ author }}
+                                            {% if not forloop.last %},{% endif %}
+                                        {% empty %}{% translate "Book with no authors" %}
+                                        {% endfor %}
+                                    </div>
+                                    <div class="small text-muted">
+                                        {% if entry_number.book_entry.isbn %}ISBN {{ entry_number.book_entry.isbn }}{% endif %}
+                                        {% if entry_number.book_entry.issn %}ISSN {{ entry_number.book_entry.issn }}{% endif %}
+                                        {% if entry_number.book_entry.ean %}EAN {{ entry_number.book_entry.ean }}{% endif %}
+                                    </div>
+                                    <span class="badge text-bg-secondary">{% translate "Copies" %}: {{ entry_number.copies|default:0 }}</span>
+                                    <span class="badge text-bg-secondary">{% translate "Active loans" %}: {{ entry_number.active_loan_count }}</span>
+                                    <span class="badge {% if entry_number.available_copies %}text-bg-success{% else %}text-bg-danger{% endif %}">{% translate "Available" %}: {{ entry_number.available_copies }}</span>
+                                </div>
+                                <a class="btn btn-sm btn-primary align-self-start"
+                                   href="?entry={{ entry_number.pk }}{% if selected_customer %}&customer={{ selected_customer.pk }}{% endif %}">{% translate "Select" %}</a>
+                            </div>
+                        </li>
+                    {% empty %}
+                        <li class="list-group-item text-muted">{% translate "No entry numbers found." %}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </section>
+    </div>
+    {% if checkout_form %}
+        <hr />
+        <section>
+            <h2>{% translate "Checkout" %}</h2>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="checkout" />
+                {{ checkout_form.customer_id }}
+                {{ checkout_form.entry_number_id }}
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ checkout_form.start.id_for_label }}" class="form-label">{{ checkout_form.start.label }}</label>
+                        {{ checkout_form.start }}
+                        {% for error in checkout_form.start.errors %}<div class="invalid-feedback d-block">{{ error }}</div>{% endfor %}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ checkout_form.expected_end.id_for_label }}"
+                               class="form-label">{{ checkout_form.expected_end.label }}</label>
+                        {{ checkout_form.expected_end }}
+                        {% for error in checkout_form.expected_end.errors %}
+                            <div class="invalid-feedback d-block">{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="{{ checkout_form.note.id_for_label }}" class="form-label">{{ checkout_form.note.label }}</label>
+                        {{ checkout_form.note }}
+                        {% for error in checkout_form.note.errors %}<div class="invalid-feedback d-block">{{ error }}</div>{% endfor %}
+                    </div>
+                </div>
+                {% for error in checkout_form.non_field_errors %}<div class="alert alert-danger">{{ error }}</div>{% endfor %}
+                {% for error in checkout_form.customer_id.errors %}<div class="alert alert-danger">{{ error }}</div>{% endfor %}
+                {% for error in checkout_form.entry_number_id.errors %}<div class="alert alert-danger">{{ error }}</div>{% endfor %}
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-journal-plus"></i> {% translate "Create loan" %}
+                </button>
+            </form>
+        </section>
+    {% endif %}
+    <hr />
+    <section>
+        <h2>{% translate "Active loans" %}</h2>
+        <ul class="list-group mb-4">
+            {% for loan in active_loans %}
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-between gap-3">
+                        <div>
+                            <a href="{% url 'loaning:loan-detail' loan.pk %}">{{ loan.entry_number }}</a>
+                            {% if loan.customer %}<span class="text-muted">/ {{ loan.customer }}</span>{% endif %}
+                            {% if loan.is_overdue %}
+                                <span class="badge text-bg-warning ms-2">{% translate "Overdue" %}</span>
+                            {% endif %}
+                            <div class="small text-muted">{{ loan.start }} - {{ loan.expected_end }}</div>
+                        </div>
+                        {% if perms.loaning.change_loan %}
+                            <form method="post" class="d-flex gap-2 align-items-start">
+                                {% csrf_token %}
+                                <input type="hidden" name="action" value="return" />
+                                <input type="hidden" name="loan_id" value="{{ loan.pk }}" />
+                                <input type="date"
+                                       name="end"
+                                       class="form-control form-control-sm"
+                                       value="{% now 'Y-m-d' %}" />
+                                <button type="submit" class="btn btn-sm btn-success">
+                                    <i class="bi bi-box-arrow-in-left"></i> {% translate "Return" %}
+                                </button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </li>
+            {% empty %}
+                <li class="list-group-item text-muted">{% translate "No active loans found." %}</li>
+            {% endfor %}
+        </ul>
+        {% if history_loans %}
+            <h2>{% translate "Loan history" %}</h2>
+            <ul class="list-group">
+                {% for loan in history_loans %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <a href="{% url 'loaning:loan-detail' loan.pk %}">{{ loan.entry_number }}</a>
+                        <span class="text-muted">{{ loan.get_status_display }} / {{ loan.start }} - {{ loan.end|default:loan.expected_end }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </section>
+{% endblock content %}

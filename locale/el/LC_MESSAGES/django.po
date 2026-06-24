@@ -3,12 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-08 13:04+0300\n"
+"POT-Creation-Date: 2026-06-24 20:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,8 +55,8 @@ msgstr ""
 msgid ""
 "\n"
 "        The first donations to the Library came from the members of the "
-"first Board of Directors, Theod. Thomopoulos, the Association \"PARNASSOS"
-"\",\n"
+"first Board of Directors, Theod. Thomopoulos, the Association "
+"\"PARNASSOS\",\n"
 "        the Association \"MIKROS OMILOS\" (after its dissolution in 1927 its "
 "library was offered to the Association),\n"
 "        the lawyer K. Anagnostopoulos (in 1962 he donated to the Library a "
@@ -206,8 +205,8 @@ msgid ""
 "Please contact us for more information.\n"
 "        It is enrolled in the ATLAS program of the Universities of Greece "
 "and DASTA for the TEI.\n"
-"        Its <a href=\"https://www.loc.gov/marc/organizations/org-search.php"
-"\">MARC Org Code</a> is GR-ArMPA (Id 43410).\n"
+"        Its <a href=\"https://www.loc.gov/marc/organizations/org-"
+"search.php\">MARC Org Code</a> is GR-ArMPA (Id 43410).\n"
 "        "
 msgstr ""
 "\n"
@@ -217,8 +216,8 @@ msgstr ""
 "επικοινωνήστε μαζί μας για περεταίρω πληροφορίες.\n"
 "        Είναι εγγεγραμμένη στο πρόγραμμα ΑΤΛΑΣ των Πανεπιστημίων της Ελλάδας "
 "και DASTA για το ΤΕΙ.\n"
-"        Ο  <a href=\"https://www.loc.gov/marc/organizations/org-search.php"
-"\">κωδικός οργάνωσης MARC</a> είναι GR-ArMPA (Id 43410).\n"
+"        Ο  <a href=\"https://www.loc.gov/marc/organizations/org-"
+"search.php\">κωδικός οργάνωσης MARC</a> είναι GR-ArMPA (Id 43410).\n"
 "        "
 
 #: templates/skoufas_library/about.html:70
@@ -478,16 +477,28 @@ msgstr "Περί"
 msgid "Contact"
 msgstr "Επικοινωνία"
 
-#: templates/skoufas_library/layout.html:104
-#: templates/skoufas_library/layout.html:106
+#: templates/skoufas_library/layout.html:78
+msgid "Loaning"
+msgstr "Δανεισμός"
+
+#: templates/skoufas_library/layout.html:82
+msgid "Loan desk"
+msgstr "Δανεισμοί"
+
+#: templates/skoufas_library/layout.html:87
+msgid "Customers"
+msgstr "Δανειζόμενοι"
+
+#: templates/skoufas_library/layout.html:126
+#: templates/skoufas_library/layout.html:128
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: templates/skoufas_library/layout.html:132
+#: templates/skoufas_library/layout.html:152
 msgid "Skoufas Association"
 msgstr "Μουσικοφιλολογικός Σύλλογος Σκουφάς"
 
-#: templates/skoufas_library/layout.html:132
+#: templates/skoufas_library/layout.html:152
 msgid "Design - Construction: Claudio Bantaloukas"
 msgstr "Σχεδιασμός - Τεχνική κατασκευή: Κλαύδιος Μπανταλούκας"
 

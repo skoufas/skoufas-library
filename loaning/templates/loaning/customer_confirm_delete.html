@@ -1,0 +1,24 @@
+{% extends "skoufas_library/layout.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% block title %}
+    {% translate "Delete customer" %}
+{% endblock title %}
+{% block content %}
+    <div class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        {% blocktranslate with customer=object %}
+      Are you sure you want to permanently delete <strong>{{ customer }}</strong>? This action cannot be undone.
+    {% endblocktranslate %}
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash"></i> {% translate "Yes, delete" %}
+            </button>
+            <a href="{% url 'loaning:customer-edit' object.pk %}"
+               class="btn btn-outline-secondary">{% translate "Cancel" %}</a>
+        </div>
+    </form>
+{% endblock content %}

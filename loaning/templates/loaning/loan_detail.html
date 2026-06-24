@@ -1,0 +1,92 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Loan" %}: {{ object.entry_number }}
+{% endblock title %}
+{% block content %}
+    <dl class="row">
+        <dt class="col-sm-3">{% translate "Customer" %}</dt>
+        <dd class="col-sm-9">
+            {% if object.customer %}
+                <a href="{% url 'loaning:customer-edit' object.customer.pk %}">{{ object.customer }}</a>
+            {% else %}
+                {% translate "No customer" %}
+            {% endif %}
+        </dd>
+        <dt class="col-sm-3">{% translate "Entry number" %}</dt>
+        <dd class="col-sm-9">
+            <a href="{% url 'books:book-by-entry-number' object.entry_number.pk %}">{{ object.entry_number }}</a>
+        </dd>
+        <dt class="col-sm-3">{% translate "Status" %}</dt>
+        <dd class="col-sm-9">
+            {{ object.get_status_display }}
+            {% if object.is_overdue %}
+                <span class="badge text-bg-warning ms-2">{% translate "Overdue" %}</span>
+            {% endif %}
+        </dd>
+        <dt class="col-sm-3">{% translate "Start" %}</dt>
+        <dd class="col-sm-9">
+            {{ object.start }}
+        </dd>
+        <dt class="col-sm-3">{% translate "Expected end" %}</dt>
+        <dd class="col-sm-9">
+            {{ object.expected_end }}
+        </dd>
+        <dt class="col-sm-3">{% translate "End" %}</dt>
+        <dd class="col-sm-9">
+            {{ object.end|default:"-" }}
+        </dd>
+        {% if object.status == object.STATUS_ACTIVE %}
+            <dt class="col-sm-3">{% translate "Available copies" %}</dt>
+            <dd class="col-sm-9">
+                {{ available_copies }}
+            </dd>
+        {% endif %}
+        {% if object.note %}
+            <dt class="col-sm-3">{% translate "Note" %}</dt>
+            <dd class="col-sm-9">
+                {{ object.note }}
+            </dd>
+        {% endif %}
+    </dl>
+    {% if object.status == object.STATUS_ACTIVE and perms.loaning.change_loan %}
+        <hr />
+        <h2>{% translate "Exception actions" %}</h2>
+        <form method="post" class="mb-3">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="{{ exception_form.end.id_for_label }}" class="form-label">{{ exception_form.end.label }}</label>
+                    {{ exception_form.end }}
+                    {% for error in exception_form.end.errors %}<div class="invalid-feedback d-block">{{ error }}</div>{% endfor %}
+                </div>
+                <div class="col-md-8 mb-3">
+                    <label for="{{ exception_form.note.id_for_label }}" class="form-label">{{ exception_form.note.label }}</label>
+                    {{ exception_form.note }}
+                    {% for error in exception_form.note.errors %}<div class="invalid-feedback d-block">{{ error }}</div>{% endfor %}
+                </div>
+            </div>
+            <div class="d-flex gap-2">
+                <button type="submit" name="action" value="returned" class="btn btn-success">
+                    <i class="bi bi-check-circle"></i> {% translate "Return" %}
+                </button>
+                {% if perms.books.change_entrynumber %}
+                    <button type="submit"
+                            name="action"
+                            value="lost"
+                            class="btn btn-outline-danger">
+                        <i class="bi bi-exclamation-triangle"></i> {% translate "Mark lost" %}
+                    </button>
+                {% endif %}
+                <button type="submit"
+                        name="action"
+                        value="cancelled"
+                        class="btn btn-outline-secondary">
+                    <i class="bi bi-x-circle"></i> {% translate "Cancel loan" %}
+                </button>
+            </div>
+        </form>
+    {% endif %}
+    <a href="{% url 'loaning:loan-desk' %}"
+       class="btn btn-outline-secondary">{% translate "Back to loan desk" %}</a>
+{% endblock content %}

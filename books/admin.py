@@ -67,6 +67,12 @@ class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
         "book_entry",
     ]
 
+    search_fields = [
+        "entry_number",
+        "book_entry__title",
+        "book_entry__subtitle",
+    ]
+
 
 @admin.register(BookEntry)
 class BookEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
