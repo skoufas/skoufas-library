@@ -31,6 +31,7 @@ class Customer(models.Model):
     phone_number = models.CharField(verbose_name=_("phone number"), max_length=200, blank=True)
     email = models.CharField(verbose_name=_("email"), max_length=200, blank=True)
     address = models.CharField(verbose_name=_("address"), max_length=200, blank=True)
+    skoufas_member_id = models.CharField(verbose_name=_("Skoufas member ID"), max_length=200, blank=True, null=True)
 
     def __str__(self):
         """Print customer name."""

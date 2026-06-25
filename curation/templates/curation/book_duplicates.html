@@ -1,0 +1,90 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Book Duplicates" %}
+{% endblock title %}
+{% block content %}
+    <h2>{% translate "Book Duplicates" %}</h2>
+    <form class="row g-2 align-items-center mb-4" method="get">
+        <div class="col-auto">
+            <label class="col-form-label" for="threshold">{% translate "Similarity threshold" %}</label>
+        </div>
+        <div class="col-auto">
+            <input type="number"
+                   id="threshold"
+                   name="threshold"
+                   class="form-control"
+                   min="0.1"
+                   max="1.0"
+                   step="0.05"
+                   value="{{ threshold }}" />
+        </div>
+        <div class="col-auto">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       id="show_suppressed"
+                       name="show_suppressed"
+                       value="1"
+                       {% if include_suppressed %}checked{% endif %} />
+                <label class="form-check-label" for="show_suppressed">{% translate "Show dismissed pairs" %}</label>
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-primary">{% translate "Apply" %}</button>
+        </div>
+    </form>
+    {% if not pairs %}
+        <div class="alert alert-info">{% translate "No duplicate pairs found above this threshold." %}</div>
+    {% else %}
+        <p class="text-muted">{% blocktranslate with count=pairs|length %}{{ count }} pair(s) found.{% endblocktranslate %}</p>
+        <table class="table table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>{% translate "Book A" %}</th>
+                    <th>{% translate "Book B" %}</th>
+                    <th>{% translate "Similarity" %}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pair in pairs %}
+                    <tr>
+                        <td>
+                            {{ pair.object_a }} <a class="text-muted"
+    href="{% url 'books:book-by-id' pair.object_a.pk %}">(#{{ pair.object_a.pk }})</a>
+                            {% with authors=pair.object_a.authors.all %}
+                                {% if authors %}<div class="text-muted small">{{ authors|join:", " }}</div>{% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {{ pair.object_b }} <a class="text-muted"
+    href="{% url 'books:book-by-id' pair.object_b.pk %}">(#{{ pair.object_b.pk }})</a>
+                            {% with authors=pair.object_b.authors.all %}
+                                {% if authors %}<div class="text-muted small">{{ authors|join:", " }}</div>{% endif %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            <span class="badge {% if pair.similarity >= 0.8 %}text-bg-danger{% elif pair.similarity >= 0.6 %}text-bg-warning{% else %}text-bg-secondary{% endif %}">
+                                {{ pair.similarity }}
+                            </span>
+                        </td>
+                        <td>
+                            <a href="{% url 'curation:book-merge-review' pair.object_a.pk pair.object_b.pk %}"
+                               class="btn btn-sm btn-primary">{% translate "Review" %}</a>
+                            <form method="post"
+                                  action="{% url 'curation:book-merge-review' pair.object_a.pk pair.object_b.pk %}"
+                                  class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit"
+                                        name="action"
+                                        value="suppress"
+                                        class="btn btn-sm btn-outline-secondary">{% translate "Dismiss" %}</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock content %}

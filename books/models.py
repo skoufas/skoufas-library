@@ -4,6 +4,7 @@ import datetime
 from typing import Any
 from typing import Optional
 
+from django.contrib.postgres.indexes import GistIndex
 from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
 from django.db import models
@@ -13,6 +14,7 @@ from django.utils.text import format_lazy
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
+from books import romanize
 from books.fields import EANField
 from books.fields import ISBNField
 from books.fields import ISSNField
@@ -38,6 +40,14 @@ class Author(models.Model):
     surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True, blank=True)
     pseudonym = models.CharField(verbose_name=_("pseudonym"), max_length=200, null=True, blank=True)
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True, blank=True)
+    romanized_name = models.CharField(verbose_name=_("romanized name"), max_length=1000, blank=True, default="")
+
+    def save(self, *args, **kwargs):
+        """Compute romanized_name before saving."""
+        parts = [self.surname, self.first_name, self.middle_name, self.pseudonym, self.organisation_name]
+        combined = " ".join(p for p in parts if p)
+        self.romanized_name = romanize(combined)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """Print author."""
@@ -69,6 +79,13 @@ class Author(models.Model):
         ordering = ["organisation_name", "surname", "middle_name", "first_name", "pseudonym"]
         verbose_name = _("Author")
         verbose_name_plural = _("Authors")
+        indexes = [
+            GistIndex(
+                fields=["romanized_name"],
+                name="author_romanized_name_gist",
+                opclasses=["gist_trgm_ops"],
+            ),
+        ]
         constraints = [
             models.UniqueConstraint(
                 name="unique_author",
@@ -324,14 +341,17 @@ class BookEntry(models.Model):
     classification_class = models.IntegerField(
         verbose_name=_("Skoufas Classification Class"), null=True, blank=True, editable=False
     )
+    romanized_title = models.CharField(verbose_name=_("romanized title"), max_length=8192, blank=True, default="")
 
     def save(self, *args, **kwargs):
-        """Update classification_class based on classification string."""
+        """Update classification_class and romanized_title before saving."""
         if self.skoufas_classification:
             self.classification_class = int(self.skoufas_classification[0:3])
         else:
             self.classification_class = None
-        super().save(*args, **kwargs)  # Call the "real" save() method.
+        parts = [self.title, self.subtitle]
+        self.romanized_title = romanize(" ".join(p for p in parts if p))
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """Print Book entry's Title."""
@@ -366,6 +386,13 @@ class BookEntry(models.Model):
         ordering = ["title", "subtitle"]
         verbose_name = _("Book Entry")
         verbose_name_plural = _("Book Entries")
+        indexes = [
+            GistIndex(
+                fields=["romanized_title"],
+                name="bookentry_romtitle_gist",
+                opclasses=["gist_trgm_ops"],
+            ),
+        ]
 
 
 class EntryNumber(models.Model):

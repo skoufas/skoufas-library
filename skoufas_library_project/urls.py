@@ -28,6 +28,7 @@ urlpatterns = [
     path("privacy/", TemplateView.as_view(template_name="skoufas_library/privacy_policy.html"), name="privacy-policy"),
     path("books/", include("books.urls", namespace="books")),
     path("loaning/", include("loaning.urls", namespace="loaning")),
+    path("curation/", include("curation.urls", namespace="curation")),
     path("admin/", admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
     path(

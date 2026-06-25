@@ -1,0 +1,81 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Merge History" %}
+{% endblock title %}
+{% block content %}
+    <h2>{% translate "Merge History" %}</h2>
+    {% if not merge_logs %}
+        <div class="alert alert-info">{% translate "No merges have been performed yet." %}</div>
+    {% else %}
+        <table class="table table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>{% translate "Source (deleted)" %}</th>
+                    <th>{% translate "Target (kept)" %}</th>
+                    <th>{% translate "Merged by" %}</th>
+                    <th>{% translate "Merged at" %}</th>
+                    <th>{% translate "Status" %}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for log in merge_logs %}
+                    <tr class="{% if log.is_undone %}table-secondary{% endif %}">
+                        <td>
+                            {{ log.merge_data.source_display }}
+                            <span class="badge text-bg-light text-muted ms-1">{{ log.merge_data.entity_type }}</span>
+                        </td>
+                        <td>
+                            {% if log.target_object %}
+                                <a href="{{ log.target_object.get_absolute_url }}">{{ log.target_object }}</a>
+                            {% else %}
+                                <span class="text-muted">{% translate "Deleted" %}</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ log.merged_by|default:"—" }}</td>
+                        <td>{{ log.merged_at|date:"Y-m-d H:i" }}</td>
+                        <td>
+                            {% if log.is_undone %}
+                                <span class="badge text-bg-secondary">{% translate "Undone" %} {{ log.undone_at|date:"Y-m-d" }}</span>
+                            {% else %}
+                                <span class="badge text-bg-success">{% translate "Active" %}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if log.can_undo %}
+                                {% if log.merge_data.entity_type == "book" %}
+                                    <form method="post" action="{% url 'curation:book-merge-undo' log.pk %}">
+                                    {% else %}
+                                        <form method="post" action="{% url 'curation:author-merge-undo' log.pk %}">
+                                        {% endif %}
+                                        {% csrf_token %}
+                                        <button type="submit"
+                                                class="btn btn-sm btn-outline-warning"
+                                                onclick="return confirm('{% translate "Undo this merge and recreate the deleted entry?" %}')">
+                                            <i class="bi bi-arrow-counterclockwise"></i> {% translate "Undo" %}
+                                        </button>
+                                    </form>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <nav aria-label="{% translate "Page navigation" %}">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+                        <a class="page-link"
+                           href="?page={% if page_obj.has_previous %}{{ page_obj.previous_page_number }}{% else %}1{% endif %}">&laquo; {% translate "Previous" %}</a>
+                    </li>
+                    <li class="page-item active">
+                        <span class="page-link">{{ page_obj.number }}</span>
+                    </li>
+                    <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+                        <a class="page-link"
+                           href="?page={% if page_obj.has_next %}{{ page_obj.next_page_number }}{% else %}{{ page_obj.paginator.num_pages }}{% endif %}">{% translate "Next" %} &raquo;</a>
+                    </li>
+                </ul>
+            </nav>
+        {% endif %}
+    {% endblock content %}

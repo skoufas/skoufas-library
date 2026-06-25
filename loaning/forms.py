@@ -39,6 +39,7 @@ class CustomerForm(forms.ModelForm):
             "phone_number",
             "email",
             "address",
+            "skoufas_member_id",
         ]
 
 

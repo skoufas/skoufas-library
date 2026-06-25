@@ -1,0 +1,368 @@
+# Greek translations for skoufas-library curation app.
+# Copyright (C) 2026 Skoufas Association
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: skoufas-library\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-25 07:28+0300\n"
+"PO-Revision-Date: 2026-06-25 07:28+0300\n"
+"Last-Translator: \n"
+"Language-Team: Greek\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: curation/apps.py:12
+msgid "Curation"
+msgstr "Επιμέλεια"
+
+#: curation/models.py:15 curation/models.py:40
+msgid "content type"
+msgstr "τύπος περιεχομένου"
+
+#: curation/models.py:16
+msgid "object A ID"
+msgstr "αναγνωριστικό αντικειμένου Α"
+
+#: curation/models.py:17
+msgid "object B ID"
+msgstr "αναγνωριστικό αντικειμένου Β"
+
+#: curation/models.py:20
+msgid "suppressed by"
+msgstr "απορρίφθηκε από"
+
+#: curation/models.py:21
+msgid "suppressed at"
+msgstr "απορρίφθηκε στις"
+
+#: curation/models.py:24
+msgid "Suppressed pair"
+msgstr "Απορριφθέν ζεύγος"
+
+#: curation/models.py:25
+msgid "Suppressed pairs"
+msgstr "Απορριφθέντα ζεύγη"
+
+#: curation/models.py:41
+msgid "target object ID"
+msgstr "αναγνωριστικό αντικειμένου στόχου"
+
+#: curation/models.py:44
+msgid "merge data"
+msgstr "δεδομένα συγχώνευσης"
+
+#: curation/models.py:45
+msgid "Entity-specific snapshot of the deleted source object and all data needed to undo the merge."
+msgstr "Στιγμιότυπο του διαγραμμένου αντικειμένου πηγής και όλα τα δεδομένα που χρειάζονται για την αναίρεση της συγχώνευσης."
+
+#: curation/models.py:48
+msgid "merged by"
+msgstr "συγχωνεύθηκε από"
+
+#: curation/models.py:50
+msgid "merged at"
+msgstr "συγχωνεύθηκε στις"
+
+#: curation/models.py:51
+msgid "undone at"
+msgstr "αναιρέθηκε στις"
+
+#: curation/models.py:54
+msgid "undone by"
+msgstr "αναιρέθηκε από"
+
+#: curation/models.py:62
+msgid "Merge log"
+msgstr "Αρχείο συγχωνεύσεων"
+
+#: curation/models.py:63
+msgid "Merge logs"
+msgstr "Αρχεία συγχωνεύσεων"
+
+#: curation/templates/curation/author_duplicates.html:4
+#: curation/templates/curation/author_duplicates.html:7
+msgid "Author Duplicates"
+msgstr "Διπλότυπα Συγγραφέων"
+
+#: curation/templates/curation/author_duplicates.html:10
+#: curation/templates/curation/book_duplicates.html:10
+msgid "Similarity threshold"
+msgstr "Ελάχιστη ομοιότητα"
+
+#: curation/templates/curation/author_duplicates.html:30
+#: curation/templates/curation/book_duplicates.html:30
+msgid "Show dismissed pairs"
+msgstr "Εμφάνιση απορριφθέντων ζευγών"
+
+#: curation/templates/curation/author_duplicates.html:34
+#: curation/templates/curation/book_duplicates.html:34
+msgid "Apply"
+msgstr "Εφαρμογή"
+
+#: curation/templates/curation/author_duplicates.html:38
+#: curation/templates/curation/book_duplicates.html:38
+msgid "No duplicate pairs found above this threshold."
+msgstr "Δεν βρέθηκαν διπλότυπα ζεύγη πάνω από αυτό το κατώφλι."
+
+#: curation/templates/curation/author_duplicates.html:40
+#: curation/templates/curation/book_duplicates.html:40
+#, python-format
+msgid "%(count)s pair(s) found."
+msgstr "Βρέθηκαν %(count)s ζεύγος/ζεύγη."
+
+#: curation/templates/curation/author_duplicates.html:44
+msgid "Author A"
+msgstr "Συγγραφέας Α"
+
+#: curation/templates/curation/author_duplicates.html:45
+msgid "Author B"
+msgstr "Συγγραφέας Β"
+
+#: curation/templates/curation/author_duplicates.html:46
+#: curation/templates/curation/book_duplicates.html:46
+msgid "Similarity"
+msgstr "Ομοιότητα"
+
+#: curation/templates/curation/author_duplicates.html:64
+#: curation/templates/curation/book_duplicates.html:74
+msgid "Review"
+msgstr "Εξέταση"
+
+#: curation/templates/curation/author_duplicates.html:72
+#: curation/templates/curation/book_duplicates.html:82
+msgid "Dismiss"
+msgstr "Απόρριψη"
+
+#: curation/templates/curation/author_merge_review.html:4
+#: curation/templates/curation/author_merge_review.html:7
+msgid "Review Merge"
+msgstr "Εξέταση Συγχώνευσης"
+
+#: curation/templates/curation/author_merge_review.html:8
+msgid "Select the canonical author to keep. The other will be deleted and its books re-assigned."
+msgstr "Επιλέξτε τον σωστότερο συγγραφέα για διατήρηση. Ο άλλος θα διαγραφεί και τα βιβλία του θα ανατεθούν εκ νέου."
+
+#: curation/templates/curation/author_merge_review.html:25
+msgid "Keep this one"
+msgstr "Διατήρηση αυτού"
+
+#: curation/templates/curation/author_merge_review.html:32
+msgid "Surname"
+msgstr "Επώνυμο"
+
+#: curation/templates/curation/author_merge_review.html:36
+msgid "First name"
+msgstr "Όνομα"
+
+#: curation/templates/curation/author_merge_review.html:40
+msgid "Middle name"
+msgstr "Μεσαίο όνομα"
+
+#: curation/templates/curation/author_merge_review.html:44
+msgid "Pseudonym"
+msgstr "Ψευδώνυμο"
+
+#: curation/templates/curation/author_merge_review.html:48
+msgid "Organisation"
+msgstr "Οργανισμός"
+
+#: curation/templates/curation/author_merge_review.html:52
+msgid "Romanized"
+msgstr "Εκλατινισμένο"
+
+#: curation/templates/curation/author_merge_review.html:57
+msgid "Books"
+msgstr "Βιβλία"
+
+#: curation/templates/curation/author_merge_review.html:65
+msgid "No books."
+msgstr "Χωρίς βιβλία."
+
+#: curation/templates/curation/author_merge_review.html:74
+#: curation/templates/curation/book_merge_review.html:98
+msgid "Merge"
+msgstr "Συγχώνευση"
+
+#: curation/templates/curation/author_merge_review.html:81
+#: curation/templates/curation/book_merge_review.html:105
+msgid "Dismiss (not a duplicate)"
+msgstr "Απόρριψη (δεν είναι διπλότυπο)"
+
+#: curation/templates/curation/author_merge_review.html:84
+#: curation/templates/curation/book_merge_review.html:108
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: curation/templates/curation/book_duplicates.html:4
+#: curation/templates/curation/book_duplicates.html:7
+msgid "Book Duplicates"
+msgstr "Διπλότυπα Βιβλίων"
+
+#: curation/templates/curation/book_duplicates.html:44
+msgid "Book A"
+msgstr "Βιβλίο Α"
+
+#: curation/templates/curation/book_duplicates.html:45
+msgid "Book B"
+msgstr "Βιβλίο Β"
+
+#: curation/templates/curation/book_merge_review.html:4
+#: curation/templates/curation/book_merge_review.html:7
+msgid "Review Book Merge"
+msgstr "Εξέταση Συγχώνευσης Βιβλίου"
+
+#: curation/templates/curation/book_merge_review.html:8
+msgid "Select the canonical book entry to keep. Conflicting fields are shown below — choose which value to use. The other entry will be deleted and its physical copies re-assigned."
+msgstr "Επιλέξτε την σωστότερη εγγραφή βιβλίου για διατήρηση. Τα πεδία με συγκρούσεις εμφανίζονται παρακάτω — επιλέξτε ποια τιμή να χρησιμοποιηθεί. Η άλλη εγγραφή θα διαγραφεί και τα φυσικά αντίτυπά της θα ανατεθούν εκ νέου."
+
+#: curation/templates/curation/book_merge_review.html:12
+#, python-format
+msgid "\n        Warning: Book A has %(a)s active loan(s), Book B has %(b)s active loan(s). Loans will remain valid after the merge.\n      "
+msgstr "\n        Προειδοποίηση: Το Βιβλίο Α έχει %(a)s ενεργό/ενεργά δανεισμό/δανεισμούς, το Βιβλίο Β έχει %(b)s ενεργό/ενεργά δανεισμό/δανεισμούς. Οι δανεισμοί θα παραμείνουν έγκυροι μετά τη συγχώνευση.\n      "
+
+#: curation/templates/curation/book_merge_review.html:33
+msgid "Keep"
+msgstr "Διατήρηση"
+
+#: curation/templates/curation/book_merge_review.html:37
+msgid "Physical copies"
+msgstr "Φυσικά αντίτυπα"
+
+#: curation/templates/curation/book_merge_review.html:41
+msgid "copies"
+msgstr "αντίτυπα"
+
+#: curation/templates/curation/book_merge_review.html:45
+msgid "No entry numbers."
+msgstr "Χωρίς αριθμούς εισαγωγής."
+
+#: curation/templates/curation/book_merge_review.html:47
+msgid "Authors"
+msgstr "Συγγραφείς"
+
+#: curation/templates/curation/book_merge_review.html:55
+msgid "Conflicting fields"
+msgstr "Πεδία με συγκρούσεις"
+
+#: curation/templates/curation/book_merge_review.html:56
+msgid "Choose which value to keep on the canonical entry."
+msgstr "Επιλέξτε ποια τιμή να διατηρηθεί στην κανονική εγγραφή."
+
+#: curation/templates/curation/book_merge_review.html:60
+msgid "Field"
+msgstr "Πεδίο"
+
+#: curation/templates/curation/book_merge_review.html:61
+msgid "Book A value"
+msgstr "Τιμή Βιβλίου Α"
+
+#: curation/templates/curation/book_merge_review.html:62
+msgid "Book B value"
+msgstr "Τιμή Βιβλίου Β"
+
+#: curation/templates/curation/merge_log_list.html:4
+#: curation/templates/curation/merge_log_list.html:7
+msgid "Merge History"
+msgstr "Ιστορικό Συγχωνεύσεων"
+
+#: curation/templates/curation/merge_log_list.html:9
+msgid "No merges have been performed yet."
+msgstr "Δεν έχουν πραγματοποιηθεί συγχωνεύσεις ακόμα."
+
+#: curation/templates/curation/merge_log_list.html:14
+msgid "Source (deleted)"
+msgstr "Πηγή (διαγράφηκε)"
+
+#: curation/templates/curation/merge_log_list.html:15
+msgid "Target (kept)"
+msgstr "Στόχος (διατηρήθηκε)"
+
+#: curation/templates/curation/merge_log_list.html:16
+msgid "Merged by"
+msgstr "Συγχωνεύθηκε από"
+
+#: curation/templates/curation/merge_log_list.html:17
+msgid "Merged at"
+msgstr "Συγχωνεύθηκε στις"
+
+#: curation/templates/curation/merge_log_list.html:18
+msgid "Status"
+msgstr "Κατάσταση"
+
+#: curation/templates/curation/merge_log_list.html:33
+msgid "Deleted"
+msgstr "Διαγράφηκε"
+
+#: curation/templates/curation/merge_log_list.html:40
+msgid "Undone"
+msgstr "Αναιρέθηκε"
+
+#: curation/templates/curation/merge_log_list.html:42
+msgid "Active"
+msgstr "Ενεργό"
+
+#: curation/templates/curation/merge_log_list.html:55
+msgid "Undo this merge and recreate the deleted entry?"
+msgstr "Αναίρεση αυτής της συγχώνευσης και αναδημιουργία της διαγραμμένης εγγραφής;"
+
+#: curation/templates/curation/merge_log_list.html:56
+msgid "Undo"
+msgstr "Αναίρεση"
+
+#: curation/templates/curation/merge_log_list.html:65
+msgid "Page navigation"
+msgstr "Πλοήγηση σελίδας"
+
+#: curation/templates/curation/merge_log_list.html:69
+msgid "Previous"
+msgstr "Προηγούμενο"
+
+#: curation/templates/curation/merge_log_list.html:76
+msgid "Next"
+msgstr "Επόμενο"
+
+#: curation/views.py:88 curation/views.py:213
+msgid "Pair dismissed."
+msgstr "Το ζεύγος απορρίφθηκε."
+
+#: curation/views.py:93
+msgid "Please select the canonical author."
+msgstr "Παρακαλώ επιλέξτε τον κανονικό συγγραφέα."
+
+#: curation/views.py:138
+msgid "Authors merged successfully."
+msgstr "Οι συγγραφείς συγχωνεύθηκαν επιτυχώς."
+
+#: curation/views.py:218
+msgid "Please select the canonical book entry."
+msgstr "Παρακαλώ επιλέξτε την κανονική εγγραφή βιβλίου."
+
+#: curation/views.py:294
+msgid "Book entries merged successfully."
+msgstr "Οι εγγραφές βιβλίων συγχωνεύθηκαν επιτυχώς."
+
+#: curation/views.py:335 curation/views.py:365
+msgid "This merge has already been undone."
+msgstr "Αυτή η συγχώνευση έχει ήδη αναιρεθεί."
+
+#: curation/views.py:338
+msgid "Cannot undo: the target author no longer exists."
+msgstr "Δεν είναι δυνατή η αναίρεση: ο συγγραφέας στόχος δεν υπάρχει πλέον."
+
+#: curation/views.py:353
+#, python-format
+msgid "Merge undone. Author recreated as \"%(name)s\"."
+msgstr "Η συγχώνευση αναιρέθηκε. Ο συγγραφέας αναδημιουργήθηκε ως \"%(name)s\"."
+
+#: curation/views.py:368
+msgid "Cannot undo: the target book entry no longer exists."
+msgstr "Δεν είναι δυνατή η αναίρεση: η εγγραφή βιβλίου στόχος δεν υπάρχει πλέον."
+
+#: curation/views.py:404
+#, python-format
+msgid "Merge undone. Book recreated as \"%(name)s\"."
+msgstr "Η συγχώνευση αναιρέθηκε. Το βιβλίο αναδημιουργήθηκε ως \"%(name)s\"."

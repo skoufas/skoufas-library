@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-24 21:44+0300\n"
+"POT-Creation-Date: 2026-06-25 07:28+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -489,22 +489,38 @@ msgstr "Δανεισμοί"
 msgid "Customers"
 msgstr "Δανειζόμενοι"
 
-#: templates/skoufas_library/layout.html:126
-#: templates/skoufas_library/layout.html:128
+#: templates/skoufas_library/layout.html:100
+msgid "Curation"
+msgstr ""
+
+#: templates/skoufas_library/layout.html:103
+msgid "Author Duplicates"
+msgstr ""
+
+#: templates/skoufas_library/layout.html:106
+msgid "Book Duplicates"
+msgstr ""
+
+#: templates/skoufas_library/layout.html:109
+msgid "Merge History"
+msgstr ""
+
+#: templates/skoufas_library/layout.html:147
+#: templates/skoufas_library/layout.html:149
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: templates/skoufas_library/layout.html:152
+#: templates/skoufas_library/layout.html:173
 msgid "Skoufas Association"
 msgstr "Μουσικοφιλολογικός Σύλλογος Σκουφάς"
 
-#: templates/skoufas_library/layout.html:153
+#: templates/skoufas_library/layout.html:174
 #: templates/skoufas_library/privacy_policy.html:4
 #: templates/skoufas_library/privacy_policy.html:8
 msgid "Privacy Policy"
 msgstr "Πολιτική Απορρήτου"
 
-#: templates/skoufas_library/layout.html:154
+#: templates/skoufas_library/layout.html:175
 msgid "Design - Construction: Claudio Bantaloukas"
 msgstr "Σχεδιασμός - Τεχνική κατασκευή: Κλαύδιος Μπανταλούκας"
 
@@ -606,8 +622,8 @@ msgid ""
 "Data may be stored and processed in the European Union and the United "
 "Kingdom."
 msgstr ""
-"Τα δεδομένα ενδέχεται να αποθηκεύονται και να επεξεργάζονται στην "
-"Ευρωπαϊκή Ένωση και το Ηνωμένο Βασίλειο."
+"Τα δεδομένα ενδέχεται να αποθηκεύονται και να επεξεργάζονται στην Ευρωπαϊκή "
+"Ένωση και το Ηνωμένο Βασίλειο."
 
 #: templates/skoufas_library/privacy_policy.html:42
 msgid "3. Legal basis for processing"

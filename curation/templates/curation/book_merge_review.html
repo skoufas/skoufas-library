@@ -1,0 +1,111 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Review Book Merge" %}
+{% endblock title %}
+{% block content %}
+    <h2>{% translate "Review Book Merge" %}</h2>
+    <p class="text-muted">{% translate "Select the canonical book entry to keep. Conflicting fields are shown below — choose which value to use. The other entry will be deleted and its physical copies re-assigned." %}</p>
+    {% if active_loans_a or active_loans_b %}
+        <div class="alert alert-warning">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            {% blocktranslate with a=active_loans_a b=active_loans_b %}
+        Warning: Book A has {{ a }} active loan(s), Book B has {{ b }} active loan(s). Loans will remain valid after the merge.
+      {% endblocktranslate %}
+        </div>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="row g-4 mb-4">
+            {% for book in books %}
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <strong>{{ book }} <a class="text-muted fw-normal"
+    href="{% url 'books:book-by-id' book.pk %}">(#{{ book.pk }})</a></strong>
+                            <div class="form-check form-check-inline mb-0">
+                                <input class="form-check-input"
+                                       type="radio"
+                                       name="canonical"
+                                       id="canonical_{{ book.pk }}"
+                                       value="{{ book.pk }}"
+                                       required />
+                                <label class="form-check-label" for="canonical_{{ book.pk }}">{% translate "Keep" %}</label>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h6>{% translate "Physical copies" %} ({{ book.entry_numbers|length }})</h6>
+                            {% if book.entry_numbers %}
+                                <ul class="list-unstyled small mb-3">
+                                    {% for en in book.entry_numbers %}
+                                        <li>{{ en.entry_number }} ({{ en.copies }} {% translate "copies" %})</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="text-muted small mb-3">{% translate "No entry numbers." %}</p>
+                            {% endif %}
+                            <h6>{% translate "Authors" %}</h6>
+                            <p class="small">{{ book.authors.all|join:", "|default:"—" }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        {% if conflicts %}
+            <h5>{% translate "Conflicting fields" %}</h5>
+            <p class="text-muted small">{% translate "Choose which value to keep on the canonical entry." %}</p>
+            <table class="table table-sm table-bordered mb-4">
+                <thead class="table-secondary">
+                    <tr>
+                        <th>{% translate "Field" %}</th>
+                        <th>{% translate "Book A value" %}</th>
+                        <th>{% translate "Book B value" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in conflicts %}
+                        <tr>
+                            <td><code>{{ c.field }}</code></td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           name="field_{{ c.field }}"
+                                           id="field_{{ c.field }}_a"
+                                           value="a"
+                                           {% if c.default == "a" %}checked{% endif %} />
+                                    <label class="form-check-label" for="field_{{ c.field }}_a">{{ c.value_a|default:"(empty)" }}</label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-check">
+                                    <input class="form-check-input"
+                                           type="radio"
+                                           name="field_{{ c.field }}"
+                                           id="field_{{ c.field }}_b"
+                                           value="b"
+                                           {% if c.default == "b" %}checked{% endif %} />
+                                    <label class="form-check-label" for="field_{{ c.field }}_b">{{ c.value_b|default:"(empty)" }}</label>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        <div class="d-flex gap-2">
+            <button type="submit" name="action" value="merge" class="btn btn-danger">
+                <i class="bi bi-git"></i> {% translate "Merge" %}
+            </button>
+            <button type="submit"
+                    name="action"
+                    value="suppress"
+                    formnovalidate
+                    class="btn btn-outline-secondary">
+                <i class="bi bi-x-circle"></i> {% translate "Dismiss (not a duplicate)" %}
+            </button>
+            <a href="{% url 'curation:book-duplicates' %}"
+               class="btn btn-outline-dark">{% translate "Cancel" %}</a>
+        </div>
+    </form>
+{% endblock content %}

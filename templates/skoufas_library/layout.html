@@ -90,6 +90,27 @@
               </ul>
             </li>
           {% endif %}
+          {% if perms.curation.can_curate %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle {% if request.resolver_match.app_name == 'curation' %}active{% endif %}"
+                 data-bs-toggle="dropdown"
+                 href="#"
+                 role="button"
+                 aria-expanded="false"
+                 {% if request.resolver_match.app_name == 'curation' %}aria-current="page"{% endif %}>{% translate "Curation" %}</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="{% url 'curation:author-duplicates' %}">{% translate "Author Duplicates" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'curation:book-duplicates' %}">{% translate "Book Duplicates" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'curation:merge-log-list' %}">{% translate "Merge History" %}</a>
+                </li>
+              </ul>
+            </li>
+          {% endif %}
           {% get_current_language as LANGUAGE_CODE %}
           {% get_language_info for LANGUAGE_CODE as lang %}
           {% get_available_languages as LANGUAGES %}
