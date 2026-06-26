@@ -207,9 +207,9 @@ class CSVExportView(View):
             """Write the value by returning it, instead of storing in a buffer."""
             return value
 
-    def head_csv_row(self) -> list[str]:
+    def head_csv_row(self, include_location: bool = False) -> list[str]:
         """Return a list of CSV column names."""
-        return [
+        row = [
             "entry_number",
             "title",
             "subtitle",
@@ -217,6 +217,8 @@ class CSVExportView(View):
             "author_2",
             "author_3",
             "author_4",
+            "author_5",
+            "author_6",
             "translator_1",
             "translator_2",
             "translator_3",
@@ -253,8 +255,13 @@ class CSVExportView(View):
             "donor_2",
             "donor_3",
         ]
+        if include_location:
+            row.append("location")
+        return row
 
-    async def convert_book_entry_to_csv_row(self, book_entry: BookEntry, entry_number_object: EntryNumber) -> list[Any]:
+    async def convert_book_entry_to_csv_row(
+        self, book_entry: BookEntry, entry_number_object: EntryNumber, include_location: bool = False
+    ) -> list[Any]:
         """Conversion function that takes a single book and returns a list of csv fields."""
         if entry_number_object:
             entry_number = entry_number_object.entry_number
@@ -266,6 +273,8 @@ class CSVExportView(View):
         author_2 = ""
         author_3 = ""
         author_4 = ""
+        author_5 = ""
+        author_6 = ""
         idx = 0
         async for author in book_entry.authors.all():
             idx += 1
@@ -277,8 +286,12 @@ class CSVExportView(View):
                 author_3 = str(author)
             elif idx == 4:
                 author_4 = str(author)
+            elif idx == 5:
+                author_5 = str(author)
+            elif idx == 6:
+                author_6 = str(author)
             else:
-                raise Exception(f"{title} has more than 4 authors")
+                raise Exception(f"{title} has more than 6 authors")
 
         translator_1 = ""
         translator_2 = ""
@@ -366,7 +379,7 @@ class CSVExportView(View):
                 donors.add(str(donor))
         async for donor in book_entry.entry_donors.all():
             donors.add(str(donor))
-        for idx, donor_str in enumerate(list(donors)):
+        for idx, donor_str in enumerate(sorted(donors)):
             if idx == 0:
                 donor_1 = donor_str
             elif idx == 1:
@@ -376,7 +389,7 @@ class CSVExportView(View):
             else:
                 raise Exception(f"{title} has more than 3 donors")
 
-        return [
+        row = [
             entry_number,
             title,
             subtitle,
@@ -384,6 +397,8 @@ class CSVExportView(View):
             author_2,
             author_3,
             author_4,
+            author_5,
+            author_6,
             translator_1,
             translator_2,
             translator_3,
@@ -420,25 +435,41 @@ class CSVExportView(View):
             donor_2,
             donor_3,
         ]
+        if include_location:
+            if entry_number_object and entry_number_object.location_id:
+                row.append(str(entry_number_object.location))
+            else:
+                row.append("")
+        return row
 
-    async def result(self, request):
+    async def result(self, request, include_location: bool = False):
         """Asynchronously return the CSV."""
         pseudo_buffer = self.Echo()
         writer = csv.writer(pseudo_buffer)
-        yield writer.writerow(self.head_csv_row())
+        yield writer.writerow(self.head_csv_row(include_location=include_location))
 
         async for book_entry in BookEntry.objects.order_by("edition_year", "title").select_related("editor").all():
             number_of_entry_numbers = await book_entry.entrynumber_set.acount()
             if number_of_entry_numbers > 0:
-                async for entry_number in book_entry.entrynumber_set.all():
-                    yield writer.writerow(await self.convert_book_entry_to_csv_row(book_entry, entry_number))
+                async for entry_number in book_entry.entrynumber_set.select_related(
+                    "location__parent__parent__parent"
+                ).all():
+                    yield writer.writerow(
+                        await self.convert_book_entry_to_csv_row(
+                            book_entry, entry_number, include_location=include_location
+                        )
+                    )
             else:
-                yield writer.writerow(await self.convert_book_entry_to_csv_row(book_entry, None))
+                yield writer.writerow(
+                    await self.convert_book_entry_to_csv_row(book_entry, None, include_location=include_location)
+                )
 
     async def get(self, request):
         """Return an async response with the result."""
+        user = await request.auser()
+        include_location = user.is_authenticated
         return StreamingHttpResponse(
-            streaming_content=self.result(request),
+            streaming_content=self.result(request, include_location=include_location),
             content_type="text/csv",
             headers={"Content-Disposition": 'attachment; filename="all-skoufas-books.csv"'},
         )
