@@ -491,19 +491,19 @@ msgstr "Δανειζόμενοι"
 
 #: templates/skoufas_library/layout.html:100
 msgid "Curation"
-msgstr ""
+msgstr "Επιμέλεια"
 
 #: templates/skoufas_library/layout.html:103
 msgid "Author Duplicates"
-msgstr ""
+msgstr "Διπλότυπα Συγγραφέων"
 
 #: templates/skoufas_library/layout.html:106
 msgid "Book Duplicates"
-msgstr ""
+msgstr "Διπλότυπα Βιβλίων"
 
 #: templates/skoufas_library/layout.html:109
 msgid "Merge History"
-msgstr ""
+msgstr "Ιστορικό Συγχωνεύσεων"
 
 #: templates/skoufas_library/layout.html:147
 #: templates/skoufas_library/layout.html:149

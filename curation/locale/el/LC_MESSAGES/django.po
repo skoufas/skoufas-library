@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: skoufas-library\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 07:28+0300\n"
+"POT-Creation-Date: 2026-06-26 06:30+0300\n"
 "PO-Revision-Date: 2026-06-25 07:28+0300\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
@@ -221,8 +221,14 @@ msgstr "Επιλέξτε την σωστότερη εγγραφή βιβλίου
 
 #: curation/templates/curation/book_merge_review.html:12
 #, python-format
-msgid "\n        Warning: Book A has %(a)s active loan(s), Book B has %(b)s active loan(s). Loans will remain valid after the merge.\n      "
-msgstr "\n        Προειδοποίηση: Το Βιβλίο Α έχει %(a)s ενεργό/ενεργά δανεισμό/δανεισμούς, το Βιβλίο Β έχει %(b)s ενεργό/ενεργά δανεισμό/δανεισμούς. Οι δανεισμοί θα παραμείνουν έγκυροι μετά τη συγχώνευση.\n      "
+msgid ""
+"\n"
+"        Warning: Book A has %(a)s active loan(s), Book B has %(b)s active loan(s). Loans will remain valid after the merge.\n"
+"      "
+msgstr ""
+"\n"
+"        Προειδοποίηση: Το Βιβλίο Α έχει %(a)s ενεργό/ενεργά δανεισμό/δανεισμούς, το Βιβλίο Β έχει %(b)s ενεργό/ενεργά δανεισμό/δανεισμούς. Οι δανεισμοί θα παραμείνουν έγκυροι μετά τη συγχώνευση.\n"
+"      "
 
 #: curation/templates/curation/book_merge_review.html:33
 msgid "Keep"
@@ -366,3 +372,7 @@ msgstr "Δεν είναι δυνατή η αναίρεση: η εγγραφή β
 #, python-format
 msgid "Merge undone. Book recreated as \"%(name)s\"."
 msgstr "Η συγχώνευση αναιρέθηκε. Το βιβλίο αναδημιουργήθηκε ως \"%(name)s\"."
+
+#: curation/views.py:422
+msgid "Dismissal removed. Pair will reappear in the duplicates list."
+msgstr "Η απόρριψη αφαιρέθηκε. Το ζεύγος θα επανεμφανιστεί στη λίστα διπλοτύπων."

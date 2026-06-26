@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-24 20:33+0300\n"
+"POT-Creation-Date: 2026-06-26 06:30+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,43 +21,43 @@ msgstr ""
 msgid "loaning"
 msgstr "Δανεισμός"
 
-#: loaning/forms.py:51 loaning/models.py:83
+#: loaning/forms.py:52 loaning/models.py:84
 msgid "start"
 msgstr "Έναρξη"
 
-#: loaning/forms.py:54 loaning/models.py:84
+#: loaning/forms.py:55 loaning/models.py:85
 msgid "expected end"
 msgstr "Αναμενώμενη Επιστροφή"
 
-#: loaning/forms.py:58 loaning/forms.py:106 loaning/models.py:86
+#: loaning/forms.py:59 loaning/forms.py:107 loaning/models.py:87
 msgid "note"
 msgstr "Σημειώσεις"
 
-#: loaning/forms.py:68
+#: loaning/forms.py:69
 msgid "Expected return date cannot be before the start date."
 msgstr "Η ημερομηνία επιστροφής δεν μπορεί να είναι πριν την ημερομηνία έναρξης."
 
-#: loaning/forms.py:70
+#: loaning/forms.py:71
 msgid "Selected customer no longer exists."
 msgstr "Ο επιλεγμένος δανειζόμενος δεν υπάρχει πλέον."
 
-#: loaning/forms.py:75
+#: loaning/forms.py:76
 msgid "Selected entry number no longer exists."
 msgstr "Ο επιλεγμένος αριθμός εισαγωγής δεν υπάρχει πλέον."
 
-#: loaning/forms.py:79
+#: loaning/forms.py:80
 msgid "This entry number is not borrowable because it has no copies."
 msgstr "Αυτός ο αριθμός εισαγωγής δεν είναι διαθέσιμος για δανεισμό γιατί δεν έχει αντίτυπα."
 
-#: loaning/forms.py:82
+#: loaning/forms.py:83
 msgid "No copies are available for loan."
 msgstr "Δεν υπάρχουν διαθέσιμα αντίτυπα για δανεισμό."
 
-#: loaning/forms.py:105 loaning/models.py:85
+#: loaning/forms.py:106 loaning/models.py:86
 msgid "end"
 msgstr "Επιστροφή"
 
-#: loaning/forms.py:119
+#: loaning/forms.py:120
 msgid "Return date cannot be before the start date."
 msgstr "Η ημερομηνία επιστροφής δεν μπορεί να είναι πριν την ημερομηνία έναρξης."
 
@@ -109,56 +109,60 @@ msgstr "email"
 msgid "address"
 msgstr "Διεύθηνση"
 
-#: loaning/models.py:46 loaning/templates/loaning/loan_desk.html:9
+#: loaning/models.py:34
+msgid "Skoufas member ID"
+msgstr "Αρ. Μέλους Σκουφά"
+
+#: loaning/models.py:47 loaning/templates/loaning/loan_desk.html:9
 #: loaning/templates/loaning/loan_detail.html:8
 msgid "Customer"
 msgstr "Δανειζόμενος"
 
-#: loaning/models.py:47 loaning/templates/loaning/customer_list.html:5
+#: loaning/models.py:48 loaning/templates/loaning/customer_list.html:5
 msgid "Customers"
 msgstr "Δανειζόμενοι"
 
-#: loaning/models.py:71
+#: loaning/models.py:72
 msgid "Active"
 msgstr "Ενεργός"
 
-#: loaning/models.py:72
+#: loaning/models.py:73
 msgid "Returned"
 msgstr "Επεστράφη"
 
-#: loaning/models.py:73
+#: loaning/models.py:74
 msgid "Lost"
 msgstr "Χαμένος"
 
-#: loaning/models.py:74
+#: loaning/models.py:75
 msgid "Cancelled"
 msgstr "Ακυρώθηκε"
 
-#: loaning/models.py:79
+#: loaning/models.py:80
 msgid "customer"
 msgstr "Δανειζόμενος"
 
-#: loaning/models.py:81 loaning/templates/loaning/loan_detail.html:16
+#: loaning/models.py:82 loaning/templates/loaning/loan_detail.html:16
 msgid "Entry number"
 msgstr "Αριθμός Εισαγωγής"
 
-#: loaning/models.py:82
+#: loaning/models.py:83
 msgid "status"
 msgstr "Κατάσταση"
 
-#: loaning/models.py:96 loaning/templates/loaning/loan_detail.html:13
+#: loaning/models.py:97 loaning/templates/loaning/loan_detail.html:13
 msgid "No customer"
 msgstr "Άγνωστος Δανειζόμενος"
 
-#: loaning/models.py:99
+#: loaning/models.py:100
 msgid "No end"
 msgstr "Δεν έχει επιστραφεί"
 
-#: loaning/models.py:107 loaning/templates/loaning/loan_detail.html:4
+#: loaning/models.py:108 loaning/templates/loaning/loan_detail.html:4
 msgid "Loan"
 msgstr "Δανεισμός"
 
-#: loaning/models.py:108
+#: loaning/models.py:109
 msgid "Loans"
 msgstr "Δανεισμοί"
 
@@ -170,13 +174,11 @@ msgstr "Διαγραφή δανειζόμενου"
 #, python-format
 msgid ""
 "\n"
-"      Are you sure you want to permanently delete <strong>%(customer)s</"
-"strong>? This action cannot be undone.\n"
+"      Are you sure you want to permanently delete <strong>%(customer)s</strong>? This action cannot be undone.\n"
 "    "
 msgstr ""
 "\n"
-"      Είστε σίγουροι ότι θέλετε να διαγράψετε οριστικά τον/την <strong>%(customer)s</"
-"strong>; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.\n"
+"      Είστε σίγουροι ότι θέλετε να διαγράψετε οριστικά τον/την <strong>%(customer)s</strong>; Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.\n"
 "    "
 
 #: loaning/templates/loaning/customer_confirm_delete.html:18
@@ -184,7 +186,7 @@ msgid "Yes, delete"
 msgstr "Ναι, διαγραφή"
 
 #: loaning/templates/loaning/customer_confirm_delete.html:21
-#: loaning/templates/loaning/customer_form.html:116
+#: loaning/templates/loaning/customer_form.html:129
 msgid "Cancel"
 msgstr "Ακύρωση"
 
@@ -198,46 +200,46 @@ msgstr "Επεξεργασία δανειζόμενου"
 msgid "New customer"
 msgstr "Νέος δανειζόμενος"
 
-#: loaning/templates/loaning/customer_form.html:110
+#: loaning/templates/loaning/customer_form.html:123
 msgid "Save"
 msgstr "Αποθήκευση"
 
-#: loaning/templates/loaning/customer_form.html:112
+#: loaning/templates/loaning/customer_form.html:125
 msgid "Create"
 msgstr "Δημιουργία"
 
-#: loaning/templates/loaning/customer_form.html:120
+#: loaning/templates/loaning/customer_form.html:133
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: loaning/templates/loaning/customer_form.html:127
+#: loaning/templates/loaning/customer_form.html:140
 #: loaning/templates/loaning/loan_desk.html:207
 msgid "Loan history"
 msgstr "Ιστορικό δανεισμών"
 
-#: loaning/templates/loaning/customer_form.html:128
+#: loaning/templates/loaning/customer_form.html:141
 #: loaning/templates/loaning/loan_desk.html:44
 #: loaning/templates/loaning/loan_desk.html:119
 #: loaning/templates/loaning/loan_desk.html:173
 msgid "Active loans"
 msgstr "Ενεργοί δανεισμοί"
 
-#: loaning/templates/loaning/customer_form.html:135
+#: loaning/templates/loaning/customer_form.html:148
 #: loaning/templates/loaning/loan_desk.html:46
 #: loaning/templates/loaning/loan_desk.html:182
 #: loaning/templates/loaning/loan_detail.html:24
 msgid "Overdue"
 msgstr "Εκπρόθεσμος"
 
-#: loaning/templates/loaning/customer_form.html:141
+#: loaning/templates/loaning/customer_form.html:154
 msgid "No active loans."
 msgstr "Δεν υπάρχουν ενεργοί δανεισμοί."
 
-#: loaning/templates/loaning/customer_form.html:144
+#: loaning/templates/loaning/customer_form.html:157
 msgid "Closed loans"
 msgstr "Κλειστοί δανεισμοί"
 
-#: loaning/templates/loaning/customer_form.html:152
+#: loaning/templates/loaning/customer_form.html:165
 msgid "No closed loans."
 msgstr "Δεν υπάρχουν κλειστοί δανεισμοί."
 
@@ -268,7 +270,7 @@ msgstr "Προηγούμενο"
 msgid "Next"
 msgstr "Επόμενο"
 
-#: loaning/templates/loaning/customer_list.html:76
+#: loaning/templates/loaning/customer_list.html:77
 #: loaning/templates/loaning/loan_desk.html:54
 msgid "No customers found."
 msgstr "Δεν βρέθηκαν δανειζόμενοι."

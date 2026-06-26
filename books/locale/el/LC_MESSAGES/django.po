@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -1254,7 +1253,7 @@ msgstr ""
 
 #: books/languages.py:316 books/skoufas_classification_classes.py:615
 msgid "Afro-Asiatic languages"
-msgstr ""
+msgstr "Αφρο-ασιατικές γλώσσες"
 
 #: books/languages.py:317
 msgid "Gulf Arabic"
@@ -2278,7 +2277,7 @@ msgstr ""
 
 #: books/languages.py:574
 msgid "Artificial languages"
-msgstr ""
+msgstr "Τεχνητές γλώσσες"
 
 #: books/languages.py:575 books/languages.py:578
 msgid "Aruá"
@@ -32104,491 +32103,491 @@ msgstr "Πεδία DBF"
 #: books/skoufas_classification_classes.py:15
 #: books/skoufas_classification_classes.py:131
 msgid "Computer science, information and general works"
-msgstr ""
+msgstr "Πληροφορική, πληροφορία και γενικά έργα"
 
 #: books/skoufas_classification_classes.py:16
 #: books/skoufas_classification_classes.py:221
 msgid "Philosophy and psychology"
-msgstr ""
+msgstr "Φιλοσοφία και ψυχολογία"
 
 #: books/skoufas_classification_classes.py:17
 #: books/skoufas_classification_classes.py:48
 #: books/skoufas_classification_classes.py:321
 #: books/skoufas_classification_classes.py:880
 msgid "Religion"
-msgstr ""
+msgstr "Θρησκεία"
 
 #: books/skoufas_classification_classes.py:18
 #: books/skoufas_classification_classes.py:421
 msgid "Social sciences"
-msgstr ""
+msgstr "Κοινωνικές επιστήμες"
 
 #: books/skoufas_classification_classes.py:20
 #: books/skoufas_classification_classes.py:78
 msgid "Science"
-msgstr ""
+msgstr "Επιστήμη"
 
 #: books/skoufas_classification_classes.py:21
 #: books/skoufas_classification_classes.py:88
 msgid "Technology"
-msgstr ""
+msgstr "Τεχνολογία"
 
 #: books/skoufas_classification_classes.py:22
 msgid "Arts and recreation"
-msgstr ""
+msgstr "Τέχνες και ψυχαγωγία"
 
 #: books/skoufas_classification_classes.py:23
 msgid "Literature"
-msgstr ""
+msgstr "Λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:24
 msgid "History and geography"
-msgstr ""
+msgstr "Ιστορία και γεωγραφία"
 
 #: books/skoufas_classification_classes.py:28
 msgid "Computer science, knowledge and systems"
-msgstr ""
+msgstr "Πληροφορική, γνώση και συστήματα"
 
 #: books/skoufas_classification_classes.py:29
 #: books/skoufas_classification_classes.py:142
 msgid "Bibliographies"
-msgstr ""
+msgstr "Βιβλιογραφίες"
 
 #: books/skoufas_classification_classes.py:30
 #: books/skoufas_classification_classes.py:151
 msgid "Library and information sciences"
-msgstr ""
+msgstr "Βιβλιοθηκονομία και επιστήμη πληροφόρησης"
 
 #: books/skoufas_classification_classes.py:31
 msgid "Encyclopedias and books of facts"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες και βιβλία γεγονότων"
 
 #: books/skoufas_classification_classes.py:32
 msgid "Unassigned (formerly Biographies)"
-msgstr ""
+msgstr "Μη ανατεθειμένο (πρώην Βιογραφίες)"
 
 #: books/skoufas_classification_classes.py:33
 msgid "Magazines, journals and serials"
-msgstr ""
+msgstr "Περιοδικά, επιθεωρήσεις και σειριακές εκδόσεις"
 
 #: books/skoufas_classification_classes.py:34
 msgid "Associations, organizations and museums"
-msgstr ""
+msgstr "Σύλλογοι, οργανισμοί και μουσεία"
 
 #: books/skoufas_classification_classes.py:35
 msgid "News media, journalism and publishing"
-msgstr ""
+msgstr "Μέσα ενημέρωσης, δημοσιογραφία και εκδόσεις"
 
 #: books/skoufas_classification_classes.py:36
 msgid "Quotations"
-msgstr ""
+msgstr "Αποφθέγματα"
 
 #: books/skoufas_classification_classes.py:37
 #: books/skoufas_classification_classes.py:211
 msgid "Manuscripts and rare books"
-msgstr ""
+msgstr "Χειρόγραφα και σπάνια βιβλία"
 
 #: books/skoufas_classification_classes.py:38
 msgid "Philosophy"
-msgstr ""
+msgstr "Φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:39
 #: books/skoufas_classification_classes.py:231
 msgid "Metaphysics"
-msgstr ""
+msgstr "Μεταφυσική"
 
 #: books/skoufas_classification_classes.py:40
 msgid "Epistemology"
-msgstr ""
+msgstr "Γνωσιολογία"
 
 #: books/skoufas_classification_classes.py:41
 #: books/skoufas_classification_classes.py:251
 msgid "Parapsychology and occultism"
-msgstr ""
+msgstr "Παραψυχολογία και αποκρυφισμός"
 
 #: books/skoufas_classification_classes.py:42
 msgid "Philosophical schools of thought"
-msgstr ""
+msgstr "Φιλοσοφικές σχολές σκέψης"
 
 #: books/skoufas_classification_classes.py:43
 #: books/skoufas_classification_classes.py:271
 msgid "Psychology"
-msgstr ""
+msgstr "Ψυχολογία"
 
 #: books/skoufas_classification_classes.py:44
 #: books/skoufas_classification_classes.py:281
 msgid "Philosophical logic"
-msgstr ""
+msgstr "Φιλοσοφική λογική"
 
 #: books/skoufas_classification_classes.py:45
 msgid "Ethics"
-msgstr ""
+msgstr "Ηθική"
 
 #: books/skoufas_classification_classes.py:46
 msgid "Ancient, medieval, and Eastern philosophy"
-msgstr ""
+msgstr "Αρχαία, μεσαιωνική και ανατολική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:47
 msgid "Modern Western philosophy (19th-century, 20th-century)"
-msgstr ""
+msgstr "Σύγχρονη δυτική φιλοσοφία (19ος–20ός αιώνας)"
 
 #: books/skoufas_classification_classes.py:49
 #: books/skoufas_classification_classes.py:331
 msgid "Philosophy and theory of religion"
-msgstr ""
+msgstr "Φιλοσοφία και θεωρία της θρησκείας"
 
 #: books/skoufas_classification_classes.py:50
 msgid "The Bible"
-msgstr ""
+msgstr "Η Βίβλος"
 
 #: books/skoufas_classification_classes.py:51
 #: books/skoufas_classification_classes.py:351
 msgid "Christianity"
-msgstr ""
+msgstr "Χριστιανισμός"
 
 #: books/skoufas_classification_classes.py:52
 msgid "Christian practice and observance"
-msgstr ""
+msgstr "Χριστιανική πρακτική και λατρεία"
 
 #: books/skoufas_classification_classes.py:53
 msgid "Christian orders and local church"
-msgstr ""
+msgstr "Χριστιανικά τάγματα και τοπική εκκλησία"
 
 #: books/skoufas_classification_classes.py:54
 msgid "Social and ecclesiastical theology"
-msgstr ""
+msgstr "Κοινωνική και εκκλησιαστική θεολογία"
 
 #: books/skoufas_classification_classes.py:55
 msgid "History of Christianity"
-msgstr ""
+msgstr "Ιστορία του Χριστιανισμού"
 
 #: books/skoufas_classification_classes.py:56
 msgid "Christian denominations"
-msgstr ""
+msgstr "Χριστιανικά δόγματα"
 
 #: books/skoufas_classification_classes.py:57
 #: books/skoufas_classification_classes.py:411
 msgid "Other religions"
-msgstr ""
+msgstr "Άλλες θρησκείες"
 
 #: books/skoufas_classification_classes.py:58
 msgid "Social sciences, sociology and anthropology"
-msgstr ""
+msgstr "Κοινωνικές επιστήμες, κοινωνιολογία και ανθρωπολογία"
 
 #: books/skoufas_classification_classes.py:59
 msgid "Statistics"
-msgstr ""
+msgstr "Στατιστική"
 
 #: books/skoufas_classification_classes.py:60
 msgid "Political science"
-msgstr ""
+msgstr "Πολιτική επιστήμη"
 
 #: books/skoufas_classification_classes.py:61
 #: books/skoufas_classification_classes.py:453
 msgid "Economics"
-msgstr ""
+msgstr "Οικονομικά"
 
 #: books/skoufas_classification_classes.py:62
 #: books/skoufas_classification_classes.py:463
 msgid "Law"
-msgstr ""
+msgstr "Νομική"
 
 #: books/skoufas_classification_classes.py:63
 #: books/skoufas_classification_classes.py:473
 msgid "Public administration and military science"
-msgstr ""
+msgstr "Δημόσια διοίκηση και στρατιωτική επιστήμη"
 
 #: books/skoufas_classification_classes.py:64
 msgid "Social problems and social services"
-msgstr ""
+msgstr "Κοινωνικά προβλήματα και κοινωνικές υπηρεσίες"
 
 #: books/skoufas_classification_classes.py:65
 #: books/skoufas_classification_classes.py:493
 msgid "Education"
-msgstr ""
+msgstr "Εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:66
 msgid "Commerce, communications and transportation"
-msgstr ""
+msgstr "Εμπόριο, επικοινωνίες και μεταφορές"
 
 #: books/skoufas_classification_classes.py:67
 msgid "Customs, etiquette and folklore"
-msgstr ""
+msgstr "Έθιμα, εθιμοτυπία και λαογραφία"
 
 #: books/skoufas_classification_classes.py:69
 #: books/skoufas_classification_classes.py:533
 msgid "Linguistics"
-msgstr ""
+msgstr "Γλωσσολογία"
 
 #: books/skoufas_classification_classes.py:70
 msgid "English and Old English languages"
-msgstr ""
+msgstr "Αγγλική και Παλαιά Αγγλική γλώσσα"
 
 #: books/skoufas_classification_classes.py:71
 #: books/skoufas_classification_classes.py:553
 msgid "German and related languages"
-msgstr ""
+msgstr "Γερμανική και συγγενείς γλώσσες"
 
 #: books/skoufas_classification_classes.py:72
 msgid "French and related languages"
-msgstr ""
+msgstr "Γαλλική και συγγενείς γλώσσες"
 
 #: books/skoufas_classification_classes.py:73
 msgid "Italian, Romanian and related languages"
-msgstr ""
+msgstr "Ιταλική, Ρουμανική και συγγενείς γλώσσες"
 
 #: books/skoufas_classification_classes.py:74
 #: books/skoufas_classification_classes.py:583
 msgid "Spanish, Portuguese, Galician"
-msgstr ""
+msgstr "Ισπανική, Πορτογαλική, Γαλικιανή"
 
 #: books/skoufas_classification_classes.py:75
 msgid "Latin and Italic languages"
-msgstr ""
+msgstr "Λατινική και ιταλικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:76
 msgid "Classical and modern Greek languages"
-msgstr ""
+msgstr "Αρχαία και νέα ελληνική γλώσσα"
 
 #: books/skoufas_classification_classes.py:77
 #: books/skoufas_classification_classes.py:613
 msgid "Other languages"
-msgstr ""
+msgstr "Άλλες γλώσσες"
 
 #: books/skoufas_classification_classes.py:79
 #: books/skoufas_classification_classes.py:633
 msgid "Mathematics"
-msgstr ""
+msgstr "Μαθηματικά"
 
 #: books/skoufas_classification_classes.py:80
 msgid "Astronomy"
-msgstr ""
+msgstr "Αστρονομία"
 
 #: books/skoufas_classification_classes.py:81
 #: books/skoufas_classification_classes.py:653
 msgid "Physics"
-msgstr ""
+msgstr "Φυσική"
 
 #: books/skoufas_classification_classes.py:82
 msgid "Chemistry"
-msgstr ""
+msgstr "Χημεία"
 
 #: books/skoufas_classification_classes.py:83
 msgid "Earth sciences and geology"
-msgstr ""
+msgstr "Γεωεπιστήμες και γεωλογία"
 
 #: books/skoufas_classification_classes.py:84
 msgid "Fossils and prehistoric life"
-msgstr ""
+msgstr "Απολιθώματα και προϊστορική ζωή"
 
 #: books/skoufas_classification_classes.py:85
 #: books/skoufas_classification_classes.py:695
 msgid "Biology"
-msgstr ""
+msgstr "Βιολογία"
 
 #: books/skoufas_classification_classes.py:86
 #: books/skoufas_classification_classes.py:705
 msgid "Plants"
-msgstr ""
+msgstr "Φυτά"
 
 #: books/skoufas_classification_classes.py:87
 msgid "Animals (Zoology)"
-msgstr ""
+msgstr "Ζώα (Ζωολογία)"
 
 #: books/skoufas_classification_classes.py:89
 #: books/skoufas_classification_classes.py:735
 msgid "Medicine and health"
-msgstr ""
+msgstr "Ιατρική και υγεία"
 
 #: books/skoufas_classification_classes.py:90
 msgid "Engineering"
-msgstr ""
+msgstr "Μηχανική"
 
 #: books/skoufas_classification_classes.py:91
 msgid "Agriculture"
-msgstr ""
+msgstr "Γεωργία"
 
 #: books/skoufas_classification_classes.py:92
 #: books/skoufas_classification_classes.py:765
 msgid "Home and family management"
-msgstr ""
+msgstr "Διαχείριση σπιτιού και οικογένειας"
 
 #: books/skoufas_classification_classes.py:93
 msgid "Management and public relations"
-msgstr ""
+msgstr "Διαχείριση και δημόσιες σχέσεις"
 
 #: books/skoufas_classification_classes.py:94
 msgid "Chemical engineering"
-msgstr ""
+msgstr "Χημική μηχανική"
 
 #: books/skoufas_classification_classes.py:95
 #: books/skoufas_classification_classes.py:795
 msgid "Manufacturing"
-msgstr ""
+msgstr "Κατασκευή"
 
 #: books/skoufas_classification_classes.py:96
 msgid "Manufacture for specific uses"
-msgstr ""
+msgstr "Κατασκευή για ειδικές χρήσεις"
 
 #: books/skoufas_classification_classes.py:97
 #: books/skoufas_classification_classes.py:815
 msgid "Construction of buildings"
-msgstr ""
+msgstr "Κατασκευή κτιρίων"
 
 #: books/skoufas_classification_classes.py:98
 msgid "Arts"
-msgstr ""
+msgstr "Τέχνες"
 
 #: books/skoufas_classification_classes.py:99
 #: books/skoufas_classification_classes.py:835
 msgid "Area planning and landscape architecture"
-msgstr ""
+msgstr "Πολεοδομία και τοπιοτεχνία"
 
 #: books/skoufas_classification_classes.py:100
 #: books/skoufas_classification_classes.py:845
 msgid "Architecture"
-msgstr ""
+msgstr "Αρχιτεκτονική"
 
 #: books/skoufas_classification_classes.py:101
 msgid "Sculpture, ceramics and metalwork"
-msgstr ""
+msgstr "Γλυπτική, κεραμική και μεταλλοτεχνία"
 
 #: books/skoufas_classification_classes.py:102
 msgid "Graphic arts and decorative arts"
-msgstr ""
+msgstr "Γραφικές και διακοσμητικές τέχνες"
 
 #: books/skoufas_classification_classes.py:103
 msgid "Painting"
-msgstr ""
+msgstr "Ζωγραφική"
 
 #: books/skoufas_classification_classes.py:104
 #: books/skoufas_classification_classes.py:885
 msgid "Printmaking and prints"
-msgstr ""
+msgstr "Χαρακτική και εκτυπώσεις"
 
 #: books/skoufas_classification_classes.py:105
 msgid "Photography, computer art, film, video"
-msgstr ""
+msgstr "Φωτογραφία, ψηφιακή τέχνη, κινηματογράφος, βίντεο"
 
 #: books/skoufas_classification_classes.py:106
 #: books/skoufas_classification_classes.py:905
 msgid "Music"
-msgstr ""
+msgstr "Μουσική"
 
 #: books/skoufas_classification_classes.py:107
 msgid "Outline of sports, games and entertainment"
-msgstr ""
+msgstr "Αθλητισμός, παιχνίδια και ψυχαγωγία"
 
 #: books/skoufas_classification_classes.py:108
 msgid "Literature, rhetoric and criticism"
-msgstr ""
+msgstr "Λογοτεχνία, ρητορική και κριτική"
 
 #: books/skoufas_classification_classes.py:109
 #: books/skoufas_classification_classes.py:935
 msgid "American literature in English"
-msgstr ""
+msgstr "Αμερικανική λογοτεχνία στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:110
 msgid "English and Old English literatures"
-msgstr ""
+msgstr "Αγγλική και Παλαιά Αγγλική λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:111
 msgid "German and related literatures"
-msgstr ""
+msgstr "Γερμανική και συγγενείς λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:112
 msgid "French and related literatures"
-msgstr ""
+msgstr "Γαλλική και συγγενείς λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:113
 msgid "Italian, Romanian and related literatures"
-msgstr ""
+msgstr "Ιταλική, Ρουμανική και συγγενείς λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:114
 msgid "Spanish, Portuguese, Galician literatures"
-msgstr ""
+msgstr "Ισπανική, Πορτογαλική, Γαλικιανή λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:115
 msgid "Latin and Italic literatures"
-msgstr ""
+msgstr "Λατινική και ιταλικές λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:116
 msgid "Classical and modern Greek literatures"
-msgstr ""
+msgstr "Αρχαία και νέα ελληνική λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:117
 msgid "Other literatures"
-msgstr ""
+msgstr "Άλλες λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:118
 msgid "History"
-msgstr ""
+msgstr "Ιστορία"
 
 #: books/skoufas_classification_classes.py:119
 #: books/skoufas_classification_classes.py:1039
 msgid "Geography and travel"
-msgstr ""
+msgstr "Γεωγραφία και ταξίδια"
 
 #: books/skoufas_classification_classes.py:120
 msgid "Biography and genealogy"
-msgstr ""
+msgstr "Βιογραφία και γενεαλογία"
 
 #: books/skoufas_classification_classes.py:121
 msgid "History of ancient world (to c. 499)"
-msgstr ""
+msgstr "Ιστορία αρχαίου κόσμου (έως περ. 499)"
 
 #: books/skoufas_classification_classes.py:122
 #: books/skoufas_classification_classes.py:1071
 msgid "History of Europe"
-msgstr ""
+msgstr "Ιστορία Ευρώπης"
 
 #: books/skoufas_classification_classes.py:123
 #: books/skoufas_classification_classes.py:1081
 msgid "History of Asia"
-msgstr ""
+msgstr "Ιστορία Ασίας"
 
 #: books/skoufas_classification_classes.py:124
 #: books/skoufas_classification_classes.py:1091
 msgid "History of Africa"
-msgstr ""
+msgstr "Ιστορία Αφρικής"
 
 #: books/skoufas_classification_classes.py:125
 #: books/skoufas_classification_classes.py:1101
 msgid "History of North America"
-msgstr ""
+msgstr "Ιστορία Βόρειας Αμερικής"
 
 #: books/skoufas_classification_classes.py:126
 #: books/skoufas_classification_classes.py:1111
 msgid "History of South America"
-msgstr ""
+msgstr "Ιστορία Νότιας Αμερικής"
 
 #: books/skoufas_classification_classes.py:127
 msgid "History of other areas"
-msgstr ""
+msgstr "Ιστορία άλλων περιοχών"
 
 #: books/skoufas_classification_classes.py:132
 msgid "Knowledge"
-msgstr ""
+msgstr "Γνώση"
 
 #: books/skoufas_classification_classes.py:133
 msgid "The book (writing, libraries, and book-related topics)"
-msgstr ""
+msgstr "Το βιβλίο (γραφή, βιβλιοθήκες και συναφή θέματα)"
 
 #: books/skoufas_classification_classes.py:134
 msgid "Systems"
-msgstr ""
+msgstr "Συστήματα"
 
 #: books/skoufas_classification_classes.py:135
 msgid "Data processing and computer science"
-msgstr ""
+msgstr "Επεξεργασία δεδομένων και πληροφορική"
 
 #: books/skoufas_classification_classes.py:136
 msgid "Computer programming, programs and data"
-msgstr ""
+msgstr "Προγραμματισμός, προγράμματα και δεδομένα"
 
 #: books/skoufas_classification_classes.py:137
 msgid "Special computer methods (e.g. AI, multimedia, VR)[4]"
-msgstr ""
+msgstr "Ειδικές μέθοδοι υπολογιστών (π.χ. ΤΝ, πολυμέσα, VR)[4]"
 
 #: books/skoufas_classification_classes.py:138
 #: books/skoufas_classification_classes.py:139
@@ -32597,307 +32596,307 @@ msgstr ""
 #: books/skoufas_classification_classes.py:155
 #: books/skoufas_classification_classes.py:160
 msgid "[Unassigned]"
-msgstr ""
+msgstr "[Μη ανατεθειμένο]"
 
 #: books/skoufas_classification_classes.py:141
 msgid "Bibliography"
-msgstr ""
+msgstr "Βιβλιογραφία"
 
 #: books/skoufas_classification_classes.py:143
 msgid "Bibliographies of individuals"
-msgstr ""
+msgstr "Βιβλιογραφίες ατόμων"
 
 #: books/skoufas_classification_classes.py:145
 msgid "Bibliographies of anonymous and pseudonymous works"
-msgstr ""
+msgstr "Βιβλιογραφίες ανώνυμων και ψευδώνυμων έργων"
 
 #: books/skoufas_classification_classes.py:146
 msgid "Bibliographies of works from specific places"
-msgstr ""
+msgstr "Βιβλιογραφίες έργων από συγκεκριμένες τοποθεσίες"
 
 #: books/skoufas_classification_classes.py:147
 msgid "Bibliographies of works on specific subjects"
-msgstr ""
+msgstr "Βιβλιογραφίες έργων για ειδικά θέματα"
 
 #: books/skoufas_classification_classes.py:148
 msgid "General subject catalogs"
-msgstr ""
+msgstr "Γενικοί θεματικοί κατάλογοι"
 
 #: books/skoufas_classification_classes.py:149
 msgid "Catalogs arranged by author, date, etc."
-msgstr ""
+msgstr "Κατάλογοι ταξινομημένοι ανά συγγραφέα, ημερομηνία κ.λπ."
 
 #: books/skoufas_classification_classes.py:150
 msgid "Dictionary catalogs"
-msgstr ""
+msgstr "Λεξικογραφικοί κατάλογοι"
 
 #: books/skoufas_classification_classes.py:152
 msgid "Library relationships (with archives, information centers, etc.)"
-msgstr ""
+msgstr "Σχέσεις βιβλιοθηκών (με αρχεία, κέντρα πληροφόρησης κ.λπ.)"
 
 #: books/skoufas_classification_classes.py:153
 msgid "Administration of physical plant"
-msgstr ""
+msgstr "Διαχείριση κτιριακών εγκαταστάσεων"
 
 #: books/skoufas_classification_classes.py:154
 msgid "Personnel management"
-msgstr ""
+msgstr "Διαχείριση προσωπικού"
 
 #: books/skoufas_classification_classes.py:156
 msgid "Library operations"
-msgstr ""
+msgstr "Λειτουργίες βιβλιοθήκης"
 
 #: books/skoufas_classification_classes.py:157
 msgid "Libraries for specific subjects"
-msgstr ""
+msgstr "Βιβλιοθήκες για ειδικά θέματα"
 
 #: books/skoufas_classification_classes.py:158
 msgid "General libraries"
-msgstr ""
+msgstr "Γενικές βιβλιοθήκες"
 
 #: books/skoufas_classification_classes.py:159
 msgid "Reading and use of other information media"
-msgstr ""
+msgstr "Ανάγνωση και χρήση άλλων μέσων πληροφόρησης"
 
 #: books/skoufas_classification_classes.py:161
 msgid "General encyclopedic works"
-msgstr ""
+msgstr "Γενικά εγκυκλοπαιδικά έργα"
 
 #: books/skoufas_classification_classes.py:162
 msgid "Encyclopedias in American English"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες στα αμερικανικά αγγλικά"
 
 #: books/skoufas_classification_classes.py:163
 msgid "Encyclopedias in English"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:164
 msgid "Encyclopedias in other Germanic languages"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες σε άλλες γερμανικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:165
 msgid "Encyclopedias in French, Occitan, and Catalan"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες στα γαλλικά, οκσιτανικά και καταλανικά"
 
 #: books/skoufas_classification_classes.py:166
 msgid "Encyclopedias in Italian, Romanian, and related languages"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες στα ιταλικά, ρουμανικά και συγγενείς γλώσσες"
 
 #: books/skoufas_classification_classes.py:167
 msgid "Encyclopedias in Spanish and Portuguese"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες στα ισπανικά και πορτογαλικά"
 
 #: books/skoufas_classification_classes.py:168
 msgid "Encyclopedias in Slavic languages"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες σε σλαβικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:169
 msgid "Encyclopedias in Scandinavian languages"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες σε σκανδιναβικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:170
 msgid "Encyclopedias in other languages"
-msgstr ""
+msgstr "Εγκυκλοπαίδειες σε άλλες γλώσσες"
 
 #: books/skoufas_classification_classes.py:171
 msgid "General serial publications"
-msgstr ""
+msgstr "Γενικές σειριακές εκδόσεις"
 
 #: books/skoufas_classification_classes.py:172
 msgid "Serials in American English"
-msgstr ""
+msgstr "Σειριακές εκδόσεις στα αμερικανικά αγγλικά"
 
 #: books/skoufas_classification_classes.py:173
 msgid "Serials in English"
-msgstr ""
+msgstr "Σειριακές εκδόσεις στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:174
 msgid "Serials in other Germanic languages"
-msgstr ""
+msgstr "Σειριακές εκδόσεις σε άλλες γερμανικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:175
 msgid "Serials in French, Occitan, and Catalan"
-msgstr ""
+msgstr "Σειριακές εκδόσεις στα γαλλικά, οκσιτανικά και καταλανικά"
 
 #: books/skoufas_classification_classes.py:176
 msgid "Serials in Italian, Romanian, and related languages"
-msgstr ""
+msgstr "Σειριακές εκδόσεις στα ιταλικά, ρουμανικά και συγγενείς γλώσσες"
 
 #: books/skoufas_classification_classes.py:177
 msgid "Serials in Spanish and Portuguese"
-msgstr ""
+msgstr "Σειριακές εκδόσεις στα ισπανικά και πορτογαλικά"
 
 #: books/skoufas_classification_classes.py:178
 msgid "Serials in Slavic languages"
-msgstr ""
+msgstr "Σειριακές εκδόσεις σε σλαβικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:179
 msgid "Serials in Scandinavian languages"
-msgstr ""
+msgstr "Σειριακές εκδόσεις σε σκανδιναβικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:180
 msgid "Serials in other languages"
-msgstr ""
+msgstr "Σειριακές εκδόσεις σε άλλες γλώσσες"
 
 #: books/skoufas_classification_classes.py:181
 msgid "General organizations and museum science"
-msgstr ""
+msgstr "Γενικοί οργανισμοί και μουσειολογία"
 
 #: books/skoufas_classification_classes.py:182
 msgid "Organizations in North America"
-msgstr ""
+msgstr "Οργανισμοί στη Βόρεια Αμερική"
 
 #: books/skoufas_classification_classes.py:183
 msgid "Organizations in British Isles; in England"
-msgstr ""
+msgstr "Οργανισμοί στα Βρετανικά νησιά· στην Αγγλία"
 
 #: books/skoufas_classification_classes.py:184
 msgid "Organizations in central Europe; in Germany"
-msgstr ""
+msgstr "Οργανισμοί στην Κεντρική Ευρώπη· στη Γερμανία"
 
 #: books/skoufas_classification_classes.py:185
 msgid "Organizations in France and Monaco"
-msgstr ""
+msgstr "Οργανισμοί στη Γαλλία και το Μονακό"
 
 #: books/skoufas_classification_classes.py:186
 msgid "Organizations in Italy and adjacent islands"
-msgstr ""
+msgstr "Οργανισμοί στην Ιταλία και τα παρακείμενα νησιά"
 
 #: books/skoufas_classification_classes.py:187
 msgid "Organizations in Iberian peninsula and adjacent islands"
-msgstr ""
+msgstr "Οργανισμοί στην Ιβηρική χερσόνησο και τα παρακείμενα νησιά"
 
 #: books/skoufas_classification_classes.py:188
 msgid "Organizations in eastern Europe; in Russia"
-msgstr ""
+msgstr "Οργανισμοί στην Ανατολική Ευρώπη· στη Ρωσία"
 
 #: books/skoufas_classification_classes.py:189
 msgid "Organizations in other geographic areas"
-msgstr ""
+msgstr "Οργανισμοί σε άλλες γεωγραφικές περιοχές"
 
 #: books/skoufas_classification_classes.py:190
 msgid "Museum science"
-msgstr ""
+msgstr "Μουσειολογία"
 
 #: books/skoufas_classification_classes.py:191
 msgid "News media, journalism, and publishing"
-msgstr ""
+msgstr "Μέσα ενημέρωσης, δημοσιογραφία και εκδόσεις"
 
 #: books/skoufas_classification_classes.py:192
 msgid "Newspapers in North America"
-msgstr ""
+msgstr "Εφημερίδες στη Βόρεια Αμερική"
 
 #: books/skoufas_classification_classes.py:193
 msgid "Newspapers in British Isles; in England"
-msgstr ""
+msgstr "Εφημερίδες στα Βρετανικά νησιά· στην Αγγλία"
 
 #: books/skoufas_classification_classes.py:194
 msgid "Newspapers in central Europe; in Germany"
-msgstr ""
+msgstr "Εφημερίδες στην Κεντρική Ευρώπη· στη Γερμανία"
 
 #: books/skoufas_classification_classes.py:195
 msgid "Newspapers in France and Monaco"
-msgstr ""
+msgstr "Εφημερίδες στη Γαλλία και το Μονακό"
 
 #: books/skoufas_classification_classes.py:196
 msgid "Newspapers in Italy and adjacent islands"
-msgstr ""
+msgstr "Εφημερίδες στην Ιταλία και τα παρακείμενα νησιά"
 
 #: books/skoufas_classification_classes.py:197
 msgid "Newspapers in Iberian peninsula and adjacent islands"
-msgstr ""
+msgstr "Εφημερίδες στην Ιβηρική χερσόνησο και τα παρακείμενα νησιά"
 
 #: books/skoufas_classification_classes.py:198
 msgid "Newspapers in eastern Europe; in Russia"
-msgstr ""
+msgstr "Εφημερίδες στην Ανατολική Ευρώπη· στη Ρωσία"
 
 #: books/skoufas_classification_classes.py:199
 msgid "Newspapers in Scandinavia"
-msgstr ""
+msgstr "Εφημερίδες στη Σκανδιναβία"
 
 #: books/skoufas_classification_classes.py:200
 msgid "Newspapers in other geographic areas"
-msgstr ""
+msgstr "Εφημερίδες σε άλλες γεωγραφικές περιοχές"
 
 #: books/skoufas_classification_classes.py:201
 msgid "General collections"
-msgstr ""
+msgstr "Γενικές συλλογές"
 
 #: books/skoufas_classification_classes.py:202
 msgid "Collections in American English"
-msgstr ""
+msgstr "Συλλογές στα αμερικανικά αγγλικά"
 
 #: books/skoufas_classification_classes.py:203
 msgid "Collections in English"
-msgstr ""
+msgstr "Συλλογές στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:204
 msgid "Collections in other Germanic languages"
-msgstr ""
+msgstr "Συλλογές σε άλλες γερμανικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:205
 msgid "Collections in French, Occitan, Catalan"
-msgstr ""
+msgstr "Συλλογές στα γαλλικά, οκσιτανικά και καταλανικά"
 
 #: books/skoufas_classification_classes.py:206
 msgid "Collections in Italian, Romanian, and related languages"
-msgstr ""
+msgstr "Συλλογές στα ιταλικά, ρουμανικά και συγγενείς γλώσσες"
 
 #: books/skoufas_classification_classes.py:207
 msgid "Collections in Spanish and Portuguese"
-msgstr ""
+msgstr "Συλλογές στα ισπανικά και πορτογαλικά"
 
 #: books/skoufas_classification_classes.py:208
 msgid "Collections in Slavic languages"
-msgstr ""
+msgstr "Συλλογές σε σλαβικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:209
 msgid "Collections in Scandinavian languages"
-msgstr ""
+msgstr "Συλλογές σε σκανδιναβικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:210
 msgid "Collections in other languages"
-msgstr ""
+msgstr "Συλλογές σε άλλες γλώσσες"
 
 #: books/skoufas_classification_classes.py:212
 msgid "Manuscripts"
-msgstr ""
+msgstr "Χειρόγραφα"
 
 #: books/skoufas_classification_classes.py:213
 msgid "Block books"
-msgstr ""
+msgstr "Ξυλόγλυπτα βιβλία"
 
 #: books/skoufas_classification_classes.py:214
 msgid "Incunabula"
-msgstr ""
+msgstr "Πρωτόγλυπτα (incunabula)"
 
 #: books/skoufas_classification_classes.py:215
 msgid "Printed books"
-msgstr ""
+msgstr "Έντυπα βιβλία"
 
 #: books/skoufas_classification_classes.py:216
 msgid "Books notable for bindings"
-msgstr ""
+msgstr "Βιβλία αξιόλογα για τη βιβλιοδεσία τους"
 
 #: books/skoufas_classification_classes.py:217
 msgid "Books notable for illustrations"
-msgstr ""
+msgstr "Βιβλία αξιόλογα για τις εικονογραφήσεις τους"
 
 #: books/skoufas_classification_classes.py:218
 msgid "Books notable for ownership or origin"
-msgstr ""
+msgstr "Βιβλία αξιόλογα για την ιδιοκτησία ή την προέλευσή τους"
 
 #: books/skoufas_classification_classes.py:219
 msgid "Prohibited works, forgeries, and hoaxes"
-msgstr ""
+msgstr "Απαγορευμένα έργα, πλαστά και απάτες"
 
 #: books/skoufas_classification_classes.py:220
 msgid "Books notable for format"
-msgstr ""
+msgstr "Βιβλία αξιόλογα για τη μορφή τους"
 
 #: books/skoufas_classification_classes.py:222
 msgid "Theory of philosophy"
-msgstr ""
+msgstr "Θεωρία φιλοσοφίας"
 
 #: books/skoufas_classification_classes.py:223
 #: books/skoufas_classification_classes.py:525
@@ -32905,15 +32904,15 @@ msgstr ""
 #: books/skoufas_classification_classes.py:727
 #: books/skoufas_classification_classes.py:927
 msgid "Miscellany"
-msgstr ""
+msgstr "Διάφορα"
 
 #: books/skoufas_classification_classes.py:224
 msgid "Dictionaries and encyclopedias"
-msgstr ""
+msgstr "Λεξικά και εγκυκλοπαίδειες"
 
 #: books/skoufas_classification_classes.py:225
 msgid "No longer used — formerly Essays"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Δοκίμια"
 
 #: books/skoufas_classification_classes.py:226
 #: books/skoufas_classification_classes.py:528
@@ -32921,228 +32920,228 @@ msgstr ""
 #: books/skoufas_classification_classes.py:730
 #: books/skoufas_classification_classes.py:930
 msgid "Serial publications"
-msgstr ""
+msgstr "Σειριακές εκδόσεις"
 
 #: books/skoufas_classification_classes.py:227
 #: books/skoufas_classification_classes.py:529
 #: books/skoufas_classification_classes.py:629
 #: books/skoufas_classification_classes.py:931
 msgid "Organizations and management"
-msgstr ""
+msgstr "Οργανισμοί και διαχείριση"
 
 #: books/skoufas_classification_classes.py:228
 msgid "Education, research, related topics of philosophy"
-msgstr ""
+msgstr "Εκπαίδευση, έρευνα και συναφή θέματα φιλοσοφίας"
 
 #: books/skoufas_classification_classes.py:229
 #: books/skoufas_classification_classes.py:426
 #: books/skoufas_classification_classes.py:531
 msgid "Groups of people"
-msgstr ""
+msgstr "Ομάδες ανθρώπων"
 
 #: books/skoufas_classification_classes.py:230
 msgid "History and collected biography"
-msgstr ""
+msgstr "Ιστορία και βιογραφικές συλλογές"
 
 #: books/skoufas_classification_classes.py:232
 msgid "Ontology"
-msgstr ""
+msgstr "Οντολογία"
 
 #: books/skoufas_classification_classes.py:233
 msgid "No longer used — formerly Methodology"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Μεθοδολογία"
 
 #: books/skoufas_classification_classes.py:234
 msgid "Cosmology (Philosophy of nature)"
-msgstr ""
+msgstr "Κοσμολογία (Φιλοσοφία της φύσης)"
 
 #: books/skoufas_classification_classes.py:235
 msgid "Space"
-msgstr ""
+msgstr "Χώρος"
 
 #: books/skoufas_classification_classes.py:236
 msgid "Time"
-msgstr ""
+msgstr "Χρόνος"
 
 #: books/skoufas_classification_classes.py:237
 msgid "Change"
-msgstr ""
+msgstr "Αλλαγή"
 
 #: books/skoufas_classification_classes.py:238
 msgid "Structure"
-msgstr ""
+msgstr "Δομή"
 
 #: books/skoufas_classification_classes.py:239
 msgid "Force and energy"
-msgstr ""
+msgstr "Δύναμη και ενέργεια"
 
 #: books/skoufas_classification_classes.py:240
 msgid "Number and quantity"
-msgstr ""
+msgstr "Αριθμός και ποσότητα"
 
 #: books/skoufas_classification_classes.py:241
 msgid "Epistemology, causation, and humankind"
-msgstr ""
+msgstr "Γνωσιολογία, αιτιότητα και ανθρωπότητα"
 
 #: books/skoufas_classification_classes.py:242
 msgid "Epistemology (Theory of knowledge)"
-msgstr ""
+msgstr "Γνωσιολογία (Θεωρία γνώσης)"
 
 #: books/skoufas_classification_classes.py:243
 msgid "Causation"
-msgstr ""
+msgstr "Αιτιότητα"
 
 #: books/skoufas_classification_classes.py:244
 msgid "Determinism and indeterminism"
-msgstr ""
+msgstr "Ντετερμινισμός και αντιντετερμινισμός"
 
 #: books/skoufas_classification_classes.py:245
 msgid "Teleology"
-msgstr ""
+msgstr "Τελεολογία"
 
 #: books/skoufas_classification_classes.py:246
 msgid "No longer used — formerly Infinity"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Άπειρο"
 
 #: books/skoufas_classification_classes.py:247
 msgid "The self"
-msgstr ""
+msgstr "Εγώ"
 
 #: books/skoufas_classification_classes.py:248
 msgid "The unconscious and the subconscious"
-msgstr ""
+msgstr "Το ασυνείδητο και το υποσυνείδητο"
 
 #: books/skoufas_classification_classes.py:249
 #: books/skoufas_classification_classes.py:339
 #: books/skoufas_classification_classes.py:354
 msgid "Humankind"
-msgstr ""
+msgstr "Ανθρωπότητα"
 
 #: books/skoufas_classification_classes.py:250
 msgid "Origin and destiny of individual souls"
-msgstr ""
+msgstr "Προέλευση και πεπρωμένο ατομικών ψυχών"
 
 #: books/skoufas_classification_classes.py:252
 msgid ""
 "Parapsychological and occult methods for achieving well-being, happiness, "
 "success"
-msgstr ""
+msgstr "Παραψυχολογικές και αποκρυφιστικές μέθοδοι για την επίτευξη ευεξίας, ευτυχίας και επιτυχίας"
 
 #: books/skoufas_classification_classes.py:253
 msgid "No longer used — formerly Mental derangements"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Ψυχικές διαταραχές"
 
 #: books/skoufas_classification_classes.py:254
 msgid "Specific topics in parapsychology and occultism"
-msgstr ""
+msgstr "Ειδικά θέματα παραψυχολογίας και αποκρυφισμού"
 
 #: books/skoufas_classification_classes.py:255
 msgid "No longer used — formerly Mesmerism and Clairvoyance"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Μεσμερισμός και Διόραση"
 
 #: books/skoufas_classification_classes.py:256
 msgid "Dreams and mysteries"
-msgstr ""
+msgstr "Όνειρα και μυστήρια"
 
 #: books/skoufas_classification_classes.py:257
 msgid "No longer used — formerly Mental characteristics"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Ψυχικά χαρακτηριστικά"
 
 #: books/skoufas_classification_classes.py:258
 msgid "Divinatory graphology"
-msgstr ""
+msgstr "Μαντική γραφολογία"
 
 #: books/skoufas_classification_classes.py:259
 msgid "Physiognomy"
-msgstr ""
+msgstr "Φυσιογνωμική"
 
 #: books/skoufas_classification_classes.py:260
 msgid "Phrenology"
-msgstr ""
+msgstr "Φρενολογία"
 
 #: books/skoufas_classification_classes.py:261
 msgid "Specific philosophical schools and viewpoints"
-msgstr ""
+msgstr "Ειδικές φιλοσοφικές σχολές και απόψεις"
 
 #: books/skoufas_classification_classes.py:262
 msgid "Idealism and related systems and doctrines"
-msgstr ""
+msgstr "Ιδεαλισμός και συναφή συστήματα και δόγματα"
 
 #: books/skoufas_classification_classes.py:263
 msgid "Critical philosophy"
-msgstr ""
+msgstr "Κριτική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:264
 msgid "Bergsonism and intuitionism"
-msgstr ""
+msgstr "Μπερξονισμός και ιντουισιονισμός"
 
 #: books/skoufas_classification_classes.py:265
 msgid "Humanism and related systems and doctrines"
-msgstr ""
+msgstr "Ανθρωπισμός και συναφή συστήματα και δόγματα"
 
 #: books/skoufas_classification_classes.py:266
 msgid "Sensationalism"
-msgstr ""
+msgstr "Αισθησιαρχία"
 
 #: books/skoufas_classification_classes.py:267
 msgid "Naturalism and related systems and doctrines"
-msgstr ""
+msgstr "Νατουραλισμός και συναφή συστήματα και δόγματα"
 
 #: books/skoufas_classification_classes.py:268
 msgid "Pantheism and related systems and doctrines"
-msgstr ""
+msgstr "Πανθεϊσμός και συναφή συστήματα και δόγματα"
 
 #: books/skoufas_classification_classes.py:269
 msgid "Dogmatism, eclecticism, liberalism, syncretism, and traditionalism"
-msgstr ""
+msgstr "Δογματισμός, εκλεκτισμός, φιλελευθερισμός, συγκρητισμός και παραδοσιαρχία"
 
 #: books/skoufas_classification_classes.py:270
 msgid "Other philosophical systems and doctrines"
-msgstr ""
+msgstr "Άλλα φιλοσοφικά συστήματα και δόγματα"
 
 #: books/skoufas_classification_classes.py:272
 msgid "No longer used — formerly Intellect"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Νόηση"
 
 #: books/skoufas_classification_classes.py:273
 msgid "Sensory perception, movement, emotions, and physiological drives"
-msgstr ""
+msgstr "Αισθητηριακή αντίληψη, κίνηση, συναισθήματα και φυσιολογικές ορμές"
 
 #: books/skoufas_classification_classes.py:274
 msgid "Conscious mental processes and intelligence"
-msgstr ""
+msgstr "Συνειδητές νοητικές διεργασίες και νοημοσύνη"
 
 #: books/skoufas_classification_classes.py:275
 msgid "Subconscious and altered states and processes"
-msgstr ""
+msgstr "Υποσυνείδητες και μεταβλημένες καταστάσεις και διεργασίες"
 
 #: books/skoufas_classification_classes.py:276
 msgid "Differential and developmental psychology"
-msgstr ""
+msgstr "Διαφορική και αναπτυξιακή ψυχολογία"
 
 #: books/skoufas_classification_classes.py:277
 msgid "Comparative psychology"
-msgstr ""
+msgstr "Συγκριτική ψυχολογία"
 
 #: books/skoufas_classification_classes.py:278
 msgid "No longer used — formerly Emotions"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Συναισθήματα"
 
 #: books/skoufas_classification_classes.py:279
 msgid "Applied psychology"
-msgstr ""
+msgstr "Εφαρμοσμένη ψυχολογία"
 
 #: books/skoufas_classification_classes.py:280
 msgid "No longer used — formerly Will"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον — παλαιότερα Βούληση"
 
 #: books/skoufas_classification_classes.py:282
 msgid "Induction"
-msgstr ""
+msgstr "Επαγωγή"
 
 #: books/skoufas_classification_classes.py:283
 msgid "Deduction"
-msgstr ""
+msgstr "Απαγωγή"
 
 #: books/skoufas_classification_classes.py:284
 #: books/skoufas_classification_classes.py:285
@@ -33177,2737 +33176,2737 @@ msgstr ""
 #: books/skoufas_classification_classes.py:1124
 #: books/skoufas_classification_classes.py:1125
 msgid "Not assigned or no longer used"
-msgstr ""
+msgstr "Δεν έχει ανατεθεί ή δεν χρησιμοποιείται πλέον"
 
 #: books/skoufas_classification_classes.py:286
 msgid "Fallacies and sources of error"
-msgstr ""
+msgstr "Πλάνες και πηγές σφάλματος"
 
 #: books/skoufas_classification_classes.py:287
 msgid "Syllogisms"
-msgstr ""
+msgstr "Συλλογισμοί"
 
 #: books/skoufas_classification_classes.py:288
 msgid "Hypotheses"
-msgstr ""
+msgstr "Υποθέσεις"
 
 #: books/skoufas_classification_classes.py:289
 msgid "Argument and persuasion"
-msgstr ""
+msgstr "Επιχείρημα και πειθώ"
 
 #: books/skoufas_classification_classes.py:290
 msgid "Analogy"
-msgstr ""
+msgstr "Αναλογία"
 
 #: books/skoufas_classification_classes.py:291
 msgid "Ethics (Moral philosophy)"
-msgstr ""
+msgstr "Ηθική (Ηθική φιλοσοφία)"
 
 #: books/skoufas_classification_classes.py:292
 msgid "Ethical systems"
-msgstr ""
+msgstr "Ηθικά συστήματα"
 
 #: books/skoufas_classification_classes.py:293
 msgid "Political ethics"
-msgstr ""
+msgstr "Πολιτική ηθική"
 
 #: books/skoufas_classification_classes.py:294
 msgid "Ethics of family relationships"
-msgstr ""
+msgstr "Ηθική οικογενειακών σχέσεων"
 
 #: books/skoufas_classification_classes.py:295
 msgid "Occupational ethics"
-msgstr ""
+msgstr "Επαγγελματική ηθική"
 
 #: books/skoufas_classification_classes.py:296
 msgid "Ethics of recreation, leisure, public performances, communication"
-msgstr ""
+msgstr "Ηθική ψυχαγωγίας, ελεύθερου χρόνου, δημόσιων εκδηλώσεων, επικοινωνίας"
 
 #: books/skoufas_classification_classes.py:297
 msgid "Ethics of sex and reproduction"
-msgstr ""
+msgstr "Ηθική σεξουαλικότητας και αναπαραγωγής"
 
 #: books/skoufas_classification_classes.py:298
 msgid "Ethics of social relations"
-msgstr ""
+msgstr "Ηθική κοινωνικών σχέσεων"
 
 #: books/skoufas_classification_classes.py:299
 msgid "Ethics of consumption"
-msgstr ""
+msgstr "Ηθική κατανάλωσης"
 
 #: books/skoufas_classification_classes.py:300
 msgid "Other ethical norms"
-msgstr ""
+msgstr "Άλλες ηθικές νόρμες"
 
 #: books/skoufas_classification_classes.py:301
 msgid "Ancient, medieval, eastern philosophy"
-msgstr ""
+msgstr "Αρχαία, μεσαιωνική και ανατολική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:302
 msgid "Eastern philosophy"
-msgstr ""
+msgstr "Ανατολική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:303
 msgid "Pre-Socratic Greek philosophies"
-msgstr ""
+msgstr "Προσωκρατικές ελληνικές φιλοσοφίες"
 
 #: books/skoufas_classification_classes.py:304
 msgid "Sophistic, Socratic, related Greek philosophies"
-msgstr ""
+msgstr "Σοφιστική, Σωκρατική και συναφείς ελληνικές φιλοσοφίες"
 
 #: books/skoufas_classification_classes.py:305
 msgid "Platonic philosophy"
-msgstr ""
+msgstr "Πλατωνική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:306
 msgid "Aristotelian philosophy"
-msgstr ""
+msgstr "Αριστοτελική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:307
 msgid "Skeptic and Neoplatonic philosophies"
-msgstr ""
+msgstr "Σκεπτικιστικές και Νεοπλατωνικές φιλοσοφίες"
 
 #: books/skoufas_classification_classes.py:308
 msgid "Epicurean philosophy"
-msgstr ""
+msgstr "Επικούρεια φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:309
 msgid "Stoic philosophy"
-msgstr ""
+msgstr "Στωική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:310
 msgid "Medieval Western philosophy"
-msgstr ""
+msgstr "Μεσαιωνική δυτική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:311
 msgid "Modern Western and other noneastern philosophy"
-msgstr ""
+msgstr "Σύγχρονη δυτική και άλλη μη ανατολική φιλοσοφία"
 
 #: books/skoufas_classification_classes.py:312
 msgid "Philosophy of the United States and Canada"
-msgstr ""
+msgstr "Φιλοσοφία Ηνωμένων Πολιτειών και Καναδά"
 
 #: books/skoufas_classification_classes.py:313
 msgid "Philosophy of the British Isles"
-msgstr ""
+msgstr "Φιλοσοφία Βρετανικών Νησιών"
 
 #: books/skoufas_classification_classes.py:314
 msgid "Philosophy of Germany and Austria"
-msgstr ""
+msgstr "Φιλοσοφία Γερμανίας και Αυστρίας"
 
 #: books/skoufas_classification_classes.py:315
 msgid "Philosophy of France"
-msgstr ""
+msgstr "Φιλοσοφία Γαλλίας"
 
 #: books/skoufas_classification_classes.py:316
 msgid "Philosophy of Italy"
-msgstr ""
+msgstr "Φιλοσοφία Ιταλίας"
 
 #: books/skoufas_classification_classes.py:317
 msgid "Philosophy of Spain and Portugal"
-msgstr ""
+msgstr "Φιλοσοφία Ισπανίας και Πορτογαλίας"
 
 #: books/skoufas_classification_classes.py:318
 msgid "Philosophy of Russia"
-msgstr ""
+msgstr "Φιλοσοφία Ρωσίας"
 
 #: books/skoufas_classification_classes.py:319
 msgid "Philosophy of Scandinavia and Finland"
-msgstr ""
+msgstr "Φιλοσοφία Σκανδιναβίας και Φινλανδίας"
 
 #: books/skoufas_classification_classes.py:320
 msgid "Philosophy in other geographic areas"
-msgstr ""
+msgstr "Φιλοσοφία σε άλλες γεωγραφικές περιοχές"
 
 #: books/skoufas_classification_classes.py:322
 msgid ""
 "Religious mythology, general classes of religion, interreligious relations "
 "and attitudes, social theology"
-msgstr ""
+msgstr "Θρησκευτική μυθολογία, γενικές κατηγορίες θρησκείας, διαθρησκειακές σχέσεις και κοινωνική θεολογία"
 
 #: books/skoufas_classification_classes.py:323
 msgid "Doctrines"
-msgstr ""
+msgstr "Δόγματα"
 
 #: books/skoufas_classification_classes.py:324
 msgid "Public worship and other practices"
-msgstr ""
+msgstr "Δημόσια λατρεία και άλλες πρακτικές"
 
 #: books/skoufas_classification_classes.py:325
 msgid "Religious experience, life, practice"
-msgstr ""
+msgstr "Θρησκευτική εμπειρία, ζωή και πρακτική"
 
 #: books/skoufas_classification_classes.py:326
 msgid "Religious ethics"
-msgstr ""
+msgstr "Θρησκευτική ηθική"
 
 #: books/skoufas_classification_classes.py:327
 msgid "Leaders and organization"
-msgstr ""
+msgstr "Ηγεσία και οργάνωση"
 
 #: books/skoufas_classification_classes.py:328
 msgid "Missions and religious education"
-msgstr ""
+msgstr "Αποστολές και θρησκευτική εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:329
 msgid "Sources"
-msgstr ""
+msgstr "Πηγές"
 
 #: books/skoufas_classification_classes.py:330
 msgid "Sects and reform movements"
-msgstr ""
+msgstr "Αιρέσεις και μεταρρυθμιστικά κινήματα"
 
 #: books/skoufas_classification_classes.py:332
 msgid "Concepts of God"
-msgstr ""
+msgstr "Έννοιες του Θεού"
 
 #: books/skoufas_classification_classes.py:333
 msgid "Existence, ways of knowing God, attributes of God"
-msgstr ""
+msgstr "Ύπαρξη, τρόποι γνώσης Θεού, ιδιότητες του Θεού"
 
 #: books/skoufas_classification_classes.py:334
 msgid "Creation"
-msgstr ""
+msgstr "Δημιουργία"
 
 #: books/skoufas_classification_classes.py:335
 msgid "Theodicy"
-msgstr ""
+msgstr "Θεοδικία"
 
 #: books/skoufas_classification_classes.py:336
 msgid "Science and religion"
-msgstr ""
+msgstr "Επιστήμη και θρησκεία"
 
 #: books/skoufas_classification_classes.py:337
 msgid "No longer used—formerly Evil"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην κακό"
 
 #: books/skoufas_classification_classes.py:338
 msgid "No longer used—formerly Prayer"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην προσευχή"
 
 #: books/skoufas_classification_classes.py:340
 msgid "No longer used—formerly Analogies"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην αναλογίες"
 
 #: books/skoufas_classification_classes.py:341
 msgid "Bible"
-msgstr ""
+msgstr "Βίβλος"
 
 #: books/skoufas_classification_classes.py:342
 msgid "Old Testament (Tanakh)"
-msgstr ""
+msgstr "Παλαιά Διαθήκη (Τανάχ)"
 
 #: books/skoufas_classification_classes.py:343
 msgid "Historical books of Old Testament"
-msgstr ""
+msgstr "Ιστορικά βιβλία Παλαιάς Διαθήκης"
 
 #: books/skoufas_classification_classes.py:344
 msgid "Poetic books of Old Testament"
-msgstr ""
+msgstr "Ποιητικά βιβλία Παλαιάς Διαθήκης"
 
 #: books/skoufas_classification_classes.py:345
 msgid "Prophetic books of Old Testament"
-msgstr ""
+msgstr "Προφητικά βιβλία Παλαιάς Διαθήκης"
 
 #: books/skoufas_classification_classes.py:346
 msgid "New Testament"
-msgstr ""
+msgstr "Καινή Διαθήκη"
 
 #: books/skoufas_classification_classes.py:347
 msgid "Gospels and Acts"
-msgstr ""
+msgstr "Ευαγγέλια και Πράξεις"
 
 #: books/skoufas_classification_classes.py:348
 msgid "Epistles"
-msgstr ""
+msgstr "Επιστολές"
 
 #: books/skoufas_classification_classes.py:349
 msgid "Revelation (Apocalypse)"
-msgstr ""
+msgstr "Αποκάλυψη"
 
 #: books/skoufas_classification_classes.py:350
 msgid "Apocrypha, pseudepigrapha, and inter-testamental works"
-msgstr ""
+msgstr "Απόκρυφα, ψευδεπίγραφα και διαθηκικά έργα"
 
 #: books/skoufas_classification_classes.py:352
 msgid "God"
-msgstr ""
+msgstr "Θεός"
 
 #: books/skoufas_classification_classes.py:353
 msgid "Jesus Christ and his family"
-msgstr ""
+msgstr "Ιησούς Χριστός και η οικογένειά του"
 
 #: books/skoufas_classification_classes.py:355
 msgid "Salvation and grace"
-msgstr ""
+msgstr "Σωτηρία και χάρη"
 
 #: books/skoufas_classification_classes.py:356
 msgid "Spiritual beings"
-msgstr ""
+msgstr "Πνευματικά όντα"
 
 #: books/skoufas_classification_classes.py:357
 msgid "Eschatology"
-msgstr ""
+msgstr "Εσχατολογία"
 
 #: books/skoufas_classification_classes.py:358
 msgid "No longer used—formerly Future state"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην μελλοντική κατάσταση"
 
 #: books/skoufas_classification_classes.py:359
 msgid "Creeds, confessions of faith, covenants, and catechisms"
-msgstr ""
+msgstr "Σύμβολα πίστεως, ομολογίες, διαθήκες και κατηχήσεις"
 
 #: books/skoufas_classification_classes.py:360
 msgid "Apologetics and polemics"
-msgstr ""
+msgstr "Απολογητική και πολεμική"
 
 #: books/skoufas_classification_classes.py:361
 msgid "Christian moral and devotional theology"
-msgstr ""
+msgstr "Χριστιανική ηθική και αφοσίωση"
 
 #: books/skoufas_classification_classes.py:362
 msgid "Christian ethics"
-msgstr ""
+msgstr "Χριστιανική ηθική"
 
 #: books/skoufas_classification_classes.py:363
 msgid "Devotional literature"
-msgstr ""
+msgstr "Κατανυκτική γραμματεία"
 
 #: books/skoufas_classification_classes.py:364
 msgid "Evangelistic writings for individuals and families"
-msgstr ""
+msgstr "Ευαγγελικά συγγράμματα για άτομα και οικογένειες"
 
 #: books/skoufas_classification_classes.py:365
 msgid "No longer used—formerly Religious fiction"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην θρησκευτική λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:366
 msgid "No longer used—formerly Hymnology"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην υμνολογία"
 
 #: books/skoufas_classification_classes.py:367
 msgid "Use of art in Christianity"
-msgstr ""
+msgstr "Χρήση τέχνης στον Χριστιανισμό"
 
 #: books/skoufas_classification_classes.py:368
 msgid "Church furnishings and related articles"
-msgstr ""
+msgstr "Εκκλησιαστικός εξοπλισμός και συναφή αντικείμενα"
 
 #: books/skoufas_classification_classes.py:369
 msgid "Christian experience, practice, life"
-msgstr ""
+msgstr "Χριστιανική εμπειρία, πρακτική και ζωή"
 
 #: books/skoufas_classification_classes.py:370
 msgid "Christian observances in family life"
-msgstr ""
+msgstr "Χριστιανικές παρατηρήσεις στην οικογενειακή ζωή"
 
 #: books/skoufas_classification_classes.py:371
 msgid "Local Christian church and Christian religious orders"
-msgstr ""
+msgstr "Τοπική χριστιανική εκκλησία και χριστιανικά τάγματα"
 
 #: books/skoufas_classification_classes.py:372
 msgid "Preaching (Homiletics)"
-msgstr ""
+msgstr "Κήρυγμα (Ομιλητική)"
 
 #: books/skoufas_classification_classes.py:373
 msgid "Texts of sermons"
-msgstr ""
+msgstr "Κείμενα κηρυγμάτων"
 
 #: books/skoufas_classification_classes.py:374
 msgid "Pastoral office and work (Pastoral theology)"
-msgstr ""
+msgstr "Ποιμαντική θέση και έργο (Ποιμαντική θεολογία)"
 
 #: books/skoufas_classification_classes.py:375
 msgid "Parish administration"
-msgstr ""
+msgstr "Ενοριακή διοίκηση"
 
 #: books/skoufas_classification_classes.py:376
 msgid "Religious congregations and orders"
-msgstr ""
+msgstr "Θρησκευτικές κοινότητες και τάγματα"
 
 #: books/skoufas_classification_classes.py:377
 msgid "No longer used — formerly Religious societies"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην θρησκευτικές εταιρείες"
 
 #: books/skoufas_classification_classes.py:378
 msgid "No longer used — formerly Parochial schools, libraries, etc."
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ενοριακά σχολεία, βιβλιοθήκες κ.λπ."
 
 #: books/skoufas_classification_classes.py:379
 msgid "No longer used — formerly Parochial medicine"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ενοριακή ιατρική"
 
 #: books/skoufas_classification_classes.py:380
 msgid "Pastoral care of families, of specific groups of people"
-msgstr ""
+msgstr "Ποιμαντική φροντίδα οικογενειών και συγκεκριμένων ομάδων"
 
 #: books/skoufas_classification_classes.py:381
 msgid "Christian social and ecclesiastical theology"
-msgstr ""
+msgstr "Χριστιανική κοινωνική και εκκλησιαστική θεολογία"
 
 #: books/skoufas_classification_classes.py:382
 msgid "Social theology and interreligious relations and attitudes"
-msgstr ""
+msgstr "Κοινωνική θεολογία και διαθρησκειακές σχέσεις"
 
 #: books/skoufas_classification_classes.py:383
 msgid "Ecclesiology"
-msgstr ""
+msgstr "Εκκλησιολογία"
 
 #: books/skoufas_classification_classes.py:384
 msgid "Days, times, places of religious observance"
-msgstr ""
+msgstr "Ημέρες, ώρες και τόποι θρησκευτικής λατρείας"
 
 #: books/skoufas_classification_classes.py:385
 msgid "Public worship"
-msgstr ""
+msgstr "Δημόσια λατρεία"
 
 #: books/skoufas_classification_classes.py:386
 msgid "Sacraments, other rites and acts"
-msgstr ""
+msgstr "Μυστήρια και άλλες τελετές"
 
 #: books/skoufas_classification_classes.py:387
 msgid "Missions"
-msgstr ""
+msgstr "Αποστολές"
 
 #: books/skoufas_classification_classes.py:388
 msgid "Associations for religious work"
-msgstr ""
+msgstr "Σύλλογοι για θρησκευτικό έργο"
 
 #: books/skoufas_classification_classes.py:389
 msgid "Religious education"
-msgstr ""
+msgstr "Θρησκευτική εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:390
 msgid "Spiritual renewal"
-msgstr ""
+msgstr "Πνευματική ανανέωση"
 
 #: books/skoufas_classification_classes.py:391
 msgid "History, geographic treatment, biography of Christianity"
-msgstr ""
+msgstr "Ιστορία, γεωγραφική διάταξη, βιογραφία Χριστιανισμού"
 
 #: books/skoufas_classification_classes.py:392
 msgid "Religious congregations and orders in church history"
-msgstr ""
+msgstr "Θρησκευτικές κοινότητες και τάγματα στην εκκλησιαστική ιστορία"
 
 #: books/skoufas_classification_classes.py:393
 msgid "Persecutions in church history"
-msgstr ""
+msgstr "Διωγμοί στην εκκλησιαστική ιστορία"
 
 #: books/skoufas_classification_classes.py:394
 msgid "Doctrinal controversies and heresies in general church history"
-msgstr ""
+msgstr "Δογματικές διαμάχες και αιρέσεις στη γενική εκκλησιαστική ιστορία"
 
 #: books/skoufas_classification_classes.py:395
 msgid "Christianity in Europe"
-msgstr ""
+msgstr "Χριστιανισμός στην Ευρώπη"
 
 #: books/skoufas_classification_classes.py:396
 msgid "Christianity in Asia"
-msgstr ""
+msgstr "Χριστιανισμός στην Ασία"
 
 #: books/skoufas_classification_classes.py:397
 msgid "Christianity in Africa"
-msgstr ""
+msgstr "Χριστιανισμός στην Αφρική"
 
 #: books/skoufas_classification_classes.py:398
 msgid "Christianity in North America"
-msgstr ""
+msgstr "Χριστιανισμός στη Βόρεια Αμερική"
 
 #: books/skoufas_classification_classes.py:399
 msgid "Christianity in South America"
-msgstr ""
+msgstr "Χριστιανισμός στη Νότια Αμερική"
 
 #: books/skoufas_classification_classes.py:400
 msgid "History of Christianity in other areas"
-msgstr ""
+msgstr "Ιστορία Χριστιανισμού σε άλλες περιοχές"
 
 #: books/skoufas_classification_classes.py:401
 msgid "Denominations and sects of Christian church"
-msgstr ""
+msgstr "Δόγματα και αιρέσεις χριστιανικής εκκλησίας"
 
 #: books/skoufas_classification_classes.py:402
 msgid "Early church and Eastern churches"
-msgstr ""
+msgstr "Πρώιμη εκκλησία και ανατολικές εκκλησίες"
 
 #: books/skoufas_classification_classes.py:403
 msgid "Roman Catholic Church"
-msgstr ""
+msgstr "Ρωμαιοκαθολική εκκλησία"
 
 #: books/skoufas_classification_classes.py:404
 msgid "Anglican churches"
-msgstr ""
+msgstr "Αγγλικανικές εκκλησίες"
 
 #: books/skoufas_classification_classes.py:405
 msgid "Protestant denominations of Continental origin and related body"
-msgstr ""
+msgstr "Προτεσταντικά δόγματα ηπειρωτικής προέλευσης"
 
 #: books/skoufas_classification_classes.py:406
 msgid ""
 "Presbyterian churches, Reformed churches centered in America, Congregational "
 "churches"
-msgstr ""
+msgstr "Πρεσβυτεριανές, Μεταρρυθμισμένες και Κονγκρεγκέιτσιοναλιστικές εκκλησίες"
 
 #: books/skoufas_classification_classes.py:407
 msgid "Baptist, Restoration Movement, Adventist churches"
-msgstr ""
+msgstr "Βαπτιστικές, Αδβεντιστικές και συναφείς εκκλησίες"
 
 #: books/skoufas_classification_classes.py:408
 msgid "Methodist churches; churches related to Methodism"
-msgstr ""
+msgstr "Μεθοδιστικές εκκλησίες"
 
 #: books/skoufas_classification_classes.py:409
 msgid "No longer used — formerly Unitarian"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην Ουνιταριανισμός"
 
 #: books/skoufas_classification_classes.py:410
 msgid "Other denominations and sects"
-msgstr ""
+msgstr "Άλλα δόγματα και αιρέσεις"
 
 #: books/skoufas_classification_classes.py:412
 msgid "No longer used — formerly Comparative religion"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην συγκριτική θρησκειολογία"
 
 #: books/skoufas_classification_classes.py:413
 msgid "Classical religion (Greek and Roman religion)"
-msgstr ""
+msgstr "Κλασική θρησκεία (ελληνική και ρωμαϊκή)"
 
 #: books/skoufas_classification_classes.py:414
 msgid "Germanic religion"
-msgstr ""
+msgstr "Γερμανική θρησκεία"
 
 #: books/skoufas_classification_classes.py:415
 msgid "Religions of Indic origin"
-msgstr ""
+msgstr "Θρησκείες ινδικής προέλευσης"
 
 #: books/skoufas_classification_classes.py:416
 msgid "Zoroastrianism (Mazdaism, Parseeism)"
-msgstr ""
+msgstr "Ζωροαστρισμός (Μαζδαϊσμός, Παρσεϊσμός)"
 
 #: books/skoufas_classification_classes.py:417
 msgid "Judaism"
-msgstr ""
+msgstr "Ιουδαϊσμός"
 
 #: books/skoufas_classification_classes.py:418
 msgid "Islam, Bábism and Baháʼí Faith"
-msgstr ""
+msgstr "Ισλάμ, Μπαμπισμός και Μπαχάι"
 
 #: books/skoufas_classification_classes.py:419
 msgid "No longer used — formerly Mormonism"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην Μορμονισμός"
 
 #: books/skoufas_classification_classes.py:420
 msgid "Religions not provided for elsewhere"
-msgstr ""
+msgstr "Θρησκείες μη κατηγοριοποιημένες αλλού"
 
 #: books/skoufas_classification_classes.py:422
 msgid "Sociology and anthropology"
-msgstr ""
+msgstr "Κοινωνιολογία και ανθρωπολογία"
 
 #: books/skoufas_classification_classes.py:423
 msgid "Social interaction"
-msgstr ""
+msgstr "Κοινωνική αλληλεπίδραση"
 
 #: books/skoufas_classification_classes.py:424
 msgid "Social processes"
-msgstr ""
+msgstr "Κοινωνικές διαδικασίες"
 
 #: books/skoufas_classification_classes.py:425
 msgid "Factors affecting social behavior"
-msgstr ""
+msgstr "Παράγοντες που επηρεάζουν την κοινωνική συμπεριφορά"
 
 #: books/skoufas_classification_classes.py:427
 msgid "Culture and institutions"
-msgstr ""
+msgstr "Πολιτισμός και θεσμοί"
 
 #: books/skoufas_classification_classes.py:428
 msgid "Communities"
-msgstr ""
+msgstr "Κοινότητες"
 
 #: books/skoufas_classification_classes.py:429
 msgid "No longer used — formerly Polygraphy"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην πολυγραφία"
 
 #: books/skoufas_classification_classes.py:430
 msgid "No longer used — formerly History of sociology"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ιστορία κοινωνιολογίας"
 
 #: books/skoufas_classification_classes.py:431
 msgid "Collections of general statistics"
-msgstr ""
+msgstr "Συλλογές γενικών στατιστικών"
 
 #: books/skoufas_classification_classes.py:432
 msgid "No longer used — formerly Theory and methods"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην θεωρία και μέθοδοι"
 
 #: books/skoufas_classification_classes.py:433
 msgid "No longer used — formerly Population"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην πληθυσμός"
 
 #: books/skoufas_classification_classes.py:434
 msgid "No longer used — formerly Special topics"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ειδικά θέματα"
 
 #: books/skoufas_classification_classes.py:435
 msgid "General statistics of Europe"
-msgstr ""
+msgstr "Γενικά στατιστικά Ευρώπης"
 
 #: books/skoufas_classification_classes.py:436
 msgid "General statistics of Asia"
-msgstr ""
+msgstr "Γενικά στατιστικά Ασίας"
 
 #: books/skoufas_classification_classes.py:437
 msgid "General statistics of Africa"
-msgstr ""
+msgstr "Γενικά στατιστικά Αφρικής"
 
 #: books/skoufas_classification_classes.py:438
 msgid "General statistics of North America"
-msgstr ""
+msgstr "Γενικά στατιστικά Βόρειας Αμερικής"
 
 #: books/skoufas_classification_classes.py:439
 msgid "General statistics of South America"
-msgstr ""
+msgstr "Γενικά στατιστικά Νότιας Αμερικής"
 
 #: books/skoufas_classification_classes.py:441
 msgid ""
 "General statistics of Australasia, Pacific Ocean islands, Atlantic Ocean "
 "islands, Arctic islands, Antarctica"
-msgstr ""
+msgstr "Γενικά στατιστικά Αυστραλασίας, νησιών Ειρηνικού, νησιών Ατλαντικού, Αρκτικών νησιών, Ανταρκτικής"
 
 #: books/skoufas_classification_classes.py:443
 msgid "Political science (Politics and government)"
-msgstr ""
+msgstr "Πολιτική επιστήμη (Πολιτική και διακυβέρνηση)"
 
 #: books/skoufas_classification_classes.py:444
 msgid "Systems of governments and states"
-msgstr ""
+msgstr "Συστήματα κυβερνήσεων και κρατών"
 
 #: books/skoufas_classification_classes.py:445
 msgid "Relation of state to organized groups and their members"
-msgstr ""
+msgstr "Σχέση κράτους με οργανωμένες ομάδες"
 
 #: books/skoufas_classification_classes.py:446
 msgid "Civil and political rights"
-msgstr ""
+msgstr "Αστικά και πολιτικά δικαιώματα"
 
 #: books/skoufas_classification_classes.py:447
 msgid "The political process"
-msgstr ""
+msgstr "Η πολιτική διαδικασία"
 
 #: books/skoufas_classification_classes.py:448
 msgid "International migration and colonization"
-msgstr ""
+msgstr "Διεθνής μετανάστευση και αποικισμός"
 
 #: books/skoufas_classification_classes.py:449
 msgid "Slavery and emancipation"
-msgstr ""
+msgstr "Δουλεία και απελευθέρωση"
 
 #: books/skoufas_classification_classes.py:450
 msgid "International relations"
-msgstr ""
+msgstr "Διεθνείς σχέσεις"
 
 #: books/skoufas_classification_classes.py:451
 msgid "The legislative process"
-msgstr ""
+msgstr "Η νομοθετική διαδικασία"
 
 #: books/skoufas_classification_classes.py:454
 msgid "Labor economics"
-msgstr ""
+msgstr "Εργασιακά οικονομικά"
 
 #: books/skoufas_classification_classes.py:455
 msgid "Financial economics"
-msgstr ""
+msgstr "Χρηματοοικονομικά"
 
 #: books/skoufas_classification_classes.py:456
 msgid "Economics of land and energy"
-msgstr ""
+msgstr "Οικονομική γης και ενέργειας"
 
 #: books/skoufas_classification_classes.py:457
 msgid "Cooperatives"
-msgstr ""
+msgstr "Συνεταιρισμοί"
 
 #: books/skoufas_classification_classes.py:458
 msgid "Socialism and related systems"
-msgstr ""
+msgstr "Σοσιαλισμός και συναφή συστήματα"
 
 #: books/skoufas_classification_classes.py:459
 msgid "Public finance"
-msgstr ""
+msgstr "Δημόσια χρηματοδότηση"
 
 #: books/skoufas_classification_classes.py:460
 msgid "International economics"
-msgstr ""
+msgstr "Διεθνής οικονομία"
 
 #: books/skoufas_classification_classes.py:461
 msgid "Production"
-msgstr ""
+msgstr "Παραγωγή"
 
 #: books/skoufas_classification_classes.py:462
 msgid "Macroeconomics and related topics"
-msgstr ""
+msgstr "Μακροοικονομικά και συναφή θέματα"
 
 #: books/skoufas_classification_classes.py:464
 msgid "Law of nations"
-msgstr ""
+msgstr "Διεθνές δίκαιο"
 
 #: books/skoufas_classification_classes.py:465
 msgid "Constitutional and administrative law"
-msgstr ""
+msgstr "Συνταγματικό και διοικητικό δίκαιο"
 
 #: books/skoufas_classification_classes.py:466
 msgid ""
 "Military, defense, public property, public finance, tax, commerce (trade), "
 "industrial law"
-msgstr ""
+msgstr "Στρατιωτικό, αμυντικό, δημόσια περιουσία, δημόσια οικονομικά, φορολογικό, εμπορικό και βιομηχανικό δίκαιο"
 
 #: books/skoufas_classification_classes.py:467
 msgid "Labor, social service, education, cultural law"
-msgstr ""
+msgstr "Εργατικό, κοινωνικό, εκπαιδευτικό και πολιτιστικό δίκαιο"
 
 #: books/skoufas_classification_classes.py:468
 msgid "Criminal law"
-msgstr ""
+msgstr "Ποινικό δίκαιο"
 
 #: books/skoufas_classification_classes.py:469
 msgid "Private law"
-msgstr ""
+msgstr "Ιδιωτικό δίκαιο"
 
 #: books/skoufas_classification_classes.py:470
 msgid "Procedure and courts"
-msgstr ""
+msgstr "Δικονομία και δικαστήρια"
 
 #: books/skoufas_classification_classes.py:471
 msgid "Laws, regulations, cases"
-msgstr ""
+msgstr "Νόμοι, κανονισμοί, υποθέσεις"
 
 #: books/skoufas_classification_classes.py:472
 msgid ""
 "Law of specific jurisdictions, areas, socioeconomic regions, regional "
 "intergovernmental organizations"
-msgstr ""
+msgstr "Δίκαιο συγκεκριμένων δικαιοδοσιών, περιοχών, κοινωνικοοικονομικών περιφερειών"
 
 #: books/skoufas_classification_classes.py:474
 msgid "Public administration"
-msgstr ""
+msgstr "Δημόσια διοίκηση"
 
 #: books/skoufas_classification_classes.py:475
 msgid "General considerations of public administration"
-msgstr ""
+msgstr "Γενικές θεωρήσεις δημόσιας διοίκησης"
 
 #: books/skoufas_classification_classes.py:476
 msgid "Specific fields of public administration"
-msgstr ""
+msgstr "Ειδικοί τομείς δημόσιας διοίκησης"
 
 #: books/skoufas_classification_classes.py:477
 msgid "Public administration of economy and environment"
-msgstr ""
+msgstr "Δημόσια διοίκηση οικονομίας και περιβάλλοντος"
 
 #: books/skoufas_classification_classes.py:478
 msgid "Military science"
-msgstr ""
+msgstr "Στρατιωτική επιστήμη"
 
 #: books/skoufas_classification_classes.py:479
 msgid "Foot forces and warfare"
-msgstr ""
+msgstr "Πεζικό και πόλεμος"
 
 #: books/skoufas_classification_classes.py:480
 msgid "Mounted forces and warfare"
-msgstr ""
+msgstr "Ιππικό και πόλεμος"
 
 #: books/skoufas_classification_classes.py:481
 msgid ""
 "Air and other specialized forces and warfare; engineering and related "
 "services"
-msgstr ""
+msgstr "Αεροπορικές και άλλες εξειδικευμένες δυνάμεις· μηχανικό και συναφείς υπηρεσίες"
 
 #: books/skoufas_classification_classes.py:482
 msgid "Sea forces and warfare"
-msgstr ""
+msgstr "Ναυτικό και πόλεμος"
 
 #: books/skoufas_classification_classes.py:483
 msgid "Social problems and services; associations"
-msgstr ""
+msgstr "Κοινωνικά προβλήματα, υπηρεσίες και σύλλογοι"
 
 #: books/skoufas_classification_classes.py:484
 msgid "Social problems and services"
-msgstr ""
+msgstr "Κοινωνικά προβλήματα και υπηρεσίες"
 
 #: books/skoufas_classification_classes.py:485
 msgid "Social problems of and services to groups of people"
-msgstr ""
+msgstr "Κοινωνικά προβλήματα και υπηρεσίες σε ομάδες"
 
 #: books/skoufas_classification_classes.py:486
 msgid "Other social problems and services"
-msgstr ""
+msgstr "Άλλα κοινωνικά προβλήματα και υπηρεσίες"
 
 #: books/skoufas_classification_classes.py:487
 msgid "Criminology"
-msgstr ""
+msgstr "Εγκληματολογία"
 
 #: books/skoufas_classification_classes.py:488
 msgid "Penal and related institutions"
-msgstr ""
+msgstr "Σωφρονιστικά και συναφή ιδρύματα"
 
 #: books/skoufas_classification_classes.py:489
 msgid "Secret associations and societies"
-msgstr ""
+msgstr "Μυστικές ενώσεις και εταιρείες"
 
 #: books/skoufas_classification_classes.py:490
 msgid "General clubs"
-msgstr ""
+msgstr "Γενικοί σύλλογοι"
 
 #: books/skoufas_classification_classes.py:491
 msgid "Insurance"
-msgstr ""
+msgstr "Ασφάλιση"
 
 #: books/skoufas_classification_classes.py:492
 msgid "Associations"
-msgstr ""
+msgstr "Σύλλογοι"
 
 #: books/skoufas_classification_classes.py:494
 msgid "Schools and their activities, special education"
-msgstr ""
+msgstr "Σχολεία, δραστηριότητές τους, ειδική εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:495
 msgid "Primary education (elementary education)"
-msgstr ""
+msgstr "Πρωτοβάθμια εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:496
 msgid "Secondary education"
-msgstr ""
+msgstr "Δευτεροβάθμια εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:497
 msgid "Adult education"
-msgstr ""
+msgstr "Εκπαίδευση ενηλίκων"
 
 #: books/skoufas_classification_classes.py:498
 msgid "Curricula"
-msgstr ""
+msgstr "Αναλυτικά προγράμματα"
 
 #: books/skoufas_classification_classes.py:499
 msgid "No longer used — formerly Education of women"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην εκπαίδευση γυναικών"
 
 #: books/skoufas_classification_classes.py:500
 msgid "No longer used — formerly Ethical education"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ηθική εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:501
 msgid "Higher education (Tertiary education)"
-msgstr ""
+msgstr "Τριτοβάθμια εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:502
 msgid "Public policy issues in education"
-msgstr ""
+msgstr "Ζητήματα δημόσιας πολιτικής στην εκπαίδευση"
 
 #: books/skoufas_classification_classes.py:503
 msgid "Commerce, communications transportation"
-msgstr ""
+msgstr "Εμπόριο, επικοινωνίες, μεταφορές"
 
 #: books/skoufas_classification_classes.py:504
 msgid "Commerce (Trade)"
-msgstr ""
+msgstr "Εμπόριο"
 
 #: books/skoufas_classification_classes.py:505
 msgid "International commerce (Foreign trade)"
-msgstr ""
+msgstr "Διεθνές εμπόριο (εξωτερικό εμπόριο)"
 
 #: books/skoufas_classification_classes.py:506
 msgid "Postal communication"
-msgstr ""
+msgstr "Ταχυδρομική επικοινωνία"
 
 #: books/skoufas_classification_classes.py:507
 msgid "Communications"
-msgstr ""
+msgstr "Επικοινωνίες"
 
 #: books/skoufas_classification_classes.py:508
 msgid "Railroad transportation"
-msgstr ""
+msgstr "Σιδηροδρομικές μεταφορές"
 
 #: books/skoufas_classification_classes.py:509
 msgid "Inland waterway and ferry transportation"
-msgstr ""
+msgstr "Εσωτερικές πλωτές οδοί και πορθμεία"
 
 #: books/skoufas_classification_classes.py:510
 msgid "Water, air, space transportation"
-msgstr ""
+msgstr "Θαλάσσιες, εναέριες και διαστημικές μεταφορές"
 
 #: books/skoufas_classification_classes.py:511
 msgid "Transportation"
-msgstr ""
+msgstr "Μεταφορές"
 
 #: books/skoufas_classification_classes.py:512
 msgid "Metrology and standardization"
-msgstr ""
+msgstr "Μετρολογία και τυποποίηση"
 
 #: books/skoufas_classification_classes.py:513
 msgid "Customs, etiquette, folklore"
-msgstr ""
+msgstr "Έθιμα, εθιμοτυπία, λαογραφία"
 
 #: books/skoufas_classification_classes.py:514
 msgid "Costume and personal appearance"
-msgstr ""
+msgstr "Ενδυμασία και εμφάνιση"
 
 #: books/skoufas_classification_classes.py:515
 msgid "Customs of life cycle and domestic life"
-msgstr ""
+msgstr "Έθιμα κύκλου ζωής και οικιακής ζωής"
 
 #: books/skoufas_classification_classes.py:516
 msgid "Death customs"
-msgstr ""
+msgstr "Έθιμα θανάτου"
 
 #: books/skoufas_classification_classes.py:517
 msgid "General customs"
-msgstr ""
+msgstr "Γενικά έθιμα"
 
 #: books/skoufas_classification_classes.py:518
 msgid "Etiquette (Manners)"
-msgstr ""
+msgstr "Εθιμοτυπία"
 
 #: books/skoufas_classification_classes.py:519
 msgid "No longer used — formerly Women's position and treatment"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην θέση γυναικών"
 
 #: books/skoufas_classification_classes.py:520
 msgid "No longer used — formerly outcast studies"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην μελέτες αποκλεισμού"
 
 #: books/skoufas_classification_classes.py:521
 msgid "Folklore"
-msgstr ""
+msgstr "Λαογραφία"
 
 #: books/skoufas_classification_classes.py:522
 msgid "Customs of war and diplomacy"
-msgstr ""
+msgstr "Έθιμα πολέμου και διπλωματίας"
 
 #: books/skoufas_classification_classes.py:524
 msgid "Philosophy and theory, international languages"
-msgstr ""
+msgstr "Φιλοσοφία, θεωρία, διεθνείς γλώσσες"
 
 #: books/skoufas_classification_classes.py:526
 #: books/skoufas_classification_classes.py:626
 #: books/skoufas_classification_classes.py:728
 #: books/skoufas_classification_classes.py:928
 msgid "Dictionaries, encyclopedias, concordances"
-msgstr ""
+msgstr "Λεξικά, εγκυκλοπαίδειες, ευρετήρια"
 
 #: books/skoufas_classification_classes.py:527
 msgid "Special topics of language"
-msgstr ""
+msgstr "Ειδικά θέματα γλώσσας"
 
 #: books/skoufas_classification_classes.py:530
 #: books/skoufas_classification_classes.py:630
 #: books/skoufas_classification_classes.py:732
 #: books/skoufas_classification_classes.py:932
 msgid "Education, research, related topics"
-msgstr ""
+msgstr "Εκπαίδευση, έρευνα, συναφή θέματα"
 
 #: books/skoufas_classification_classes.py:532
 msgid "Geographic treatment and biography"
-msgstr ""
+msgstr "Γεωγραφική διάταξη και βιογραφία"
 
 #: books/skoufas_classification_classes.py:534
 msgid "Writing systems of standard forms of languages"
-msgstr ""
+msgstr "Συστήματα γραφής τυπικών μορφών γλωσσών"
 
 #: books/skoufas_classification_classes.py:535
 msgid "Etymology of standard forms of languages"
-msgstr ""
+msgstr "Ετυμολογία τυπικών μορφών γλωσσών"
 
 #: books/skoufas_classification_classes.py:536
 msgid "Dictionaries of standard forms of languages"
-msgstr ""
+msgstr "Λεξικά τυπικών μορφών γλωσσών"
 
 #: books/skoufas_classification_classes.py:537
 msgid "Phonology and phonetics of standard forms of languages"
-msgstr ""
+msgstr "Φωνολογία και φωνητική τυπικών μορφών γλωσσών"
 
 #: books/skoufas_classification_classes.py:538
 msgid "Grammar of standard forms of languages"
-msgstr ""
+msgstr "Γραμματική τυπικών μορφών γλωσσών"
 
 #: books/skoufas_classification_classes.py:539
 msgid "No longer used — formerly Prosody"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην προσωδία"
 
 #: books/skoufas_classification_classes.py:540
 msgid "Dialectology and historical linguistics"
-msgstr ""
+msgstr "Διαλεκτολογία και ιστορική γλωσσολογία"
 
 #: books/skoufas_classification_classes.py:541
 msgid "Standard usage (Prescriptive linguistics)"
-msgstr ""
+msgstr "Τυπική χρήση (Κανονιστική γλωσσολογία)"
 
 #: books/skoufas_classification_classes.py:543
 msgid "English and Old English (Anglo-Saxon)"
-msgstr ""
+msgstr "Αγγλική και Παλαιά Αγγλική (Αγγλοσαξονική)"
 
 #: books/skoufas_classification_classes.py:544
 msgid "Writing system, phonology, phonetics of standard English"
-msgstr ""
+msgstr "Σύστημα γραφής, φωνολογία, φωνητική τυπικής αγγλικής"
 
 #: books/skoufas_classification_classes.py:545
 msgid "Etymology of standard English"
-msgstr ""
+msgstr "Ετυμολογία τυπικής αγγλικής"
 
 #: books/skoufas_classification_classes.py:546
 msgid "Dictionaries of standard English"
-msgstr ""
+msgstr "Λεξικά τυπικής αγγλικής"
 
 #: books/skoufas_classification_classes.py:547
 msgid "No longer used — formerly English thesauruses"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην θησαυροί αγγλικής"
 
 #: books/skoufas_classification_classes.py:548
 msgid "Grammar of standard English"
-msgstr ""
+msgstr "Γραμματική τυπικής αγγλικής"
 
 #: books/skoufas_classification_classes.py:549
 msgid "No longer used — formerly English prosodies"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην προσωδία αγγλικής"
 
 #: books/skoufas_classification_classes.py:550
 msgid ""
 "Historical and geographical variations, modern nongeographic variations of "
 "English"
-msgstr ""
+msgstr "Ιστορικές και γεωγραφικές παραλλαγές της αγγλικής"
 
 #: books/skoufas_classification_classes.py:551
 msgid "Standard English usage (Prescriptive linguistics)"
-msgstr ""
+msgstr "Τυπική χρήση αγγλικής (Κανονιστική γλωσσολογία)"
 
 #: books/skoufas_classification_classes.py:552
 msgid "Old English (Anglo-Saxon)"
-msgstr ""
+msgstr "Παλαιά Αγγλική (Αγγλοσαξονική)"
 
 #: books/skoufas_classification_classes.py:554
 msgid "Writing systems, phonology, phonetics of standard German"
-msgstr ""
+msgstr "Συστήματα γραφής, φωνολογία, φωνητική τυπικής γερμανικής"
 
 #: books/skoufas_classification_classes.py:555
 msgid "Etymology of standard German"
-msgstr ""
+msgstr "Ετυμολογία τυπικής γερμανικής"
 
 #: books/skoufas_classification_classes.py:556
 msgid "Dictionaries of standard German"
-msgstr ""
+msgstr "Λεξικά τυπικής γερμανικής"
 
 #: books/skoufas_classification_classes.py:558
 msgid "Grammar of standard German"
-msgstr ""
+msgstr "Γραμματική τυπικής γερμανικής"
 
 #: books/skoufas_classification_classes.py:560
 msgid ""
 "Historical and geographic variations, modern nongeographic variations of "
 "German"
-msgstr ""
+msgstr "Ιστορικές και γεωγραφικές παραλλαγές της γερμανικής"
 
 #: books/skoufas_classification_classes.py:561
 msgid "Standard German usage (Prescriptive linguistics)"
-msgstr ""
+msgstr "Τυπική χρήση γερμανικής"
 
 #: books/skoufas_classification_classes.py:562
 msgid "Other Germanic languages"
-msgstr ""
+msgstr "Άλλες γερμανικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:563
 msgid "French and related Romance languages"
-msgstr ""
+msgstr "Γαλλική και συναφείς ρομανικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:564
 msgid "Writing systems, phonology, phonetics of standard French"
-msgstr ""
+msgstr "Συστήματα γραφής, φωνολογία, φωνητική τυπικής γαλλικής"
 
 #: books/skoufas_classification_classes.py:565
 msgid "Etymology of standard French"
-msgstr ""
+msgstr "Ετυμολογία τυπικής γαλλικής"
 
 #: books/skoufas_classification_classes.py:566
 msgid "Dictionaries of standard French"
-msgstr ""
+msgstr "Λεξικά τυπικής γαλλικής"
 
 #: books/skoufas_classification_classes.py:568
 msgid "Grammar of standard French"
-msgstr ""
+msgstr "Γραμματική τυπικής γαλλικής"
 
 #: books/skoufas_classification_classes.py:570
 msgid ""
 "Historical and geographic variations, modern nongeographic variations of "
 "French"
-msgstr ""
+msgstr "Ιστορικές και γεωγραφικές παραλλαγές της γαλλικής"
 
 #: books/skoufas_classification_classes.py:571
 msgid "Standard French usage (Prescriptive linguistics)"
-msgstr ""
+msgstr "Τυπική χρήση γαλλικής"
 
 #: books/skoufas_classification_classes.py:572
 msgid "Occitan Catalan, Franco-Provençal"
-msgstr ""
+msgstr "Οκσιτανική, Καταλανική, Φράνκο-Προβανσάλ"
 
 #: books/skoufas_classification_classes.py:573
 msgid "Italian, Dalmatian, Romanian, Rhaetian, Sardinian, Corsican"
-msgstr ""
+msgstr "Ιταλική, Δαλματική, Ρουμανική, Ρητική, Σαρδηνιακή, Κορσικανική"
 
 #: books/skoufas_classification_classes.py:574
 msgid "Writing systems, phonology, phonetics of standard Italian"
-msgstr ""
+msgstr "Συστήματα γραφής, φωνολογία, φωνητική τυπικής ιταλικής"
 
 #: books/skoufas_classification_classes.py:575
 msgid "Etymology of standard Italian"
-msgstr ""
+msgstr "Ετυμολογία τυπικής ιταλικής"
 
 #: books/skoufas_classification_classes.py:576
 msgid "Dictionaries of standard Italian"
-msgstr ""
+msgstr "Λεξικά τυπικής ιταλικής"
 
 #: books/skoufas_classification_classes.py:578
 msgid "Grammar of standard Italian"
-msgstr ""
+msgstr "Γραμματική τυπικής ιταλικής"
 
 #: books/skoufas_classification_classes.py:580
 msgid ""
 "Historical and geographic variations, modern nongeographic variations of "
 "Italian"
-msgstr ""
+msgstr "Ιστορικές και γεωγραφικές παραλλαγές της ιταλικής"
 
 #: books/skoufas_classification_classes.py:581
 msgid "Standard Italian usage (Prescriptive linguistics)"
-msgstr ""
+msgstr "Τυπική χρήση ιταλικής"
 
 #: books/skoufas_classification_classes.py:582
 msgid "Romanian, Rhaetian, Sardinian, Corsican"
-msgstr ""
+msgstr "Ρουμανική, Ρητική, Σαρδηνιακή, Κορσικανική"
 
 #: books/skoufas_classification_classes.py:584
 msgid "Writing systems, phonology, phonetics of standard Spanish"
-msgstr ""
+msgstr "Συστήματα γραφής, φωνολογία, φωνητική τυπικής ισπανικής"
 
 #: books/skoufas_classification_classes.py:585
 msgid "Etymology of standard Spanish"
-msgstr ""
+msgstr "Ετυμολογία τυπικής ισπανικής"
 
 #: books/skoufas_classification_classes.py:586
 msgid "Dictionaries of standard Spanish"
-msgstr ""
+msgstr "Λεξικά τυπικής ισπανικής"
 
 #: books/skoufas_classification_classes.py:588
 msgid "Grammar of standard Spanish"
-msgstr ""
+msgstr "Γραμματική τυπικής ισπανικής"
 
 #: books/skoufas_classification_classes.py:590
 msgid ""
 "Historical and geographic variations, modern nongeographic variations of "
 "Spanish"
-msgstr ""
+msgstr "Ιστορικές και γεωγραφικές παραλλαγές της ισπανικής"
 
 #: books/skoufas_classification_classes.py:591
 msgid "Standard Spanish usage (Prescriptive linguistics)"
-msgstr ""
+msgstr "Τυπική χρήση ισπανικής"
 
 #: books/skoufas_classification_classes.py:593
 msgid "Latin and related Italic languages"
-msgstr ""
+msgstr "Λατινική και συναφείς ιταλικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:594
 msgid "Writing systems, phonology, phonetics of classical Latin"
-msgstr ""
+msgstr "Συστήματα γραφής, φωνολογία, φωνητική κλασικής λατινικής"
 
 #: books/skoufas_classification_classes.py:595
 msgid "Etymology of classical Latin"
-msgstr ""
+msgstr "Ετυμολογία κλασικής λατινικής"
 
 #: books/skoufas_classification_classes.py:596
 msgid "Dictionaries of classical Latin"
-msgstr ""
+msgstr "Λεξικά κλασικής λατινικής"
 
 #: books/skoufas_classification_classes.py:598
 msgid "Grammar of classical Latin"
-msgstr ""
+msgstr "Γραμματική κλασικής λατινικής"
 
 #: books/skoufas_classification_classes.py:600
 msgid "Old, postclassical, Vulgar Latin"
-msgstr ""
+msgstr "Παλαιά, μετακλασική, Βουλγάτα λατινική"
 
 #: books/skoufas_classification_classes.py:601
 msgid "Classical Latin usage (Prescriptive linguistics)"
-msgstr ""
+msgstr "Τυπική χρήση κλασικής λατινικής"
 
 #: books/skoufas_classification_classes.py:602
 msgid "Other Italic languages"
-msgstr ""
+msgstr "Άλλες ιταλικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:603
 msgid "Classical Greek and related Hellenic languages"
-msgstr ""
+msgstr "Κλασική ελληνική και συναφείς ελληνικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:604
 msgid "Writing systems, phonology, phonetics of classical Greek"
-msgstr ""
+msgstr "Συστήματα γραφής, φωνολογία, φωνητική κλασικής ελληνικής"
 
 #: books/skoufas_classification_classes.py:605
 msgid "Etymology of classical Greek"
-msgstr ""
+msgstr "Ετυμολογία κλασικής ελληνικής"
 
 #: books/skoufas_classification_classes.py:606
 msgid "Dictionaries of classical Greek"
-msgstr ""
+msgstr "Λεξικά κλασικής ελληνικής"
 
 #: books/skoufas_classification_classes.py:608
 msgid "Grammar of classical Greek"
-msgstr ""
+msgstr "Γραμματική κλασικής ελληνικής"
 
 #: books/skoufas_classification_classes.py:610
 msgid "Preclassical and postclassical Greek"
-msgstr ""
+msgstr "Προκλασική και μετακλασική ελληνική"
 
 #: books/skoufas_classification_classes.py:611
 msgid "Classical Greek usage (Prescriptive linguistics)"
-msgstr ""
+msgstr "Τυπική χρήση κλασικής ελληνικής"
 
 #: books/skoufas_classification_classes.py:612
 msgid "Other Hellenic languages"
-msgstr ""
+msgstr "Άλλες ελληνικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:614
 msgid "East Indo-European and Celtic languages"
-msgstr ""
+msgstr "Ανατολικές ινδοευρωπαϊκές και κελτικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:616
 msgid "Non-Semitic Afro-Asiatic languages"
-msgstr ""
+msgstr "Μη-σημιτικές αφρο-ασιατικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:617
 msgid ""
 "Altic, Uralic, Hyperborean, Dravidian languages, miscellaneous languages of "
 "south Asia"
-msgstr ""
+msgstr "Αλταϊκές, ουραλικές, υπερβόρειες, δραβιδικές γλώσσες και διάφορες γλώσσες Νότιας Ασίας"
 
 #: books/skoufas_classification_classes.py:618
 msgid "Languages of East and Southeast Asia"
-msgstr ""
+msgstr "Γλώσσες Ανατολικής και Νοτιοανατολικής Ασίας"
 
 #: books/skoufas_classification_classes.py:619
 msgid "African languages"
-msgstr ""
+msgstr "Αφρικανικές γλώσσες"
 
 #: books/skoufas_classification_classes.py:620
 msgid "North American native languages"
-msgstr ""
+msgstr "Γηγενείς γλώσσες Βόρειας Αμερικής"
 
 #: books/skoufas_classification_classes.py:621
 msgid "South American native languages"
-msgstr ""
+msgstr "Γηγενείς γλώσσες Νότιας Αμερικής"
 
 #: books/skoufas_classification_classes.py:622
 msgid ""
 "Non-Austronesian languages of Oceania, Austronesian languages, miscellaneous "
 "languages"
-msgstr ""
+msgstr "Μη-αυστρονησιακές γλώσσες Ωκεανίας, αυστρονησιακές γλώσσες, διάφορες γλώσσες"
 
 #: books/skoufas_classification_classes.py:623
 msgid "Natural sciences and mathematics"
-msgstr ""
+msgstr "Φυσικές επιστήμες και μαθηματικά"
 
 #: books/skoufas_classification_classes.py:624
 #: books/skoufas_classification_classes.py:726
 #: books/skoufas_classification_classes.py:926
 msgid "Philosophy and theory"
-msgstr ""
+msgstr "Φιλοσοφία και θεωρία"
 
 #: books/skoufas_classification_classes.py:631
 msgid "Natural history"
-msgstr ""
+msgstr "Φυσική ιστορία"
 
 #: books/skoufas_classification_classes.py:632
 #: books/skoufas_classification_classes.py:734
 #: books/skoufas_classification_classes.py:834
 #: books/skoufas_classification_classes.py:884
 msgid "History, geographic treatment, biography"
-msgstr ""
+msgstr "Ιστορία, γεωγραφική διάταξη, βιογραφία"
 
 #: books/skoufas_classification_classes.py:634
 msgid "General principles of mathematics"
-msgstr ""
+msgstr "Γενικές αρχές μαθηματικών"
 
 #: books/skoufas_classification_classes.py:635
 msgid "Algebra"
-msgstr ""
+msgstr "Άλγεβρα"
 
 #: books/skoufas_classification_classes.py:636
 msgid "Arithmetic"
-msgstr ""
+msgstr "Αριθμητική"
 
 #: books/skoufas_classification_classes.py:637
 msgid "Topology"
-msgstr ""
+msgstr "Τοπολογία"
 
 #: books/skoufas_classification_classes.py:638
 msgid "Analysis"
-msgstr ""
+msgstr "Ανάλυση"
 
 #: books/skoufas_classification_classes.py:639
 msgid "Geometry"
-msgstr ""
+msgstr "Γεωμετρία"
 
 #: books/skoufas_classification_classes.py:641
 msgid "Numerical analysis"
-msgstr ""
+msgstr "Αριθμητική ανάλυση"
 
 #: books/skoufas_classification_classes.py:642
 msgid "Probabilities and applied mathematics"
-msgstr ""
+msgstr "Πιθανότητες και εφαρμοσμένα μαθηματικά"
 
 #: books/skoufas_classification_classes.py:643
 msgid "Astronomy and allied sciences"
-msgstr ""
+msgstr "Αστρονομία και συναφείς επιστήμες"
 
 #: books/skoufas_classification_classes.py:644
 msgid "Celestial mechanics"
-msgstr ""
+msgstr "Ουράνια μηχανική"
 
 #: books/skoufas_classification_classes.py:645
 #: books/skoufas_classification_classes.py:665
 #: books/skoufas_classification_classes.py:896
 msgid "Techniques, procedures, apparatus, equipment, materials"
-msgstr ""
+msgstr "Τεχνικές, διαδικασίες, εξοπλισμός, υλικά"
 
 #: books/skoufas_classification_classes.py:646
 msgid "Specific celestial bodies and phenomena"
-msgstr ""
+msgstr "Συγκεκριμένα ουράνια σώματα και φαινόμενα"
 
 #: books/skoufas_classification_classes.py:648
 msgid "Earth (Astronomical geography)"
-msgstr ""
+msgstr "Γη (Αστρονομική γεωγραφία)"
 
 #: books/skoufas_classification_classes.py:649
 msgid "Mathematical geography"
-msgstr ""
+msgstr "Μαθηματική γεωγραφία"
 
 #: books/skoufas_classification_classes.py:650
 msgid "Celestial navigation"
-msgstr ""
+msgstr "Ουράνια πλοήγηση"
 
 #: books/skoufas_classification_classes.py:651
 msgid "Ephemerides"
-msgstr ""
+msgstr "Εφημερίδες (Αστρονομία)"
 
 #: books/skoufas_classification_classes.py:652
 msgid "Chronology"
-msgstr ""
+msgstr "Χρονολογία"
 
 #: books/skoufas_classification_classes.py:654
 msgid "Classical mechanics"
-msgstr ""
+msgstr "Κλασική μηχανική"
 
 #: books/skoufas_classification_classes.py:655
 msgid "Fluid mechanics"
-msgstr ""
+msgstr "Μηχανική ρευστών"
 
 #: books/skoufas_classification_classes.py:656
 msgid "Pneumatics (Gas mechanics)"
-msgstr ""
+msgstr "Πνευματική (Μηχανική αερίων)"
 
 #: books/skoufas_classification_classes.py:657
 msgid "Sound and related vibrations"
-msgstr ""
+msgstr "Ήχος και συναφείς ταλαντώσεις"
 
 #: books/skoufas_classification_classes.py:658
 msgid "Light and related radiation"
-msgstr ""
+msgstr "Φως και συναφής ακτινοβολία"
 
 #: books/skoufas_classification_classes.py:659
 msgid "Heat"
-msgstr ""
+msgstr "Θερμότητα"
 
 #: books/skoufas_classification_classes.py:660
 msgid "Electricity and electronics"
-msgstr ""
+msgstr "Ηλεκτρισμός και ηλεκτρονική"
 
 #: books/skoufas_classification_classes.py:661
 msgid "Magnetism"
-msgstr ""
+msgstr "Μαγνητισμός"
 
 #: books/skoufas_classification_classes.py:662
 msgid "Modern physics"
-msgstr ""
+msgstr "Σύγχρονη φυσική"
 
 #: books/skoufas_classification_classes.py:663
 msgid "Chemistry and allied sciences"
-msgstr ""
+msgstr "Χημεία και συναφείς επιστήμες"
 
 #: books/skoufas_classification_classes.py:664
 msgid "Physical chemistry"
-msgstr ""
+msgstr "Φυσικοχημεία"
 
 #: books/skoufas_classification_classes.py:666
 msgid "Analytical chemistry"
-msgstr ""
+msgstr "Αναλυτική χημεία"
 
 #: books/skoufas_classification_classes.py:667
 msgid "No longer used — formerly Qualitative analysis"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ποιοτική ανάλυση"
 
 #: books/skoufas_classification_classes.py:668
 msgid "No longer used — formerly Quantitative analysis"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ποσοτική ανάλυση"
 
 #: books/skoufas_classification_classes.py:669
 msgid "Inorganic chemistry"
-msgstr ""
+msgstr "Ανόργανη χημεία"
 
 #: books/skoufas_classification_classes.py:670
 msgid "Organic chemistry"
-msgstr ""
+msgstr "Οργανική χημεία"
 
 #: books/skoufas_classification_classes.py:671
 msgid "Crystallography"
-msgstr ""
+msgstr "Κρυσταλλογραφία"
 
 #: books/skoufas_classification_classes.py:672
 msgid "Mineralogy"
-msgstr ""
+msgstr "Ορυκτολογία"
 
 #: books/skoufas_classification_classes.py:673
 msgid "Earth sciences"
-msgstr ""
+msgstr "Επιστήμες γης"
 
 #: books/skoufas_classification_classes.py:674
 msgid "Geology, hydrology, meteorology"
-msgstr ""
+msgstr "Γεωλογία, υδρολογία, μετεωρολογία"
 
 #: books/skoufas_classification_classes.py:675
 msgid "Petrology"
-msgstr ""
+msgstr "Πετρολογία"
 
 #: books/skoufas_classification_classes.py:676
 msgid "Economic geology"
-msgstr ""
+msgstr "Οικονομική γεωλογία"
 
 #: books/skoufas_classification_classes.py:677
 msgid "Earth sciences of Europe"
-msgstr ""
+msgstr "Επιστήμες γης της Ευρώπης"
 
 #: books/skoufas_classification_classes.py:678
 msgid "Earth sciences of Asia"
-msgstr ""
+msgstr "Επιστήμες γης της Ασίας"
 
 #: books/skoufas_classification_classes.py:679
 msgid "Earth sciences of Africa"
-msgstr ""
+msgstr "Επιστήμες γης της Αφρικής"
 
 #: books/skoufas_classification_classes.py:680
 msgid "Earth sciences of North America"
-msgstr ""
+msgstr "Επιστήμες γης της Βόρειας Αμερικής"
 
 #: books/skoufas_classification_classes.py:681
 msgid "Earth sciences of South America"
-msgstr ""
+msgstr "Επιστήμες γης της Νότιας Αμερικής"
 
 #: books/skoufas_classification_classes.py:683
 msgid ""
 "Earth sciences of Australasia, Pacific Ocean islands, Atlantic Ocean "
 "islands, Arctic islands, Antarctica, extraterrestrial worlds"
-msgstr ""
+msgstr "Επιστήμες γης Αυστραλασίας, νησιών Ειρηνικού, νησιών Ατλαντικού, Αρκτικών νησιών, Ανταρκτικής, εξωγήινων κόσμων"
 
 #: books/skoufas_classification_classes.py:685
 msgid "Paleontology"
-msgstr ""
+msgstr "Παλαιοντολογία"
 
 #: books/skoufas_classification_classes.py:686
 msgid "Paleobotany, fossil microorganisms"
-msgstr ""
+msgstr "Παλαιοβοτανική, απολιθωμένοι μικροοργανισμοί"
 
 #: books/skoufas_classification_classes.py:687
 msgid "Fossil invertebrates"
-msgstr ""
+msgstr "Απολιθωμένα ασπόνδυλα"
 
 #: books/skoufas_classification_classes.py:688
 msgid "Miscellaneous fossil marine and seashore invertebrates"
-msgstr ""
+msgstr "Διάφορα απολιθωμένα θαλάσσια και παράκτια ασπόνδυλα"
 
 #: books/skoufas_classification_classes.py:689
 msgid "Fossil Mollusca and Molluscoidea"
-msgstr ""
+msgstr "Απολιθωμένα μαλάκια"
 
 #: books/skoufas_classification_classes.py:690
 msgid "Fossil Arthropoda"
-msgstr ""
+msgstr "Απολιθωμένα αρθρόποδα"
 
 #: books/skoufas_classification_classes.py:691
 msgid "Fossil Chordata"
-msgstr ""
+msgstr "Απολιθωμένα χορδωτά"
 
 #: books/skoufas_classification_classes.py:692
 msgid "Fossil cold-blooded vertebrates"
-msgstr ""
+msgstr "Απολιθωμένα ψυχρόαιμα σπονδυλωτά"
 
 #: books/skoufas_classification_classes.py:693
 msgid "Fossil Aves (birds)"
-msgstr ""
+msgstr "Απολιθωμένα πτηνά"
 
 #: books/skoufas_classification_classes.py:694
 msgid "Fossil Mammalia"
-msgstr ""
+msgstr "Απολιθωμένα θηλαστικά"
 
 #: books/skoufas_classification_classes.py:696
 msgid "Physiology and related subjects"
-msgstr ""
+msgstr "Φυσιολογία και συναφή θέματα"
 
 #: books/skoufas_classification_classes.py:697
 msgid "Biochemistry"
-msgstr ""
+msgstr "Βιοχημεία"
 
 #: books/skoufas_classification_classes.py:698
 msgid ""
 "Specific physiological systems in animals, regional histology and physiology "
 "in animals"
-msgstr ""
+msgstr "Ειδικά φυσιολογικά συστήματα σε ζώα, περιφερειακή ιστολογία και φυσιολογία ζώων"
 
 #: books/skoufas_classification_classes.py:700
 msgid "Specific parts of and physiological systems in plants"
-msgstr ""
+msgstr "Ειδικά μέρη και φυσιολογικά συστήματα φυτών"
 
 #: books/skoufas_classification_classes.py:701
 msgid "Genetics and evolution"
-msgstr ""
+msgstr "Γενετική και εξέλιξη"
 
 #: books/skoufas_classification_classes.py:702
 msgid "Ecology"
-msgstr ""
+msgstr "Οικολογία"
 
 #: books/skoufas_classification_classes.py:703
 msgid "Natural history of organisms and related subjects"
-msgstr ""
+msgstr "Φυσική ιστορία οργανισμών και συναφή θέματα"
 
 #: books/skoufas_classification_classes.py:704
 msgid "Natural history of microorganisms, fungi, algae"
-msgstr ""
+msgstr "Φυσική ιστορία μικροοργανισμών, μυκήτων, φυκών"
 
 #: books/skoufas_classification_classes.py:706
 msgid "Specific topics in natural history of plants"
-msgstr ""
+msgstr "Ειδικά θέματα φυσικής ιστορίας φυτών"
 
 #: books/skoufas_classification_classes.py:707
 msgid "Plants noted for specific vegetative characteristics and flowers"
-msgstr ""
+msgstr "Φυτά γνωστά για ειδικά βλαστικά χαρακτηριστικά και άνθη"
 
 #: books/skoufas_classification_classes.py:708
 msgid "Magnoliopsida (Dicotyledones)"
-msgstr ""
+msgstr "Μαγνολιόψιδα (Δικοτυλήδονα)"
 
 #: books/skoufas_classification_classes.py:709
 msgid "Liliopsida (Monocotyledones)"
-msgstr ""
+msgstr "Λιλιόψιδα (Μονοκοτυλήδονα)"
 
 #: books/skoufas_classification_classes.py:710
 msgid "Pinophyta (Gymnosperms)"
-msgstr ""
+msgstr "Πινόφυτα (Γυμνόσπερμα)"
 
 #: books/skoufas_classification_classes.py:711
 msgid "Cryptogamia (Seedless plants)"
-msgstr ""
+msgstr "Κρυπτόγαμα (Άσπερμα φυτά)"
 
 #: books/skoufas_classification_classes.py:712
 msgid "Pteridophyta"
-msgstr ""
+msgstr "Πτεριδόφυτα"
 
 #: books/skoufas_classification_classes.py:713
 msgid "Bryophyta"
-msgstr ""
+msgstr "Βρυόφυτα"
 
 #: books/skoufas_classification_classes.py:714
 msgid "No longer used—formerly Forestry"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην δασολογία"
 
 #: books/skoufas_classification_classes.py:715
 msgid "Animals"
-msgstr ""
+msgstr "Ζώα"
 
 #: books/skoufas_classification_classes.py:716
 msgid "Specific topics in natural history of animals"
-msgstr ""
+msgstr "Ειδικά θέματα φυσικής ιστορίας ζώων"
 
 #: books/skoufas_classification_classes.py:717
 msgid "Invertebrates"
-msgstr ""
+msgstr "Ασπόνδυλα"
 
 #: books/skoufas_classification_classes.py:718
 msgid "Miscellaneous marine and seashore invertebrates"
-msgstr ""
+msgstr "Διάφορα θαλάσσια και παράκτια ασπόνδυλα"
 
 #: books/skoufas_classification_classes.py:719
 msgid "Mollusca and Molluscoidea"
-msgstr ""
+msgstr "Μαλάκια"
 
 #: books/skoufas_classification_classes.py:720
 msgid "Arthropoda"
-msgstr ""
+msgstr "Αρθρόποδα"
 
 #: books/skoufas_classification_classes.py:721
 msgid "Chordata"
-msgstr ""
+msgstr "Χορδωτά"
 
 #: books/skoufas_classification_classes.py:722
 msgid "Cold-blooded vertebrates"
-msgstr ""
+msgstr "Ψυχρόαιμα σπονδυλωτά"
 
 #: books/skoufas_classification_classes.py:723
 msgid "Aves (Birds)"
-msgstr ""
+msgstr "Πτηνά"
 
 #: books/skoufas_classification_classes.py:724
 msgid "Mammalia (Mammals)"
-msgstr ""
+msgstr "Θηλαστικά"
 
 #: books/skoufas_classification_classes.py:725
 msgid "Technology (Applied sciences)"
-msgstr ""
+msgstr "Τεχνολογία (Εφαρμοσμένες επιστήμες)"
 
 #: books/skoufas_classification_classes.py:729
 msgid "Technical drawing, hazardous materials technology; groups of people"
-msgstr ""
+msgstr "Τεχνικό σχέδιο, τεχνολογία επικίνδυνων υλικών"
 
 #: books/skoufas_classification_classes.py:731
 msgid "Organizations"
-msgstr ""
+msgstr "Οργανισμοί"
 
 #: books/skoufas_classification_classes.py:733
 msgid "Patents"
-msgstr ""
+msgstr "Διπλώματα ευρεσιτεχνίας"
 
 #: books/skoufas_classification_classes.py:736
 msgid "Human anatomy, cytology, histology"
-msgstr ""
+msgstr "Ανθρώπινη ανατομία, κυτταρολογία, ιστολογία"
 
 #: books/skoufas_classification_classes.py:737
 msgid "Human physiology"
-msgstr ""
+msgstr "Ανθρώπινη φυσιολογία"
 
 #: books/skoufas_classification_classes.py:738
 msgid "Personal health and safety"
-msgstr ""
+msgstr "Προσωπική υγεία και ασφάλεια"
 
 #: books/skoufas_classification_classes.py:739
 msgid ""
 "Forensic medicine; incidence of injuries, wounds, disease; public preventive "
 "medicine"
-msgstr ""
+msgstr "Ιατροδικαστική· επίπτωση τραυματισμών, τραυμάτων, ασθενειών· δημόσια προληπτική ιατρική"
 
 #: books/skoufas_classification_classes.py:740
 msgid "Pharmacology and therapeutics"
-msgstr ""
+msgstr "Φαρμακολογία και θεραπευτική"
 
 #: books/skoufas_classification_classes.py:741
 msgid "Diseases"
-msgstr ""
+msgstr "Ασθένειες"
 
 #: books/skoufas_classification_classes.py:742
 msgid ""
 "Surgery, regional medicine, dentistry, ophthalmology, otology, audiology"
-msgstr ""
+msgstr "Χειρουργική, περιφερειακή ιατρική, οδοντιατρική, οφθαλμολογία, ωτολογία, ακοολογία"
 
 #: books/skoufas_classification_classes.py:743
 msgid "Gynecology, obstetrics, pediatrics, geriatrics"
-msgstr ""
+msgstr "Γυναικολογία, μαιευτική, παιδιατρική, γηριατρική"
 
 #: books/skoufas_classification_classes.py:744
 msgid "No longer used—formerly Experimental medicine"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην πειραματική ιατρική"
 
 #: books/skoufas_classification_classes.py:745
 msgid "Engineering and applied operations"
-msgstr ""
+msgstr "Μηχανική και εφαρμοσμένες εργασίες"
 
 #: books/skoufas_classification_classes.py:746
 msgid "Applied physics"
-msgstr ""
+msgstr "Εφαρμοσμένη φυσική"
 
 #: books/skoufas_classification_classes.py:747
 msgid "Mining and related operations"
-msgstr ""
+msgstr "Εξόρυξη και συναφείς εργασίες"
 
 #: books/skoufas_classification_classes.py:748
 msgid "Military and nautical engineering"
-msgstr ""
+msgstr "Στρατιωτική και ναυτική μηχανική"
 
 #: books/skoufas_classification_classes.py:749
 msgid "Civil engineering"
-msgstr ""
+msgstr "Πολιτική μηχανική"
 
 #: books/skoufas_classification_classes.py:750
 msgid "Engineering of railroads, roads"
-msgstr ""
+msgstr "Μηχανική σιδηροδρόμων και οδών"
 
 #: books/skoufas_classification_classes.py:752
 msgid "Hydraulic engineering"
-msgstr ""
+msgstr "Υδραυλική μηχανική"
 
 #: books/skoufas_classification_classes.py:753
 msgid "Sanitary engineering"
-msgstr ""
+msgstr "Υγειονομική μηχανική"
 
 #: books/skoufas_classification_classes.py:754
 msgid "Other branches of engineering"
-msgstr ""
+msgstr "Άλλοι κλάδοι μηχανικής"
 
 #: books/skoufas_classification_classes.py:755
 msgid "Agriculture and related technologies"
-msgstr ""
+msgstr "Γεωργία και συναφείς τεχνολογίες"
 
 #: books/skoufas_classification_classes.py:756
 msgid "Specific techniques; apparatus, equipment, materials"
-msgstr ""
+msgstr "Ειδικές τεχνικές· εξοπλισμός, υλικά"
 
 #: books/skoufas_classification_classes.py:757
 msgid "Plant injuries, diseases, pests"
-msgstr ""
+msgstr "Ζημιές, ασθένειες και παράσιτα φυτών"
 
 #: books/skoufas_classification_classes.py:758
 msgid "Field and plantation crops"
-msgstr ""
+msgstr "Αγροτικές και φυτευτικές καλλιέργειες"
 
 #: books/skoufas_classification_classes.py:759
 msgid "Orchards, fruits, forestry"
-msgstr ""
+msgstr "Οπωρώνες, φρούτα, δασοκομία"
 
 #: books/skoufas_classification_classes.py:760
 msgid "Garden crops (Horticulture)"
-msgstr ""
+msgstr "Κηπευτικές καλλιέργειες (Κηπουρική)"
 
 #: books/skoufas_classification_classes.py:761
 msgid "Animal husbandry"
-msgstr ""
+msgstr "Κτηνοτροφία"
 
 #: books/skoufas_classification_classes.py:762
 msgid "Processing dairy and related products"
-msgstr ""
+msgstr "Επεξεργασία γαλακτοκομικών και συναφών προϊόντων"
 
 #: books/skoufas_classification_classes.py:763
 msgid "Insect culture"
-msgstr ""
+msgstr "Εντομοκαλλιέργεια"
 
 #: books/skoufas_classification_classes.py:764
 msgid "Hunting, fishing, conservation, related technologies"
-msgstr ""
+msgstr "Κυνήγι, αλιεία, συντήρηση, συναφείς τεχνολογίες"
 
 #: books/skoufas_classification_classes.py:766
 msgid "Food and drink"
-msgstr ""
+msgstr "Τρόφιμα και ποτά"
 
 #: books/skoufas_classification_classes.py:767
 msgid "Meals and table service"
-msgstr ""
+msgstr "Γεύματα και εξυπηρέτηση τραπεζιού"
 
 #: books/skoufas_classification_classes.py:768
 msgid "Housing and household equipment"
-msgstr ""
+msgstr "Στέγαση και οικιακός εξοπλισμός"
 
 #: books/skoufas_classification_classes.py:769
 msgid "Household utilities"
-msgstr ""
+msgstr "Οικιακές εγκαταστάσεις"
 
 #: books/skoufas_classification_classes.py:770
 msgid "Household furnishings"
-msgstr ""
+msgstr "Επίπλωση σπιτιού"
 
 #: books/skoufas_classification_classes.py:771
 msgid "Sewing, clothing, management of personal and family life"
-msgstr ""
+msgstr "Ραπτική, ενδυμασία, διαχείριση προσωπικής και οικογενειακής ζωής"
 
 #: books/skoufas_classification_classes.py:772
 msgid "Management of public households (Institutional housekeeping)"
-msgstr ""
+msgstr "Διαχείριση δημόσιων οίκων (Θεσμική οικοκυρία)"
 
 #: books/skoufas_classification_classes.py:773
 msgid "Housekeeping"
-msgstr ""
+msgstr "Οικιακά καθήκοντα"
 
 #: books/skoufas_classification_classes.py:774
 msgid "Child rearing; home care of people with disabilities and illnesses"
-msgstr ""
+msgstr "Ανατροφή παιδιών· οικιακή φροντίδα ατόμων με αναπηρία"
 
 #: books/skoufas_classification_classes.py:775
 msgid "Management and auxiliary services"
-msgstr ""
+msgstr "Διαχείριση και βοηθητικές υπηρεσίες"
 
 #: books/skoufas_classification_classes.py:776
 msgid "Office services"
-msgstr ""
+msgstr "Υπηρεσίες γραφείου"
 
 #: books/skoufas_classification_classes.py:777
 msgid "Processes of written communication"
-msgstr ""
+msgstr "Διαδικασίες γραπτής επικοινωνίας"
 
 #: books/skoufas_classification_classes.py:778
 msgid "Shorthand"
-msgstr ""
+msgstr "Στενογραφία"
 
 #: books/skoufas_classification_classes.py:782
 msgid "Accounting"
-msgstr ""
+msgstr "Λογιστική"
 
 #: books/skoufas_classification_classes.py:783
 msgid "General management"
-msgstr ""
+msgstr "Γενική διαχείριση"
 
 #: books/skoufas_classification_classes.py:784
 msgid "Advertising and public relations"
-msgstr ""
+msgstr "Διαφήμιση και δημόσιες σχέσεις"
 
 #: books/skoufas_classification_classes.py:785
 msgid "Chemical engineering and related technologies"
-msgstr ""
+msgstr "Χημική μηχανική και συναφείς τεχνολογίες"
 
 #: books/skoufas_classification_classes.py:786
 msgid "Technology of industrial chemicals"
-msgstr ""
+msgstr "Τεχνολογία βιομηχανικών χημικών"
 
 #: books/skoufas_classification_classes.py:787
 msgid "Technology of explosives, fuels, related products"
-msgstr ""
+msgstr "Τεχνολογία εκρηκτικών, καυσίμων και συναφών προϊόντων"
 
 #: books/skoufas_classification_classes.py:788
 msgid "Beverage technology"
-msgstr ""
+msgstr "Τεχνολογία ποτών"
 
 #: books/skoufas_classification_classes.py:789
 msgid "Food technology"
-msgstr ""
+msgstr "Τεχνολογία τροφίμων"
 
 #: books/skoufas_classification_classes.py:790
 msgid "Technology of industrial oils, fats, waxes, gases"
-msgstr ""
+msgstr "Τεχνολογία βιομηχανικών ελαίων, λιπών, κεριών, αερίων"
 
 #: books/skoufas_classification_classes.py:791
 msgid "Ceramic and allied technologies"
-msgstr ""
+msgstr "Κεραμική και συναφείς τεχνολογίες"
 
 #: books/skoufas_classification_classes.py:792
 msgid "Cleaning, color, coating, related technologies"
-msgstr ""
+msgstr "Καθαρισμός, χρώμα, επίστρωση, συναφείς τεχνολογίες"
 
 #: books/skoufas_classification_classes.py:793
 msgid "Technology of other organic products"
-msgstr ""
+msgstr "Τεχνολογία άλλων οργανικών προϊόντων"
 
 #: books/skoufas_classification_classes.py:794
 msgid "Metallurgy"
-msgstr ""
+msgstr "Μεταλλουργία"
 
 #: books/skoufas_classification_classes.py:796
 msgid "Metalworking processes and primary metal products"
-msgstr ""
+msgstr "Διαδικασίες μεταλλουργίας και πρωτογενή μεταλλικά προϊόντα"
 
 #: books/skoufas_classification_classes.py:797
 msgid "Iron, steel, other iron alloys"
-msgstr ""
+msgstr "Σίδηρος, χάλυβας, άλλα σιδηρούχα κράματα"
 
 #: books/skoufas_classification_classes.py:798
 msgid "Nonferrous metals"
-msgstr ""
+msgstr "Μη σιδηρούχα μέταλλα"
 
 #: books/skoufas_classification_classes.py:799
 msgid "Lumber processing, wood products, cork"
-msgstr ""
+msgstr "Επεξεργασία ξυλείας, ξύλινα προϊόντα, φελλός"
 
 #: books/skoufas_classification_classes.py:800
 msgid "Leather and fur processing"
-msgstr ""
+msgstr "Επεξεργασία δέρματος και γούνας"
 
 #: books/skoufas_classification_classes.py:801
 msgid "Pulp and paper technology"
-msgstr ""
+msgstr "Τεχνολογία χαρτοπολτού και χαρτιού"
 
 #: books/skoufas_classification_classes.py:802
 msgid "Textiles"
-msgstr ""
+msgstr "Υφάσματα"
 
 #: books/skoufas_classification_classes.py:803
 msgid "Elastomers and elastomer products"
-msgstr ""
+msgstr "Ελαστομερή και προϊόντα ελαστομερών"
 
 #: books/skoufas_classification_classes.py:804
 msgid "Other products of specific kinds of materials"
-msgstr ""
+msgstr "Άλλα προϊόντα συγκεκριμένων ειδών υλικών"
 
 #: books/skoufas_classification_classes.py:805
 msgid "Manufacture of products for specific uses"
-msgstr ""
+msgstr "Κατασκευή προϊόντων για συγκεκριμένες χρήσεις"
 
 #: books/skoufas_classification_classes.py:806
 msgid "Precision instruments and other devices"
-msgstr ""
+msgstr "Όργανα ακριβείας και άλλες συσκευές"
 
 #: books/skoufas_classification_classes.py:807
 msgid "Small forge work (Blacksmithing)"
-msgstr ""
+msgstr "Μικρές εργασίες σφυρηλάτησης (Σιδηρουργία)"
 
 #: books/skoufas_classification_classes.py:808
 msgid "Hardware and household appliances"
-msgstr ""
+msgstr "Εργαλεία και οικιακές συσκευές"
 
 #: books/skoufas_classification_classes.py:809
 msgid "Furnishings and home workshops"
-msgstr ""
+msgstr "Επιπλώσεις και οικιακά εργαστήρια"
 
 #: books/skoufas_classification_classes.py:810
 msgid "Leather and fur goods, and related products"
-msgstr ""
+msgstr "Δερμάτινα και γούνινα είδη και συναφή προϊόντα"
 
 #: books/skoufas_classification_classes.py:811
 msgid "Printing and related activities"
-msgstr ""
+msgstr "Εκτύπωση και συναφείς δραστηριότητες"
 
 #: books/skoufas_classification_classes.py:812
 msgid "Clothing and accessories"
-msgstr ""
+msgstr "Ενδύματα και αξεσουάρ"
 
 #: books/skoufas_classification_classes.py:813
 msgid "Other final products, and packaging technology"
-msgstr ""
+msgstr "Άλλα τελικά προϊόντα και τεχνολογία συσκευασίας"
 
 #: books/skoufas_classification_classes.py:816
 msgid "Building materials"
-msgstr ""
+msgstr "Δομικά υλικά"
 
 #: books/skoufas_classification_classes.py:817
 msgid "Auxiliary construction practices"
-msgstr ""
+msgstr "Βοηθητικές κατασκευαστικές πρακτικές"
 
 #: books/skoufas_classification_classes.py:818
 msgid "Construction in specific types of materials and for specific purposes"
-msgstr ""
+msgstr "Κατασκευή με συγκεκριμένα υλικά και για συγκεκριμένους σκοπούς"
 
 #: books/skoufas_classification_classes.py:819
 msgid "Wood construction"
-msgstr ""
+msgstr "Ξύλινες κατασκευές"
 
 #: books/skoufas_classification_classes.py:820
 msgid "Roof covering"
-msgstr ""
+msgstr "Στέγαση"
 
 #: books/skoufas_classification_classes.py:821
 msgid "Utilities"
-msgstr ""
+msgstr "Εγκαταστάσεις"
 
 #: books/skoufas_classification_classes.py:822
 msgid "Heating, ventilating, air-conditioning engineering"
-msgstr ""
+msgstr "Θέρμανση, αερισμός, κλιματισμός"
 
 #: books/skoufas_classification_classes.py:823
 msgid "Detail finishing"
-msgstr ""
+msgstr "Λεπτομερής αποπεράτωση"
 
 #: books/skoufas_classification_classes.py:825
 msgid "The Arts"
-msgstr ""
+msgstr "Τέχνες"
 
 #: books/skoufas_classification_classes.py:826
 msgid "Philosophy and theory of fine and decorative arts"
-msgstr ""
+msgstr "Φιλοσοφία και θεωρία καλών και διακοσμητικών τεχνών"
 
 #: books/skoufas_classification_classes.py:827
 msgid "Miscellany of fine and decorative arts"
-msgstr ""
+msgstr "Διάφορα καλών και διακοσμητικών τεχνών"
 
 #: books/skoufas_classification_classes.py:828
 msgid "Dictionaries, encyclopedias, concordances of fine and decorative arts"
-msgstr ""
+msgstr "Λεξικά, εγκυκλοπαίδειες, ευρετήρια καλών και διακοσμητικών τεχνών"
 
 #: books/skoufas_classification_classes.py:829
 msgid "Special topics in fine and decorative arts"
-msgstr ""
+msgstr "Ειδικά θέματα καλών και διακοσμητικών τεχνών"
 
 #: books/skoufas_classification_classes.py:830
 msgid "Serial publications of fine and decorative arts"
-msgstr ""
+msgstr "Περιοδικές εκδόσεις καλών και διακοσμητικών τεχνών"
 
 #: books/skoufas_classification_classes.py:831
 msgid "Organizations and management of fine and decorative arts"
-msgstr ""
+msgstr "Οργανισμοί και διαχείριση καλών και διακοσμητικών τεχνών"
 
 #: books/skoufas_classification_classes.py:832
 msgid "Education, research, related topics of fine and decorative arts"
-msgstr ""
+msgstr "Εκπαίδευση, έρευνα και σχετικά θέματα καλών και διακοσμητικών τεχνών"
 
 #: books/skoufas_classification_classes.py:833
 msgid "Galleries, museums, private collections of fine and decorative arts"
-msgstr ""
+msgstr "Γκαλερί, μουσεία, ιδιωτικές συλλογές καλών και διακοσμητικών τεχνών"
 
 #: books/skoufas_classification_classes.py:836
 msgid "Area planning (Civic art)"
-msgstr ""
+msgstr "Πολεοδομικός σχεδιασμός (Αστική τέχνη)"
 
 #: books/skoufas_classification_classes.py:837
 msgid "Landscape architecture (Landscape design)"
-msgstr ""
+msgstr "Αρχιτεκτονική τοπίου"
 
 #: books/skoufas_classification_classes.py:838
 msgid "Landscape architecture of trafficways"
-msgstr ""
+msgstr "Αρχιτεκτονική τοπίου οδικών αξόνων"
 
 #: books/skoufas_classification_classes.py:839
 msgid "Water features in landscape architecture"
-msgstr ""
+msgstr "Υδάτινα στοιχεία στην αρχιτεκτονική τοπίου"
 
 #: books/skoufas_classification_classes.py:840
 msgid "Woody plants in landscape architecture"
-msgstr ""
+msgstr "Ξυλώδη φυτά στην αρχιτεκτονική τοπίου"
 
 #: books/skoufas_classification_classes.py:841
 msgid "Herbaceous plants in landscape architecture"
-msgstr ""
+msgstr "Ποώδη φυτά στην αρχιτεκτονική τοπίου"
 
 #: books/skoufas_classification_classes.py:842
 msgid "Structures in landscape architecture"
-msgstr ""
+msgstr "Κατασκευές στην αρχιτεκτονική τοπίου"
 
 #: books/skoufas_classification_classes.py:843
 msgid "Landscape design of cemeteries"
-msgstr ""
+msgstr "Σχεδιασμός τοπίου νεκροταφείων"
 
 #: books/skoufas_classification_classes.py:844
 msgid "Natural landscapes"
-msgstr ""
+msgstr "Φυσικά τοπία"
 
 #: books/skoufas_classification_classes.py:846
 msgid "Architectural materials and structural elements"
-msgstr ""
+msgstr "Αρχιτεκτονικά υλικά και δομικά στοιχεία"
 
 #: books/skoufas_classification_classes.py:847
 msgid "Architecture from earliest times to c. 300"
-msgstr ""
+msgstr "Αρχιτεκτονική από τους αρχαιότερους χρόνους έως περ. 300"
 
 #: books/skoufas_classification_classes.py:848
 msgid "Architecture from c. 300 to 1399"
-msgstr ""
+msgstr "Αρχιτεκτονική από περ. 300 έως 1399"
 
 #: books/skoufas_classification_classes.py:849
 msgid "Architecture from 1400"
-msgstr ""
+msgstr "Αρχιτεκτονική από το 1400"
 
 #: books/skoufas_classification_classes.py:850
 msgid "Public structures"
-msgstr ""
+msgstr "Δημόσια κτίρια"
 
 #: books/skoufas_classification_classes.py:851
 msgid "Buildings for religious and related purposes"
-msgstr ""
+msgstr "Κτίρια για θρησκευτικούς και συναφείς σκοπούς"
 
 #: books/skoufas_classification_classes.py:852
 msgid "Buildings for educational and research purposes"
-msgstr ""
+msgstr "Κτίρια για εκπαιδευτικούς και ερευνητικούς σκοπούς"
 
 #: books/skoufas_classification_classes.py:853
 msgid "Residential and related buildings"
-msgstr ""
+msgstr "Κατοικίες και συναφή κτίρια"
 
 #: books/skoufas_classification_classes.py:854
 msgid "Design and decoration of structures and accessories"
-msgstr ""
+msgstr "Σχεδιασμός και διακόσμηση κτιρίων και εξαρτημάτων"
 
 #: books/skoufas_classification_classes.py:855
 msgid "Sculpture and related arts"
-msgstr ""
+msgstr "Γλυπτική και συναφείς τέχνες"
 
 #: books/skoufas_classification_classes.py:856
 msgid "Processes, forms, subjects of sculpture"
-msgstr ""
+msgstr "Διαδικασίες, μορφές και θέματα γλυπτικής"
 
 #: books/skoufas_classification_classes.py:857
 msgid ""
 "Sculpture from earliest times to c. 500, sculpture of non-literate peoples"
-msgstr ""
+msgstr "Γλυπτική από τους αρχαιότερους χρόνους έως περ. 500, γλυπτική μη εγγράμματων λαών"
 
 #: books/skoufas_classification_classes.py:858
 msgid "Greek, Etruscan, Roman sculpture"
-msgstr ""
+msgstr "Ελληνική, Ετρουσκική, Ρωμαϊκή γλυπτική"
 
 #: books/skoufas_classification_classes.py:859
 msgid "Sculpture from ca 500 to 1399"
-msgstr ""
+msgstr "Γλυπτική από περ. 500 έως 1399"
 
 #: books/skoufas_classification_classes.py:860
 msgid "Sculpture from 1400"
-msgstr ""
+msgstr "Γλυπτική από το 1400"
 
 #: books/skoufas_classification_classes.py:861
 msgid "Carving and carvings"
-msgstr ""
+msgstr "Σκάλισμα και γλυπτά"
 
 #: books/skoufas_classification_classes.py:862
 msgid "Numismatics and sigillography"
-msgstr ""
+msgstr "Νομισματική και σφραγιδολογία"
 
 #: books/skoufas_classification_classes.py:863
 msgid "Ceramic arts"
-msgstr ""
+msgstr "Κεραμική τέχνη"
 
 #: books/skoufas_classification_classes.py:864
 msgid "Art metalwork"
-msgstr ""
+msgstr "Καλλιτεχνική μεταλλοτεχνία"
 
 #: books/skoufas_classification_classes.py:865
 msgid "Graphic arts"
-msgstr ""
+msgstr "Γραφικές τέχνες"
 
 #: books/skoufas_classification_classes.py:866
 msgid "Drawing and drawings"
-msgstr ""
+msgstr "Σχέδιο και σχέδια"
 
 #: books/skoufas_classification_classes.py:867
 msgid "Perspective in drawing"
-msgstr ""
+msgstr "Προοπτική στο σχέδιο"
 
 #: books/skoufas_classification_classes.py:868
 msgid "Drawing and drawings by subject"
-msgstr ""
+msgstr "Σχέδιο και σχέδια κατά θέμα"
 
 #: books/skoufas_classification_classes.py:869
 msgid "Communication design and visual design (proposed[5])"
-msgstr ""
+msgstr "Σχεδιασμός επικοινωνίας και οπτικός σχεδιασμός"
 
 #: books/skoufas_classification_classes.py:870
 msgid "Decorative arts"
-msgstr ""
+msgstr "Διακοσμητικές τέχνες"
 
 #: books/skoufas_classification_classes.py:871
 msgid "Textile arts"
-msgstr ""
+msgstr "Υφαντουργικές τέχνες"
 
 #: books/skoufas_classification_classes.py:872
 msgid "Interior decoration"
-msgstr ""
+msgstr "Εσωτερική διακόσμηση"
 
 #: books/skoufas_classification_classes.py:873
 msgid "Glass"
-msgstr ""
+msgstr "Γυαλί"
 
 #: books/skoufas_classification_classes.py:874
 msgid "Furniture and accessories"
-msgstr ""
+msgstr "Έπιπλα και αξεσουάρ"
 
 #: books/skoufas_classification_classes.py:875
 msgid "Painting and paintings"
-msgstr ""
+msgstr "Ζωγραφική"
 
 #: books/skoufas_classification_classes.py:876
 msgid "Techniques, procedures, apparatus, equipment, materials, forms"
-msgstr ""
+msgstr "Τεχνικές, διαδικασίες, εξοπλισμός, υλικά, μορφές"
 
 #: books/skoufas_classification_classes.py:877
 msgid "Color"
-msgstr ""
+msgstr "Χρώμα"
 
 #: books/skoufas_classification_classes.py:878
 msgid "Symbolism, allegory, mythology, legend"
-msgstr ""
+msgstr "Συμβολισμός, αλληγορία, μυθολογία, θρύλος"
 
 #: books/skoufas_classification_classes.py:879
 msgid "Genre paintings"
-msgstr ""
+msgstr "Ζωγραφική ειδών"
 
 #: books/skoufas_classification_classes.py:882
 msgid "Human figures"
-msgstr ""
+msgstr "Ανθρώπινες φιγούρες"
 
 #: books/skoufas_classification_classes.py:883
 msgid "Nature, architectural subjects and cityscapes, other specific subjects"
-msgstr ""
+msgstr "Φύση, αρχιτεκτονικά θέματα και αστικά τοπία, άλλα ειδικά θέματα"
 
 #: books/skoufas_classification_classes.py:886
 msgid "Relief processes (Block printing)"
-msgstr ""
+msgstr "Ανάγλυφες εκτυπωτικές διαδικασίες (Εκτύπωση από μπλοκ)"
 
 #: books/skoufas_classification_classes.py:888
 msgid "Lithographic processes (Planographic processes)"
-msgstr ""
+msgstr "Λιθογραφικές διαδικασίες"
 
 #: books/skoufas_classification_classes.py:889
 msgid "Chromolithography and serigraphy"
-msgstr ""
+msgstr "Χρωμολιθογραφία και σεριγραφία"
 
 #: books/skoufas_classification_classes.py:890
 msgid "Metal engraving"
-msgstr ""
+msgstr "Χαρακτική σε μέταλλο"
 
 #: books/skoufas_classification_classes.py:891
 msgid "Mezzotinting, aquatinting, and related processes"
-msgstr ""
+msgstr "Μεσοτίνθος, ακουατίντα και συναφείς διαδικασίες"
 
 #: books/skoufas_classification_classes.py:892
 msgid "Etching and drypoint"
-msgstr ""
+msgstr "Χαρακτική με οξύ και ξηρή βελόνη"
 
 #: books/skoufas_classification_classes.py:894
 msgid "Prints"
-msgstr ""
+msgstr "Εκτυπώσεις"
 
 #: books/skoufas_classification_classes.py:895
 msgid "Photography, computer art, cinematography, videography"
-msgstr ""
+msgstr "Φωτογραφία, ψηφιακή τέχνη, κινηματογραφία, βιντεογραφία"
 
 #: books/skoufas_classification_classes.py:897
 msgid "Metallic salt processes"
-msgstr ""
+msgstr "Διαδικασίες μεταλλικών αλάτων"
 
 #: books/skoufas_classification_classes.py:898
 msgid "Pigment processes of printing"
-msgstr ""
+msgstr "Διαδικασίες χρωστικής εκτύπωσης"
 
 #: books/skoufas_classification_classes.py:899
 msgid "No longer used—formerly Holography"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ολογραφία"
 
 #: books/skoufas_classification_classes.py:900
 msgid "No longer used—formerly Digital photography"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην ψηφιακή φωτογραφία"
 
 #: books/skoufas_classification_classes.py:901
 msgid "Computer art (Digital art)"
-msgstr ""
+msgstr "Τέχνη υπολογιστών (Ψηφιακή τέχνη)"
 
 #: books/skoufas_classification_classes.py:902
 msgid "Cinematography and Videography"
-msgstr ""
+msgstr "Κινηματογραφία και βιντεογραφία"
 
 #: books/skoufas_classification_classes.py:903
 msgid "Specific fields and special kinds of photography"
-msgstr ""
+msgstr "Ειδικοί τομείς και ειδικά είδη φωτογραφίας"
 
 #: books/skoufas_classification_classes.py:904
 msgid "Photographic images"
-msgstr ""
+msgstr "Φωτογραφικές εικόνες"
 
 #: books/skoufas_classification_classes.py:906
 msgid "General principles and musical forms"
-msgstr ""
+msgstr "Γενικές αρχές και μουσικές φόρμες"
 
 #: books/skoufas_classification_classes.py:907
 msgid "Vocal music"
-msgstr ""
+msgstr "Φωνητική μουσική"
 
 #: books/skoufas_classification_classes.py:908
 msgid "Music for single voices"
-msgstr ""
+msgstr "Μουσική για μονή φωνή"
 
 #: books/skoufas_classification_classes.py:909
 msgid "Instruments and Instrumental ensembles and their music"
-msgstr ""
+msgstr "Όργανα και ενόργανα σύνολα και μουσική τους"
 
 #: books/skoufas_classification_classes.py:910
 msgid "Ensembles with only one instrument per part"
-msgstr ""
+msgstr "Σύνολα με ένα μόνο όργανο ανά μέρος"
 
 #: books/skoufas_classification_classes.py:911
 msgid "Keyboard, mechanical, electrophonic, percussion instruments"
-msgstr ""
+msgstr "Πληκτροφόρα, μηχανικά, ηλεκτροφωνικά και κρουστά όργανα"
 
 #: books/skoufas_classification_classes.py:912
 msgid "Stringed instruments (Chordophones)"
-msgstr ""
+msgstr "Έγχορδα όργανα (Χορδόφωνα)"
 
 #: books/skoufas_classification_classes.py:913
 msgid "Wind instruments (Aerophones)"
-msgstr ""
+msgstr "Πνευστά όργανα (Αερόφωνα)"
 
 #: books/skoufas_classification_classes.py:915
 msgid "Recreational and performing arts"
-msgstr ""
+msgstr "Ψυχαγωγικές και παραστατικές τέχνες"
 
 #: books/skoufas_classification_classes.py:916
 msgid "Public performances"
-msgstr ""
+msgstr "Δημόσιες παραστάσεις"
 
 #: books/skoufas_classification_classes.py:917
 msgid "Stage presentations"
-msgstr ""
+msgstr "Σκηνικές παραστάσεις"
 
 #: books/skoufas_classification_classes.py:918
 msgid "Indoor games and amusements"
-msgstr ""
+msgstr "Εσωτερικά παιχνίδια και διασκεδάσεις"
 
 #: books/skoufas_classification_classes.py:919
 msgid "Indoor games of skill"
-msgstr ""
+msgstr "Επιτραπέζια παιχνίδια δεξιοτήτων"
 
 #: books/skoufas_classification_classes.py:920
 msgid "Games of chance"
-msgstr ""
+msgstr "Τυχερά παιχνίδια"
 
 #: books/skoufas_classification_classes.py:921
 msgid "Athletic and outdoor sports and games"
-msgstr ""
+msgstr "Αθλητικά και υπαίθρια αθλήματα και παιχνίδια"
 
 #: books/skoufas_classification_classes.py:922
 msgid "Aquatic and air sports"
-msgstr ""
+msgstr "Υδάτινα και αέρινα αθλήματα"
 
 #: books/skoufas_classification_classes.py:923
 msgid "Equestrian sports and animal racing"
-msgstr ""
+msgstr "Ιππασία και αρματοδρομίες"
 
 #: books/skoufas_classification_classes.py:924
 msgid "Fishing, hunting, shooting"
-msgstr ""
+msgstr "Αλιεία, κυνήγι, σκοποβολή"
 
 #: books/skoufas_classification_classes.py:925
 msgid "Literature (Belles-lettres) and rhetoric"
-msgstr ""
+msgstr "Λογοτεχνία και ρητορική"
 
 #: books/skoufas_classification_classes.py:933
 msgid ""
 "Rhetoric and collections of literary texts from more than two literatures"
-msgstr ""
+msgstr "Ρητορική και συλλογές λογοτεχνικών κειμένων από περισσότερες από δύο λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:934
 msgid "History, description, critical appraisal of more than two literatures"
-msgstr ""
+msgstr "Ιστορία, περιγραφή, κριτική αποτίμηση περισσότερων από δύο λογοτεχνιών"
 
 #: books/skoufas_classification_classes.py:936
 msgid "American poetry in English"
-msgstr ""
+msgstr "Αμερικανική ποίηση στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:937
 msgid "American drama in English"
-msgstr ""
+msgstr "Αμερικανικό δράμα στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:938
 msgid "American fiction in English"
-msgstr ""
+msgstr "Αμερικανική πεζογραφία στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:939
 msgid "American essays in English"
-msgstr ""
+msgstr "Αμερικανικά δοκίμια στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:940
 msgid "American speeches in English"
-msgstr ""
+msgstr "Αμερικανικοί λόγοι στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:941
 msgid "American letters in English"
-msgstr ""
+msgstr "Αμερικανικές επιστολές στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:942
 msgid "American humor and satire in English"
-msgstr ""
+msgstr "Αμερικανικό χιούμορ και σάτιρα στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:943
 msgid "American miscellaneous writings in English"
-msgstr ""
+msgstr "Αμερικανικά διάφορα συγγράμματα στα αγγλικά"
 
 #: books/skoufas_classification_classes.py:944
 msgid "No longer used—formerly Puzzle activities"
-msgstr ""
+msgstr "Δεν χρησιμοποιείται πλέον—πρώην δραστηριότητες παζλ"
 
 #: books/skoufas_classification_classes.py:945
 msgid "English and Old English (Anglo-Saxon) literatures"
-msgstr ""
+msgstr "Αγγλική και Παλαιά Αγγλική (Αγγλοσαξονική) λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:946
 msgid "English Poetry"
-msgstr ""
+msgstr "Αγγλική ποίηση"
 
 #: books/skoufas_classification_classes.py:947
 msgid "English drama"
-msgstr ""
+msgstr "Αγγλικό δράμα"
 
 #: books/skoufas_classification_classes.py:948
 msgid "English fiction"
-msgstr ""
+msgstr "Αγγλική μυθοπλασία"
 
 #: books/skoufas_classification_classes.py:949
 msgid "English essays"
-msgstr ""
+msgstr "Αγγλικά δοκίμια"
 
 #: books/skoufas_classification_classes.py:950
 msgid "English speeches"
-msgstr ""
+msgstr "Αγγλικοί λόγοι"
 
 #: books/skoufas_classification_classes.py:951
 msgid "English letters"
-msgstr ""
+msgstr "Αγγλικές επιστολές"
 
 #: books/skoufas_classification_classes.py:952
 msgid "English humor and satire"
-msgstr ""
+msgstr "Αγγλικό χιούμορ και σάτιρα"
 
 #: books/skoufas_classification_classes.py:953
 msgid "English miscellaneous writings"
-msgstr ""
+msgstr "Αγγλικά διάφορα συγγράμματα"
 
 #: books/skoufas_classification_classes.py:954
 msgid "Old English (Anglo-Saxon) literature"
-msgstr ""
+msgstr "Παλαιά Αγγλική λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:955
 msgid "German literature and literatures of related languages"
-msgstr ""
+msgstr "Γερμανική λογοτεχνία και λογοτεχνίες σχετικών γλωσσών"
 
 #: books/skoufas_classification_classes.py:956
 msgid "German poetry"
-msgstr ""
+msgstr "Γερμανική ποίηση"
 
 #: books/skoufas_classification_classes.py:957
 msgid "German drama"
-msgstr ""
+msgstr "Γερμανικό δράμα"
 
 #: books/skoufas_classification_classes.py:958
 msgid "German fiction"
-msgstr ""
+msgstr "Γερμανική μυθοπλασία"
 
 #: books/skoufas_classification_classes.py:959
 msgid "German essays"
-msgstr ""
+msgstr "Γερμανικά δοκίμια"
 
 #: books/skoufas_classification_classes.py:960
 msgid "German speeches"
-msgstr ""
+msgstr "Γερμανικοί λόγοι"
 
 #: books/skoufas_classification_classes.py:961
 msgid "German letters"
-msgstr ""
+msgstr "Γερμανικές επιστολές"
 
 #: books/skoufas_classification_classes.py:962
 msgid "German humor and satire"
-msgstr ""
+msgstr "Γερμανικό χιούμορ και σάτιρα"
 
 #: books/skoufas_classification_classes.py:963
 msgid "German miscellaneous writings"
-msgstr ""
+msgstr "Γερμανικά διάφορα συγγράμματα"
 
 #: books/skoufas_classification_classes.py:964
 msgid "Other Germanic literatures"
-msgstr ""
+msgstr "Άλλες γερμανικές λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:965
 msgid "French literature and literatures of related Romance languages"
-msgstr ""
+msgstr "Γαλλική λογοτεχνία και λογοτεχνίες σχετικών ρομανικών γλωσσών"
 
 #: books/skoufas_classification_classes.py:966
 msgid "French poetry"
-msgstr ""
+msgstr "Γαλλική ποίηση"
 
 #: books/skoufas_classification_classes.py:967
 msgid "French drama"
-msgstr ""
+msgstr "Γαλλικό δράμα"
 
 #: books/skoufas_classification_classes.py:968
 msgid "French fiction"
-msgstr ""
+msgstr "Γαλλική μυθοπλασία"
 
 #: books/skoufas_classification_classes.py:969
 msgid "French essays"
-msgstr ""
+msgstr "Γαλλικά δοκίμια"
 
 #: books/skoufas_classification_classes.py:970
 msgid "French speeches"
-msgstr ""
+msgstr "Γαλλικοί λόγοι"
 
 #: books/skoufas_classification_classes.py:971
 msgid "French letters"
-msgstr ""
+msgstr "Γαλλικές επιστολές"
 
 #: books/skoufas_classification_classes.py:972
 msgid "French humor and satire"
-msgstr ""
+msgstr "Γαλλικό χιούμορ και σάτιρα"
 
 #: books/skoufas_classification_classes.py:973
 msgid "French miscellaneous writings"
-msgstr ""
+msgstr "Γαλλικά διάφορα συγγράμματα"
 
 #: books/skoufas_classification_classes.py:974
 msgid "Occitan, Catalan, Franco-Provençal literatures"
-msgstr ""
+msgstr "Οκσιτανική, Καταλανική, Φράνκο-Προβανσάλ λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:975
 msgid ""
 "Literatures of Italian, Dalmatian, Romanian, Rhaetian, Sardinian, Corsican "
 "languages"
-msgstr ""
+msgstr "Λογοτεχνίες ιταλικής, δαλματικής, ρουμανικής, ρητικής, σαρδηνιακής, κορσικανικής γλώσσας"
 
 #: books/skoufas_classification_classes.py:976
 msgid "Italian poetry"
-msgstr ""
+msgstr "Ιταλική ποίηση"
 
 #: books/skoufas_classification_classes.py:977
 msgid "Italian drama"
-msgstr ""
+msgstr "Ιταλικό δράμα"
 
 #: books/skoufas_classification_classes.py:978
 msgid "Italian fiction"
-msgstr ""
+msgstr "Ιταλική μυθοπλασία"
 
 #: books/skoufas_classification_classes.py:979
 msgid "Italian essays"
-msgstr ""
+msgstr "Ιταλικά δοκίμια"
 
 #: books/skoufas_classification_classes.py:980
 msgid "Italian speeches"
-msgstr ""
+msgstr "Ιταλικοί λόγοι"
 
 #: books/skoufas_classification_classes.py:981
 msgid "Italian letters"
-msgstr ""
+msgstr "Ιταλικές επιστολές"
 
 #: books/skoufas_classification_classes.py:982
 msgid "Italian humor and satire"
-msgstr ""
+msgstr "Ιταλικό χιούμορ και σάτιρα"
 
 #: books/skoufas_classification_classes.py:983
 msgid "Italian miscellaneous writings"
-msgstr ""
+msgstr "Ιταλικά διάφορα συγγράμματα"
 
 #: books/skoufas_classification_classes.py:984
 msgid "Literatures of Romanian, Rhaetian, Sardinian, Corsican languages"
-msgstr ""
+msgstr "Λογοτεχνίες ρουμανικής, ρητικής, σαρδηνιακής, κορσικανικής γλώσσας"
 
 #: books/skoufas_classification_classes.py:985
 msgid "Literatures of Spanish, Portuguese, Galician languages"
-msgstr ""
+msgstr "Λογοτεχνίες ισπανικής, πορτογαλικής, γαλικιανής γλώσσας"
 
 #: books/skoufas_classification_classes.py:986
 msgid "Spanish poetry"
-msgstr ""
+msgstr "Ισπανική ποίηση"
 
 #: books/skoufas_classification_classes.py:987
 msgid "Spanish drama"
-msgstr ""
+msgstr "Ισπανικό δράμα"
 
 #: books/skoufas_classification_classes.py:988
 msgid "Spanish fiction"
-msgstr ""
+msgstr "Ισπανική μυθοπλασία"
 
 #: books/skoufas_classification_classes.py:989
 msgid "Spanish essays"
-msgstr ""
+msgstr "Ισπανικά δοκίμια"
 
 #: books/skoufas_classification_classes.py:990
 msgid "Spanish speeches"
-msgstr ""
+msgstr "Ισπανικοί λόγοι"
 
 #: books/skoufas_classification_classes.py:991
 msgid "Spanish letters"
-msgstr ""
+msgstr "Ισπανικές επιστολές"
 
 #: books/skoufas_classification_classes.py:992
 msgid "Spanish humor and satire"
-msgstr ""
+msgstr "Ισπανικό χιούμορ και σάτιρα"
 
 #: books/skoufas_classification_classes.py:993
 msgid "Spanish miscellaneous writings"
-msgstr ""
+msgstr "Ισπανικά διάφορα συγγράμματα"
 
 #: books/skoufas_classification_classes.py:994
 msgid "Literatures of Portuguese and Galician languages"
-msgstr ""
+msgstr "Λογοτεχνίες πορτογαλικής και γαλικιανής γλώσσας"
 
 #: books/skoufas_classification_classes.py:995
 msgid "Latin literature and literatures of related Italic languages"
-msgstr ""
+msgstr "Λατινική λογοτεχνία και λογοτεχνίες σχετικών ιταλικών γλωσσών"
 
 #: books/skoufas_classification_classes.py:996
 msgid "Latin poetry"
-msgstr ""
+msgstr "Λατινική ποίηση"
 
 #: books/skoufas_classification_classes.py:997
 msgid "Latin dramatic poetry and drama"
-msgstr ""
+msgstr "Λατινική δραματική ποίηση και δράμα"
 
 #: books/skoufas_classification_classes.py:998
 msgid "Latin epic poetry and fiction"
-msgstr ""
+msgstr "Λατινική επική ποίηση και μυθοπλασία"
 
 #: books/skoufas_classification_classes.py:999
 msgid "Latin lyric poetry"
-msgstr ""
+msgstr "Λατινική λυρική ποίηση"
 
 #: books/skoufas_classification_classes.py:1000
 msgid "Latin speeches"
-msgstr ""
+msgstr "Λατινικοί λόγοι"
 
 #: books/skoufas_classification_classes.py:1001
 msgid "Latin letters"
-msgstr ""
+msgstr "Λατινικές επιστολές"
 
 #: books/skoufas_classification_classes.py:1002
 msgid "Latin humor and satire"
-msgstr ""
+msgstr "Λατινικό χιούμορ και σάτιρα"
 
 #: books/skoufas_classification_classes.py:1003
 msgid "Latin miscellaneous writings"
-msgstr ""
+msgstr "Λατινικά διάφορα συγγράμματα"
 
 #: books/skoufas_classification_classes.py:1004
 msgid "Literatures of other Italic languages"
-msgstr ""
+msgstr "Λογοτεχνίες άλλων ιταλικών γλωσσών"
 
 #: books/skoufas_classification_classes.py:1005
 msgid ""
 "Classical Greek literature and literatures of related Hellenic languages"
-msgstr ""
+msgstr "Κλασική ελληνική λογοτεχνία και λογοτεχνίες σχετικών ελληνικών γλωσσών"
 
 #: books/skoufas_classification_classes.py:1006
 msgid "Classical Greek poetry"
-msgstr ""
+msgstr "Κλασική ελληνική ποίηση"
 
 #: books/skoufas_classification_classes.py:1007
 msgid "Classical Greek drama"
-msgstr ""
+msgstr "Κλασικό ελληνικό δράμα"
 
 #: books/skoufas_classification_classes.py:1008
 msgid "Classical Greek epic poetry and fiction"
-msgstr ""
+msgstr "Κλασική ελληνική επική ποίηση και μυθοπλασία"
 
 #: books/skoufas_classification_classes.py:1009
 msgid "Classical Greek lyric poetry"
-msgstr ""
+msgstr "Κλασική ελληνική λυρική ποίηση"
 
 #: books/skoufas_classification_classes.py:1010
 msgid "Classical Greek speeches"
-msgstr ""
+msgstr "Κλασικοί ελληνικοί λόγοι"
 
 #: books/skoufas_classification_classes.py:1011
 msgid "Classical Greek letters"
-msgstr ""
+msgstr "Κλασικές ελληνικές επιστολές"
 
 #: books/skoufas_classification_classes.py:1012
 msgid "Classical Greek humor and satire"
-msgstr ""
+msgstr "Κλασικό ελληνικό χιούμορ και σάτιρα"
 
 #: books/skoufas_classification_classes.py:1013
 msgid "Classical Greek miscellaneous writings"
-msgstr ""
+msgstr "Κλασικά ελληνικά διάφορα συγγράμματα"
 
 #: books/skoufas_classification_classes.py:1014
 msgid "Modern Greek literature"
-msgstr ""
+msgstr "Νεοελληνική λογοτεχνία"
 
 #: books/skoufas_classification_classes.py:1015
 msgid "Literatures of other specific languages and language families"
-msgstr ""
+msgstr "Λογοτεχνίες άλλων συγκεκριμένων γλωσσών και γλωσσικών οικογενειών"
 
 #: books/skoufas_classification_classes.py:1016
 msgid "East Indo-European and Celtic literatures"
-msgstr ""
+msgstr "Ανατολικές ινδοευρωπαϊκές και κελτικές λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:1017
 msgid "Afro-Asiatic literatures"
-msgstr ""
+msgstr "Αφρο-ασιατικές λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:1018
 msgid "Non-Semitic Afro-Asiatic literatures"
-msgstr ""
+msgstr "Μη-σημιτικές αφρο-ασιατικές λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:1020
 msgid ""
 "Literatures of Altaic, Uralic, Hyperborean, Dravidian languages; literatures "
 "of miscellaneous languages of South Asia"
-msgstr ""
+msgstr "Λογοτεχνίες αλταϊκών, ουραλικών, υπερβόρειων, δραβιδικών γλωσσών· λογοτεχνίες διαφόρων γλωσσών Νότιας Ασίας"
 
 #: books/skoufas_classification_classes.py:1022
 msgid "Literatures of East and Southeast Asia"
-msgstr ""
+msgstr "Λογοτεχνίες Ανατολικής και Νοτιοανατολικής Ασίας"
 
 #: books/skoufas_classification_classes.py:1023
 msgid "African literatures"
-msgstr ""
+msgstr "Αφρικανικές λογοτεχνίες"
 
 #: books/skoufas_classification_classes.py:1024
 msgid "Literatures of North American native languages"
-msgstr ""
+msgstr "Λογοτεχνίες γηγενών γλωσσών Βόρειας Αμερικής"
 
 #: books/skoufas_classification_classes.py:1025
 msgid "Literatures of South American native languages"
-msgstr ""
+msgstr "Λογοτεχνίες γηγενών γλωσσών Νότιας Αμερικής"
 
 #: books/skoufas_classification_classes.py:1027
 msgid ""
 "Literatures of non-Austronesian languages of Oceania, of Austronesian "
 "languages, of miscellaneous languages"
-msgstr ""
+msgstr "Λογοτεχνίες μη-αυστρονησιακών γλωσσών Ωκεανίας, αυστρονησιακών γλωσσών και διαφόρων γλωσσών"
 
 #: books/skoufas_classification_classes.py:1029
 msgid "History, geography, and auxiliary disciplines"
-msgstr ""
+msgstr "Ιστορία, γεωγραφία και βοηθητικές επιστήμες"
 
 #: books/skoufas_classification_classes.py:1030
 msgid "Philosophy and theory of history"
-msgstr ""
+msgstr "Φιλοσοφία και θεωρία της ιστορίας"
 
 #: books/skoufas_classification_classes.py:1031
 msgid "Miscellany of history"
-msgstr ""
+msgstr "Διάφορα της ιστορίας"
 
 #: books/skoufas_classification_classes.py:1032
 msgid "Dictionaries, encyclopedias, concordances of history"
-msgstr ""
+msgstr "Λεξικά, εγκυκλοπαίδειες, ευρετήρια ιστορίας"
 
 #: books/skoufas_classification_classes.py:1033
 msgid "Collected accounts of events"
-msgstr ""
+msgstr "Συλλογές αφηγήσεων γεγονότων"
 
 #: books/skoufas_classification_classes.py:1034
 msgid "Serial publications of history"
-msgstr ""
+msgstr "Περιοδικές εκδόσεις ιστορίας"
 
 #: books/skoufas_classification_classes.py:1035
 msgid "Organizations and management of history"
-msgstr ""
+msgstr "Οργανισμοί και διαχείριση ιστορίας"
 
 #: books/skoufas_classification_classes.py:1036
 msgid "Education, research, related topics of history"
-msgstr ""
+msgstr "Εκπαίδευση, έρευνα και σχετικά θέματα ιστορίας"
 
 #: books/skoufas_classification_classes.py:1037
 msgid "History with respect to groups of people"
-msgstr ""
+msgstr "Ιστορία σε σχέση με ομάδες ανθρώπων"
 
 #: books/skoufas_classification_classes.py:1038
 msgid "World history"
-msgstr ""
+msgstr "Παγκόσμια ιστορία"
 
 #: books/skoufas_classification_classes.py:1040
 msgid "Historical geography"
-msgstr ""
+msgstr "Ιστορική γεωγραφία"
 
 #: books/skoufas_classification_classes.py:1041
 msgid ""
 "Graphic representations of surface of earth and of extraterrestrial worlds"
-msgstr ""
+msgstr "Γραφικές αναπαραστάσεις επιφάνειας γης και εξωγήινων κόσμων"
 
 #: books/skoufas_classification_classes.py:1042
 msgid "Geography of and travel in the ancient world"
-msgstr ""
+msgstr "Γεωγραφία και ταξίδια στον αρχαίο κόσμο"
 
 #: books/skoufas_classification_classes.py:1043
 msgid "Geography of and travel in Europe"
-msgstr ""
+msgstr "Γεωγραφία και ταξίδια στην Ευρώπη"
 
 #: books/skoufas_classification_classes.py:1044
 msgid "Geography of and travel in Asia"
-msgstr ""
+msgstr "Γεωγραφία και ταξίδια στην Ασία"
 
 #: books/skoufas_classification_classes.py:1045
 msgid "Geography of and travel in Africa"
-msgstr ""
+msgstr "Γεωγραφία και ταξίδια στην Αφρική"
 
 #: books/skoufas_classification_classes.py:1046
 msgid "Geography of and travel in North America"
-msgstr ""
+msgstr "Γεωγραφία και ταξίδια στη Βόρεια Αμερική"
 
 #: books/skoufas_classification_classes.py:1047
 msgid "Geography of and travel in South America"
-msgstr ""
+msgstr "Γεωγραφία και ταξίδια στη Νότια Αμερική"
 
 #: books/skoufas_classification_classes.py:1049
 msgid ""
 "Geography of and travel in Australasia, Pacific Ocean islands, Atlantic "
 "Ocean islands, Arctic islands, Antarctica, and on extraterrestrial worlds"
-msgstr ""
+msgstr "Γεωγραφία και ταξίδια στην Αυστραλασία, νησιά Ειρηνικού, νησιά Ατλαντικού, Αρκτικά νησιά, Ανταρκτική και εξωγήινους κόσμους"
 
 #: books/skoufas_classification_classes.py:1051
 msgid "Biography, genealogy, insignia"
-msgstr ""
+msgstr "Βιογραφία, γενεαλογία, εμβλήματα"
 
 #: books/skoufas_classification_classes.py:1052
 #: books/skoufas_classification_classes.py:1053
@@ -35918,265 +35917,265 @@ msgstr ""
 #: books/skoufas_classification_classes.py:1058
 #: books/skoufas_classification_classes.py:1059
 msgid "Biographies, shelved alphabetically by subject's last name."
-msgstr ""
+msgstr "Βιογραφίες, ταξινομημένες αλφαβητικά με το επώνυμο του θέματος."
 
 #: books/skoufas_classification_classes.py:1060
 msgid "Genealogy, names, insignia"
-msgstr ""
+msgstr "Γενεαλογία, ονόματα, εμβλήματα"
 
 #: books/skoufas_classification_classes.py:1061
 msgid "History of ancient world to c. 499"
-msgstr ""
+msgstr "Ιστορία αρχαίου κόσμου έως περ. 499"
 
 #: books/skoufas_classification_classes.py:1062
 msgid "China to 420"
-msgstr ""
+msgstr "Κίνα έως 420"
 
 #: books/skoufas_classification_classes.py:1063
 msgid "Egypt to 640"
-msgstr ""
+msgstr "Αίγυπτος έως 640"
 
 #: books/skoufas_classification_classes.py:1064
 msgid "Palestine to 70"
-msgstr ""
+msgstr "Παλαιστίνη έως 70"
 
 #: books/skoufas_classification_classes.py:1065
 msgid "South Asia to 647"
-msgstr ""
+msgstr "Νότια Ασία έως 647"
 
 #: books/skoufas_classification_classes.py:1066
 msgid "Mesopotamia to 637 and Iranian Plateau to 637"
-msgstr ""
+msgstr "Μεσοποταμία έως 637 και Ιρανικό Οροπέδιο έως 637"
 
 #: books/skoufas_classification_classes.py:1067
 msgid "Europe north and west of Italian Peninsula to c. 499"
-msgstr ""
+msgstr "Ευρώπη βόρεια και δυτικά της Ιταλικής χερσονήσου έως περ. 499"
 
 #: books/skoufas_classification_classes.py:1068
 msgid "Italian Peninsula to 476 and adjacent territories to 476"
-msgstr ""
+msgstr "Ιταλική χερσόνησος έως 476 και παρακείμενες περιοχές έως 476"
 
 #: books/skoufas_classification_classes.py:1069
 msgid "Greece to 323"
-msgstr ""
+msgstr "Ελλάδα έως 323"
 
 #: books/skoufas_classification_classes.py:1070
 msgid "Other parts of ancient world"
-msgstr ""
+msgstr "Άλλα μέρη του αρχαίου κόσμου"
 
 #: books/skoufas_classification_classes.py:1072
 msgid "British Isles"
-msgstr ""
+msgstr "Βρετανικά νησιά"
 
 #: books/skoufas_classification_classes.py:1073
 msgid "England and Wales"
-msgstr ""
+msgstr "Αγγλία και Ουαλία"
 
 #: books/skoufas_classification_classes.py:1074
 msgid "Germany and neighboring central European countries"
-msgstr ""
+msgstr "Γερμανία και γειτονικές κεντροευρωπαϊκές χώρες"
 
 #: books/skoufas_classification_classes.py:1075
 msgid "France and Monaco"
-msgstr ""
+msgstr "Γαλλία και Μονακό"
 
 #: books/skoufas_classification_classes.py:1076
 msgid "Italy, San Marino, Vatican City, Malta"
-msgstr ""
+msgstr "Ιταλία, Άγιος Μαρίνος, Βατικανό, Μάλτα"
 
 #: books/skoufas_classification_classes.py:1077
 msgid "Spain, Andorra, Gibraltar, Portugal"
-msgstr ""
+msgstr "Ισπανία, Ανδόρρα, Γιβραλτάρ, Πορτογαλία"
 
 #: books/skoufas_classification_classes.py:1078
 msgid "Russia and neighboring east European countries"
-msgstr ""
+msgstr "Ρωσία και γειτονικές ανατολικοευρωπαϊκές χώρες"
 
 #: books/skoufas_classification_classes.py:1079
 msgid "Scandinavia"
-msgstr ""
+msgstr "Σκανδιναβία"
 
 #: books/skoufas_classification_classes.py:1080
 msgid "Other parts of Europe"
-msgstr ""
+msgstr "Άλλα μέρη της Ευρώπης"
 
 #: books/skoufas_classification_classes.py:1082
 msgid "China and adjacent areas"
-msgstr ""
+msgstr "Κίνα και παρακείμενες περιοχές"
 
 #: books/skoufas_classification_classes.py:1083
 msgid "Japan"
-msgstr ""
+msgstr "Ιαπωνία"
 
 #: books/skoufas_classification_classes.py:1084
 msgid "Arabian Peninsula and adjacent areas"
-msgstr ""
+msgstr "Αραβική χερσόνησος και παρακείμενες περιοχές"
 
 #: books/skoufas_classification_classes.py:1085
 msgid "India and neighboring south Asian countries;"
-msgstr ""
+msgstr "Ινδία και γειτονικές νοτιοασιατικές χώρες"
 
 #: books/skoufas_classification_classes.py:1086
 msgid "Iran"
-msgstr ""
+msgstr "Ιράν"
 
 #: books/skoufas_classification_classes.py:1087
 msgid "Middle East (Near East)"
-msgstr ""
+msgstr "Μέση Ανατολή (Εγγύς Ανατολή)"
 
 #: books/skoufas_classification_classes.py:1088
 msgid "Siberia (Asiatic Russia)"
-msgstr ""
+msgstr "Σιβηρία (Ασιατική Ρωσία)"
 
 #: books/skoufas_classification_classes.py:1089
 msgid "Central Asia"
-msgstr ""
+msgstr "Κεντρική Ασία"
 
 #: books/skoufas_classification_classes.py:1090
 msgid "Southeast Asia"
-msgstr ""
+msgstr "Νοτιοανατολική Ασία"
 
 #: books/skoufas_classification_classes.py:1092
 msgid "Tunisia and Libya"
-msgstr ""
+msgstr "Τυνησία και Λιβύη"
 
 #: books/skoufas_classification_classes.py:1093
 msgid "Egypt, Sudan, South Sudan"
-msgstr ""
+msgstr "Αίγυπτος, Σουδάν, Νότιο Σουδάν"
 
 #: books/skoufas_classification_classes.py:1094
 msgid "Ethiopia and Eritrea"
-msgstr ""
+msgstr "Αιθιοπία και Ερυθραία"
 
 #: books/skoufas_classification_classes.py:1095
 msgid "Morocco, Ceuta, Melilla Western Sahara, Canary Islands"
-msgstr ""
+msgstr "Μαρόκο, Θέουτα, Μελίγια, Δυτική Σαχάρα, Κανάρια νησιά"
 
 #: books/skoufas_classification_classes.py:1096
 msgid "Algeria"
-msgstr ""
+msgstr "Αλγερία"
 
 #: books/skoufas_classification_classes.py:1097
 msgid "West Africa and offshore islands"
-msgstr ""
+msgstr "Δυτική Αφρική και παράκτια νησιά"
 
 #: books/skoufas_classification_classes.py:1098
 msgid "Central Africa and offshore islands"
-msgstr ""
+msgstr "Κεντρική Αφρική και παράκτια νησιά"
 
 #: books/skoufas_classification_classes.py:1099
 msgid "South Africa & southern Africa"
-msgstr ""
+msgstr "Νότια Αφρική"
 
 #: books/skoufas_classification_classes.py:1100
 msgid "South Indian Ocean islands"
-msgstr ""
+msgstr "Νησιά νοτίου Ινδικού Ωκεανού"
 
 #: books/skoufas_classification_classes.py:1102
 msgid "Canada"
-msgstr ""
+msgstr "Καναδάς"
 
 #: books/skoufas_classification_classes.py:1103
 msgid "Mexico, Central America, West Indies, Bermuda"
-msgstr ""
+msgstr "Μεξικό, Κεντρική Αμερική, Δυτικές Ινδίες, Βερμούδες"
 
 #: books/skoufas_classification_classes.py:1104
 msgid "United States"
-msgstr ""
+msgstr "Ηνωμένες Πολιτείες"
 
 #: books/skoufas_classification_classes.py:1105
 msgid "Northeastern United States (New England and Middle Atlantic states)"
-msgstr ""
+msgstr "Βορειοανατολικές ΗΠΑ (Νέα Αγγλία και Μέσες Ατλαντικές πολιτείες)"
 
 #: books/skoufas_classification_classes.py:1106
 msgid "Southeastern United States (South Atlantic states)"
-msgstr ""
+msgstr "Νοτιοανατολικές ΗΠΑ (Νοτιοατλαντικές πολιτείες)"
 
 #: books/skoufas_classification_classes.py:1107
 msgid "South central United States"
-msgstr ""
+msgstr "Νοτιοκεντρικές ΗΠΑ"
 
 #: books/skoufas_classification_classes.py:1108
 msgid "North central United States"
-msgstr ""
+msgstr "Βορειοκεντρικές ΗΠΑ"
 
 #: books/skoufas_classification_classes.py:1109
 msgid "Western United States"
-msgstr ""
+msgstr "Δυτικές ΗΠΑ"
 
 #: books/skoufas_classification_classes.py:1110
 msgid "Great Basin and Pacific Slope region of United States"
-msgstr ""
+msgstr "Μεγάλη Λεκάνη και περιοχή Ειρηνικής κλιτύος ΗΠΑ"
 
 #: books/skoufas_classification_classes.py:1112
 msgid "Brazil"
-msgstr ""
+msgstr "Βραζιλία"
 
 #: books/skoufas_classification_classes.py:1113
 msgid "Argentina"
-msgstr ""
+msgstr "Αργεντινή"
 
 #: books/skoufas_classification_classes.py:1114
 msgid "Chile"
-msgstr ""
+msgstr "Χιλή"
 
 #: books/skoufas_classification_classes.py:1115
 msgid "Bolivia"
-msgstr ""
+msgstr "Βολιβία"
 
 #: books/skoufas_classification_classes.py:1116
 msgid "Peru"
-msgstr ""
+msgstr "Περού"
 
 #: books/skoufas_classification_classes.py:1117
 msgid "Colombia and Ecuador"
-msgstr ""
+msgstr "Κολομβία και Εκουαδόρ"
 
 #: books/skoufas_classification_classes.py:1118
 msgid "Venezuela"
-msgstr ""
+msgstr "Βενεζουέλα"
 
 #: books/skoufas_classification_classes.py:1119
 msgid "Guiana"
-msgstr ""
+msgstr "Γουιάνα"
 
 #: books/skoufas_classification_classes.py:1120
 msgid "Paraguay and Uruguay"
-msgstr ""
+msgstr "Παραγουάη και Ουρουγουάη"
 
 #: books/skoufas_classification_classes.py:1122
 msgid ""
 "History of Australasia, Pacific Ocean islands, Atlantic Ocean islands, "
 "Arctic islands, Antarctica, extraterrestrial worlds"
-msgstr ""
+msgstr "Ιστορία Αυστραλασίας, νησιών Ειρηνικού, νησιών Ατλαντικού, Αρκτικών νησιών, Ανταρκτικής, εξωγήινων κόσμων"
 
 #: books/skoufas_classification_classes.py:1126
 msgid "New Zealand"
-msgstr ""
+msgstr "Νέα Ζηλανδία"
 
 #: books/skoufas_classification_classes.py:1127
 msgid "Australia"
-msgstr ""
+msgstr "Αυστραλία"
 
 #: books/skoufas_classification_classes.py:1128
 msgid "New Guinea and neighboring countries of Melanesia"
-msgstr ""
+msgstr "Νέα Γουινέα και γειτονικές χώρες Μελανησίας"
 
 #: books/skoufas_classification_classes.py:1129
 msgid "Polynesia and other Pacific Ocean islands"
-msgstr ""
+msgstr "Πολυνησία και άλλα νησιά Ειρηνικού"
 
 #: books/skoufas_classification_classes.py:1130
 msgid "Atlantic Ocean islands"
-msgstr ""
+msgstr "Νησιά Ατλαντικού Ωκεανού"
 
 #: books/skoufas_classification_classes.py:1131
 msgid "Arctic islands and Antarctica"
-msgstr ""
+msgstr "Αρκτικά νησιά και Ανταρκτική"
 
 #: books/skoufas_classification_classes.py:1132
 msgid "Extraterrestrial worlds"
-msgstr ""
+msgstr "Εξωγήινοι κόσμοι"
 
 #: books/templates/books/author_detail.html:13
 msgid "Books by the author"
