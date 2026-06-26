@@ -1,5 +1,6 @@
 """Views on Loaning."""
 
+import csv
 import datetime
 
 from django.contrib import messages
@@ -8,6 +9,7 @@ from django.core.exceptions import PermissionDenied
 from django.db import transaction
 from django.db.models import Count
 from django.db.models import Q
+from django.http import StreamingHttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
@@ -179,6 +181,74 @@ class CustomerDeleteView(PermissionRequiredMixin, DeleteView):
             self.object.loan_set.update(customer=None)
             messages.success(request, _("Customer deleted and closed loans anonymized."))
             return super().post(request, *args, **kwargs)
+
+
+class KohaPatronExportView(View):
+    """Stream all patrons as a Koha-compatible patron import CSV."""
+
+    KOHA_BRANCH = "SKOUFAS"
+    KOHA_CATEGORY = "PT"
+
+    COLUMNS = [
+        "cardnumber",
+        "surname",
+        "firstname",
+        "othernames",
+        "address",
+        "phone",
+        "email",
+        "branchcode",
+        "categorycode",
+        "borrowernotes",
+        "sort1",
+    ]
+
+    class Echo:
+        """File-like object that returns written values directly."""
+
+        def write(self, value):
+            return value
+
+    def _customer_to_row(self, customer: Customer) -> list:
+        cardnumber = str(customer.pk)
+        borrowernotes = ""
+        if customer.id_type and customer.id_number:
+            borrowernotes = f"{customer.id_type}: {customer.id_number}"
+        elif customer.id_number:
+            borrowernotes = customer.id_number
+        return [
+            cardnumber,
+            customer.surname,
+            customer.first_name,
+            customer.middle_name or "",
+            customer.address,
+            customer.phone_number,
+            customer.email,
+            self.KOHA_BRANCH,
+            self.KOHA_CATEGORY,
+            borrowernotes,
+            customer.skoufas_member_id or "",
+        ]
+
+    async def _rows(self):
+        writer = csv.writer(self.Echo())
+        yield writer.writerow(self.COLUMNS)
+        async for customer in Customer.objects.order_by("surname", "first_name").all():
+            yield writer.writerow(self._customer_to_row(customer))
+
+    async def get(self, request):
+        user = await request.auser()
+        if not user.is_authenticated:
+            from django.conf import settings
+
+            return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+        if not user.has_perm("loaning.view_customer"):
+            raise PermissionDenied
+        return StreamingHttpResponse(
+            streaming_content=self._rows(),
+            content_type="text/csv",
+            headers={"Content-Disposition": 'attachment; filename="koha-patrons.csv"'},
+        )
 
 
 class LoanDeskView(PermissionRequiredMixin, TemplateResponseMixin, View):

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: skoufas-library\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-26 08:59+0300\n"
+"POT-Creation-Date: 2026-06-26 14:30+0300\n"
 "PO-Revision-Date: 2026-06-25 07:28+0300\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
@@ -117,7 +117,7 @@ msgid "Confirmed"
 msgstr "Επιβεβαιωμένο"
 
 #: curation/models.py:133 curation/templates/curation/inventory_close.html:38
-#: curation/templates/curation/inventory_close.html:82
+#: curation/templates/curation/inventory_close.html:86
 #: curation/templates/curation/inventory_scan.html:128
 msgid "Set aside"
 msgstr "Στην άκρη"
@@ -387,38 +387,47 @@ msgstr "Λείπει από τη σάρωση"
 msgid "Confirmed — location updated"
 msgstr "Επιβεβαιωμένο — τοποθεσία ενημερώθηκε"
 
-#: curation/templates/curation/inventory_close.html:63
+#: curation/templates/curation/inventory_close.html:65
 #, python-format
 msgid "moved from %(from_loc)s"
 msgstr "μετακινήθηκε από %(from_loc)s"
 
-#: curation/templates/curation/inventory_close.html:66
+#: curation/templates/curation/inventory_close.html:68
 msgid "Assigned"
 msgstr "Ανατέθηκε"
 
-#: curation/templates/curation/inventory_close.html:74
+#: curation/templates/curation/inventory_close.html:76
 msgid "Set aside — needs entry number reassignment"
 msgstr "Στην άκρη — χρειάζεται επανανάθεση αριθμού εισαγωγής"
 
-#: curation/templates/curation/inventory_close.html:89
+#: curation/templates/curation/inventory_close.html:93
 msgid "Missing from scan — expected at this location"
 msgstr "Λείπει από τη σάρωση — αναμενόταν σε αυτή την τοποθεσία"
 
-#: curation/templates/curation/inventory_close.html:97
+#: curation/templates/curation/inventory_close.html:103
 msgid "Not scanned"
 msgstr "Δεν σαρώθηκε"
 
-#: curation/templates/curation/inventory_close.html:106
+#: curation/templates/curation/inventory_close.html:113
 msgid "Back to scan"
 msgstr "Πίσω στη σάρωση"
 
-#: curation/templates/curation/inventory_close.html:112
+#: curation/templates/curation/inventory_close.html:119
 msgid "Mark this session as complete and close it?"
 msgstr "Να επισημανθεί αυτή η συνεδρία ως ολοκληρωμένη και να κλείσει;"
 
-#: curation/templates/curation/inventory_close.html:113
+#: curation/templates/curation/inventory_close.html:120
 msgid "Mark complete &amp; close"
 msgstr "Ολοκλήρωση &amp; κλείσιμο"
+
+#: curation/templates/curation/inventory_close.html:126
+msgid "Back to inventory list"
+msgstr "Πίσω στη λίστα απογραφών"
+
+#: curation/templates/curation/inventory_close.html:128
+#: curation/templates/curation/inventory_session_list.html:47
+msgid "Closed"
+msgstr "Κλειστό"
 
 #: curation/templates/curation/inventory_scan.html:4
 msgid "Inventory"
@@ -521,10 +530,6 @@ msgstr "Πρόσφατα Κλειστές Συνεδρίες"
 msgid "Location"
 msgstr "Τοποθεσία"
 
-#: curation/templates/curation/inventory_session_list.html:47
-msgid "Closed"
-msgstr "Κλειστό"
-
 #: curation/templates/curation/inventory_session_list.html:48
 msgid "By"
 msgstr "Από"
@@ -591,91 +596,91 @@ msgstr "Προηγούμενο"
 msgid "Next"
 msgstr "Επόμενο"
 
-#: curation/views.py:92 curation/views.py:217
+#: curation/views.py:93 curation/views.py:216
 msgid "Pair dismissed."
 msgstr "Το ζεύγος απορρίφθηκε."
 
-#: curation/views.py:97
+#: curation/views.py:98
 msgid "Please select the canonical author."
 msgstr "Παρακαλώ επιλέξτε τον κανονικό συγγραφέα."
 
-#: curation/views.py:142
+#: curation/views.py:143
 msgid "Authors merged successfully."
 msgstr "Οι συγγραφείς συγχωνεύθηκαν επιτυχώς."
 
-#: curation/views.py:222
+#: curation/views.py:221
 msgid "Please select the canonical book entry."
 msgstr "Παρακαλώ επιλέξτε την κανονική εγγραφή βιβλίου."
 
-#: curation/views.py:298
+#: curation/views.py:297
 msgid "Book entries merged successfully."
 msgstr "Οι εγγραφές βιβλίων συγχωνεύθηκαν επιτυχώς."
 
-#: curation/views.py:339 curation/views.py:369
+#: curation/views.py:338 curation/views.py:368
 msgid "This merge has already been undone."
 msgstr "Αυτή η συγχώνευση έχει ήδη αναιρεθεί."
 
-#: curation/views.py:342
+#: curation/views.py:341
 msgid "Cannot undo: the target author no longer exists."
 msgstr "Δεν είναι δυνατή η αναίρεση: ο συγγραφέας στόχος δεν υπάρχει πλέον."
 
-#: curation/views.py:357
+#: curation/views.py:356
 #, python-format
 msgid "Merge undone. Author recreated as \"%(name)s\"."
 msgstr ""
 "Η συγχώνευση αναιρέθηκε. Ο συγγραφέας αναδημιουργήθηκε ως \"%(name)s\"."
 
-#: curation/views.py:372
+#: curation/views.py:371
 msgid "Cannot undo: the target book entry no longer exists."
 msgstr ""
 "Δεν είναι δυνατή η αναίρεση: η εγγραφή βιβλίου στόχος δεν υπάρχει πλέον."
 
-#: curation/views.py:408
+#: curation/views.py:405
 #, python-format
 msgid "Merge undone. Book recreated as \"%(name)s\"."
 msgstr "Η συγχώνευση αναιρέθηκε. Το βιβλίο αναδημιουργήθηκε ως \"%(name)s\"."
 
-#: curation/views.py:426
+#: curation/views.py:423
 msgid "Dismissal removed. Pair will reappear in the duplicates list."
 msgstr ""
 "Η απόρριψη αφαιρέθηκε. Το ζεύγος θα επανεμφανιστεί στη λίστα διπλοτύπων."
 
-#: curation/views.py:459
+#: curation/views.py:456
 msgid "Only Shelf or Box locations can be inventoried."
 msgstr "Μόνο τοποθεσίες τύπου Ράφι ή Κουτί μπορούν να αποτελέσουν."
 
-#: curation/views.py:467
+#: curation/views.py:464
 msgid "An open inventory session already exists for this location."
 msgstr "Υπάρχει ήδη ανοιχτή συνεδρία απογραφής για αυτή την τοποθεσία."
 
-#: curation/views.py:509
+#: curation/views.py:506
 msgid "Please enter an entry number."
 msgstr "Παρακαλώ εισάγετε αριθμό εισαγωγής."
 
-#: curation/views.py:519
+#: curation/views.py:516
 #, python-format
 msgid "Entry number \"%(en)s\" not found in the database."
 msgstr "Ο αριθμός εισαγωγής \"%(en)s\" δεν βρέθηκε στη βάση δεδομένων."
 
-#: curation/views.py:537
+#: curation/views.py:534
 msgid "No pending scan to confirm."
 msgstr "Δεν υπάρχει εκκρεμής σάρωση για επιβεβαίωση."
 
-#: curation/views.py:556
+#: curation/views.py:553
 #, python-format
 msgid "%(en)s confirmed and assigned to %(loc)s."
 msgstr "%(en)s επιβεβαιώθηκε και ανατέθηκε στο %(loc)s."
 
-#: curation/views.py:570
+#: curation/views.py:567
 msgid "No pending scan to set aside."
 msgstr "Δεν υπάρχει εκκρεμής σάρωση για αναβολή."
 
-#: curation/views.py:584
+#: curation/views.py:581
 #, python-format
 msgid "%(en)s set aside for entry number reassignment."
 msgstr "%(en)s τέθηκε στην άκρη για επανανάθεση αριθμού εισαγωγής."
 
-#: curation/views.py:628
+#: curation/views.py:625
 #, python-format
 msgid "Inventory session for %(loc)s closed."
 msgstr "Η συνεδρία απογραφής για %(loc)s έκλεισε."

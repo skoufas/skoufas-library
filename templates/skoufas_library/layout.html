@@ -109,7 +109,9 @@
                   <a class="dropdown-item" href="{% url 'curation:merge-log-list' %}">{% translate "Merge History" %}</a>
                 </li>
                 {% if perms.curation.can_inventory %}
-                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
                   <li>
                     <a class="dropdown-item" href="{% url 'curation:inventory-list' %}">{% translate "Inventory" %}</a>
                   </li>
@@ -122,6 +124,43 @@
               <a class="nav-link {% if request.resolver_match.app_name == 'curation' %}active{% endif %}"
                  href="{% url 'curation:inventory-list' %}"
                  {% if request.resolver_match.app_name == 'curation' %}aria-current="page"{% endif %}>{% translate "Inventory" %}</a>
+            </li>
+          {% endif %}
+          {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle"
+                 data-bs-toggle="dropdown"
+                 href="#"
+                 role="button"
+                 aria-expanded="false"><i class="bi bi-download"></i> {% translate "Exports" %}</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <h6 class="dropdown-header">{% translate "Books" %}</h6>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'books:export-csv' %}">{% translate "Books CSV" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'books:export-marc-iso2709' %}">{% translate "Books MARC ISO 2709 (.mrc)" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'books:export-marc-xml' %}">{% translate "Books MARC XML (.xml)" %}</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="{% url 'books:export-marc-maker' %}">{% translate "Books MARCMaker (.mrk)" %}</a>
+                </li>
+                {% if perms.loaning.view_customer %}
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <h6 class="dropdown-header">{% translate "Customers" %}</h6>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'loaning:customer-export-koha' %}">{% translate "Customers Koha CSV" %}</a>
+                  </li>
+                {% endif %}
+              </ul>
             </li>
           {% endif %}
           {% get_current_language as LANGUAGE_CODE %}

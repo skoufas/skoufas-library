@@ -28,6 +28,7 @@ dependencies = [
     "pytz",
     "pyyaml",
     "django-watson",
+    "pymarc",
     "skoufas-dbf-reader==2026.6.18",
 ]
 

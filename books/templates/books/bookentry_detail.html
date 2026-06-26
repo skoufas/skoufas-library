@@ -229,6 +229,8 @@
                     aria-expanded="false"
                     aria-controls="collapseDBFEntry">{% translate "Show original DBF entry" %}</button>
         {% endif %}
+        <a class="btn btn-secondary"
+           href="{% url 'books:book-marc-detail' object.pk %}"><i class="bi bi-file-earmark-text"></i> {% translate "View MARC record" %}</a>
     </p>
     <div class="collapse" id="collapseSearches">
         <div class="card card-body">

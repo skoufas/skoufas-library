@@ -1,0 +1,53 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% blocktranslate with title=object %}MARC record – {{ title }}{% endblocktranslate %}
+{% endblock title %}
+{% block content %}
+    <div class="d-flex align-items-center gap-2 mb-3">
+        <a href="{% url 'books:book-by-id' object.pk %}"
+           class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> {% translate "Back to book" %}
+        </a>
+        <a href="{% url 'books:book-marc-iso2709' object.pk %}"
+           class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-download"></i> .mrc
+        </a>
+        <a href="{% url 'books:book-marc-xml' object.pk %}"
+           class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-download"></i> .xml
+        </a>
+        <a href="{% url 'books:book-marc-maker' object.pk %}"
+           class="btn btn-sm btn-outline-primary">
+            <i class="bi bi-download"></i> .mrk
+        </a>
+    </div>
+    <table class="table table-sm table-bordered table-hover font-monospace">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col" style="width:4rem">{% translate "Tag" %}</th>
+                <th scope="col" style="width:2rem" class="text-center">{% translate "I1" %}</th>
+                <th scope="col" style="width:2rem" class="text-center">{% translate "I2" %}</th>
+                <th scope="col">{% translate "Subfields" %}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for field in marc_fields %}
+                <tr>
+                    <td class="fw-bold text-primary">{{ field.tag }}</td>
+                    <td class="text-center text-muted">{{ field.indicator1|default:"#" }}</td>
+                    <td class="text-center text-muted">{{ field.indicator2|default:"#" }}</td>
+                    <td>
+                        {% for code, value in field.subfields %}
+                            {% if code %}
+                                <span class="badge bg-secondary me-1">${{ code }}</span>{{ value }}
+                            {% else %}
+                                {{ value }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

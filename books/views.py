@@ -1,7 +1,11 @@
 """Views on Books."""
 
 import csv
+import io
 from typing import Any
+
+import pymarc
+from pymarc import Subfield
 
 from django.core.exceptions import PermissionDenied
 from django.db.models import Count
@@ -472,6 +476,405 @@ class CSVExportView(View):
             streaming_content=self.result(request, include_location=include_location),
             content_type="text/csv",
             headers={"Content-Disposition": 'attachment; filename="all-skoufas-books.csv"'},
+        )
+
+
+class MARCExportView(View):
+    """A view that streams MARC 21 records for all book entries.
+
+    Three serialisations are supported, selected by the ``fmt`` URL kwarg:
+    - ``mrc``  → ISO 2709 binary  (application/marc)
+    - ``xml``  → MARCXML          (application/marcxml+xml)
+    - ``mrk``  → MARCMaker text   (text/plain)
+
+    Bibliographic fields are always public.  Koha item fields (952) are
+    only included for authenticated users; non-public locations are
+    additionally filtered for users without ``books.view_nonpublic_location``.
+    """
+
+    MARC_ORG_CODE = "GR-ArMPA"
+
+    # ISO 639-1 / ISO 639-3 codes stored in DB → MARC language codes
+    LANGUAGE_TO_MARC: dict[str, str] = {
+        "el": "gre",
+        "en": "eng",
+        "de": "ger",
+        "fr": "fre",
+        "it": "ita",
+        "es": "spa",
+        "nl": "dut",
+        "pt": "por",
+        "ru": "rus",
+        "ar": "ara",
+        # Already 3-letter; use as-is
+        "cpg": "cpg",
+        "gmy": "gmy",
+        "grc": "grc",
+        "grk": "grk",
+        "gss": "gss",
+        "rge": "rge",
+    }
+
+    def _marc_lang(self, code: str | None) -> str | None:
+        if not code:
+            return None
+        return self.LANGUAGE_TO_MARC.get(code, code if len(code) == 3 else None)
+
+    def _personal_name_inverted(self, surname: str | None, first_name: str | None, middle_name: str | None) -> str:
+        parts: list[str] = []
+        if surname:
+            parts.append(surname + ("," if first_name or middle_name else ""))
+        if first_name:
+            parts.append(first_name)
+        if middle_name:
+            parts.append(middle_name)
+        return " ".join(parts)
+
+    async def _book_entry_to_marc(
+        self,
+        book_entry: BookEntry,
+        include_holdings: bool,
+        can_see_nonpublic: bool,
+    ) -> pymarc.Record:
+        record = pymarc.Record(force_utf8=True)
+
+        # --- Control fields ---
+        record.add_field(pymarc.Field(tag="001", data=str(book_entry.pk)))
+        record.add_field(pymarc.Field(tag="003", data=self.MARC_ORG_CODE))
+
+        # 041 – Language
+        marc_lang = self._marc_lang(book_entry.language)
+        if marc_lang:
+            record.add_field(pymarc.Field(tag="041", indicators=[" ", " "], subfields=[Subfield("a", marc_lang)]))
+
+        # 082 – Dewey / Skoufas classification
+        if book_entry.skoufas_classification:
+            record.add_field(
+                pymarc.Field(
+                    tag="082",
+                    indicators=["0", "4"],
+                    subfields=[Subfield("a", book_entry.skoufas_classification)],
+                )
+            )
+
+        # 100 / 110 / 700 / 710 – Authors
+        first_author = True
+        async for author in book_entry.authors.all():
+            if author.organisation_name:
+                tag = "110" if first_author else "710"
+                sf = [Subfield("a", str(author.organisation_name))]
+                if not first_author:
+                    sf.append(Subfield("e", "author"))
+                record.add_field(pymarc.Field(tag=tag, indicators=["2", " "], subfields=sf))
+            else:
+                name = self._personal_name_inverted(author.surname, author.first_name, author.middle_name)
+                if not name and author.pseudonym:
+                    name = str(author.pseudonym)
+                tag = "100" if first_author else "700"
+                sf = [Subfield("a", name)]
+                if not first_author:
+                    sf.append(Subfield("e", "author"))
+                record.add_field(pymarc.Field(tag=tag, indicators=["1", " "], subfields=sf))
+            first_author = False
+
+        # 245 – Title / Subtitle
+        title = book_entry.title or ""
+        subtitle = book_entry.subtitle or ""
+        ind1 = "0" if first_author else "1"  # first_author still True means no authors added
+        title_sf = [Subfield("a", title)]
+        if subtitle:
+            title_sf.append(Subfield("b", subtitle))
+        if title or subtitle:
+            record.add_field(pymarc.Field(tag="245", indicators=[ind1, "0"], subfields=title_sf))
+
+        # 250 – Edition
+        if book_entry.edition:
+            record.add_field(
+                pymarc.Field(tag="250", indicators=[" ", " "], subfields=[Subfield("a", book_entry.edition)])
+            )
+
+        # 260 – Publication info
+        pub_sf: list[Subfield] = []
+        if book_entry.editor:
+            if book_entry.editor.place:
+                pub_sf.append(Subfield("a", book_entry.editor.place))
+            if book_entry.editor.name:
+                pub_sf.append(Subfield("b", book_entry.editor.name))
+        if book_entry.edition_year:
+            pub_sf.append(Subfield("c", str(book_entry.edition_year)))
+        if pub_sf:
+            record.add_field(pymarc.Field(tag="260", indicators=[" ", " "], subfields=pub_sf))
+
+        # 300 – Physical description
+        phys_sf: list[Subfield] = []
+        if book_entry.pages:
+            phys_sf.append(Subfield("a", f"{book_entry.pages} p."))
+        if book_entry.volumes:
+            phys_sf.append(Subfield("f", book_entry.volumes))
+        acc: list[str] = []
+        if book_entry.has_cd:
+            acc.append("1 CD-ROM")
+        if book_entry.has_dvd:
+            acc.append("1 DVD")
+        if acc:
+            phys_sf.append(Subfield("e", " + ".join(acc)))
+        if phys_sf:
+            record.add_field(pymarc.Field(tag="300", indicators=[" ", " "], subfields=phys_sf))
+
+        # 020 / 022 / 024 – Identifiers
+        if book_entry.isbn:
+            record.add_field(
+                pymarc.Field(tag="020", indicators=[" ", " "], subfields=[Subfield("a", str(book_entry.isbn))])
+            )
+        if book_entry.issn:
+            record.add_field(
+                pymarc.Field(tag="022", indicators=[" ", " "], subfields=[Subfield("a", str(book_entry.issn))])
+            )
+        if book_entry.ean:
+            record.add_field(
+                pymarc.Field(tag="024", indicators=["3", " "], subfields=[Subfield("a", str(book_entry.ean))])
+            )
+
+        # 500 – General notes
+        if book_entry.notes:
+            record.add_field(
+                pymarc.Field(tag="500", indicators=[" ", " "], subfields=[Subfield("a", book_entry.notes)])
+            )
+        if book_entry.material:
+            record.add_field(
+                pymarc.Field(tag="500", indicators=[" ", " "], subfields=[Subfield("a", book_entry.material)])
+            )
+        if book_entry.offprint:
+            record.add_field(pymarc.Field(tag="500", indicators=[" ", " "], subfields=[Subfield("a", "Offprint")]))
+
+        # 541 – Donors (book-level)
+        async for donor in book_entry.entry_donors.all():
+            record.add_field(pymarc.Field(tag="541", indicators=[" ", " "], subfields=[Subfield("a", str(donor))]))
+
+        # 650 – Topics (local subject headings)
+        async for topic in book_entry.topics.all():
+            record.add_field(pymarc.Field(tag="650", indicators=[" ", "4"], subfields=[Subfield("a", str(topic))]))
+
+        # 700 / 710 – Translators
+        async for translator in book_entry.translators.all():
+            if translator.organisation_name:
+                record.add_field(
+                    pymarc.Field(
+                        tag="710",
+                        indicators=["2", " "],
+                        subfields=[Subfield("a", str(translator.organisation_name)), Subfield("e", "translator")],
+                    )
+                )
+            else:
+                name = self._personal_name_inverted(translator.surname, translator.first_name, translator.middle_name)
+                record.add_field(
+                    pymarc.Field(
+                        tag="700",
+                        indicators=["1", " "],
+                        subfields=[Subfield("a", name), Subfield("e", "translator")],
+                    )
+                )
+
+        # 700 / 710 – Curators (relator: editor)
+        async for curator in book_entry.curators.all():
+            if curator.organisation_name:
+                record.add_field(
+                    pymarc.Field(
+                        tag="710",
+                        indicators=["2", " "],
+                        subfields=[Subfield("a", str(curator.organisation_name)), Subfield("e", "editor")],
+                    )
+                )
+            else:
+                name = self._personal_name_inverted(curator.surname, curator.first_name, curator.middle_name)
+                record.add_field(
+                    pymarc.Field(
+                        tag="700",
+                        indicators=["1", " "],
+                        subfields=[Subfield("a", name), Subfield("e", "editor")],
+                    )
+                )
+
+        # 952 – Koha holdings (authenticated users only)
+        if include_holdings:
+            async for en in book_entry.entrynumber_set.select_related("location__parent__parent__parent").all():
+                if en.location:
+                    # Check whether location or any ancestor is non_public
+                    is_nonpublic = False
+                    node: Location | None = en.location
+                    while node is not None:
+                        if node.non_public:
+                            is_nonpublic = True
+                            break
+                        node = node.parent if node.parent_id else None
+
+                    # Skip entirely for unpermitted users
+                    if not can_see_nonpublic and is_nonpublic:
+                        continue
+
+                    # Walk to building (root ancestor)
+                    building: Location = en.location
+                    while building.parent_id is not None:
+                        building = building.parent
+
+                    sf952: list[Subfield] = [
+                        Subfield("a", building.name),
+                        Subfield("b", building.name),
+                        Subfield("c", en.location.full_path()),
+                        Subfield("p", en.entry_number),
+                        Subfield("y", "BK"),
+                    ]
+                    # Mark non-public items as restricted in Koha (952$5=1)
+                    if is_nonpublic:
+                        sf952.append(Subfield("5", "1"))
+                else:
+                    is_nonpublic = False
+                    sf952 = [
+                        Subfield("p", en.entry_number),
+                        Subfield("y", "BK"),
+                    ]
+
+                if book_entry.skoufas_classification:
+                    sf952.append(Subfield("o", book_entry.skoufas_classification))
+
+                if en.copies and en.copies > 1:
+                    sf952.append(Subfield("z", f"{en.copies} copies"))
+
+                en_donors: list[str] = []
+                async for donor in en.entry_number_donors.all():
+                    en_donors.append(str(donor))
+                if en_donors:
+                    sf952.append(Subfield("z", "Donated by: " + ", ".join(sorted(en_donors))))
+
+                record.add_field(pymarc.Field(tag="952", indicators=[" ", " "], subfields=sf952))
+
+        return record
+
+    async def _iter_records(self, request: Any):
+        user = await request.auser()
+        include_holdings: bool = user.is_authenticated
+        can_see_nonpublic: bool = include_holdings and user.has_perm("books.view_nonpublic_location")
+        async for book_entry in BookEntry.objects.order_by("edition_year", "title").select_related("editor").all():
+            yield await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic)
+
+    async def _stream_iso2709(self, request: Any):
+        async for record in self._iter_records(request):
+            yield record.as_marc()
+
+    async def _stream_marcxml(self, request: Any):
+        yield b'<?xml version="1.0" encoding="UTF-8"?>\n<collection xmlns="http://www.loc.gov/MARC21/slim">\n'
+        async for record in self._iter_records(request):
+            yield pymarc.record_to_xml(record)
+            yield b"\n"
+        yield b"</collection>\n"
+
+    async def _stream_marcmaker(self, request: Any):
+        async for record in self._iter_records(request):
+            buf = io.StringIO()
+            writer = pymarc.TextWriter(buf)
+            writer.write(record)
+            yield buf.getvalue().encode("utf-8")
+
+    async def get(self, request: Any, fmt: str, **_kwargs: Any):
+        """Return an async streaming response in the requested format."""
+        if fmt == "mrc":
+            return StreamingHttpResponse(
+                streaming_content=self._stream_iso2709(request),
+                content_type="application/marc",
+                headers={"Content-Disposition": 'attachment; filename="all-skoufas-books.mrc"'},
+            )
+        if fmt == "xml":
+            return StreamingHttpResponse(
+                streaming_content=self._stream_marcxml(request),
+                content_type="application/marcxml+xml",
+                headers={"Content-Disposition": 'attachment; filename="all-skoufas-books.xml"'},
+            )
+        # fmt == "mrk"
+        return StreamingHttpResponse(
+            streaming_content=self._stream_marcmaker(request),
+            content_type="text/plain; charset=utf-8",
+            headers={"Content-Disposition": 'attachment; filename="all-skoufas-books.mrk"'},
+        )
+
+
+class MARCSingleBookExportView(MARCExportView):
+    """Download a MARC21 record for a single BookEntry (all three serialisations)."""
+
+    async def _iter_records(self, request: Any):
+        from django.http import Http404
+
+        pk = self.kwargs["pk"]
+        try:
+            book_entry = await BookEntry.objects.select_related("editor").aget(pk=pk)
+        except BookEntry.DoesNotExist:
+            raise Http404
+        user = await request.auser()
+        include_holdings: bool = user.is_authenticated
+        can_see_nonpublic: bool = include_holdings and user.has_perm("books.view_nonpublic_location")
+        yield await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic)
+
+    async def get(self, request: Any, fmt: str, **_kwargs: Any):
+        """Return a single-record response using the pk as the download filename."""
+        pk = self.kwargs["pk"]
+        if fmt == "mrc":
+            return StreamingHttpResponse(
+                streaming_content=self._stream_iso2709(request),
+                content_type="application/marc",
+                headers={"Content-Disposition": f'attachment; filename="{pk}.mrc"'},
+            )
+        if fmt == "xml":
+            return StreamingHttpResponse(
+                streaming_content=self._stream_marcxml(request),
+                content_type="application/marcxml+xml",
+                headers={"Content-Disposition": f'attachment; filename="{pk}.xml"'},
+            )
+        # fmt == "mrk"
+        return StreamingHttpResponse(
+            streaming_content=self._stream_marcmaker(request),
+            content_type="text/plain; charset=utf-8",
+            headers={"Content-Disposition": f'attachment; filename="{pk}.mrk"'},
+        )
+
+
+class MARCSingleBookDetailView(MARCExportView):
+    """Render a single BookEntry's MARC21 record as a Bootstrap table."""
+
+    template_name = "books/bookentry_marc_detail.html"
+
+    async def get(self, request: Any, pk: int, **_kwargs: Any):
+        from asgiref.sync import sync_to_async
+        from django.http import Http404
+        from django.shortcuts import render
+
+        try:
+            book_entry = await BookEntry.objects.select_related("editor").aget(pk=pk)
+        except BookEntry.DoesNotExist:
+            raise Http404
+
+        user = await request.auser()
+        include_holdings: bool = user.is_authenticated
+        can_see_nonpublic: bool = include_holdings and user.has_perm("books.view_nonpublic_location")
+        record = await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic)
+
+        fields = []
+        for field in record:
+            if field.is_control_field():
+                fields.append({"tag": field.tag, "indicator1": "", "indicator2": "", "subfields": [("", field.data)]})
+            else:
+                subfields = [(sf.code, sf.value) for sf in field.subfields]
+                fields.append(
+                    {
+                        "tag": field.tag,
+                        "indicator1": field.indicator1.strip(),
+                        "indicator2": field.indicator2.strip(),
+                        "subfields": subfields,
+                    }
+                )
+
+        return await sync_to_async(render)(
+            request,
+            self.template_name,
+            {"object": book_entry, "marc_fields": fields},
         )
 
 

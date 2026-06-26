@@ -14,4 +14,5 @@ urlpatterns: list[URLPattern | URLResolver] = [
     path("customers/new/", views.CustomerCreateView.as_view(), name="customer-create"),
     path("customers/<int:pk>/edit/", views.CustomerUpdateView.as_view(), name="customer-edit"),
     path("customers/<int:pk>/delete/", views.CustomerDeleteView.as_view(), name="customer-delete"),
+    path("customers/export/koha.csv", views.KohaPatronExportView.as_view(), name="customer-export-koha"),
 ]
