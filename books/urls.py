@@ -26,6 +26,8 @@ urlpatterns: list[URLPattern | URLResolver] = [
         views.BookEntryBySkoufasClassificationListView.as_view(),
         name="book-by-skoufas-classification",
     ),
+    path(r"locations", views.LocationListView.as_view(), name="location-list"),
+    path(r"locations/by-db-id/<int:pk>", views.LocationDetailView.as_view(), name="location-by-id"),
     path(
         r"export/csv",
         views.CSVExportView.as_view(),

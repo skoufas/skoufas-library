@@ -3,6 +3,7 @@
 import csv
 from typing import Any
 
+from django.core.exceptions import PermissionDenied
 from django.db.models import Count
 from django.http import StreamingHttpResponse
 from django.utils import timezone
@@ -14,6 +15,9 @@ from books.models import Author
 from books.models import BookEntry
 from books.models import Donor
 from books.models import EntryNumber
+from books.models import Location
+from books.skoufas_classification_classes import classification
+from curation.models import InventorySession
 
 
 class BookEntryListView(ListView):
@@ -60,6 +64,11 @@ class BookEntryDetailView(DetailView):
         """Add details."""
         context = super().get_context_data(**kwargs)
         context["now"] = timezone.now()
+        user = self.request.user
+        entry_numbers = list(context["object"].entrynumber_set.all())
+        for en in entry_numbers:
+            en.location_accessible = en.location.is_accessible(user) if en.location else False
+        context["entry_numbers"] = entry_numbers
         return context
 
 
@@ -77,7 +86,13 @@ class BookEntryByEntryNumberDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         entry_number = context["object"]
         context["entry_number"] = entry_number
-        context["object"] = entry_number.book_entry
+        book_entry = entry_number.book_entry
+        context["object"] = book_entry
+        user = self.request.user
+        entry_numbers = list(book_entry.entrynumber_set.all())
+        for en in entry_numbers:
+            en.location_accessible = en.location.is_accessible(user) if en.location else False
+        context["entry_numbers"] = entry_numbers
         return context
 
 
@@ -147,7 +162,6 @@ class ClassListView(ListView):
         """Add details."""
         context = super().get_context_data(**kwargs)
         context["now"] = timezone.now()
-        from .skoufas_classification_classes import classification
 
         it = (
             BookEntry.objects.order_by("classification_class", "skoufas_classification")
@@ -428,3 +442,69 @@ class CSVExportView(View):
             content_type="text/csv",
             headers={"Content-Disposition": 'attachment; filename="all-skoufas-books.csv"'},
         )
+
+
+class LocationListView(ListView):
+    """List top-level locations (buildings)."""
+
+    model = Location
+    template_name = "books/location_list.html"
+
+    def get_queryset(self):
+        """Return buildings only, filtering out non-public ones for unpermitted users."""
+        qs = Location.objects.filter(parent__isnull=True)
+        if not self.request.user.has_perm("books.view_nonpublic_location"):
+            qs = qs.filter(non_public=False)
+        return qs
+
+
+class LocationDetailView(DetailView):
+    """Detail view for a single location node."""
+
+    model = Location
+    template_name = "books/location_detail.html"
+
+    def get_object(self, queryset=None):
+        """Return the location, raising PermissionDenied if non-public and not permitted."""
+        obj = super().get_object(queryset)
+        if not obj.is_accessible(self.request.user):
+            raise PermissionDenied
+        return obj
+
+    def get_context_data(self, **kwargs):
+        """Add children and descendant entry numbers to context."""
+        context = super().get_context_data(**kwargs)
+        location = context["object"]
+        user = self.request.user
+        can_see_nonpublic = user.has_perm("books.view_nonpublic_location")
+
+        # Ancestor chain for breadcrumb (root first)
+        ancestors = []
+        node = location.parent
+        while node is not None:
+            ancestors.insert(0, node)
+            node = node.parent if node.parent_id else None
+        context["ancestors"] = ancestors
+
+        # Direct children — filter non-public if needed
+        children_qs = location.children.all()
+        if not can_see_nonpublic:
+            children_qs = children_qs.filter(non_public=False)
+        context["children"] = children_qs
+
+        # Entry numbers at this node and all descendants
+        descendant_ids = location.get_descendant_ids()
+        all_location_ids = [location.pk] + descendant_ids
+        context["entry_numbers"] = (
+            EntryNumber.objects.filter(location_id__in=all_location_ids)
+            .select_related("book_entry", "location")
+            .order_by("entry_number")
+        )
+
+        # Inventory session button (only for leaf locations)
+        if location.type in {Location.TYPE_SHELF, Location.TYPE_BOX}:
+            context["open_inventory_session"] = InventorySession.objects.filter(
+                location=location, closed_at=None
+            ).first()
+            context["is_leaf_location"] = True
+        return context

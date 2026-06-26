@@ -4,6 +4,7 @@ from django.core.validators import EMPTY_VALUES
 from django.db.models import CharField
 from django.utils.translation import gettext_lazy as _
 
+from books.languages import LANGUAGES
 from books.validators import validate_ean
 from books.validators import validate_isbn
 from books.validators import validate_issn
@@ -135,9 +136,6 @@ class LanguageField(CharField):
 
     def __init__(self, *args, **kwargs):
         """Choice is one of languages defined."""
-        # Local import so the languages aren't loaded unless they are needed.
-        from .languages import LANGUAGES
-
         kwargs.setdefault("max_length", 3)
         kwargs.setdefault("choices", LANGUAGES)
         kwargs.setdefault("db_collation", None)

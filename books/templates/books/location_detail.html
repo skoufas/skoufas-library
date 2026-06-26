@@ -1,0 +1,81 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {{ object.name }}
+    {% if perms.books.change_location %}
+        <a href="{% url 'admin:books_location_change' object.id %}"><i class="bi bi-pencil-fill"></i></a>
+    {% endif %}
+{% endblock title %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'books:location-list' %}">{% translate "Locations" %}</a>
+            </li>
+            {% for ancestor in ancestors %}
+                <li class="breadcrumb-item">
+                    <a href="{% url 'books:location-by-id' ancestor.id %}">{{ ancestor.name }}</a>
+                </li>
+            {% endfor %}
+            <li class="breadcrumb-item active" aria-current="page">{{ object.name }}</li>
+        </ol>
+    </nav>
+    {% if is_leaf_location and perms.curation.can_inventory %}
+        <div class="mb-3">
+            {% if open_inventory_session %}
+                <a href="{% url 'curation:inventory-scan' open_inventory_session.pk %}"
+                   class="btn btn-warning btn-sm">
+                    <i class="bi bi-box-seam me-1"></i>{% translate "Resume Inventory Session" %}
+                </a>
+            {% else %}
+                <form method="post" action="{% url 'curation:inventory-list' %}" class="d-inline">
+                    {% csrf_token %}
+                    <input type="hidden" name="location_id" value="{{ object.pk }}">
+                    <button type="submit" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-box-seam me-1"></i>{% translate "Start Inventory Session" %}
+                    </button>
+                </form>
+            {% endif %}
+        </div>
+    {% endif %}
+    {% if object.notes %}
+        <p class="text-muted">{{ object.notes }}</p>
+    {% endif %}
+    {% if object.non_public %}
+        <p><span class="badge bg-secondary">{% translate "Non-public" %}</span></p>
+    {% endif %}
+    {% if children %}
+        <h5>{% translate "Sub-locations" %}</h5>
+        <ul class="list-group mb-4">
+            {% for child in children %}
+                <a href="{% url 'books:location-by-id' child.id %}"
+                   class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <span>{{ child.name }}</span>
+                        <small class="text-muted">{{ child.get_type_display }}</small>
+                    </div>
+                </a>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% if entry_numbers %}
+        <h5>{% translate "Books at this location" %}</h5>
+        <div class="list-group">
+            {% for en in entry_numbers %}
+                <a href="{% url 'books:book-by-entry-number' en.id %}"
+                   class="list-group-item list-group-item-action">
+                    <i class="bi bi-book"></i>
+                    {{ en.entry_number }}: {{ en.book_entry.title }}
+                    {% if en.book_entry.subtitle %}
+                        <div><small class="text-muted">{{ en.book_entry.subtitle }}</small></div>
+                    {% endif %}
+                    {% if en.location != object %}
+                        <div><small class="text-muted">{{ en.location }}</small></div>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">{% translate "No books assigned to this location or its sub-locations." %}</p>
+    {% endif %}
+{% endblock content %}

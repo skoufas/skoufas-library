@@ -1,0 +1,64 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Inventory Sessions" %}
+{% endblock title %}
+{% block content %}
+    <h2>{% translate "Inventory Sessions" %}</h2>
+    {% if open_sessions %}
+        <h5>{% translate "Open Sessions" %}</h5>
+        <div class="list-group mb-4">
+            {% for s in open_sessions %}
+                <a href="{% url 'curation:inventory-scan' s.pk %}"
+                   class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                    <span>
+                        <i class="bi bi-box-seam me-2 text-warning"></i>
+                        {{ s.location }}
+                    </span>
+                    <small class="text-muted">{{ s.started_at|date:"Y-m-d H:i" }} - {{ s.started_by|default:"?" }}</small>
+                </a>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">{% translate "No open inventory sessions." %}</div>
+    {% endif %}
+    <h5>{% translate "Start New Session" %}</h5>
+    <form method="post" class="mb-5">
+        {% csrf_token %}
+        <div class="input-group" style="max-width: 500px;">
+            <select name="location_id" class="form-select" required>
+                <option value="">— {% translate "Choose a shelf or box" %} —</option>
+                {% for loc in leaf_locations %}
+                    <option value="{{ loc.pk }}">{{ loc }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-play-fill"></i> {% translate "Start" %}
+            </button>
+        </div>
+    </form>
+    {% if recent_closed %}
+        <h5>{% translate "Recently Closed Sessions" %}</h5>
+        <table class="table table-sm table-hover">
+            <thead class="table-secondary">
+                <tr>
+                    <th>{% translate "Location" %}</th>
+                    <th>{% translate "Started" %}</th>
+                    <th>{% translate "Closed" %}</th>
+                    <th>{% translate "By" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for s in recent_closed %}
+                    <tr style="cursor:pointer"
+                        onclick="location.href='{% url 'curation:inventory-close' s.pk %}'">
+                        <td><a href="{% url 'curation:inventory-close' s.pk %}">{{ s.location }}</a></td>
+                        <td>{{ s.started_at|date:"Y-m-d H:i" }}</td>
+                        <td>{{ s.closed_at|date:"Y-m-d H:i" }}</td>
+                        <td>{{ s.started_by|default:"—" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+{% endblock content %}

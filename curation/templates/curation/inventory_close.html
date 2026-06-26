@@ -1,0 +1,131 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Close Inventory" %}: {{ session.location }}
+{% endblock title %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'curation:inventory-list' %}">{% translate "Inventory Sessions" %}</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="{% url 'curation:inventory-scan' session.pk %}">{{ session.location }}</a>
+            </li>
+            <li class="breadcrumb-item active">{% translate "Close" %}</li>
+        </ol>
+    </nav>
+    <h4>{% translate "Inventory Summary" %} - {{ session.location }}</h4>
+    <p class="text-muted">
+        {% translate "Started" %} {{ session.started_at|date:"Y-m-d H:i" }}
+        {% if session.started_by %}
+            {% translate "by" %} {{ session.started_by }}
+        {% endif %}
+    </p>
+    <div class="row g-3 mb-4">
+        <div class="col-auto">
+            <div class="card border-success text-center" style="min-width:120px;">
+                <div class="card-body py-2">
+                    <div class="fs-3 fw-bold text-success">{{ confirmed_count }}</div>
+                    <div class="small text-muted">{% translate "Confirmed" %}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="card border-secondary text-center" style="min-width:120px;">
+                <div class="card-body py-2">
+                    <div class="fs-3 fw-bold text-secondary">{{ set_aside_count }}</div>
+                    <div class="small text-muted">{% translate "Set aside" %}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-auto">
+            <div class="card border-warning text-center" style="min-width:120px;">
+                <div class="card-body py-2">
+                    <div class="fs-3 fw-bold text-warning">{{ missing_count }}</div>
+                    <div class="small text-muted">{% translate "Missing from scan" %}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {# Confirmed #}
+    {% if confirmed %}
+        <h6>{% translate "Confirmed — location updated" %}</h6>
+        <ul class="list-group mb-4">
+            {% for e in confirmed %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <a href="{% url 'books:book-by-entry-number' e.entry_number.pk %}">
+                            <strong>{{ e.entry_number.entry_number }}</strong>
+                        </a>
+                        - {{ e.entry_number.book_entry.title }}
+                    </span>
+                    {% if e.previous_location %}
+                        <small class="text-muted">
+                            {% blocktranslate with from_loc=e.previous_location %}moved from {{ from_loc }}{% endblocktranslate %}
+                        </small>
+                    {% else %}
+                        <span class="badge bg-success-subtle text-success">{% translate "Assigned" %}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {# Set aside #}
+    {% if set_aside %}
+        <h6 class="text-secondary">{% translate "Set aside — needs entry number reassignment" %}</h6>
+        <ul class="list-group mb-4">
+            {% for e in set_aside %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <a href="{% url 'books:book-by-entry-number' e.entry_number.pk %}">
+                            <strong>{{ e.entry_number.entry_number }}</strong>
+                        </a>
+                        - {{ e.entry_number.book_entry.title }}
+                    </span>
+                    <span class="badge bg-secondary">{% translate "Set aside" %}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {# Missing #}
+    {% if missing %}
+        <h6 class="text-warning">{% translate "Missing from scan — expected at this location" %}</h6>
+        <ul class="list-group mb-4">
+            {% for en in missing %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <a href="{% url 'books:book-by-entry-number' en.pk %}">
+                            <strong>{{ en.entry_number }}</strong>
+                        </a>
+                        - {{ en.book_entry.title }}
+                    </span>
+                    <span class="badge bg-warning text-dark">{% translate "Not scanned" %}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <hr>
+    <div class="d-flex gap-2">
+        {% if not read_only %}
+            <a href="{% url 'curation:inventory-scan' session.pk %}"
+               class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> {% translate "Back to scan" %}
+            </a>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit"
+                        class="btn btn-danger"
+                        onclick="return confirm('{% translate "Mark this session as complete and close it?" %}')">
+                    <i class="bi bi-flag-fill"></i> {% translate "Mark complete &amp; close" %}
+                </button>
+            </form>
+        {% else %}
+            <a href="{% url 'curation:inventory-list' %}"
+               class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> {% translate "Back to inventory list" %}
+            </a>
+            <span class="badge bg-secondary align-self-center">{% translate "Closed" %} {{ session.closed_at|date:"Y-m-d H:i" }}</span>
+        {% endif %}
+    </div>
+{% endblock content %}

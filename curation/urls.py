@@ -16,4 +16,10 @@ urlpatterns: list[URLPattern | URLResolver] = [
     path("books/undo/<int:log_id>/", views.BookMergeUndoView.as_view(), name="book-merge-undo"),
     path("merges/", views.MergeLogListView.as_view(), name="merge-log-list"),
     path("suppressed/<int:pair_id>/unsuppress/", views.SuppressedPairUnsuppressView.as_view(), name="unsuppress-pair"),
+    # Inventory
+    path("inventory/", views.InventorySessionListView.as_view(), name="inventory-list"),
+    path("inventory/<int:pk>/", views.InventorySessionScanView.as_view(), name="inventory-scan"),
+    path("inventory/<int:pk>/confirm/", views.InventorySessionConfirmView.as_view(), name="inventory-confirm"),
+    path("inventory/<int:pk>/set-aside/", views.InventorySessionSetAsideView.as_view(), name="inventory-set-aside"),
+    path("inventory/<int:pk>/close/", views.InventorySessionCloseView.as_view(), name="inventory-close"),
 ]

@@ -1,10 +1,10 @@
 """Data-access layer for curation workflows."""
 
+from django.contrib.contenttypes.models import ContentType
 from django.db import connection
 
 from books.models import Author
 from books.models import BookEntry
-from curation.models import SuppressedPair
 
 DEFAULT_SIMILARITY_THRESHOLD = 0.6
 
@@ -58,8 +58,6 @@ def _pair_query(table, column, exclude_suppressed=False):
 
 def _fetch_pairs(sql, threshold, model_class, include_suppressed, prefetch=None):
     """Execute a self-join similarity query and return enriched pair dicts."""
-    from django.contrib.contenttypes.models import ContentType
-
     ct = ContentType.objects.get_for_model(model_class)
     sql_params = [] if include_suppressed else [ct.pk]
 

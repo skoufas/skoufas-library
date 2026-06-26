@@ -47,15 +47,20 @@
                 ({{ object.classification_class_str }})
             </dd>
         {% endif %}
-        {% if object.entrynumber_set.all %}
+        {% if entry_numbers %}
             <dt class="col-sm-3">{% translate "Entry Numbers" %}</dt>
             <dd class="col-sm-9">
                 <ul>
-                    {% for entrynumber in object.entrynumber_set.all %}
+                    {% for entrynumber in entry_numbers %}
                         <li>
                             {{ entrynumber.entry_number }}
                             {% if entrynumber.copies %}
                                 {% blocktranslate count counter=entrynumber.copies %} (1 copy){% plural %}({{ counter }} copies){% endblocktranslate %}
+                            {% endif %}
+                            {% if entrynumber.location_accessible %}
+                                {% with location_url=entrynumber.location.get_absolute_url location=entrynumber.location %}
+                                    {% blocktranslate %}(Located at <a href="{{ location_url }}">{{ location }}</a>){% endblocktranslate %}
+                                {% endwith %}
                             {% endif %}
                             {% for donor in entrynumber.entry_number_donors.all %}
                                 {% url 'books:donor-by-id' donor.id as donor_url %}

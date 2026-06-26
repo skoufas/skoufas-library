@@ -11,6 +11,7 @@ from .models import DbfEntryRow
 from .models import Donor
 from .models import Editor
 from .models import EntryNumber
+from .models import Location
 from .models import Topic
 from .models import Translator
 
@@ -50,6 +51,7 @@ class EntryNumberInline(admin.StackedInline):
 
     autocomplete_fields = [
         "entry_number_donors",
+        "location",
     ]
 
 
@@ -60,11 +62,13 @@ class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     list_display = [
         "entry_number",
         "book_entry",
+        "location",
     ]
 
     autocomplete_fields = [
         "entry_number_donors",
         "book_entry",
+        "location",
     ]
 
     search_fields = [
@@ -72,6 +76,24 @@ class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
         "book_entry__title",
         "book_entry__subtitle",
     ]
+
+
+@admin.register(Location)
+class LocationAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
+    """Customisation for Location."""
+
+    list_display = [
+        "name",
+        "type",
+        "parent",
+        "non_public",
+    ]
+
+    list_filter = ["type", "non_public"]
+
+    autocomplete_fields = ["parent"]
+
+    search_fields = ["name"]
 
 
 @admin.register(BookEntry)

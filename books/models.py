@@ -5,6 +5,7 @@ from typing import Any
 from typing import Optional
 
 from django.contrib.postgres.indexes import GistIndex
+from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
 from django.db import models
@@ -20,6 +21,7 @@ from books.fields import ISBNField
 from books.fields import ISSNField
 from books.fields import LanguageField
 from books.fields import SkoufasClassificationField
+from books.skoufas_classification_classes import classification
 
 
 def current_year() -> int:
@@ -376,8 +378,6 @@ class BookEntry(models.Model):
 
     def classification_class_str(self) -> Optional[str] | StrPromise:
         """Full text of classification."""
-        from .skoufas_classification_classes import classification
-
         return classification(self.classification_class)
 
     class Meta:
@@ -395,6 +395,98 @@ class BookEntry(models.Model):
         ]
 
 
+class Location(models.Model):
+    """Τοποθεσία."""
+
+    TYPE_BUILDING = "building"
+    TYPE_ROOM = "room"
+    TYPE_SHELF = "shelf"
+    TYPE_BOX = "box"
+    TYPE_CHOICES = [
+        (TYPE_BUILDING, _("Building")),
+        (TYPE_ROOM, _("Room")),
+        (TYPE_SHELF, _("Shelf")),
+        (TYPE_BOX, _("Box")),
+    ]
+
+    name = models.CharField(verbose_name=_("name"), max_length=200)
+    parent = models.ForeignKey(
+        "self",
+        verbose_name=_("parent"),
+        null=True,
+        blank=True,
+        on_delete=models.PROTECT,
+        related_name="children",
+    )
+    type = models.CharField(verbose_name=_("type"), max_length=20, choices=TYPE_CHOICES)
+    notes = models.TextField(verbose_name=_("notes"), null=True, blank=True)
+    non_public = models.BooleanField(verbose_name=_("non-public"), default=False)
+
+    def clean(self):
+        """Validate: only buildings can have a null parent."""
+        if self.type != self.TYPE_BUILDING and self.parent is None:
+            raise ValidationError(_("Only buildings can have no parent location."))
+
+    def full_path(self) -> str:
+        """Return the full hierarchical path, e.g. 'Building > Room > Shelf'."""
+        parts = [self.name]
+        node = self
+        while node.parent_id is not None:
+            node = node.parent
+            parts.append(node.name)
+        return " > ".join(reversed(parts))
+
+    def __str__(self):
+        """Return full path."""
+        return self.full_path()
+
+    def is_accessible(self, user) -> bool:
+        """Return True if this location is accessible to the given user.
+
+        Non-public nodes (and nodes with a non-public ancestor) are only
+        accessible to users with the books.view_nonpublic_location permission.
+        """
+        if user.has_perm("books.view_nonpublic_location"):
+            return True
+        node: Optional["Location"] = self
+        while node is not None:
+            if node.non_public:
+                return False
+            node = node.parent if node.parent_id else None
+        return True
+
+    def get_descendant_ids(self) -> list[int]:
+        """Return a list of PKs of all descendants (children, grandchildren, …)."""
+        result: list[int] = []
+        queue = list(self.children.values_list("pk", flat=True))
+        while queue:
+            pk = queue.pop()
+            result.append(pk)
+            queue.extend(Location.objects.filter(parent_id=pk).values_list("pk", flat=True))
+        return result
+
+    def get_absolute_url(self):
+        """URL to location detail."""
+        return reverse("books:location-by-id", kwargs={"pk": self.pk})
+
+    class Meta:
+        """Meta for Location."""
+
+        ordering = ["name"]
+        verbose_name = _("Location")
+        verbose_name_plural = _("Locations")
+        permissions = [
+            ("view_nonpublic_location", "Can view non-public locations"),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                name="unique_location_name_per_parent",
+                fields=["name", "parent"],
+                nulls_distinct=False,
+            )
+        ]
+
+
 class EntryNumber(models.Model):
     """Αριθμός Εισαγωγής."""
 
@@ -409,6 +501,14 @@ class EntryNumber(models.Model):
         Donor,
         verbose_name=_("Donor"),
         blank=True,
+    )
+
+    location = models.ForeignKey(
+        Location,
+        verbose_name=_("Location"),
+        null=True,
+        blank=True,
+        on_delete=models.PROTECT,
     )
 
     def __str__(self):

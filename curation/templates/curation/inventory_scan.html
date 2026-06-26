@@ -1,0 +1,134 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Inventory" %}: {{ session.location }}
+{% endblock title %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'curation:inventory-list' %}">{% translate "Inventory Sessions" %}</a>
+            </li>
+            <li class="breadcrumb-item active">{{ session.location }}</li>
+        </ol>
+    </nav>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4>{{ session.location }}</h4>
+        <a href="{% url 'curation:inventory-close' session.pk %}"
+           class="btn btn-outline-danger btn-sm">
+            <i class="bi bi-flag-fill"></i> {% translate "Close Session" %}
+        </a>
+    </div>
+    {# ------------------------------------------------------------------ #}
+    {# Pending confirmation panel                                          #}
+    {# ------------------------------------------------------------------ #}
+    {% if pending %}
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <i class="bi bi-qr-code-scan me-2"></i>
+                {% translate "Confirm this book?" %}
+            </div>
+            <div class="card-body">
+                <dl class="row mb-2">
+                    <dt class="col-sm-3">{% translate "Entry number" %}</dt>
+                    <dd class="col-sm-9">
+                        <strong>{{ pending.entry_number }}</strong>
+                    </dd>
+                    <dt class="col-sm-3">{% translate "Title" %}</dt>
+                    <dd class="col-sm-9">
+                        {{ pending.book_entry.title }}
+                        {% if pending.book_entry.subtitle %}- <em>{{ pending.book_entry.subtitle }}</em>{% endif %}
+                    </dd>
+                    <dt class="col-sm-3">{% translate "Authors" %}</dt>
+                    <dd class="col-sm-9">
+                        {% for author in pending.book_entry.authors.all %}
+                            {{ author }}
+                            {% if not forloop.last %},{% endif %}
+                        {% empty %}
+                            <span class="text-muted">—</span>
+                        {% endfor %}
+                    </dd>
+                    <dt class="col-sm-3">{% translate "Current location" %}</dt>
+                    <dd class="col-sm-9">
+                        {% if pending.location %}
+                            {{ pending.location }}
+                        {% else %}
+                            <span class="text-muted">{% translate "Unassigned" %}</span>
+                        {% endif %}
+                    </dd>
+                </dl>
+                {% if pending_conflict %}
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-triangle-fill me-1"></i>
+                        {% blocktranslate with from_loc=pending.location to_loc=session.location %}
+                            This book is currently assigned to <strong>{{ from_loc }}</strong>.
+                            Confirming will move it to <strong>{{ to_loc }}</strong>.
+                        {% endblocktranslate %}
+                    </div>
+                {% endif %}
+                <div class="d-flex gap-2">
+                    <form method="post"
+                          action="{% url 'curation:inventory-confirm' session.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-lg"></i>
+                            {% if pending_conflict %}
+                                {% translate "Yes, move it — Correct" %}
+                            {% else %}
+                                {% translate "Correct ✓" %}
+                            {% endif %}
+                        </button>
+                    </form>
+                    <form method="post"
+                          action="{% url 'curation:inventory-set-aside' session.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-lg"></i> {% translate "Set aside — needs reassignment" %}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        {# ---------------------------------------------------------------- #}
+        {# Scan input                                                       #}
+        {# ---------------------------------------------------------------- #}
+        <form method="post" class="mb-4" autocomplete="off">
+            {% csrf_token %}
+            <label class="form-label fw-semibold" for="id_entry_number">{% translate "Scan or type entry number" %}</label>
+            <div class="input-group" style="max-width: 420px;">
+                <input type="text"
+                       id="id_entry_number"
+                       name="entry_number"
+                       class="form-control form-control-lg"
+                       autofocus
+                       placeholder="{% translate "Entry number…" %}">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-upc-scan"></i> {% translate "Scan" %}
+                </button>
+            </div>
+        </form>
+    {% endif %}
+    {# ------------------------------------------------------------------ #}
+    {# Recent scans                                                        #}
+    {# ------------------------------------------------------------------ #}
+    {% if recent_entries %}
+        <h6 class="text-muted mt-4">{% translate "Recent scans this session" %}</h6>
+        <ul class="list-group">
+            {% for e in recent_entries %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <i class="bi bi-book me-1"></i>
+                        <strong>{{ e.entry_number.entry_number }}</strong>
+                        - {{ e.entry_number.book_entry.title }}
+                    </span>
+                    {% if e.outcome == "confirmed" %}
+                        <span class="badge bg-success">{% translate "Confirmed" %}</span>
+                    {% else %}
+                        <span class="badge bg-secondary">{% translate "Set aside" %}</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock content %}

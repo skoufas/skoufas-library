@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-25 07:28+0300\n"
+"POT-Creation-Date: 2026-06-26 08:59+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -505,22 +505,27 @@ msgstr "Διπλότυπα Βιβλίων"
 msgid "Merge History"
 msgstr "Ιστορικό Συγχωνεύσεων"
 
-#: templates/skoufas_library/layout.html:147
-#: templates/skoufas_library/layout.html:149
+#: templates/skoufas_library/layout.html:114
+#: templates/skoufas_library/layout.html:124
+msgid "Inventory"
+msgstr "Απογραφή"
+
+#: templates/skoufas_library/layout.html:160
+#: templates/skoufas_library/layout.html:162
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: templates/skoufas_library/layout.html:173
+#: templates/skoufas_library/layout.html:186
 msgid "Skoufas Association"
 msgstr "Μουσικοφιλολογικός Σύλλογος Σκουφάς"
 
-#: templates/skoufas_library/layout.html:174
+#: templates/skoufas_library/layout.html:187
 #: templates/skoufas_library/privacy_policy.html:4
 #: templates/skoufas_library/privacy_policy.html:8
 msgid "Privacy Policy"
 msgstr "Πολιτική Απορρήτου"
 
-#: templates/skoufas_library/layout.html:175
+#: templates/skoufas_library/layout.html:188
 msgid "Design - Construction: Claudio Bantaloukas"
 msgstr "Σχεδιασμός - Τεχνική κατασκευή: Κλαύδιος Μπανταλούκας"
 

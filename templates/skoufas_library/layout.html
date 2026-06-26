@@ -108,7 +108,20 @@
                 <li>
                   <a class="dropdown-item" href="{% url 'curation:merge-log-list' %}">{% translate "Merge History" %}</a>
                 </li>
+                {% if perms.curation.can_inventory %}
+                  <li><hr class="dropdown-divider"></li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'curation:inventory-list' %}">{% translate "Inventory" %}</a>
+                  </li>
+                {% endif %}
               </ul>
+            </li>
+          {% endif %}
+          {% if perms.curation.can_inventory and not perms.curation.can_curate %}
+            <li class="nav-item">
+              <a class="nav-link {% if request.resolver_match.app_name == 'curation' %}active{% endif %}"
+                 href="{% url 'curation:inventory-list' %}"
+                 {% if request.resolver_match.app_name == 'curation' %}aria-current="page"{% endif %}>{% translate "Inventory" %}</a>
             </li>
           {% endif %}
           {% get_current_language as LANGUAGE_CODE %}

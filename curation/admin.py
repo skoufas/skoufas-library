@@ -1,5 +1,7 @@
 from django.contrib import admin
 
+from curation.models import InventorySession
+from curation.models import InventorySessionEntry
 from curation.models import MergeLog
 from curation.models import SuppressedPair
 
@@ -44,3 +46,19 @@ class MergeLogAdmin(admin.ModelAdmin):
 
     def target_object(self, obj):
         return str(obj.target_object) if obj.target_object else f"(deleted id={obj.target_object_id})"
+
+
+class InventorySessionEntryInline(admin.TabularInline):
+    model = InventorySessionEntry
+    extra = 0
+    readonly_fields = ["entry_number", "scanned_at", "outcome", "previous_location"]
+    can_delete = False
+
+
+@admin.register(InventorySession)
+class InventorySessionAdmin(admin.ModelAdmin):
+    list_display = ["location", "started_by", "started_at", "closed_at"]
+    list_filter = ["location", "started_by"]
+    readonly_fields = ["started_by", "started_at", "closed_at"]
+    ordering = ["-started_at"]
+    inlines = [InventorySessionEntryInline]
