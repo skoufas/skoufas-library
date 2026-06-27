@@ -550,7 +550,7 @@ class Location(models.Model):
 class EntryNumber(models.Model):
     """Αριθμός Εισαγωγής."""
 
-    entry_number = models.CharField(verbose_name=_("Entry number"), max_length=200)
+    entry_number = models.IntegerField(verbose_name=_("Entry number"))
 
     copies = models.IntegerField(verbose_name=_("Copies"), default=0, null=True, blank=True)
 

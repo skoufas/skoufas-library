@@ -1,6 +1,7 @@
 """Book admin section customisation."""
 
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 from djangoql.admin import DjangoQLSearchMixin
 
 from .models import Author
@@ -54,6 +55,16 @@ class EntryNumberInline(admin.StackedInline):
         "location",
     ]
 
+    def get_formset(self, request, obj=None, **kwargs):
+        """Annotate entry_number with the next suggested value."""
+        formset = super().get_formset(request, obj, **kwargs)
+        from django.db.models import Max
+
+        max_val = EntryNumber.objects.aggregate(Max("entry_number"))["entry_number__max"]
+        next_val = (max_val or 0) + 1
+        formset.form.base_fields["entry_number"].help_text = _("Next available: %(n)s") % {"n": next_val}
+        return formset
+
 
 @admin.register(EntryNumber)
 class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
@@ -72,10 +83,21 @@ class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
     ]
 
     search_fields = [
-        "entry_number",
+        "=entry_number",
         "book_entry__title",
         "book_entry__subtitle",
     ]
+
+    def get_form(self, request, obj=None, **kwargs):
+        """Annotate entry_number with the next suggested value when adding."""
+        form = super().get_form(request, obj, **kwargs)
+        if obj is None:
+            from django.db.models import Max
+
+            max_val = EntryNumber.objects.aggregate(Max("entry_number"))["entry_number__max"]
+            next_val = (max_val or 0) + 1
+            form.base_fields["entry_number"].help_text = _("Next available: %(n)s") % {"n": next_val}
+        return form
 
 
 @admin.register(Location)

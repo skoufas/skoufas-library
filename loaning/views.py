@@ -73,18 +73,22 @@ def _entry_number_search(query):
     """Search entry numbers and related book metadata for the loan desk."""
     if not query:
         return EntryNumber.objects.none()
+    text_q = (
+        Q(book_entry__title__icontains=query)
+        | Q(book_entry__subtitle__icontains=query)
+        | Q(book_entry__authors__organisation_name__icontains=query)
+        | Q(book_entry__authors__surname__icontains=query)
+        | Q(book_entry__authors__first_name__icontains=query)
+        | Q(book_entry__isbn__icontains=query)
+        | Q(book_entry__issn__icontains=query)
+        | Q(book_entry__ean__icontains=query)
+    )
+    try:
+        text_q = Q(entry_number=int(query)) | text_q
+    except ValueError:
+        pass
     return (
-        EntryNumber.objects.filter(
-            Q(entry_number__icontains=query)
-            | Q(book_entry__title__icontains=query)
-            | Q(book_entry__subtitle__icontains=query)
-            | Q(book_entry__authors__organisation_name__icontains=query)
-            | Q(book_entry__authors__surname__icontains=query)
-            | Q(book_entry__authors__first_name__icontains=query)
-            | Q(book_entry__isbn__icontains=query)
-            | Q(book_entry__issn__icontains=query)
-            | Q(book_entry__ean__icontains=query)
-        )
+        EntryNumber.objects.filter(text_q)
         .select_related("book_entry")
         .prefetch_related("book_entry__authors")
         .annotate(active_loan_count=Count("loan", filter=_active_loan_filter(), distinct=True))

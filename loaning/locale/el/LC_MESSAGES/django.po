@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 07:33+0300\n"
+"POT-Creation-Date: 2026-06-28 00:17+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -394,64 +394,64 @@ msgstr "Ακύρωση δανεισμού"
 msgid "Back to loan desk"
 msgstr "Επιστροφή στους δανεισμούς"
 
-#: loaning/views.py:135 loaning/views.py:350
+#: loaning/views.py:139 loaning/views.py:354
 msgid "Customer created successfully."
 msgstr "Ο δανειζόμενος δημιουργήθηκε επιτυχώς."
 
-#: loaning/views.py:163
+#: loaning/views.py:167
 msgid "Customer saved successfully."
 msgstr "Ο δανειζόμενος αποθηκεύτηκε επιτυχώς."
 
-#: loaning/views.py:178
+#: loaning/views.py:182
 msgid "Customers with active loans cannot be deleted."
 msgstr "Δανειζόμενοι με ενεργούς δανεισμούς δεν μπορούν να διαγραφούν."
 
-#: loaning/views.py:182
+#: loaning/views.py:186
 msgid "Customer deleted and closed loans anonymized."
 msgstr "Ο δανειζόμενος διαγράφηκε και οι κλειστοί δανεισμοί ανωνυμοποιήθηκαν."
 
-#: loaning/views.py:273
+#: loaning/views.py:277
 msgid "Unknown loan desk action."
 msgstr "Άγνωστη ενέργεια δανεισμών."
 
-#: loaning/views.py:367
+#: loaning/views.py:371
 msgid "This customer already has an active loan for this entry number."
 msgstr ""
 "Ο δανειζόμενος έχει ήδη ενεργό δανεισμό για αυτόν τον αριθμό εισαγωγής."
 
-#: loaning/views.py:369
+#: loaning/views.py:373
 msgid "This customer has overdue active loans."
 msgstr "Ο δανειζόμενος έχει εκπρόθεσμους ενεργούς δανεισμούς."
 
-#: loaning/views.py:371
+#: loaning/views.py:375
 msgid "Loan created successfully."
 msgstr "Ο δανεισμός δημιουργήθηκε επιτυχώς."
 
-#: loaning/views.py:389
+#: loaning/views.py:393
 msgid "Loan returned successfully."
 msgstr "Ο δανεισμός επεστράφη επιτυχώς."
 
-#: loaning/views.py:391
+#: loaning/views.py:395
 msgid "Could not return the loan."
 msgstr "Δεν ήταν δυνατή η επιστροφή του δανεισμού."
 
-#: loaning/views.py:415
+#: loaning/views.py:419
 msgid "Only active loans can be changed."
 msgstr "Μόνο ενεργοί δανεισμοί μπορούν να αλλαχτούν."
 
-#: loaning/views.py:424
+#: loaning/views.py:428
 msgid "Loan returned."
 msgstr "Ο δανεισμός επεστράφη."
 
-#: loaning/views.py:427
+#: loaning/views.py:431
 msgid "Loan marked lost and copy count reduced."
 msgstr ""
 "Ο δανεισμός χαρακτηρίστηκε ως χαμένος και ο αριθμός αντιτύπων μειώθηκε."
 
-#: loaning/views.py:430
+#: loaning/views.py:434
 msgid "Loan cancelled."
 msgstr "Ο δανεισμός ακυρώθηκε."
 
-#: loaning/views.py:432
+#: loaning/views.py:436
 msgid "Unknown loan action."
 msgstr "Άγνωστη ενέργεια δανεισμού."

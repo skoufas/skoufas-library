@@ -374,8 +374,13 @@ class Command(BaseCommand):
         if not entry_numbers:
             return
         for entry_number in entry_numbers:
+            try:
+                en = int(entry_number)
+            except ValueError:
+                self.stderr.write(f"{entry['dbase_number']}: has non-numeric entry number {entry_number}")
+                continue
             entry_number_object, entry_created = EntryNumber.objects.get_or_create(
-                entry_number=entry_number,
+                entry_number=en,
                 defaults={
                     "book_entry": book_entry,
                     "copies": copies,

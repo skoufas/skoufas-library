@@ -962,9 +962,9 @@ class InventorySessionScanView(PermissionRequiredMixin, TemplateResponseMixin, V
             en = (
                 EntryNumber.objects.select_related("book_entry", "location")
                 .prefetch_related("book_entry__authors")
-                .get(entry_number=entry_number_value)
+                .get(entry_number=int(entry_number_value))
             )
-        except EntryNumber.DoesNotExist:
+        except EntryNumber.DoesNotExist, ValueError:
             messages.error(request, _('Entry number "%(en)s" not found in the database.') % {"en": entry_number_value})
             return redirect("curation:inventory-scan", pk=pk)
 
