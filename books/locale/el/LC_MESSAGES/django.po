@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-26 14:37+0300\n"
+"POT-Creation-Date: 2026-06-27 07:33+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31863,18 +31863,18 @@ msgstr ""
 msgid "Zuojiang Zhuang"
 msgstr ""
 
-#: books/models.py:40 books/models.py:102 books/models.py:136
-#: books/models.py:170
+#: books/models.py:40 books/models.py:102 books/models.py:151
+#: books/models.py:200
 msgid "first name"
 msgstr "Όνομα"
 
-#: books/models.py:41 books/models.py:103 books/models.py:137
-#: books/models.py:171
+#: books/models.py:41 books/models.py:103 books/models.py:152
+#: books/models.py:201
 msgid "middle name"
 msgstr "Μεσαίο Όνομα"
 
-#: books/models.py:42 books/models.py:104 books/models.py:138
-#: books/models.py:172
+#: books/models.py:42 books/models.py:104 books/models.py:153
+#: books/models.py:202
 msgid "surname"
 msgstr "Επίθετο"
 
@@ -31882,12 +31882,13 @@ msgstr "Επίθετο"
 msgid "pseudonym"
 msgstr "Ψευδώνυμο"
 
-#: books/models.py:44 books/models.py:105 books/models.py:139
-#: books/models.py:173
+#: books/models.py:44 books/models.py:105 books/models.py:154
+#: books/models.py:203
 msgid "organisation name"
 msgstr "Οργάνωση"
 
-#: books/models.py:45
+#: books/models.py:45 books/models.py:106 books/models.py:155
+#: books/models.py:236
 msgid "romanized name"
 msgstr "Λατινικοποιημένο Όνομα"
 
@@ -31895,7 +31896,7 @@ msgstr "Λατινικοποιημένο Όνομα"
 msgid "Nameless author"
 msgstr "Συγγραφέας χωρίς όνομα"
 
-#: books/models.py:82 books/models.py:266
+#: books/models.py:82 books/models.py:326
 msgid "Author"
 msgstr "Συγγραφέας"
 
@@ -31903,249 +31904,253 @@ msgstr "Συγγραφέας"
 msgid "Authors"
 msgstr "Συγγραφείς"
 
-#: books/models.py:113
+#: books/models.py:121
 msgid "Nameless translator"
 msgstr "Μεταφραστής χωρίς όνομα"
 
-#: books/models.py:123 books/models.py:272
+#: books/models.py:131 books/models.py:332
 msgid "Translator"
 msgstr "Μεταφραστής"
 
-#: books/models.py:124 books/templates/books/bookentry_detail.html:127
+#: books/models.py:132 books/templates/books/bookentry_detail.html:127
 msgid "Translators"
 msgstr "Μεταφραστές"
 
-#: books/models.py:147
+#: books/models.py:170
 msgid "Nameless curator"
 msgstr "Επιμελητής χωρίς όνομα"
 
-#: books/models.py:157 books/models.py:275
+#: books/models.py:180 books/models.py:335
 msgid "Curator"
 msgstr "Επιμελητής"
 
-#: books/models.py:158 books/templates/books/bookentry_detail.html:139
+#: books/models.py:181 books/templates/books/bookentry_detail.html:139
 msgid "Curators"
 msgstr "Επιμελητές"
 
-#: books/models.py:181
+#: books/models.py:211
 msgid "Nameless donor"
 msgstr "Δωρητής χωρίς όνομα"
 
-#: books/models.py:191 books/models.py:340 books/models.py:502
+#: books/models.py:221 books/models.py:400 books/models.py:562
 msgid "Donor"
 msgstr "Δωρητής"
 
-#: books/models.py:192 books/templates/books/bookentry_detail.html:151
+#: books/models.py:222 books/templates/books/bookentry_detail.html:151
 msgid "Donors"
 msgstr "Δωρητές"
 
-#: books/models.py:204 books/models.py:222
+#: books/models.py:234 books/models.py:260
 #: books/templates/books/bookentry_detail.html:91
 msgid "Editor"
 msgstr "Εκδότης"
 
-#: books/models.py:205
+#: books/models.py:235
 msgid "Editor place"
 msgstr "Τόπος Έκδοσης"
 
-#: books/models.py:210
+#: books/models.py:248
 msgid "Nameless editor"
 msgstr "Εκδότης χωρίς όνομα"
 
-#: books/models.py:214
+#: books/models.py:252
 msgid "Unknown editor in {}"
 msgstr "Άγνωστος εκδότης απο {}"
 
-#: books/models.py:223
+#: books/models.py:261
 msgid "Editors"
 msgstr "Εκδότες"
 
-#: books/models.py:235
+#: books/models.py:280
 msgid "topic"
 msgstr "Θέμα"
 
-#: books/models.py:245 books/models.py:278
+#: books/models.py:282
+msgid "romanized topic name"
+msgstr "Λατινικοποιημένο Όνομα Θέματος"
+
+#: books/models.py:298 books/models.py:338
 msgid "Topic"
 msgstr "Θέμα"
 
-#: books/models.py:246 books/templates/books/bookentry_detail.html:77
+#: books/models.py:299 books/templates/books/bookentry_detail.html:77
 msgid "Topics"
 msgstr "Θέματα"
 
-#: books/models.py:259
+#: books/models.py:319
 msgid "Title"
 msgstr "Τίτλος"
 
-#: books/models.py:262 books/templates/books/bookentry_detail.html:20
+#: books/models.py:322 books/templates/books/bookentry_detail.html:20
 msgid "Subtitle"
 msgstr "Υπότιτλος"
 
-#: books/models.py:281
+#: books/models.py:341
 msgid "editor"
 msgstr "Εκδότης"
 
-#: books/models.py:285
+#: books/models.py:345
 msgid "Skoufas Classification"
 msgstr "Ταξινόμιση βιβλιοθήκης Σκουφά"
 
-#: books/models.py:289 books/skoufas_classification_classes.py:19
+#: books/models.py:349 books/skoufas_classification_classes.py:19
 #: books/skoufas_classification_classes.py:68
 #: books/skoufas_classification_classes.py:523
 #: books/templates/books/bookentry_detail.html:85
 msgid "Language"
 msgstr "Γλώσσα"
 
-#: books/models.py:292 books/templates/books/bookentry_detail.html:97
+#: books/models.py:352 books/templates/books/bookentry_detail.html:97
 msgid "Edition"
 msgstr "Έκδοση"
 
-#: books/models.py:296 books/templates/books/bookentry_detail.html:103
+#: books/models.py:356 books/templates/books/bookentry_detail.html:103
 msgid "Edition Year"
 msgstr "Έτος έκδοσης"
 
-#: books/models.py:303 books/templates/books/bookentry_detail.html:109
+#: books/models.py:363 books/templates/books/bookentry_detail.html:109
 msgid "Pages"
 msgstr "Σελίδες"
 
-#: books/models.py:306 books/models.py:495
+#: books/models.py:366 books/models.py:555
 #: books/templates/books/bookentry_detail.html:115
 msgid "Copies"
 msgstr "Αντίτυπα"
 
-#: books/models.py:309 books/templates/books/bookentry_detail.html:121
+#: books/models.py:369 books/templates/books/bookentry_detail.html:121
 msgid "Volumes"
 msgstr "Τεύχη/Τόμοι"
 
-#: books/models.py:312 books/templates/books/bookentry_detail.html:163
+#: books/models.py:372 books/templates/books/bookentry_detail.html:163
 msgid "Notes"
 msgstr "Σημειώσεις"
 
-#: books/models.py:315 books/templates/books/bookentry_detail.html:169
+#: books/models.py:375 books/templates/books/bookentry_detail.html:169
 msgid "Material"
 msgstr "Υλικό"
 
-#: books/models.py:327 books/templates/books/bookentry_detail.html:192
+#: books/models.py:387 books/templates/books/bookentry_detail.html:192
 msgid "Offprint"
 msgstr "Ανάτυπο"
 
-#: books/models.py:331 books/templates/books/bookentry_detail.html:200
+#: books/models.py:391 books/templates/books/bookentry_detail.html:200
 msgid "Has CD"
 msgstr "Έχει CD"
 
-#: books/models.py:336 books/templates/books/bookentry_detail.html:208
+#: books/models.py:396 books/templates/books/bookentry_detail.html:208
 msgid "Has DVD"
 msgstr "Έχει DVD"
 
-#: books/models.py:344
+#: books/models.py:404
 msgid "Skoufas Classification Class"
 msgstr "Βασική Ταξινόμιση βιβλιοθήκης Σκουφά"
 
-#: books/models.py:346
+#: books/models.py:406
 msgid "romanized title"
 msgstr "Λατινικοποιημένος τίτλος"
 
-#: books/models.py:361
+#: books/models.py:421
 msgid "Book with no title and subtitle"
 msgstr "Βιβλίο χωρίς τιτλο και υπότιτλο"
 
-#: books/models.py:387 books/models.py:497 books/models.py:542
+#: books/models.py:447 books/models.py:557 books/models.py:602
 msgid "Book Entry"
 msgstr "Κάρτα Βιβλίου"
 
-#: books/models.py:388
+#: books/models.py:448
 msgid "Book Entries"
 msgstr "Κάρτες Βιβλίου"
 
-#: books/models.py:406
+#: books/models.py:466
 msgid "Building"
 msgstr "Κτίριο"
 
-#: books/models.py:407
+#: books/models.py:467
 msgid "Room"
 msgstr "Αίθουσα"
 
-#: books/models.py:408
+#: books/models.py:468
 msgid "Shelf"
 msgstr "Ράφι"
 
-#: books/models.py:409
+#: books/models.py:469
 msgid "Box"
 msgstr "Κουτί"
 
-#: books/models.py:412
+#: books/models.py:472
 msgid "name"
 msgstr "Όνομα"
 
-#: books/models.py:415
+#: books/models.py:475
 msgid "parent"
 msgstr "Γονική τοποθεσία"
 
-#: books/models.py:421
+#: books/models.py:481
 msgid "type"
 msgstr "Τύπος"
 
-#: books/models.py:422
+#: books/models.py:482
 msgid "notes"
 msgstr "Σημειώσεις"
 
-#: books/models.py:423
+#: books/models.py:483
 msgid "non-public"
 msgstr "Μη δημόσιος"
 
-#: books/models.py:428
+#: books/models.py:488
 msgid "Only buildings can have no parent location."
 msgstr "Μόνο τα κτίρια μπορούν να μην έχουν γονική τοποθεσία."
 
-#: books/models.py:476 books/models.py:508
+#: books/models.py:536 books/models.py:568
 msgid "Location"
 msgstr "Τοποθεσία"
 
-#: books/models.py:477 books/templates/books/location_detail.html:13
+#: books/models.py:537 books/templates/books/location_detail.html:13
 #: books/templates/books/location_list.html:4
 msgid "Locations"
 msgstr "Τοποθεσίες"
 
-#: books/models.py:493
+#: books/models.py:553
 msgid "Entry number"
 msgstr "Αριθμός εισαγωγής"
 
-#: books/models.py:529
+#: books/models.py:589
 msgid "Entry Number"
 msgstr "Αριθμός εισαγωγής"
 
-#: books/models.py:530 books/templates/books/bookentry_detail.html:51
+#: books/models.py:590 books/templates/books/bookentry_detail.html:51
 msgid "Entry Numbers"
 msgstr "Αριθμοί εισαγωγής"
 
-#: books/models.py:543
+#: books/models.py:603
 msgid "DBF Sequence"
 msgstr "Οθόνες DBF"
 
-#: books/models.py:544
+#: books/models.py:604
 msgid "Import Time"
 msgstr "Ώρα εισαγωγής"
 
-#: books/models.py:561 books/models.py:574
+#: books/models.py:621 books/models.py:634
 msgid "DBF entry"
 msgstr "Οθόνη DBF"
 
-#: books/models.py:562
+#: books/models.py:622
 msgid "DBF entries"
 msgstr "Οθόνες DBF"
 
-#: books/models.py:576
+#: books/models.py:636
 msgid "Code"
 msgstr "Κωδικός"
 
-#: books/models.py:580
+#: books/models.py:640
 msgid "Value"
 msgstr "Τιμή"
 
-#: books/models.py:594
+#: books/models.py:654
 msgid "DBF row"
 msgstr "Πεδίο DBF"
 
-#: books/models.py:595
+#: books/models.py:655
 msgid "DBF rows"
 msgstr "Πεδία DBF"
 
@@ -36343,27 +36348,27 @@ msgstr "Εμφάνιση αναζητήσεων"
 msgid "Show original DBF entry"
 msgstr "Εμφάνιση πεδίων DBF"
 
-#: books/templates/books/bookentry_detail.html:232
+#: books/templates/books/bookentry_detail.html:233
 msgid "View MARC record"
 msgstr "Προβολή εγγραφής MARC"
 
-#: books/templates/books/bookentry_detail.html:240
+#: books/templates/books/bookentry_detail.html:241
 msgid "ISBN search on Google Books."
 msgstr "Αναζήτηση ISBN στο Google Books."
 
-#: books/templates/books/bookentry_detail.html:244
+#: books/templates/books/bookentry_detail.html:245
 msgid "ISBN search on Amazon.com."
 msgstr "Αναζήτηση ISBN στο Amazon.com."
 
-#: books/templates/books/bookentry_detail.html:248
+#: books/templates/books/bookentry_detail.html:249
 msgid "ISBN search on osdelnet."
 msgstr "Αναζήτηση ISBN στο osdelnet."
 
-#: books/templates/books/bookentry_detail.html:252
+#: books/templates/books/bookentry_detail.html:253
 msgid "ISBN search on Bookia."
 msgstr "Αναζήτηση ISBN στο Bookia."
 
-#: books/templates/books/bookentry_detail.html:256
+#: books/templates/books/bookentry_detail.html:257
 msgid "ISBN search on worldcat.org."
 msgstr "Αναζήτηση ISBN στο worldcat.org."
 

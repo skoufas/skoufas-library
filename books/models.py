@@ -103,6 +103,14 @@ class Translator(models.Model):
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True, blank=True)
     surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True, blank=True)
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True, blank=True)
+    romanized_name = models.CharField(verbose_name=_("romanized name"), max_length=1000, blank=True, default="")
+
+    def save(self, *args, **kwargs):
+        """Compute romanized_name before saving."""
+        parts = [self.surname, self.first_name, self.middle_name, self.organisation_name]
+        combined = " ".join(p for p in parts if p)
+        self.romanized_name = romanize(combined)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """Print Translator."""
@@ -122,6 +130,13 @@ class Translator(models.Model):
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
         verbose_name = _("Translator")
         verbose_name_plural = _("Translators")
+        indexes = [
+            GistIndex(
+                fields=["romanized_name"],
+                name="translator_romanized_name_gist",
+                opclasses=["gist_trgm_ops"],
+            ),
+        ]
         constraints = [
             models.UniqueConstraint(
                 name="unique_translator",
@@ -137,6 +152,14 @@ class Curator(models.Model):
     middle_name = models.CharField(verbose_name=_("middle name"), max_length=200, null=True, blank=True)
     surname = models.CharField(verbose_name=_("surname"), max_length=200, null=True, blank=True)
     organisation_name = models.CharField(verbose_name=_("organisation name"), max_length=200, null=True, blank=True)
+    romanized_name = models.CharField(verbose_name=_("romanized name"), max_length=1000, blank=True, default="")
+
+    def save(self, *args, **kwargs):
+        """Compute romanized_name before saving."""
+        parts = [self.surname, self.first_name, self.middle_name, self.organisation_name]
+        combined = " ".join(p for p in parts if p)
+        self.romanized_name = romanize(combined)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """Print Curator."""
@@ -156,6 +179,13 @@ class Curator(models.Model):
         ordering = ["organisation_name", "surname", "middle_name", "first_name"]
         verbose_name = _("Curator")
         verbose_name_plural = _("Curators")
+        indexes = [
+            GistIndex(
+                fields=["romanized_name"],
+                name="curator_romanized_name_gist",
+                opclasses=["gist_trgm_ops"],
+            ),
+        ]
         constraints = [
             models.UniqueConstraint(
                 name="unique_curator",
@@ -203,6 +233,14 @@ class Editor(models.Model):
 
     name = models.CharField(verbose_name=_("Editor"), max_length=200, null=True, blank=True)
     place = models.CharField(verbose_name=_("Editor place"), max_length=200, null=True, blank=True)
+    romanized_name = models.CharField(verbose_name=_("romanized name"), max_length=1000, blank=True, default="")
+
+    def save(self, *args, **kwargs):
+        """Compute romanized_name before saving."""
+        parts = [self.name, self.place]
+        combined = " ".join(p for p in parts if p)
+        self.romanized_name = romanize(combined)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """Print Editor."""
@@ -221,6 +259,13 @@ class Editor(models.Model):
         ordering = ["name", "place"]
         verbose_name = _("Editor")
         verbose_name_plural = _("Editors")
+        indexes = [
+            GistIndex(
+                fields=["romanized_name"],
+                name="editor_romanized_name_gist",
+                opclasses=["gist_trgm_ops"],
+            ),
+        ]
         constraints = [
             models.UniqueConstraint(
                 name="unique_editor",
@@ -233,6 +278,14 @@ class Topic(models.Model):
     """Θέμα."""
 
     topic_name = models.CharField(verbose_name=_("topic"), max_length=200)
+    romanized_topic_name = models.CharField(
+        verbose_name=_("romanized topic name"), max_length=1000, blank=True, default=""
+    )
+
+    def save(self, *args, **kwargs):
+        """Compute romanized_topic_name before saving."""
+        self.romanized_topic_name = romanize(self.topic_name) if self.topic_name else ""
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """Print Topic."""
@@ -244,6 +297,13 @@ class Topic(models.Model):
         ordering = ["topic_name"]
         verbose_name = _("Topic")
         verbose_name_plural = _("Topics")
+        indexes = [
+            GistIndex(
+                fields=["romanized_topic_name"],
+                name="topic_romanized_name_gist",
+                opclasses=["gist_trgm_ops"],
+            ),
+        ]
         constraints = [
             models.UniqueConstraint(
                 name="unique_topic_name",

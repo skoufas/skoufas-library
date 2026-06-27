@@ -44,38 +44,34 @@
                         </td>
                         <td>
                             {% if log.can_undo %}
-                                {% if log.merge_data.entity_type == "book" %}
-                                    <form method="post" action="{% url 'curation:book-merge-undo' log.pk %}">
-                                    {% else %}
-                                        <form method="post" action="{% url 'curation:author-merge-undo' log.pk %}">
-                                        {% endif %}
-                                        {% csrf_token %}
-                                        <button type="submit"
-                                                class="btn btn-sm btn-outline-warning"
-                                                onclick="return confirm('{% translate "Undo this merge and recreate the deleted entry?" %}')">
-                                            <i class="bi bi-arrow-counterclockwise"></i> {% translate "Undo" %}
-                                        </button>
-                                    </form>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <nav aria-label="{% translate "Page navigation" %}">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
-                        <a class="page-link"
-                           href="?page={% if page_obj.has_previous %}{{ page_obj.previous_page_number }}{% else %}1{% endif %}">&laquo; {% translate "Previous" %}</a>
-                    </li>
-                    <li class="page-item active">
-                        <span class="page-link">{{ page_obj.number }}</span>
-                    </li>
-                    <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
-                        <a class="page-link"
-                           href="?page={% if page_obj.has_next %}{{ page_obj.next_page_number }}{% else %}{{ page_obj.paginator.num_pages }}{% endif %}">{% translate "Next" %} &raquo;</a>
-                    </li>
-                </ul>
-            </nav>
-        {% endif %}
-    {% endblock content %}
+                                <form method="post" action="{% url 'curation:merge-undo' log.pk %}">
+                                    {% csrf_token %}
+                                    <button type="submit"
+                                            class="btn btn-sm btn-outline-warning"
+                                            onclick="return confirm('{% translate "Undo this merge and recreate the deleted entry?" %}')">
+                                        <i class="bi bi-arrow-counterclockwise"></i> {% translate "Undo" %}
+                                    </button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <nav aria-label="{% translate "Page navigation" %}">
+            <ul class="pagination justify-content-center">
+                <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
+                    <a class="page-link"
+                       href="?page={% if page_obj.has_previous %}{{ page_obj.previous_page_number }}{% else %}1{% endif %}">&laquo; {% translate "Previous" %}</a>
+                </li>
+                <li class="page-item active">
+                    <span class="page-link">{{ page_obj.number }}</span>
+                </li>
+                <li class="page-item {% if not page_obj.has_next %}disabled{% endif %}">
+                    <a class="page-link"
+                       href="?page={% if page_obj.has_next %}{{ page_obj.next_page_number }}{% else %}{{ page_obj.paginator.num_pages }}{% endif %}">{% translate "Next" %} &raquo;</a>
+                </li>
+            </ul>
+        </nav>
+    {% endif %}
+{% endblock content %}

@@ -5,6 +5,10 @@ from django.db import connection
 
 from books.models import Author
 from books.models import BookEntry
+from books.models import Curator
+from books.models import Editor
+from books.models import Topic
+from books.models import Translator
 
 DEFAULT_SIMILARITY_THRESHOLD = 0.6
 
@@ -101,3 +105,27 @@ def get_duplicate_book_pairs(threshold, include_suppressed=False):
     """Return similar BookEntry pairs above the given pg_trgm threshold."""
     sql = _pair_query("books_bookentry", "romanized_title", exclude_suppressed=not include_suppressed)
     return _fetch_pairs(sql, threshold, BookEntry, include_suppressed, prefetch=["authors", "entrynumber_set"])
+
+
+def get_duplicate_translator_pairs(threshold, include_suppressed=False):
+    """Return similar Translator pairs above the given pg_trgm threshold."""
+    sql = _pair_query("books_translator", "romanized_name", exclude_suppressed=not include_suppressed)
+    return _fetch_pairs(sql, threshold, Translator, include_suppressed, prefetch=["bookentry_set"])
+
+
+def get_duplicate_curator_pairs(threshold, include_suppressed=False):
+    """Return similar Curator pairs above the given pg_trgm threshold."""
+    sql = _pair_query("books_curator", "romanized_name", exclude_suppressed=not include_suppressed)
+    return _fetch_pairs(sql, threshold, Curator, include_suppressed, prefetch=["bookentry_set"])
+
+
+def get_duplicate_topic_pairs(threshold, include_suppressed=False):
+    """Return similar Topic pairs above the given pg_trgm threshold."""
+    sql = _pair_query("books_topic", "romanized_topic_name", exclude_suppressed=not include_suppressed)
+    return _fetch_pairs(sql, threshold, Topic, include_suppressed, prefetch=["bookentry_set"])
+
+
+def get_duplicate_editor_pairs(threshold, include_suppressed=False):
+    """Return similar Editor pairs above the given pg_trgm threshold."""
+    sql = _pair_query("books_editor", "romanized_name", exclude_suppressed=not include_suppressed)
+    return _fetch_pairs(sql, threshold, Editor, include_suppressed, prefetch=["bookentry_set"])

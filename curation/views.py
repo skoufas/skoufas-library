@@ -12,16 +12,17 @@ from django.views import View
 from django.views.generic import ListView
 from django.views.generic.base import TemplateResponseMixin
 
-from books.models import Author
-from books.models import BookEntry
-from books.models import EntryNumber
-from books.models import Location
-from curation.models import InventorySession
-from curation.models import InventorySessionEntry
-from curation.models import MergeLog
-from curation.models import SuppressedPair
+from books.models import Author, BookEntry, Curator, Editor, EntryNumber, Location, Topic, Translator
+from curation.models import InventorySession, InventorySessionEntry, MergeLog, SuppressedPair
 from curation.queries import BOOK_BOOLEAN_FIELDS, BOOK_SCALAR_FIELDS, DEFAULT_SIMILARITY_THRESHOLD
-from curation.queries import get_duplicate_author_pairs, get_duplicate_book_pairs
+from curation.queries import (
+    get_duplicate_author_pairs,
+    get_duplicate_book_pairs,
+    get_duplicate_curator_pairs,
+    get_duplicate_editor_pairs,
+    get_duplicate_topic_pairs,
+    get_duplicate_translator_pairs,
+)
 from loaning.models import Loan
 
 
@@ -299,6 +300,438 @@ class BookMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View):
 
 
 # ---------------------------------------------------------------------------
+# Translator duplicate detection & merge
+# ---------------------------------------------------------------------------
+
+
+class TranslatorDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View):
+    """List translator pairs above the similarity threshold."""
+
+    permission_required = "curation.can_curate"
+    template_name = "curation/person_duplicates.html"
+
+    def get(self, request):
+        threshold = _threshold_from_request(request)
+        include_suppressed = request.GET.get("show_suppressed") == "1"
+        pairs = get_duplicate_translator_pairs(threshold, include_suppressed=include_suppressed)
+        return self.render_to_response(
+            {
+                "pairs": pairs,
+                "threshold": threshold,
+                "include_suppressed": include_suppressed,
+                "page_title": _("Translator Duplicates"),
+                "entity_label": _("Translator"),
+                "duplicates_url": "curation:translator-duplicates",
+                "merge_review_url_name": "curation:translator-merge-review",
+            }
+        )
+
+
+class TranslatorMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View):
+    """Show two translators side-by-side and allow the user to pick the canonical one."""
+
+    permission_required = "curation.can_curate"
+    template_name = "curation/person_merge_review.html"
+
+    def _get_with_books(self, a_id, b_id):
+        obj_a = get_object_or_404(Translator, pk=a_id)
+        obj_b = get_object_or_404(Translator, pk=b_id)
+        obj_a.books = BookEntry.objects.filter(translators=obj_a).order_by("title")
+        obj_b.books = BookEntry.objects.filter(translators=obj_b).order_by("title")
+        return obj_a, obj_b
+
+    def _context(self, obj_a, obj_b):
+        return {
+            "object_a": obj_a,
+            "object_b": obj_b,
+            "objects": [obj_a, obj_b],
+            "entity_label": _("Translator"),
+            "duplicates_url": "curation:translator-duplicates",
+        }
+
+    def get(self, request, a_id, b_id):
+        obj_a, obj_b = self._get_with_books(a_id, b_id)
+        return self.render_to_response(self._context(obj_a, obj_b))
+
+    def post(self, request, a_id, b_id):
+        ct = ContentType.objects.get_for_model(Translator)
+        action = request.POST.get("action")
+
+        if action == "suppress":
+            _suppress_pair(ct, min(a_id, b_id), max(a_id, b_id), request.user)
+            messages.success(request, _("Pair dismissed."))
+            return redirect("curation:translator-duplicates")
+
+        canonical_id = request.POST.get("canonical")
+        if not canonical_id:
+            messages.error(request, _("Please select the canonical translator."))
+            obj_a, obj_b = self._get_with_books(a_id, b_id)
+            return self.render_to_response(self._context(obj_a, obj_b))
+
+        canonical_id = int(canonical_id)
+        source_id = b_id if canonical_id == a_id else a_id
+
+        with transaction.atomic():
+            target = get_object_or_404(Translator, pk=canonical_id)
+            source = get_object_or_404(Translator, pk=source_id)
+
+            target_book_ids = set(target.bookentry_set.values_list("pk", flat=True))
+            source_books = list(source.bookentry_set.all())
+            repointed_book_ids = [b.pk for b in source_books if b.pk not in target_book_ids]
+
+            target.bookentry_set.add(*source_books)
+
+            SuppressedPair.objects.filter(content_type=ct, object_a_id=source.pk).delete()
+            SuppressedPair.objects.filter(content_type=ct, object_b_id=source.pk).delete()
+
+            merge_data = {
+                "entity_type": "translator",
+                "source_display": str(source),
+                "source_fields": {
+                    "first_name": source.first_name,
+                    "middle_name": source.middle_name,
+                    "surname": source.surname,
+                    "organisation_name": source.organisation_name,
+                    "romanized_name": source.romanized_name,
+                },
+                "repointed_book_ids": repointed_book_ids,
+            }
+
+            source.delete()
+
+            MergeLog.objects.create(
+                content_type=ct,
+                target_object_id=target.pk,
+                merge_data=merge_data,
+                merged_by=request.user,
+            )
+
+        messages.success(request, _("Translators merged successfully."))
+        return redirect("curation:translator-duplicates")
+
+
+# ---------------------------------------------------------------------------
+# Curator duplicate detection & merge
+# ---------------------------------------------------------------------------
+
+
+class CuratorDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View):
+    """List curator pairs above the similarity threshold."""
+
+    permission_required = "curation.can_curate"
+    template_name = "curation/person_duplicates.html"
+
+    def get(self, request):
+        threshold = _threshold_from_request(request)
+        include_suppressed = request.GET.get("show_suppressed") == "1"
+        pairs = get_duplicate_curator_pairs(threshold, include_suppressed=include_suppressed)
+        return self.render_to_response(
+            {
+                "pairs": pairs,
+                "threshold": threshold,
+                "include_suppressed": include_suppressed,
+                "page_title": _("Curator Duplicates"),
+                "entity_label": _("Curator"),
+                "duplicates_url": "curation:curator-duplicates",
+                "merge_review_url_name": "curation:curator-merge-review",
+            }
+        )
+
+
+class CuratorMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View):
+    """Show two curators side-by-side and allow the user to pick the canonical one."""
+
+    permission_required = "curation.can_curate"
+    template_name = "curation/person_merge_review.html"
+
+    def _get_with_books(self, a_id, b_id):
+        obj_a = get_object_or_404(Curator, pk=a_id)
+        obj_b = get_object_or_404(Curator, pk=b_id)
+        obj_a.books = BookEntry.objects.filter(curators=obj_a).order_by("title")
+        obj_b.books = BookEntry.objects.filter(curators=obj_b).order_by("title")
+        return obj_a, obj_b
+
+    def _context(self, obj_a, obj_b):
+        return {
+            "object_a": obj_a,
+            "object_b": obj_b,
+            "objects": [obj_a, obj_b],
+            "entity_label": _("Curator"),
+            "duplicates_url": "curation:curator-duplicates",
+        }
+
+    def get(self, request, a_id, b_id):
+        obj_a, obj_b = self._get_with_books(a_id, b_id)
+        return self.render_to_response(self._context(obj_a, obj_b))
+
+    def post(self, request, a_id, b_id):
+        ct = ContentType.objects.get_for_model(Curator)
+        action = request.POST.get("action")
+
+        if action == "suppress":
+            _suppress_pair(ct, min(a_id, b_id), max(a_id, b_id), request.user)
+            messages.success(request, _("Pair dismissed."))
+            return redirect("curation:curator-duplicates")
+
+        canonical_id = request.POST.get("canonical")
+        if not canonical_id:
+            messages.error(request, _("Please select the canonical curator."))
+            obj_a, obj_b = self._get_with_books(a_id, b_id)
+            return self.render_to_response(self._context(obj_a, obj_b))
+
+        canonical_id = int(canonical_id)
+        source_id = b_id if canonical_id == a_id else a_id
+
+        with transaction.atomic():
+            target = get_object_or_404(Curator, pk=canonical_id)
+            source = get_object_or_404(Curator, pk=source_id)
+
+            target_book_ids = set(target.bookentry_set.values_list("pk", flat=True))
+            source_books = list(source.bookentry_set.all())
+            repointed_book_ids = [b.pk for b in source_books if b.pk not in target_book_ids]
+
+            target.bookentry_set.add(*source_books)
+
+            SuppressedPair.objects.filter(content_type=ct, object_a_id=source.pk).delete()
+            SuppressedPair.objects.filter(content_type=ct, object_b_id=source.pk).delete()
+
+            merge_data = {
+                "entity_type": "curator",
+                "source_display": str(source),
+                "source_fields": {
+                    "first_name": source.first_name,
+                    "middle_name": source.middle_name,
+                    "surname": source.surname,
+                    "organisation_name": source.organisation_name,
+                    "romanized_name": source.romanized_name,
+                },
+                "repointed_book_ids": repointed_book_ids,
+            }
+
+            source.delete()
+
+            MergeLog.objects.create(
+                content_type=ct,
+                target_object_id=target.pk,
+                merge_data=merge_data,
+                merged_by=request.user,
+            )
+
+        messages.success(request, _("Curators merged successfully."))
+        return redirect("curation:curator-duplicates")
+
+
+# ---------------------------------------------------------------------------
+# Topic duplicate detection & merge
+# ---------------------------------------------------------------------------
+
+
+class TopicDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View):
+    """List topic pairs above the similarity threshold."""
+
+    permission_required = "curation.can_curate"
+    template_name = "curation/person_duplicates.html"
+
+    def get(self, request):
+        threshold = _threshold_from_request(request)
+        include_suppressed = request.GET.get("show_suppressed") == "1"
+        pairs = get_duplicate_topic_pairs(threshold, include_suppressed=include_suppressed)
+        return self.render_to_response(
+            {
+                "pairs": pairs,
+                "threshold": threshold,
+                "include_suppressed": include_suppressed,
+                "page_title": _("Topic Duplicates"),
+                "entity_label": _("Topic"),
+                "duplicates_url": "curation:topic-duplicates",
+                "merge_review_url_name": "curation:topic-merge-review",
+            }
+        )
+
+
+class TopicMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View):
+    """Show two topics side-by-side and allow the user to pick the canonical one."""
+
+    permission_required = "curation.can_curate"
+    template_name = "curation/topic_merge_review.html"
+
+    def _get_with_books(self, a_id, b_id):
+        obj_a = get_object_or_404(Topic, pk=a_id)
+        obj_b = get_object_or_404(Topic, pk=b_id)
+        obj_a.books = BookEntry.objects.filter(topics=obj_a).order_by("title")
+        obj_b.books = BookEntry.objects.filter(topics=obj_b).order_by("title")
+        return obj_a, obj_b
+
+    def _context(self, obj_a, obj_b):
+        return {
+            "object_a": obj_a,
+            "object_b": obj_b,
+            "objects": [obj_a, obj_b],
+        }
+
+    def get(self, request, a_id, b_id):
+        obj_a, obj_b = self._get_with_books(a_id, b_id)
+        return self.render_to_response(self._context(obj_a, obj_b))
+
+    def post(self, request, a_id, b_id):
+        ct = ContentType.objects.get_for_model(Topic)
+        action = request.POST.get("action")
+
+        if action == "suppress":
+            _suppress_pair(ct, min(a_id, b_id), max(a_id, b_id), request.user)
+            messages.success(request, _("Pair dismissed."))
+            return redirect("curation:topic-duplicates")
+
+        canonical_id = request.POST.get("canonical")
+        if not canonical_id:
+            messages.error(request, _("Please select the canonical topic."))
+            obj_a, obj_b = self._get_with_books(a_id, b_id)
+            return self.render_to_response(self._context(obj_a, obj_b))
+
+        canonical_id = int(canonical_id)
+        source_id = b_id if canonical_id == a_id else a_id
+
+        with transaction.atomic():
+            target = get_object_or_404(Topic, pk=canonical_id)
+            source = get_object_or_404(Topic, pk=source_id)
+
+            target_book_ids = set(target.bookentry_set.values_list("pk", flat=True))
+            source_books = list(source.bookentry_set.all())
+            repointed_book_ids = [b.pk for b in source_books if b.pk not in target_book_ids]
+
+            target.bookentry_set.add(*source_books)
+
+            SuppressedPair.objects.filter(content_type=ct, object_a_id=source.pk).delete()
+            SuppressedPair.objects.filter(content_type=ct, object_b_id=source.pk).delete()
+
+            merge_data = {
+                "entity_type": "topic",
+                "source_display": str(source),
+                "source_fields": {
+                    "topic_name": source.topic_name,
+                    "romanized_topic_name": source.romanized_topic_name,
+                },
+                "repointed_book_ids": repointed_book_ids,
+            }
+
+            source.delete()
+
+            MergeLog.objects.create(
+                content_type=ct,
+                target_object_id=target.pk,
+                merge_data=merge_data,
+                merged_by=request.user,
+            )
+
+        messages.success(request, _("Topics merged successfully."))
+        return redirect("curation:topic-duplicates")
+
+
+# ---------------------------------------------------------------------------
+# Editor duplicate detection & merge
+# ---------------------------------------------------------------------------
+
+
+class EditorDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View):
+    """List editor pairs above the similarity threshold."""
+
+    permission_required = "curation.can_curate"
+    template_name = "curation/person_duplicates.html"
+
+    def get(self, request):
+        threshold = _threshold_from_request(request)
+        include_suppressed = request.GET.get("show_suppressed") == "1"
+        pairs = get_duplicate_editor_pairs(threshold, include_suppressed=include_suppressed)
+        return self.render_to_response(
+            {
+                "pairs": pairs,
+                "threshold": threshold,
+                "include_suppressed": include_suppressed,
+                "page_title": _("Editor Duplicates"),
+                "entity_label": _("Editor"),
+                "duplicates_url": "curation:editor-duplicates",
+                "merge_review_url_name": "curation:editor-merge-review",
+            }
+        )
+
+
+class EditorMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View):
+    """Show two editors side-by-side and allow the user to pick the canonical one."""
+
+    permission_required = "curation.can_curate"
+    template_name = "curation/editor_merge_review.html"
+
+    def _get_with_books(self, a_id, b_id):
+        obj_a = get_object_or_404(Editor, pk=a_id)
+        obj_b = get_object_or_404(Editor, pk=b_id)
+        obj_a.books = BookEntry.objects.filter(editor=obj_a).order_by("title")
+        obj_b.books = BookEntry.objects.filter(editor=obj_b).order_by("title")
+        return obj_a, obj_b
+
+    def _context(self, obj_a, obj_b):
+        return {
+            "object_a": obj_a,
+            "object_b": obj_b,
+            "objects": [obj_a, obj_b],
+        }
+
+    def get(self, request, a_id, b_id):
+        obj_a, obj_b = self._get_with_books(a_id, b_id)
+        return self.render_to_response(self._context(obj_a, obj_b))
+
+    def post(self, request, a_id, b_id):
+        ct = ContentType.objects.get_for_model(Editor)
+        action = request.POST.get("action")
+
+        if action == "suppress":
+            _suppress_pair(ct, min(a_id, b_id), max(a_id, b_id), request.user)
+            messages.success(request, _("Pair dismissed."))
+            return redirect("curation:editor-duplicates")
+
+        canonical_id = request.POST.get("canonical")
+        if not canonical_id:
+            messages.error(request, _("Please select the canonical editor."))
+            obj_a, obj_b = self._get_with_books(a_id, b_id)
+            return self.render_to_response(self._context(obj_a, obj_b))
+
+        canonical_id = int(canonical_id)
+        source_id = b_id if canonical_id == a_id else a_id
+
+        with transaction.atomic():
+            target = get_object_or_404(Editor, pk=canonical_id)
+            source = get_object_or_404(Editor, pk=source_id)
+
+            repointed_book_ids = list(source.bookentry_set.values_list("pk", flat=True))
+            source.bookentry_set.update(editor=target)
+
+            SuppressedPair.objects.filter(content_type=ct, object_a_id=source.pk).delete()
+            SuppressedPair.objects.filter(content_type=ct, object_b_id=source.pk).delete()
+
+            merge_data = {
+                "entity_type": "editor",
+                "source_display": str(source),
+                "source_fields": {
+                    "name": source.name,
+                    "place": source.place,
+                    "romanized_name": source.romanized_name,
+                },
+                "repointed_book_ids": repointed_book_ids,
+            }
+
+            source.delete()
+
+            MergeLog.objects.create(
+                content_type=ct,
+                target_object_id=target.pk,
+                merge_data=merge_data,
+                merged_by=request.user,
+            )
+
+        messages.success(request, _("Editors merged successfully."))
+        return redirect("curation:editor-duplicates")
+
+
+# ---------------------------------------------------------------------------
 # Merge log & undo
 # ---------------------------------------------------------------------------
 
@@ -327,8 +760,8 @@ class MergeLogListView(PermissionRequiredMixin, ListView):
         return paginator, page, page.object_list, page.has_other_pages()
 
 
-class AuthorMergeUndoView(PermissionRequiredMixin, View):
-    """Undo an author merge: recreate the source author and re-point books back."""
+class MergeUndoView(PermissionRequiredMixin, View):
+    """Generic undo view: dispatches by entity_type stored in merge_data."""
 
     permission_required = "curation.can_curate"
 
@@ -338,54 +771,67 @@ class AuthorMergeUndoView(PermissionRequiredMixin, View):
             messages.error(request, _("This merge has already been undone."))
             return redirect("curation:merge-log-list")
         if not log.can_undo:
-            messages.error(request, _("Cannot undo: the target author no longer exists."))
+            messages.error(request, _("Cannot undo: the target object no longer exists."))
             return redirect("curation:merge-log-list")
 
-        with transaction.atomic():
-            data = log.merge_data
-            target = log.target_object
-            recreated = Author.objects.create(**data["source_fields"])
-            if data.get("repointed_book_ids"):
-                books = BookEntry.objects.filter(pk__in=data["repointed_book_ids"])
-                recreated.bookentry_set.add(*books)
-                target.bookentry_set.remove(*books)
-            log.undone_at = timezone.now()
-            log.undone_by = request.user
-            log.save(update_fields=["undone_at", "undone_by"])
+        entity_type = log.merge_data.get("entity_type")
+        if entity_type == "book":
+            recreated = self._undo_book(log, request.user)
+        elif entity_type == "author":
+            recreated = self._undo_person(log, Author, "bookentry_set", request.user)
+        elif entity_type == "translator":
+            recreated = self._undo_person(log, Translator, "bookentry_set", request.user)
+        elif entity_type == "curator":
+            recreated = self._undo_person(log, Curator, "bookentry_set", request.user)
+        elif entity_type == "topic":
+            recreated = self._undo_person(log, Topic, "bookentry_set", request.user)
+        elif entity_type == "editor":
+            recreated = self._undo_fk_entity(log, Editor, "editor", request.user)
+        else:
+            messages.error(request, _("Unknown entity type — cannot undo."))
+            return redirect("curation:merge-log-list")
 
-        messages.success(request, _('Merge undone. Author recreated as "%(name)s".') % {"name": str(recreated)})
+        messages.success(request, _('Merge undone. Entry recreated as "%(name)s".') % {"name": str(recreated)})
         return redirect("curation:merge-log-list")
 
+    def _undo_person(self, log, model_class, books_attr, user):
+        with transaction.atomic():
+            data = log.merge_data
+            target = log.target_object
+            recreated = model_class.objects.create(**data["source_fields"])
+            if data.get("repointed_book_ids"):
+                books = BookEntry.objects.filter(pk__in=data["repointed_book_ids"])
+                getattr(recreated, books_attr).add(*books)
+                getattr(target, books_attr).remove(*books)
+            log.undone_at = timezone.now()
+            log.undone_by = user
+            log.save(update_fields=["undone_at", "undone_by"])
+        return recreated
 
-class BookMergeUndoView(PermissionRequiredMixin, View):
-    """Undo a book merge: recreate source book, restore target fields, re-point entry numbers."""
+    def _undo_fk_entity(self, log, model_class, fk_field, user):
+        with transaction.atomic():
+            data = log.merge_data
+            recreated = model_class.objects.create(**data["source_fields"])
+            if data.get("repointed_book_ids"):
+                BookEntry.objects.filter(pk__in=data["repointed_book_ids"]).update(**{fk_field: recreated})
+            log.undone_at = timezone.now()
+            log.undone_by = user
+            log.save(update_fields=["undone_at", "undone_by"])
+        return recreated
 
-    permission_required = "curation.can_curate"
-
-    def post(self, request, log_id):
-        log = get_object_or_404(MergeLog, pk=log_id)
-        if log.is_undone:
-            messages.error(request, _("This merge has already been undone."))
-            return redirect("curation:merge-log-list")
-        if not log.can_undo:
-            messages.error(request, _("Cannot undo: the target book entry no longer exists."))
-            return redirect("curation:merge-log-list")
-
+    def _undo_book(self, log, user):
         with transaction.atomic():
             data = log.merge_data
             target = log.target_object
 
-            # Restore target scalar fields
             for field, old_val in data.get("target_fields_before", {}).items():
                 setattr(target, field, old_val)
             target.save()
 
-            # Remove M2M items added from source
             for attr, ids in data.get("added_m2m_to_target", {}).items():
                 if ids:
                     getattr(target, attr).remove(*ids)
 
-            # Recreate source book
             source_fields = {
                 k: v for k, v in data["source_fields"].items() if k in BOOK_SCALAR_FIELDS + BOOK_BOOLEAN_FIELDS
             }
@@ -399,11 +845,9 @@ class BookMergeUndoView(PermissionRequiredMixin, View):
                 EntryNumber.objects.filter(pk__in=data["repointed_entry_number_ids"]).update(book_entry=recreated)
 
             log.undone_at = timezone.now()
-            log.undone_by = request.user
+            log.undone_by = user
             log.save(update_fields=["undone_at", "undone_by"])
-
-        messages.success(request, _('Merge undone. Book recreated as "%(name)s".') % {"name": str(recreated)})
-        return redirect("curation:merge-log-list")
+        return recreated
 
 
 # ---------------------------------------------------------------------------
@@ -423,6 +867,14 @@ class SuppressedPairUnsuppressView(PermissionRequiredMixin, View):
         messages.success(request, _("Dismissal removed. Pair will reappear in the duplicates list."))
         if entity_type == "bookentry":
             return redirect("curation:book-duplicates")
+        if entity_type == "translator":
+            return redirect("curation:translator-duplicates")
+        if entity_type == "curator":
+            return redirect("curation:curator-duplicates")
+        if entity_type == "topic":
+            return redirect("curation:topic-duplicates")
+        if entity_type == "editor":
+            return redirect("curation:editor-duplicates")
         return redirect("curation:author-duplicates")
 
 
