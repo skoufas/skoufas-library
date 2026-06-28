@@ -9,11 +9,15 @@ from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
 from django.db import models
+from django.db.models.signals import post_delete
+from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.functional import Promise as StrPromise
 from django.utils.text import format_lazy
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFit
 
 from books import romanize
 from books.fields import EANField
@@ -659,3 +663,76 @@ class DbfEntryRow(models.Model):
                 name="unique_dbf_entry_row_code",
             )
         ]
+
+
+def _book_entry_image_upload_to(instance: "BookEntryImage", filename: str) -> str:
+    """Upload path: book_images/<book_entry_pk>/<filename>."""
+    return f"book_images/{instance.book_entry_id}/{filename}"
+
+
+class BookEntryImage(models.Model):
+    """Φωτογραφία βιβλίου."""
+
+    class ImageType(models.TextChoices):
+        COVER = "cover", _("Cover")
+        BACK_COVER = "back_cover", _("Back cover")
+        INTERNAL = "internal", _("Internal page")
+        OTHER = "other", _("Other")
+
+    book_entry = models.ForeignKey(
+        BookEntry,
+        verbose_name=_("Book entry"),
+        on_delete=models.CASCADE,
+        related_name="images",
+    )
+    image = models.ImageField(
+        verbose_name=_("Image"),
+        upload_to=_book_entry_image_upload_to,
+    )
+    image_type = models.CharField(
+        verbose_name=_("Image type"),
+        max_length=20,
+        choices=ImageType.choices,
+        default=ImageType.COVER,
+    )
+    caption = models.CharField(
+        verbose_name=_("Caption"),
+        max_length=500,
+        blank=True,
+        default="",
+    )
+    order = models.IntegerField(
+        verbose_name=_("Order"),
+        default=0,
+    )
+
+    thumbnail = ImageSpecField(
+        source="image",
+        processors=[ResizeToFit(200, 267)],
+        format="JPEG",
+        options={"quality": 75},
+    )
+    display = ImageSpecField(
+        source="image",
+        processors=[ResizeToFit(800, 1067)],
+        format="JPEG",
+        options={"quality": 85},
+    )
+
+    def __str__(self) -> str:
+        """Print image type and book entry."""
+        return f"{self.book_entry} - {self.get_image_type_display()}"
+
+    class Meta:
+        """Meta for BookEntryImage."""
+
+        ordering = ["order", "pk"]
+        verbose_name = _("Book Entry Image")
+        verbose_name_plural = _("Book Entry Images")
+
+
+@receiver(post_delete, sender=BookEntryImage)
+def _delete_book_entry_image_file(sender, instance: BookEntryImage, **kwargs) -> None:
+    """Delete the image file from disk when the model instance is deleted."""
+    if instance.image:
+        instance.image.delete(save=False)

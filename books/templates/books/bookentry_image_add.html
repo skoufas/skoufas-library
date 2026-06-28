@@ -1,0 +1,235 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n static %}
+{% block title %}
+    {% translate "Add photo" %}: {{ book_entry }}
+{% endblock title %}
+{% block skoufas_library_extra_head %}
+    <style>
+        #crop-wrapper { height: 420px; background: #111; position: relative; overflow: hidden; }
+        #crop-wrapper img { display: block; max-width: 100%; }
+        #crop-wrapper cropper-canvas { display: block; height: 100%; }
+    </style>
+{% endblock skoufas_library_extra_head %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ book_entry.get_absolute_url }}">{{ book_entry }}</a>
+            </li>
+            <li class="breadcrumb-item active">{% translate "Add photo" %}</li>
+        </ol>
+    </nav>
+    <h4>{{ book_entry }}</h4>
+    <form method="post"
+          enctype="multipart/form-data"
+          id="upload-form"
+          class="mt-3"
+          style="max-width: 540px">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next_url }}">
+        <div class="mb-3">
+            <label class="form-label fw-semibold" for="id_image">{% translate "Photo" %}</label>
+            <input type="file"
+                   class="form-control form-control-lg"
+                   id="id_image"
+                   name="image"
+                   accept="image/*"
+                   capture="environment"
+                   required>
+        </div>
+        {# Cropper preview — hidden until a file is chosen #}
+        <div id="crop-section" class="mb-3" style="display:none">
+            <div id="crop-wrapper">
+                <img id="crop-preview" alt="">
+            </div>
+            <div class="d-flex align-items-center gap-2 mt-2 flex-wrap">
+                <button type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                        id="btn-rotate-ccw"
+                        title="{% translate "Rotate left 90°" %}">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                        id="btn-rotate-cw"
+                        title="{% translate "Rotate right 90°" %}">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+                <button type="button"
+                        class="btn btn-outline-secondary btn-sm"
+                        id="btn-autodetect">
+                    <i class="bi bi-magic"></i> {% translate "Auto-detect cover" %}
+                </button>
+                <span id="autodetect-status" class="text-muted small"></span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label class="form-label fw-semibold" for="id_image_type">{% translate "Image type" %}</label>
+            <select class="form-select" id="id_image_type" name="image_type">
+                {% for value, label in image_type_choices %}
+                    <option value="{{ value }}">{{ label }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="id_caption">{% translate "Caption" %} ({% translate "optional" %})</label>
+            <input type="text"
+                   class="form-control"
+                   id="id_caption"
+                   name="caption"
+                   maxlength="500">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="id_order">{% translate "Order" %}</label>
+            <input type="number"
+                   class="form-control"
+                   id="id_order"
+                   name="order"
+                   value="0">
+        </div>
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-primary" id="btn-upload">
+                <i class="bi bi-camera"></i> {% translate "Upload photo" %}
+            </button>
+            <a href="{{ next_url }}" class="btn btn-outline-secondary">{% translate "Cancel" %}</a>
+        </div>
+    </form>
+{% endblock content %}
+{% block bootstrap5_extra_script %}
+    <script src="{% static 'books/cropper.js' %}"></script>
+    <script>
+    (function () {
+        const CropperClass = window.Cropper['default'];
+        const fileInput = document.getElementById('id_image');
+        const cropSection = document.getElementById('crop-section');
+        const previewImg = document.getElementById('crop-preview');
+        const btnAutodetect = document.getElementById('btn-autodetect');
+        const statusEl = document.getElementById('autodetect-status');
+        const form = document.getElementById('upload-form');
+        let cropper = null;
+        let currentObjectUrl = null;
+        let convertedFile = null;  // JPEG replacement when original is HEIC
+
+        function isHeic(file) {
+            return file.type === 'image/heic' || file.type === 'image/heif'
+                || /\.heic$/i.test(file.name) || /\.heif$/i.test(file.name);
+        }
+
+        async function resolveFile(file) {
+            // If HEIC, convert server-side and return a JPEG File object
+            if (!isHeic(file)) return file;
+            statusEl.textContent = '{% translate "Converting HEIC…" %}';
+            const fd = new FormData();
+            fd.append('image', file);
+            fd.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+            const resp = await fetch('{% url "books:book-image-convert" %}', { method: 'POST', body: fd });
+            if (!resp.ok) throw new Error('HEIC conversion failed');
+            const blob = await resp.blob();
+            statusEl.textContent = '';
+            return new File([blob], file.name.replace(/\.heic$/i, '.jpg').replace(/\.heif$/i, '.jpg'), { type: 'image/jpeg' });
+        }
+
+        fileInput.addEventListener('change', async function () {
+            const file = this.files[0];
+            if (!file) return;
+            if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
+            if (cropper) { cropper.destroy(); cropper = null; }
+            convertedFile = null;
+            cropSection.style.display = '';
+            statusEl.textContent = '';
+            try {
+                const resolved = await resolveFile(file);
+                if (resolved !== file) {
+                    convertedFile = resolved;
+                }
+                currentObjectUrl = URL.createObjectURL(resolved);
+                previewImg.src = currentObjectUrl;
+                cropper = new CropperClass(previewImg);
+            } catch (err) {
+                statusEl.textContent = err.message;
+            }
+        });
+
+        document.getElementById('btn-rotate-ccw').addEventListener('click', function () {
+            if (cropper) cropper.getCropperImage().$rotate('-90deg');
+        });
+        document.getElementById('btn-rotate-cw').addEventListener('click', function () {
+            if (cropper) cropper.getCropperImage().$rotate('90deg');
+        });
+
+        btnAutodetect.addEventListener('click', async function () {
+            if (!cropper) return;
+            statusEl.textContent = '…';
+            btnAutodetect.disabled = true;
+            try {
+                const cropperImg = cropper.getCropperImage();
+                const nativeImg = await cropperImg.$ready();
+                const [a, b] = cropperImg.$getTransform();
+                const nw = nativeImg.naturalWidth, nh = nativeImg.naturalHeight;
+
+                // Determine how many degrees the image has been rotated.
+                // $getTransform gives [cos·s, sin·s, -sin·s, cos·s, tx, ty]
+                const angleDeg = Math.round(Math.atan2(b, a) * 180 / Math.PI);
+                const transposed = Math.abs(angleDeg) === 90 || Math.abs(angleDeg) === 270;
+
+                // Draw the image in its current displayed orientation so the
+                // server receives coordinates that match the display.
+                const rotCanvas = document.createElement('canvas');
+                rotCanvas.width  = transposed ? nh : nw;
+                rotCanvas.height = transposed ? nw : nh;
+                const ctx = rotCanvas.getContext('2d');
+                ctx.translate(rotCanvas.width / 2, rotCanvas.height / 2);
+                ctx.rotate(angleDeg * Math.PI / 180);
+                ctx.drawImage(nativeImg, -nw / 2, -nh / 2);
+
+                const blob = await new Promise(resolve => rotCanvas.toBlob(resolve, 'image/jpeg', 0.85));
+                const fd = new FormData();
+                fd.append('image', blob, 'detect.jpg');
+                fd.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+                const resp = await fetch('{% url "books:book-cover-detect" %}', { method: 'POST', body: fd });
+                if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                const box = await resp.json();
+                if (box.error) throw new Error(box.error);
+
+                // Map from rotated-image pixels → canvas display pixels.
+                // getBoundingClientRect() gives actual visual size after transform.
+                const imgRect    = cropperImg.getBoundingClientRect();
+                const canvasRect = cropper.getCropperCanvas().getBoundingClientRect();
+                const dispScale  = imgRect.width / rotCanvas.width;
+                const imgLeft    = imgRect.left - canvasRect.left;
+                const imgTop     = imgRect.top  - canvasRect.top;
+                cropper.getCropperSelection().$change(
+                    box.x * dispScale + imgLeft,
+                    box.y * dispScale + imgTop,
+                    box.width  * dispScale,
+                    box.height * dispScale
+                );
+                statusEl.textContent = '';
+            } catch (err) {
+                statusEl.textContent = '{% translate "Not detected" %}';
+            } finally {
+                btnAutodetect.disabled = false;
+            }
+        });
+
+        form.addEventListener('submit', function (e) {
+            if (!cropper) return;
+            e.preventDefault();
+            const btn = document.getElementById('btn-upload');
+            btn.disabled = true;
+            cropper.getCropperSelection().$toCanvas({ width: 2000 }).then(function (canvas) {
+                canvas.toBlob(function (blob) {
+                    const originalFile = convertedFile || fileInput.files[0];
+                    const originalName = (originalFile?.name || 'photo.jpg').replace(/\.heic$/i, '.jpg').replace(/\.heif$/i, '.jpg');
+                    const dt = new DataTransfer();
+                    dt.items.add(new File([blob], originalName, { type: 'image/jpeg' }));
+                    fileInput.files = dt.files;
+                    form.submit();
+                }, 'image/jpeg', 0.92);
+            }).catch(function () {
+                btn.disabled = false;
+            });
+        });
+    }());
+    </script>
+{% endblock bootstrap5_extra_script %}

@@ -86,6 +86,10 @@
                             <i class="bi bi-x-lg"></i> {% translate "Set aside — needs reassignment" %}
                         </button>
                     </form>
+                    <a href="{% url 'books:book-image-add' pending.book_entry.pk %}?next={{ request.get_full_path|urlencode }}"
+                       class="btn btn-outline-primary">
+                        <i class="bi bi-camera"></i> {% translate "Add photo" %}
+                    </a>
                 </div>
             </div>
         </div>
@@ -120,7 +124,7 @@
                     <span>
                         <i class="bi bi-book me-1"></i>
                         <strong>{{ e.entry_number.entry_number }}</strong>
-                        - {{ e.entry_number.book_entry.title }}
+                        - <a href="{% url 'books:book-by-id' e.entry_number.book_entry.pk %}">{{ e.entry_number.book_entry.title }}</a>
                     </span>
                     {% if e.outcome == "confirmed" %}
                         <span class="badge bg-success">{% translate "Confirmed" %}</span>

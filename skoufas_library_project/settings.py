@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_bootstrap5",
     "books",
+    "imagekit",
     "djangoql",
     "loaning",
     "curation",
@@ -210,6 +211,9 @@ STATICFILES_DIRS = [
 # from this location, rather than relying on the app server to serve those files
 # from various locations in the app. Doing so results in better overall performance.
 STATIC_ROOT = os.environ.get("DJANGO_STATIC_ROOT", BASE_DIR / "static_collected")
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.environ.get("DJANGO_MEDIA_ROOT", BASE_DIR / "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

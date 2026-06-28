@@ -28,7 +28,11 @@ dependencies = [
     "pytz",
     "pyyaml",
     "django-watson",
+    "django-imagekit",
+    "opencv-python-headless",
+    "pillow-heif",
     "pymarc",
+    "Pillow",
     "skoufas-dbf-reader==2026.6.18",
 ]
 

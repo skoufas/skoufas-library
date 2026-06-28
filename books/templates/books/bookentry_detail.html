@@ -214,6 +214,32 @@
                    {% if object.has_dvd %}checked{% endif %} />
         </dd>
     </dl>
+    {% with images=object.images.all %}
+        {% if images %}
+            <h5 class="mt-3">{% translate "Photos" %}</h5>
+            <div class="row g-2 mb-3">
+                {% for img in images %}
+                    <div class="col-6 col-sm-4 col-md-3">
+                        <a href="{{ img.display.url }}" target="_blank" rel="noopener">
+                            <img src="{{ img.thumbnail.url }}"
+                                 class="img-thumbnail w-100"
+                                 style="object-fit: contain;
+                                        height: 160px;
+                                        background: #f8f9fa"
+                                 alt="{{ img.get_image_type_display }}{% if img.caption %}: {{ img.caption }}{% endif %}">
+                        </a>
+                        <div class="text-muted small text-center">
+                            {{ img.get_image_type_display }}
+                            {% if img.caption %}
+                                <br>
+                                {{ img.caption }}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
     <p>
         <button class="btn btn-primary"
                 type="button"

@@ -4,22 +4,25 @@ import csv
 import io
 from typing import Any
 
+import numpy as np
+import cv2
+import pillow_heif
 import pymarc
+from PIL import Image
 from pymarc import Subfield
 
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
 from django.db.models import Count
-from django.http import StreamingHttpResponse
+from django.http import HttpResponse, JsonResponse, StreamingHttpResponse
+from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.views import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from books.models import Author
-from books.models import BookEntry
-from books.models import Donor
-from books.models import EntryNumber
-from books.models import Location
+from books.models import Author, BookEntry, BookEntryImage, Donor, EntryNumber, Location
 from books.skoufas_classification_classes import classification
 from curation.models import InventorySession
 
@@ -942,3 +945,193 @@ class LocationDetailView(DetailView):
             ).first()
             context["is_leaf_location"] = True
         return context
+
+
+class BookEntryImageAddView(PermissionRequiredMixin, View):
+    """Upload an image for a book entry."""
+
+    permission_required = "curation.can_inventory"
+    template_name = "books/bookentry_image_add.html"
+
+    def _safe_next(self, request, fallback: str) -> str:
+        """Return the next URL if it is safe, otherwise return the fallback."""
+        next_url = request.POST.get("next") or request.GET.get("next", "")
+        if next_url and url_has_allowed_host_and_scheme(next_url, allowed_hosts={request.get_host()}):
+            return next_url
+        return fallback
+
+    def get(self, request, pk: int):
+        """Show upload form."""
+        book_entry = get_object_or_404(BookEntry, pk=pk)
+        next_url = self._safe_next(request, book_entry.get_absolute_url())
+        return render(
+            request,
+            self.template_name,
+            {
+                "book_entry": book_entry,
+                "next_url": next_url,
+                "image_type_choices": BookEntryImage.ImageType.choices,
+            },
+        )
+
+    def post(self, request, pk: int):
+        """Handle image upload."""
+        book_entry = get_object_or_404(BookEntry, pk=pk)
+        next_url = self._safe_next(request, book_entry.get_absolute_url())
+        image_file = request.FILES.get("image")
+        if image_file:
+            pillow_heif.register_heif_opener()
+            try:
+                order = int(request.POST.get("order", 0))
+            except ValueError, TypeError:
+                order = 0
+            image_type = request.POST.get("image_type", BookEntryImage.ImageType.COVER)
+            if image_type not in BookEntryImage.ImageType.values:
+                image_type = BookEntryImage.ImageType.COVER
+            BookEntryImage.objects.create(
+                book_entry=book_entry,
+                image=image_file,
+                image_type=image_type,
+                caption=request.POST.get("caption", ""),
+                order=order,
+            )
+        return redirect(next_url)
+
+
+def _detect_book_cover(img: "np.ndarray") -> dict:
+    """Return crop box {x, y, width, height} for the most prominent rectangle in img."""
+    h, w = img.shape[:2]
+
+    # --- Downsample to ≤800 px on the long edge ---
+    MAX_DIM = 800
+    scale = min(MAX_DIM / max(h, w), 1.0)
+    small = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+    sh, sw = small.shape[:2]
+
+    # ── Strategy 1: background-colour subtraction ────────────────────────────
+    # Sample the four corners to estimate the background (table / surface) colour.
+    # The book should be the largest region that differs from that colour.
+    corner_pixels = np.array(
+        [
+            small[0, 0],
+            small[0, -1],
+            small[-1, 0],
+            small[-1, -1],
+            small[0, sw // 2],
+            small[-1, sw // 2],
+            small[sh // 2, 0],
+            small[sh // 2, -1],
+        ],
+        dtype=np.float32,
+    )
+    bg_color = np.median(corner_pixels, axis=0).astype(np.uint8)
+    diff = cv2.absdiff(small, bg_color.reshape(1, 1, 3))
+    diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+    # Threshold: pixels more than 30 units away from background are foreground
+    _, fg_mask = cv2.threshold(diff_gray, 30, 255, cv2.THRESH_BINARY)
+    kernel5 = np.ones((5, 5), np.uint8)
+    fg_mask = cv2.morphologyEx(fg_mask, cv2.MORPH_CLOSE, kernel5, iterations=4)
+    fg_mask = cv2.morphologyEx(fg_mask, cv2.MORPH_OPEN, kernel5, iterations=2)
+    contours1, _ = cv2.findContours(fg_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    if contours1:
+        largest = max(contours1, key=cv2.contourArea)
+        area1 = cv2.contourArea(largest)
+        if area1 > sh * sw * 0.04:
+            bx, by, bw, bh = cv2.boundingRect(largest)
+            # Reject if it's the whole frame (detection failed)
+            if bw < sw * 0.98 or bh < sh * 0.98:
+                pad, inv = 8, 1.0 / scale
+                x = max(0, int((bx - pad) * inv))
+                y = max(0, int((by - pad) * inv))
+                x2 = min(w, int((bx + bw + pad) * inv))
+                y2 = min(h, int((by + bh + pad) * inv))
+                return {"x": x, "y": y, "width": x2 - x, "height": y2 - y}
+
+    # ── Strategy 2: edge-based contour detection ─────────────────────────────
+    gray = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
+    blurred = cv2.GaussianBlur(gray, (21, 21), 0)
+    edges = cv2.Canny(blurred, 30, 120)
+    kernel3 = np.ones((5, 5), np.uint8)
+    edges = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, kernel3, iterations=4)
+    edges = cv2.dilate(edges, kernel3, iterations=1)
+    contours2, _ = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    contours2 = sorted(contours2, key=cv2.contourArea, reverse=True)
+    min_area = sh * sw * 0.04
+    for contour in contours2[:20]:
+        area = float(cv2.contourArea(contour))
+        if area < min_area:
+            break
+        peri = cv2.arcLength(contour, True)
+        for eps in (0.01, 0.02, 0.04, 0.06, 0.10):
+            approx = cv2.approxPolyDP(contour, eps * peri, True)
+            if not (4 <= len(approx) <= 6):
+                continue
+            bx, by, bw, bh = cv2.boundingRect(approx)
+            box_area = float(bw * bh)
+            if box_area < min_area:
+                continue
+            if area / box_area > 0.45:
+                pad, inv = 5, 1.0 / scale
+                x = max(0, int((bx - pad) * inv))
+                y = max(0, int((by - pad) * inv))
+                x2 = min(w, int((bx + bw + pad) * inv))
+                y2 = min(h, int((by + bh + pad) * inv))
+                return {"x": x, "y": y, "width": x2 - x, "height": y2 - y}
+            break
+
+    # ── Fallback: centred portrait (2:3) crop ────────────────────────────────
+    tw = int(h * 2 / 3)
+    if tw <= w:
+        return {"x": (w - tw) // 2, "y": 0, "width": tw, "height": h}
+    th = int(w * 3 / 2)
+    if th <= h:
+        return {"x": 0, "y": (h - th) // 2, "width": w, "height": th}
+    return {"x": 0, "y": 0, "width": w, "height": h}
+
+
+class BookEntryCoverDetectView(PermissionRequiredMixin, View):
+    """Detect book cover rectangle in an uploaded image and return crop coordinates."""
+
+    permission_required = "curation.can_inventory"
+
+    def post(self, request):
+        """Accept an image, run contour detection, return JSON crop box."""
+        image_file = request.FILES.get("image")
+        if not image_file:
+            return JsonResponse({"error": "no image"}, status=400)
+        data = image_file.read()
+        arr = np.frombuffer(data, np.uint8)
+        img = cv2.imdecode(arr, cv2.IMREAD_COLOR)
+        if img is None:
+            return JsonResponse({"error": "invalid image"}, status=400)
+        return JsonResponse(_detect_book_cover(img))
+
+
+def _to_jpeg_bytes(image_file) -> bytes:
+    """Convert any image (including HEIC) to JPEG bytes using Pillow."""
+    pillow_heif.register_heif_opener()
+
+    image_file.seek(0)
+    img = Image.open(image_file)
+    img = img.convert("RGB")
+    buf = io.BytesIO()
+    img.save(buf, format="JPEG", quality=92)
+    return buf.getvalue()
+
+
+class BookEntryImageConvertView(PermissionRequiredMixin, View):
+    """Convert an uploaded image to JPEG and return it — used client-side for HEIC preview."""
+
+    permission_required = "curation.can_inventory"
+
+    def post(self, request):
+        """Accept any image file, return it as a JPEG."""
+
+        image_file = request.FILES.get("image")
+        if not image_file:
+            return JsonResponse({"error": "no image"}, status=400)
+        try:
+            jpeg_bytes = _to_jpeg_bytes(image_file)
+        except Exception:
+            return JsonResponse({"error": "conversion failed"}, status=400)
+        return HttpResponse(jpeg_bytes, content_type="image/jpeg")

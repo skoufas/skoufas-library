@@ -6,6 +6,7 @@ from djangoql.admin import DjangoQLSearchMixin
 
 from .models import Author
 from .models import BookEntry
+from .models import BookEntryImage
 from .models import Curator
 from .models import DbfEntry
 from .models import DbfEntryRow
@@ -15,6 +16,13 @@ from .models import EntryNumber
 from .models import Location
 from .models import Topic
 from .models import Translator
+
+
+class BookEntryImageInline(admin.TabularInline):
+    """Inline for BookEntryImage."""
+
+    model = BookEntryImage
+    extra = 0
 
 
 class DbfEntryRowInline(admin.TabularInline):
@@ -149,6 +157,7 @@ class BookEntryAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
 
     inlines = [
         EntryNumberInline,
+        BookEntryImageInline,
     ]
 
     autocomplete_fields = ["authors", "translators", "curators", "editor", "entry_donors", "topics"]

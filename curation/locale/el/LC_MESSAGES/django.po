@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: skoufas-library\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 07:46+0300\n"
+"POT-Creation-Date: 2026-06-28 09:15+0300\n"
 "PO-Revision-Date: 2026-06-25 07:28+0300\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
@@ -112,13 +112,13 @@ msgid "Inventory sessions"
 msgstr "Συνεδρίες απογραφής"
 
 #: curation/models.py:132 curation/templates/curation/inventory_close.html:30
-#: curation/templates/curation/inventory_scan.html:126
+#: curation/templates/curation/inventory_scan.html:130
 msgid "Confirmed"
 msgstr "Επιβεβαιωμένο"
 
 #: curation/models.py:133 curation/templates/curation/inventory_close.html:38
 #: curation/templates/curation/inventory_close.html:86
-#: curation/templates/curation/inventory_scan.html:128
+#: curation/templates/curation/inventory_scan.html:132
 msgid "Set aside"
 msgstr "Στην άκρη"
 
@@ -542,19 +542,23 @@ msgstr "Σωστό ✓"
 msgid "Set aside — needs reassignment"
 msgstr "Στην άκρη — χρειάζεται επανανάθεση"
 
-#: curation/templates/curation/inventory_scan.html:98
+#: curation/templates/curation/inventory_scan.html:91
+msgid "Add photo"
+msgstr "Προσθήκη φωτογραφίας"
+
+#: curation/templates/curation/inventory_scan.html:102
 msgid "Scan or type entry number"
 msgstr "Σαρώστε ή πληκτρολογήστε αριθμό εισαγωγής"
 
-#: curation/templates/curation/inventory_scan.html:105
+#: curation/templates/curation/inventory_scan.html:109
 msgid "Entry number…"
 msgstr "Αριθμός εισαγωγής…"
 
-#: curation/templates/curation/inventory_scan.html:107
+#: curation/templates/curation/inventory_scan.html:111
 msgid "Scan"
 msgstr "Σάρωση"
 
-#: curation/templates/curation/inventory_scan.html:116
+#: curation/templates/curation/inventory_scan.html:120
 msgid "Recent scans this session"
 msgstr "Πρόσφατες σαρώσεις αυτής της συνεδρίας"
 
