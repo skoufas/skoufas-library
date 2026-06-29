@@ -239,6 +239,20 @@
                 {% endfor %}
             </div>
         {% endif %}
+        {% if perms.curation.can_inventory %}
+            <div class="mb-3 d-flex gap-2 flex-wrap">
+                <a class="btn btn-outline-primary btn-sm"
+                   href="{% url 'books:book-image-add' object.pk %}?next={{ request.get_full_path|urlencode }}">
+                    <i class="bi bi-camera"></i> {% translate "Add photo" %}
+                </a>
+                {% if object.isbn or object.ean %}
+                    <a class="btn btn-outline-secondary btn-sm"
+                       href="{% url 'books:book-cover-fetch' object.pk %}">
+                        <i class="bi bi-cloud-download"></i> {% translate "Fetch cover from web" %}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
     {% endwith %}
     <p>
         <button class="btn btn-primary"

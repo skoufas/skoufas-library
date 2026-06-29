@@ -119,7 +119,10 @@ if DEBUG:
     # Deal with Docker
     import socket
 
-    ips = socket.gethostbyname_ex(socket.gethostname())[2]
+    try:
+        ips = socket.gethostbyname_ex(socket.gethostname())[2]
+    except socket.gaierror:
+        ips = []
     INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
 
 ROOT_URLCONF = "skoufas_library_project.urls"
@@ -224,3 +227,7 @@ LOGIN_URL = "admin:login"
 
 WATSON_POSTGRES_SEARCH_CONFIG = "pg_catalog.greek"
 WATSON_BACKEND = "watson.backends.PostgresSearchBackend"
+
+# Optional: API key for Google Books cover image fetching.
+# If not set, only OpenLibrary (no key required) will be used.
+GOOGLE_BOOKS_API_KEY = os.environ.get("GOOGLE_BOOKS_API_KEY", "")

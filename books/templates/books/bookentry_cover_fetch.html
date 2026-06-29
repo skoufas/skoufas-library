@@ -1,0 +1,80 @@
+{% extends "skoufas_library/layout.html" %}
+{% load i18n %}
+{% block title %}
+    {% translate "Fetch cover image" %}: {{ book_entry }}
+{% endblock title %}
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ book_entry.get_absolute_url }}">{{ book_entry }}</a>
+            </li>
+            <li class="breadcrumb-item active">{% translate "Fetch cover image" %}</li>
+        </ol>
+    </nav>
+    <h4>{{ book_entry }}</h4>
+
+    {% if error == "no_isbn" %}
+        <div class="alert alert-warning mt-3">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            {% translate "This book has no ISBN or book EAN (978/979). A cover image cannot be fetched automatically." %}
+        </div>
+        <a class="btn btn-secondary" href="{{ book_entry.get_absolute_url }}">{% translate "Back" %}</a>
+
+    {% elif error == "not_found" %}
+        <div class="alert alert-info mt-3">
+            <i class="bi bi-search"></i>
+            {% translate "No cover image was found on Google Books or OpenLibrary." %}
+        </div>
+        <p>{% translate "You can search for it manually:" %}</p>
+        <ul>
+            {% if isbn %}
+                <li>
+                    <strong>ISBN {{ isbn }}</strong> &mdash;
+                    <a href="https://books.google.com/books?q=isbn:{{ isbn }}" target="_blank" rel="noopener">{% translate "Google Books" %}</a>
+                    &mdash;
+                    <a href="https://openlibrary.org/isbn/{{ isbn }}" target="_blank" rel="noopener">{% translate "OpenLibrary" %}</a>
+                </li>
+            {% endif %}
+            {% if ean %}
+                <li>
+                    <strong>EAN {{ ean }}</strong> &mdash;
+                    <a href="https://books.google.com/books?q=isbn:{{ ean }}" target="_blank" rel="noopener">{% translate "Google Books" %}</a>
+                    &mdash;
+                    <a href="https://openlibrary.org/search?q={{ ean }}" target="_blank" rel="noopener">{% translate "OpenLibrary search" %}</a>
+                    &mdash;
+                    <a href="https://covers.openlibrary.org/b/ean/{{ ean }}-L.jpg" target="_blank" rel="noopener">{% translate "OpenLibrary cover direct" %}</a>
+                </li>
+            {% endif %}
+        </ul>
+        <a class="btn btn-secondary" href="{{ book_entry.get_absolute_url }}">{% translate "Back" %}</a>
+
+    {% else %}
+        <p class="text-muted">
+            {% if isbn %}
+                {% blocktranslate with source=source isbn=isbn %}Found on {{ source }} (ISBN: {{ isbn }}).{% endblocktranslate %}
+            {% else %}
+                {% blocktranslate with source=source ean=ean %}Found on {{ source }} (EAN: {{ ean }}).{% endblocktranslate %}
+            {% endif %}
+            {% translate "Save this image as the cover, or discard it." %}
+        </p>
+        <div class="mb-3" style="max-width: 300px">
+            <img src="{{ image_data_url }}"
+                 class="img-thumbnail"
+                 style="max-height: 420px; object-fit: contain; background: #f8f9fa"
+                 alt="{% translate "Cover preview" %}">
+        </div>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="image_b64" value="{{ image_b64 }}">
+            <input type="hidden" name="content_type" value="{{ content_type }}">
+            <input type="hidden" name="source" value="{{ source }}">
+            <button type="submit" class="btn btn-success me-2">
+                <i class="bi bi-check-lg"></i> {% translate "Save cover" %}
+            </button>
+            <a class="btn btn-secondary" href="{{ book_entry.get_absolute_url }}">
+                <i class="bi bi-x-lg"></i> {% translate "Discard" %}
+            </a>
+        </form>
+    {% endif %}
+{% endblock content %}

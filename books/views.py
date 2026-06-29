@@ -998,6 +998,102 @@ class BookEntryImageAddView(PermissionRequiredMixin, View):
         return redirect(next_url)
 
 
+class BookEntryCoverFetchView(PermissionRequiredMixin, View):
+    """Fetch a cover image from external providers and show a preview/confirm page."""
+
+    permission_required = "curation.can_inventory"
+    template_name = "books/bookentry_cover_fetch.html"
+
+    def get(self, request, pk: int):
+        """Fetch from provider and show preview, or an error page if not found."""
+        import base64
+
+        from books.cover_fetcher import fetch_cover
+
+        book_entry = get_object_or_404(BookEntry, pk=pk)
+
+        isbn = book_entry.isbn or ""
+        ean = book_entry.ean or ""
+
+        if not isbn and not (ean and (ean.startswith("978") or ean.startswith("979"))):
+            return render(
+                request,
+                self.template_name,
+                {
+                    "book_entry": book_entry,
+                    "error": "no_isbn",
+                },
+            )
+
+        result = fetch_cover(isbn=isbn, ean=ean)
+
+        if not result:
+            return render(
+                request,
+                self.template_name,
+                {
+                    "book_entry": book_entry,
+                    "error": "not_found",
+                    "isbn": isbn,
+                    "ean": ean,
+                },
+            )
+
+        image_b64 = base64.b64encode(result.image_bytes).decode()
+        return render(
+            request,
+            self.template_name,
+            {
+                "book_entry": book_entry,
+                "source": result.source,
+                "isbn": isbn,
+                "ean": ean,
+                "content_type": result.content_type,
+                "image_data_url": f"data:{result.content_type};base64,{image_b64}",
+                "image_b64": image_b64,
+            },
+        )
+
+    def post(self, request, pk: int):
+        """Save the confirmed cover image."""
+        import base64
+        import mimetypes
+
+        from django.core.files.base import ContentFile
+
+        book_entry = get_object_or_404(BookEntry, pk=pk)
+
+        image_b64 = request.POST.get("image_b64", "")
+        content_type = request.POST.get("content_type", "image/jpeg")
+        source = request.POST.get("source", "")
+        isbn = book_entry.isbn or ""
+        ean = book_entry.ean or ""
+        identifier = isbn or ean
+        id_label = "ISBN" if isbn else "EAN"
+
+        if not image_b64:
+            return redirect(book_entry.get_absolute_url())
+
+        try:
+            image_bytes = base64.b64decode(image_b64)
+        except Exception:
+            return redirect(book_entry.get_absolute_url())
+
+        ext = mimetypes.guess_extension(content_type) or ".jpg"
+        if ext in (".jpe", ".jfif"):
+            ext = ".jpg"
+        filename = f"cover_{identifier}{ext}"
+
+        BookEntryImage.objects.create(
+            book_entry=book_entry,
+            image=ContentFile(image_bytes, name=filename),
+            image_type=BookEntryImage.ImageType.COVER,
+            caption=f"Fetched from {source} ({id_label}: {identifier})",
+            order=0,
+        )
+        return redirect(book_entry.get_absolute_url())
+
+
 def _detect_book_cover(img: "np.ndarray") -> dict:
     """Return crop box {x, y, width, height} for the most prominent rectangle in img."""
     h, w = img.shape[:2]

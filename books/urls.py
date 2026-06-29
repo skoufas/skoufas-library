@@ -48,6 +48,7 @@ urlpatterns: list[URLPattern | URLResolver] = [
     path(r"export/marc.xml", views.MARCExportView.as_view(), {"fmt": "xml"}, name="export-marc-xml"),
     path(r"export/marc.mrk", views.MARCExportView.as_view(), {"fmt": "mrk"}, name="export-marc-maker"),
     path(r"by-db-id/<int:pk>/images/add", views.BookEntryImageAddView.as_view(), name="book-image-add"),
+    path(r"by-db-id/<int:pk>/images/fetch-cover", views.BookEntryCoverFetchView.as_view(), name="book-cover-fetch"),
     path(r"detect-cover", views.BookEntryCoverDetectView.as_view(), name="book-cover-detect"),
     path(r"convert-image", views.BookEntryImageConvertView.as_view(), name="book-image-convert"),
 ]
