@@ -538,6 +538,7 @@ class MARCExportView(View):
         book_entry: BookEntry,
         include_holdings: bool,
         can_see_nonpublic: bool,
+        request: Any,
     ) -> pymarc.Record:
         record = pymarc.Record(force_utf8=True)
 
@@ -751,6 +752,24 @@ class MARCExportView(View):
 
                 record.add_field(pymarc.Field(tag="952", indicators=[" ", " "], subfields=sf952))
 
+        # 856 – Electronic location (cover/back-cover/other images)
+        _image_type_label = {
+            BookEntryImage.ImageType.COVER: "Cover image",
+            BookEntryImage.ImageType.BACK_COVER: "Back cover image",
+            BookEntryImage.ImageType.INTERNAL: "Internal image",
+            BookEntryImage.ImageType.OTHER: "Image",
+        }
+        async for img in book_entry.images.order_by("order").all():
+            ind2 = "1" if img.image_type == BookEntryImage.ImageType.COVER else "3"
+            sf856: list[Subfield] = [
+                Subfield("u", request.build_absolute_uri(img.image.url)),
+                Subfield("3", _image_type_label.get(img.image_type, "Image")),
+                Subfield("q", "image/jpeg"),
+            ]
+            if img.caption:
+                sf856.append(Subfield("z", img.caption))
+            record.add_field(pymarc.Field(tag="856", indicators=["4", ind2], subfields=sf856))
+
         return record
 
     async def _iter_records(self, request: Any):
@@ -758,7 +777,7 @@ class MARCExportView(View):
         include_holdings: bool = user.is_authenticated
         can_see_nonpublic: bool = include_holdings and user.has_perm("books.view_nonpublic_location")
         async for book_entry in BookEntry.objects.order_by("edition_year", "title").select_related("editor").all():
-            yield await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic)
+            yield await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic, request)
 
     async def _stream_iso2709(self, request: Any):
         async for record in self._iter_records(request):
@@ -814,7 +833,7 @@ class MARCSingleBookExportView(MARCExportView):
         user = await request.auser()
         include_holdings: bool = user.is_authenticated
         can_see_nonpublic: bool = include_holdings and user.has_perm("books.view_nonpublic_location")
-        yield await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic)
+        yield await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic, request)
 
     async def get(self, request: Any, fmt: str, **_kwargs: Any):
         """Return a single-record response using the pk as the download filename."""
@@ -857,7 +876,7 @@ class MARCSingleBookDetailView(MARCExportView):
         user = await request.auser()
         include_holdings: bool = user.is_authenticated
         can_see_nonpublic: bool = include_holdings and user.has_perm("books.view_nonpublic_location")
-        record = await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic)
+        record = await self._book_entry_to_marc(book_entry, include_holdings, can_see_nonpublic, request)
 
         fields = []
         for field in record:
