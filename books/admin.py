@@ -3,6 +3,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 from djangoql.admin import DjangoQLSearchMixin
+from imagekit.admin import AdminThumbnail
 
 from .models import Author
 from .models import BookEntry
@@ -23,6 +24,31 @@ class BookEntryImageInline(admin.TabularInline):
 
     model = BookEntryImage
     extra = 0
+
+    thumbnail_preview = AdminThumbnail(image_field="thumbnail")
+
+    fields = ["thumbnail_preview", "image", "image_type", "caption", "order"]
+    readonly_fields = ["thumbnail_preview"]
+
+
+@admin.register(BookEntryImage)
+class BookEntryImageAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
+    """Customisation for BookEntryImage, listing every image across all books."""
+
+    thumbnail_preview = AdminThumbnail(image_field="thumbnail")
+
+    list_display = ["thumbnail_preview", "book_entry", "image_type", "caption", "order"]
+    list_display_links = ["book_entry"]
+
+    list_filter = ["image_type"]
+
+    autocomplete_fields = ["book_entry"]
+
+    search_fields = [
+        "book_entry__title",
+        "book_entry__subtitle",
+        "caption",
+    ]
 
 
 class DbfEntryRowInline(admin.TabularInline):
