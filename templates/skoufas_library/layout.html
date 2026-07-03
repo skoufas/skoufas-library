@@ -68,6 +68,13 @@
                href="{% url 'contact' %}"
                {% if request.resolver_match.url_name == 'contact' %}aria-current="page"{% endif %}>{% translate "Contact" %}</a>
           </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link {% if request.resolver_match.url_name == 'manual' %}active{% endif %}"
+                 href="{% url 'manual' %}"
+                 {% if request.resolver_match.url_name == 'manual' %}aria-current="page"{% endif %}>{% translate "Manual" %}</a>
+            </li>
+          {% endif %}
           {% if perms.loaning.view_loan or perms.loaning.view_customer %}
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle {% if request.resolver_match.app_name == 'loaning' %}active{% endif %}"

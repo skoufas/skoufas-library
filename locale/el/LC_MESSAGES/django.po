@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-27 07:33+0300\n"
+"POT-Creation-Date: 2026-07-03 07:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -477,100 +477,105 @@ msgstr "Περί"
 msgid "Contact"
 msgstr "Επικοινωνία"
 
-#: templates/skoufas_library/layout.html:78
+#: templates/skoufas_library/layout.html:75
+#: templates/skoufas_library/manual.html:4
+msgid "Manual"
+msgstr "Εγχειρίδιο"
+
+#: templates/skoufas_library/layout.html:85
 msgid "Loaning"
 msgstr "Δανεισμός"
 
-#: templates/skoufas_library/layout.html:82
+#: templates/skoufas_library/layout.html:89
 msgid "Loan desk"
 msgstr "Δανεισμοί"
 
-#: templates/skoufas_library/layout.html:87
-#: templates/skoufas_library/layout.html:170
+#: templates/skoufas_library/layout.html:94
+#: templates/skoufas_library/layout.html:177
 msgid "Customers"
 msgstr "Δανειζόμενοι"
 
-#: templates/skoufas_library/layout.html:100
+#: templates/skoufas_library/layout.html:107
 msgid "Curation"
 msgstr "Επιμέλεια"
 
-#: templates/skoufas_library/layout.html:103
+#: templates/skoufas_library/layout.html:110
 msgid "Author Duplicates"
 msgstr "Διπλότυπα Συγγραφέων"
 
-#: templates/skoufas_library/layout.html:107
+#: templates/skoufas_library/layout.html:114
 msgid "Translator Duplicates"
 msgstr "Διπλότυπα Μεταφραστών"
 
-#: templates/skoufas_library/layout.html:110
+#: templates/skoufas_library/layout.html:117
 msgid "Curator Duplicates"
 msgstr "Διπλότυπα Επιμελητών"
 
-#: templates/skoufas_library/layout.html:113
+#: templates/skoufas_library/layout.html:120
 msgid "Topic Duplicates"
 msgstr "Διπλότυπα Θεμάτων"
 
-#: templates/skoufas_library/layout.html:116
+#: templates/skoufas_library/layout.html:123
 msgid "Editor Duplicates"
 msgstr "Διπλότυπα Εκδοτών"
 
-#: templates/skoufas_library/layout.html:119
+#: templates/skoufas_library/layout.html:126
 msgid "Book Duplicates"
 msgstr "Διπλότυπα Βιβλίων"
 
-#: templates/skoufas_library/layout.html:122
+#: templates/skoufas_library/layout.html:129
 msgid "Merge History"
 msgstr "Ιστορικό Συγχωνεύσεων"
 
-#: templates/skoufas_library/layout.html:129
-#: templates/skoufas_library/layout.html:139
+#: templates/skoufas_library/layout.html:136
+#: templates/skoufas_library/layout.html:146
 msgid "Inventory"
 msgstr "Απογραφή"
 
-#: templates/skoufas_library/layout.html:148
+#: templates/skoufas_library/layout.html:155
 msgid "Exports"
 msgstr "Εξαγωγές"
 
-#: templates/skoufas_library/layout.html:151
+#: templates/skoufas_library/layout.html:158
 msgid "Books"
 msgstr "Βιβλία"
 
-#: templates/skoufas_library/layout.html:154
+#: templates/skoufas_library/layout.html:161
 msgid "Books CSV"
 msgstr "Βιβλία CSV"
 
-#: templates/skoufas_library/layout.html:157
+#: templates/skoufas_library/layout.html:164
 msgid "Books MARC ISO 2709 (.mrc)"
 msgstr "Βιβλία MARC ISO 2709 (.mrc)"
 
-#: templates/skoufas_library/layout.html:160
+#: templates/skoufas_library/layout.html:167
 msgid "Books MARC XML (.xml)"
 msgstr "Βιβλία MARC XML (.xml)"
 
-#: templates/skoufas_library/layout.html:163
+#: templates/skoufas_library/layout.html:170
 msgid "Books MARCMaker (.mrk)"
 msgstr "Βιβλία MARCMaker (.mrk)"
 
-#: templates/skoufas_library/layout.html:173
+#: templates/skoufas_library/layout.html:180
 msgid "Customers Koha CSV"
 msgstr "Δανειζόμενοι Koha CSV"
 
-#: templates/skoufas_library/layout.html:212
-#: templates/skoufas_library/layout.html:214
+#: templates/skoufas_library/layout.html:219
+#: templates/skoufas_library/layout.html:221
 msgid "Search"
 msgstr "Αναζήτηση"
 
-#: templates/skoufas_library/layout.html:238
+#: templates/skoufas_library/layout.html:245
 msgid "Skoufas Association"
 msgstr "Μουσικοφιλολογικός Σύλλογος Σκουφάς"
 
-#: templates/skoufas_library/layout.html:239
+#: templates/skoufas_library/layout.html:246
 #: templates/skoufas_library/privacy_policy.html:4
 #: templates/skoufas_library/privacy_policy.html:8
 msgid "Privacy Policy"
 msgstr "Πολιτική Απορρήτου"
 
-#: templates/skoufas_library/layout.html:240
+#: templates/skoufas_library/layout.html:247
 msgid "Design - Construction: Claudio Bantaloukas"
 msgstr "Σχεδιασμός - Τεχνική κατασκευή: Κλαύδιος Μπανταλούκας"
 

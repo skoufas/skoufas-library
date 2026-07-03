@@ -1,111 +1,39 @@
 # Skoufas Library
 
-## Columns required
+Web application for managing the library catalog of the Skoufas Association (Σύλλογος Σκουφάς) in Arta, Greece — a cultural association founded in 1896 whose library dates back to the same year.
 
-### BookEntry
+**Live site:** https://library.skoufas.gr
 
-- Title - Τίτλος
-- Subtitle - Υπότιτλος
-- SkoufasClassification - Ταξινομικός Αριθμός
-- Edition - Έκδοση
-- EditionDate - Έτος Έκδοσης
-- EditorId (FK: Editor)
-- Pages - Σελίδες Αριθμητικά
-- Volumes - Τόμοι/Τεύχη
-- Notes - Σημειώσεις
-- Material - Υλικό
-- HasCD - Έχει
-- HasDVD - Έχει
-- ISBN
-- ISSN
-- EAN
-- Offprint - ΑΝΑΤΥΠΟ
+## Features
 
-### Author - Συγγραφέας
+**Books** — Catalog books with authors, translators, curators, topics, editors, and donors; track physical copies via entry numbers and a building/room/shelf/box location hierarchy; Greek full-text search; cover image upload or fetch from OpenLibrary/Google Books; export to CSV or MARC 21 (ISO 2709, MARCXML, MARCMaker).
 
-- Name
-- Surname
-- Middlename
-- Fullname
+**Loaning** — A circulation desk for checking books in and out, tracking active/overdue/closed loans, and managing borrower records.
 
-### Authorship (Many-to-Many)
+**Curation** — Data-quality tools: detect and merge duplicate authors/books/editors/translators/curators/topics (with full undo history), and conduct physical shelf/box inventory sessions.
 
-- AuthorId (FK: Author)
-- BookEntryId (FK: BookEntry)
+## Built with
 
-### Translator - Μεταφραστής
+Django, PostgreSQL, django-bootstrap5, django-watson (full-text search), DjangoQL (advanced admin search), pymarc (MARC 21 export), django-imagekit.
 
-- Name
-- Surname
-- Middlename
-- Fullname
+## CLI
 
-### Translation
+The project installs a `skoufas-library` command (see `skoufas_library_project/cli.py`) that wraps Django's management commands, e.g. `skoufas-library migrate`.
 
-- TranslatorId (FK: Translator)
-- BookEntryId (FK: BookEntry)
+## Setup
 
-### Curator - Επιμελητής
+### Dev container (recommended)
 
-- Name
-- Surname
-- Middlename
-- Fullname
+Open the repo in VS Code or GitHub Codespaces with the Dev Containers extension. `.devcontainer/` provisions the app and a PostgreSQL database automatically, forwards port 8000, and runs `scripts/restart-venv` on start.
 
-### Curation
+### Manual setup
 
-- CuratorId (FK: Curator)
-- BookEntryId (FK: BookEntry)
+```
+./scripts/restart-venv   # creates .venv and installs the project with test/lint extras via uv
+```
 
-### Editor
+Requires a running PostgreSQL instance — see `skoufas_library_project/settings.py` for the expected `DJANGO_DATABASE_*` environment variables.
 
-- Name
-- Place
+## License
 
-### Entry Numbers (one-to-many) - Αριθμοί Εισαγωγής
-
-- EntryNumber (unique)
-- BookEntryId (FK: BookEntry)
-- Copies
-
-### Topic - Θέμα
-
-- Name
-
-### BookInTopic (many-to-many)
-
-- TopicId (FK: Topic)
-- BookEntryId (FK: BookEntry)
-
-### Donor - Δωρητής
-
-- Name
-- Surname
-- Middlename
-- Fullname
-
-### Donation (Many-to-Many) - Δωρεά
-
-- DonorId (FK: Donor)
-- EntryNumberId (FK: EntryNumber)
-
-### Customer - Πελάτες
-
-- Name
-- Surname
-- Middlename
-- FullName
-- IdNumber
-- IdType
-- PhoneNumber
-- Email
-- Address
-
-### Loan - Δανεισμός
-
-- CustomerId (FK: Customer)
-- EntryNumberId (FK: EntryNumber)
-- StartDateTime
-- ExpectedEndDateTime
-- EndDateTime
-- Note
+[GNU Affero General Public License v3.0](LICENSE)

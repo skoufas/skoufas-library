@@ -22,11 +22,14 @@ from django.urls import include
 from django.urls import path
 from django.views.generic import TemplateView
 
+from skoufas_library_project import views
+
 urlpatterns = [
     path("", TemplateView.as_view(template_name="skoufas_library/home.html"), name="home"),
     path("about/", TemplateView.as_view(template_name="skoufas_library/about.html"), name="about"),
     path("contact/", TemplateView.as_view(template_name="skoufas_library/contact.html"), name="contact"),
     path("privacy/", TemplateView.as_view(template_name="skoufas_library/privacy_policy.html"), name="privacy-policy"),
+    path("manual/", views.manual, name="manual"),
     path("books/", include("books.urls", namespace="books")),
     path("loaning/", include("loaning.urls", namespace="loaning")),
     path("curation/", include("curation.urls", namespace="curation")),

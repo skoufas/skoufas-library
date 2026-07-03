@@ -35,6 +35,7 @@ dependencies = [
     "Pillow",
     "skoufas-dbf-reader==2026.6.27",
     "requests",
+    "markdown",
 ]
 
 [project.optional-dependencies]
@@ -42,7 +43,7 @@ test = [
     "bandit[toml]==1.9.4",
     "check-manifest==0.51",
     "django-stubs[compatible-mypy]",
-    "djlint==1.39.4",
+    "djlint==1.40.2",
     "mypy",
     "pre-commit==4.6.0",
     "pylint_junit",
@@ -56,6 +57,7 @@ test = [
     "ruff",
     "shellcheck-py==0.11.0.1",
     "toml",
+    "types-Markdown",
 ]
 
 [tool.hatch.build.targets.sdist]
