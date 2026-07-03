@@ -556,7 +556,7 @@ class EntryNumber(models.Model):
 
     entry_number = models.IntegerField(verbose_name=_("Entry number"))
 
-    copies = models.IntegerField(verbose_name=_("Copies"), default=0, null=True, blank=True)
+    copies = models.IntegerField(verbose_name=_("Copies"), default=1, null=True, blank=True)
 
     book_entry = models.ForeignKey(BookEntry, verbose_name=_("Book Entry"), on_delete=models.CASCADE)
 
