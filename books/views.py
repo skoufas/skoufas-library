@@ -1139,8 +1139,11 @@ def _detect_book_cover(img: "np.ndarray") -> dict:
         ],
         dtype=np.float32,
     )
-    bg_color = np.median(corner_pixels, axis=0).astype(np.uint8)
-    diff = cv2.absdiff(small, bg_color.reshape(1, 1, 3))
+    bg_color = np.median(corner_pixels, axis=0)
+    # cv2.absdiff's scalar operand must be a 4-element float64 array (OpenCV's
+    # internal Scalar type), not a 3-element BGR array or a plain tuple.
+    bg_scalar = np.array([*bg_color, 0.0], dtype=np.float64)
+    diff = cv2.absdiff(small, bg_scalar)
     diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
     # Threshold: pixels more than 30 units away from background are foreground
     _, fg_mask = cv2.threshold(diff_gray, 30, 255, cv2.THRESH_BINARY)

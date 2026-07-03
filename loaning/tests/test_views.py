@@ -30,12 +30,12 @@ class LoaningWorkflowTests(TestCase):
             isbn="9789600000009",
         )
         cls.entry_number = EntryNumber.objects.create(
-            entry_number="EN-1",
+            entry_number=1001,
             copies=2,
             book_entry=cls.book_entry,
         )
         cls.no_copy_entry_number = EntryNumber.objects.create(
-            entry_number="EN-0",
+            entry_number=1000,
             copies=0,
             book_entry=cls.book_entry,
         )
@@ -274,4 +274,4 @@ class LoaningWorkflowTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Reader, Maria")
-        self.assertContains(response, "EN-1")
+        self.assertContains(response, "1001")
