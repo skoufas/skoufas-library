@@ -313,7 +313,7 @@ def _to_jpeg_bytes(image_file) -> bytes:
     pillow_heif.register_heif_opener()
 
     image_file.seek(0)
-    img = Image.open(image_file)
+    img: Image.Image = Image.open(image_file)
     img = img.convert("RGB")
     buf = io.BytesIO()
     img.save(buf, format="JPEG", quality=92)

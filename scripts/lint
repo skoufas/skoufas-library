@@ -33,6 +33,9 @@ run_check pylint pylint .
 DJANGO_CURRENT_SECRET_KEY="${DJANGO_CURRENT_SECRET_KEY:-ci-only-dummy-key}" \
 DJANGO_OLD_SECRET_KEY="${DJANGO_OLD_SECRET_KEY:-ci-only-dummy-old-key}" \
 run_check "migrations-check" python manage.py makemigrations --check --dry-run
+DJANGO_CURRENT_SECRET_KEY="${DJANGO_CURRENT_SECRET_KEY:-ci-only-dummy-key}" \
+DJANGO_OLD_SECRET_KEY="${DJANGO_OLD_SECRET_KEY:-ci-only-dummy-old-key}" \
+run_check mypy mypy --ignore-missing-imports .
 
 if [ "${#failed[@]}" -eq 0 ]; then
     echo "All lint checks passed."

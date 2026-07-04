@@ -495,8 +495,8 @@ class Location(models.Model):
         """Return the full hierarchical path, e.g. 'Building > Room > Shelf'."""
         parts = [self.name]
         node = self
-        while node.parent_id is not None:
-            node = node.parent
+        while (parent := node.parent) is not None:
+            node = parent
             parts.append(node.name)
         return " > ".join(reversed(parts))
 

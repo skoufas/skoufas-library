@@ -5,6 +5,7 @@ import io
 from typing import Any
 
 import pymarc
+from pymarc import Indicators
 from pymarc import Subfield
 
 from django.http import StreamingHttpResponse
@@ -86,9 +87,10 @@ class CSVExportView(View):
     # would just thread the same values through several helper calls.
     # pylint: disable-next=too-many-locals,too-many-branches,too-many-statements
     async def convert_book_entry_to_csv_row(
-        self, book_entry: BookEntry, entry_number_object: EntryNumber, include_location: bool = False
+        self, book_entry: BookEntry, entry_number_object: EntryNumber | None, include_location: bool = False
     ) -> list[Any]:
         """Conversion function that takes a single book and returns a list of csv fields."""
+        entry_number: int | str
         if entry_number_object:
             entry_number = entry_number_object.entry_number
         else:
@@ -371,14 +373,16 @@ class MARCExportView(View):
         # 041 – Language
         marc_lang = self._marc_lang(book_entry.language)
         if marc_lang:
-            record.add_field(pymarc.Field(tag="041", indicators=[" ", " "], subfields=[Subfield("a", marc_lang)]))
+            record.add_field(
+                pymarc.Field(tag="041", indicators=Indicators(" ", " "), subfields=[Subfield("a", marc_lang)])
+            )
 
         # 082 – Dewey / Skoufas classification
         if book_entry.skoufas_classification:
             record.add_field(
                 pymarc.Field(
                     tag="082",
-                    indicators=["0", "4"],
+                    indicators=Indicators("0", "4"),
                     subfields=[Subfield("a", book_entry.skoufas_classification)],
                 )
             )
@@ -391,7 +395,7 @@ class MARCExportView(View):
                 sf = [Subfield("a", str(author.organisation_name))]
                 if not first_author:
                     sf.append(Subfield("e", "author"))
-                record.add_field(pymarc.Field(tag=tag, indicators=["2", " "], subfields=sf))
+                record.add_field(pymarc.Field(tag=tag, indicators=Indicators("2", " "), subfields=sf))
             else:
                 name = self._personal_name_inverted(author.surname, author.first_name, author.middle_name)
                 if not name and author.pseudonym:
@@ -400,7 +404,7 @@ class MARCExportView(View):
                 sf = [Subfield("a", name)]
                 if not first_author:
                     sf.append(Subfield("e", "author"))
-                record.add_field(pymarc.Field(tag=tag, indicators=["1", " "], subfields=sf))
+                record.add_field(pymarc.Field(tag=tag, indicators=Indicators("1", " "), subfields=sf))
             first_author = False
 
         # 245 – Title / Subtitle
@@ -411,12 +415,12 @@ class MARCExportView(View):
         if subtitle:
             title_sf.append(Subfield("b", subtitle))
         if title or subtitle:
-            record.add_field(pymarc.Field(tag="245", indicators=[ind1, "0"], subfields=title_sf))
+            record.add_field(pymarc.Field(tag="245", indicators=Indicators(ind1, "0"), subfields=title_sf))
 
         # 250 – Edition
         if book_entry.edition:
             record.add_field(
-                pymarc.Field(tag="250", indicators=[" ", " "], subfields=[Subfield("a", book_entry.edition)])
+                pymarc.Field(tag="250", indicators=Indicators(" ", " "), subfields=[Subfield("a", book_entry.edition)])
             )
 
         # 260 – Publication info
@@ -429,7 +433,7 @@ class MARCExportView(View):
         if book_entry.edition_year:
             pub_sf.append(Subfield("c", str(book_entry.edition_year)))
         if pub_sf:
-            record.add_field(pymarc.Field(tag="260", indicators=[" ", " "], subfields=pub_sf))
+            record.add_field(pymarc.Field(tag="260", indicators=Indicators(" ", " "), subfields=pub_sf))
 
         # 300 – Physical description
         phys_sf: list[Subfield] = []
@@ -445,41 +449,51 @@ class MARCExportView(View):
         if acc:
             phys_sf.append(Subfield("e", " + ".join(acc)))
         if phys_sf:
-            record.add_field(pymarc.Field(tag="300", indicators=[" ", " "], subfields=phys_sf))
+            record.add_field(pymarc.Field(tag="300", indicators=Indicators(" ", " "), subfields=phys_sf))
 
         # 020 / 022 / 024 – Identifiers
         if book_entry.isbn:
             record.add_field(
-                pymarc.Field(tag="020", indicators=[" ", " "], subfields=[Subfield("a", str(book_entry.isbn))])
+                pymarc.Field(
+                    tag="020", indicators=Indicators(" ", " "), subfields=[Subfield("a", str(book_entry.isbn))]
+                )
             )
         if book_entry.issn:
             record.add_field(
-                pymarc.Field(tag="022", indicators=[" ", " "], subfields=[Subfield("a", str(book_entry.issn))])
+                pymarc.Field(
+                    tag="022", indicators=Indicators(" ", " "), subfields=[Subfield("a", str(book_entry.issn))]
+                )
             )
         if book_entry.ean:
             record.add_field(
-                pymarc.Field(tag="024", indicators=["3", " "], subfields=[Subfield("a", str(book_entry.ean))])
+                pymarc.Field(tag="024", indicators=Indicators("3", " "), subfields=[Subfield("a", str(book_entry.ean))])
             )
 
         # 500 – General notes
         if book_entry.notes:
             record.add_field(
-                pymarc.Field(tag="500", indicators=[" ", " "], subfields=[Subfield("a", book_entry.notes)])
+                pymarc.Field(tag="500", indicators=Indicators(" ", " "), subfields=[Subfield("a", book_entry.notes)])
             )
         if book_entry.material:
             record.add_field(
-                pymarc.Field(tag="500", indicators=[" ", " "], subfields=[Subfield("a", book_entry.material)])
+                pymarc.Field(tag="500", indicators=Indicators(" ", " "), subfields=[Subfield("a", book_entry.material)])
             )
         if book_entry.offprint:
-            record.add_field(pymarc.Field(tag="500", indicators=[" ", " "], subfields=[Subfield("a", "Offprint")]))
+            record.add_field(
+                pymarc.Field(tag="500", indicators=Indicators(" ", " "), subfields=[Subfield("a", "Offprint")])
+            )
 
         # 541 – Donors (book-level)
         async for donor in book_entry.entry_donors.all():
-            record.add_field(pymarc.Field(tag="541", indicators=[" ", " "], subfields=[Subfield("a", str(donor))]))
+            record.add_field(
+                pymarc.Field(tag="541", indicators=Indicators(" ", " "), subfields=[Subfield("a", str(donor))])
+            )
 
         # 650 – Topics (local subject headings)
         async for topic in book_entry.topics.all():
-            record.add_field(pymarc.Field(tag="650", indicators=[" ", "4"], subfields=[Subfield("a", str(topic))]))
+            record.add_field(
+                pymarc.Field(tag="650", indicators=Indicators(" ", "4"), subfields=[Subfield("a", str(topic))])
+            )
 
         # 700 / 710 – Translators
         async for translator in book_entry.translators.all():
@@ -487,7 +501,7 @@ class MARCExportView(View):
                 record.add_field(
                     pymarc.Field(
                         tag="710",
-                        indicators=["2", " "],
+                        indicators=Indicators("2", " "),
                         subfields=[Subfield("a", str(translator.organisation_name)), Subfield("e", "translator")],
                     )
                 )
@@ -496,7 +510,7 @@ class MARCExportView(View):
                 record.add_field(
                     pymarc.Field(
                         tag="700",
-                        indicators=["1", " "],
+                        indicators=Indicators("1", " "),
                         subfields=[Subfield("a", name), Subfield("e", "translator")],
                     )
                 )
@@ -507,7 +521,7 @@ class MARCExportView(View):
                 record.add_field(
                     pymarc.Field(
                         tag="710",
-                        indicators=["2", " "],
+                        indicators=Indicators("2", " "),
                         subfields=[Subfield("a", str(curator.organisation_name)), Subfield("e", "editor")],
                     )
                 )
@@ -516,7 +530,7 @@ class MARCExportView(View):
                 record.add_field(
                     pymarc.Field(
                         tag="700",
-                        indicators=["1", " "],
+                        indicators=Indicators("1", " "),
                         subfields=[Subfield("a", name), Subfield("e", "editor")],
                     )
                 )
@@ -540,14 +554,14 @@ class MARCExportView(View):
 
                     # Walk to building (root ancestor)
                     building: Location = en.location
-                    while building.parent_id is not None:
-                        building = building.parent
+                    while (parent := building.parent) is not None:
+                        building = parent
 
                     sf952: list[Subfield] = [
                         Subfield("a", building.name),
                         Subfield("b", building.name),
                         Subfield("c", en.location.full_path()),
-                        Subfield("p", en.entry_number),
+                        Subfield("p", str(en.entry_number)),
                         Subfield("y", "BK"),
                     ]
                     # Mark non-public items as restricted in Koha (952$5=1)
@@ -556,7 +570,7 @@ class MARCExportView(View):
                 else:
                     is_nonpublic = False
                     sf952 = [
-                        Subfield("p", en.entry_number),
+                        Subfield("p", str(en.entry_number)),
                         Subfield("y", "BK"),
                     ]
 
@@ -572,10 +586,10 @@ class MARCExportView(View):
                 if en_donors:
                     sf952.append(Subfield("z", "Donated by: " + ", ".join(sorted(en_donors))))
 
-                record.add_field(pymarc.Field(tag="952", indicators=[" ", " "], subfields=sf952))
+                record.add_field(pymarc.Field(tag="952", indicators=Indicators(" ", " "), subfields=sf952))
 
         # 856 – Electronic location (cover/back-cover/other images)
-        _image_type_label = {
+        _image_type_label: dict[str, str] = {
             BookEntryImage.ImageType.COVER: "Cover image",
             BookEntryImage.ImageType.BACK_COVER: "Back cover image",
             BookEntryImage.ImageType.INTERNAL: "Internal image",
@@ -590,7 +604,7 @@ class MARCExportView(View):
             ]
             if img.caption:
                 sf856.append(Subfield("z", img.caption))
-            record.add_field(pymarc.Field(tag="856", indicators=["4", ind2], subfields=sf856))
+            record.add_field(pymarc.Field(tag="856", indicators=Indicators("4", ind2), subfields=sf856))
 
         return record
 
@@ -688,7 +702,7 @@ class MARCSingleBookDetailView(MARCExportView):
     # Inherits from MARCExportView only to reuse _book_entry_to_marc/_stream_*;
     # its get() has its own URL contract (pk, not fmt) and is never dispatched
     # polymorphically as a MARCExportView.
-    async def get(self, request: Any, pk: int, **_kwargs: Any):  # pylint: disable=arguments-renamed
+    async def get(self, request: Any, pk: int, **_kwargs: Any):  # type: ignore[override]  # pylint: disable=arguments-renamed
         from asgiref.sync import sync_to_async
         from django.http import Http404
         from django.shortcuts import render

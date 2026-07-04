@@ -323,9 +323,9 @@ class Command(BaseCommand):
             isbn=entry.get("isbn"),
             issn=entry.get("issn"),
             ean=entry.get("ean"),
-            offprint=entry.get("offprint"),
-            has_cd=entry.get("has_cd"),
-            has_dvd=entry.get("has_dvd"),
+            offprint=entry.get("offprint", False),
+            has_cd=entry.get("has_cd", False),
+            has_dvd=entry.get("has_dvd", False),
         )
 
         if not book_entry:
