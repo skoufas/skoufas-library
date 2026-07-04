@@ -60,6 +60,11 @@ test = [
     "types-Markdown",
 ]
 
+[tool.check-manifest]
+# .vscode and scripts/ are editor/dev-only helpers, deliberately excluded from
+# the built package by [tool.hatch.build.targets.*].exclude above.
+ignore = [".vscode/launch.json", "scripts", "scripts/*"]
+
 [tool.hatch.build.targets.sdist]
 include = ["/"]
 exclude = ["/.vscode", "/junk", "/scripts", "/venv"]
