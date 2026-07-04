@@ -110,7 +110,7 @@ targets = ["books", "loaning", "skoufas_library_project", "manage.py"]
 reportMissingImports = true
 reportMissingTypeStubs = false
 
-pythonVersion = "3.12"
+pythonVersion = "3.14"
 pythonPlatform = "Linux"
 
 # [tool.pytest.ini_options]
