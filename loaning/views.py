@@ -3,6 +3,7 @@
 import csv
 import datetime
 
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
@@ -245,8 +246,6 @@ class KohaPatronExportView(View):
         """Stream a Koha-format CSV export of all customers, for authenticated staff."""
         user = await request.auser()
         if not user.is_authenticated:
-            from django.conf import settings
-
             return redirect(f"{settings.LOGIN_URL}?next={request.path}")
         if not user.has_perm("loaning.view_customer"):
             raise PermissionDenied

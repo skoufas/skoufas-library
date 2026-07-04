@@ -5,10 +5,12 @@ import io
 from typing import Any
 
 import pymarc
+from asgiref.sync import sync_to_async
 from pymarc import Indicators
 from pymarc import Subfield
 
-from django.http import StreamingHttpResponse
+from django.http import Http404, StreamingHttpResponse
+from django.shortcuts import render
 from django.views import View
 
 from books.models import BookEntry, BookEntryImage, EntryNumber, Location
@@ -659,8 +661,6 @@ class MARCSingleBookExportView(MARCExportView):
     """Download a MARC21 record for a single BookEntry (all three serialisations)."""
 
     async def _iter_records(self, request: Any):
-        from django.http import Http404
-
         pk = self.kwargs["pk"]
         try:
             book_entry = await BookEntry.objects.select_related("editor").aget(pk=pk)
@@ -703,10 +703,6 @@ class MARCSingleBookDetailView(MARCExportView):
     # its get() has its own URL contract (pk, not fmt) and is never dispatched
     # polymorphically as a MARCExportView.
     async def get(self, request: Any, pk: int, **_kwargs: Any):  # type: ignore[override]  # pylint: disable=arguments-renamed
-        from asgiref.sync import sync_to_async
-        from django.http import Http404
-        from django.shortcuts import render
-
         try:
             book_entry = await BookEntry.objects.select_related("editor").aget(pk=pk)
         except BookEntry.DoesNotExist:

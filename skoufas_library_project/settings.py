@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
+import socket
 import sys
 from pathlib import Path
 
@@ -131,8 +132,6 @@ MIDDLEWARE = (
 
 if DEBUG:
     # Deal with Docker
-    import socket
-
     try:
         ips = socket.gethostbyname_ex(socket.gethostname())[2]
     except socket.gaierror:

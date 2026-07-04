@@ -17,6 +17,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views import View
 
+from books.cover_fetcher import fetch_cover
 from books.models import BookEntry, BookEntryImage
 
 
@@ -79,8 +80,6 @@ class BookEntryCoverFetchView(PermissionRequiredMixin, View):
 
     def get(self, request, pk: int):
         """Fetch from provider and show preview, or an error page if not found."""
-        from books.cover_fetcher import fetch_cover
-
         book_entry = get_object_or_404(BookEntry, pk=pk)
 
         isbn = book_entry.isbn or ""

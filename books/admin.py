@@ -1,6 +1,7 @@
 """Book admin section customisation."""
 
 from django.contrib import admin
+from django.db.models import Max
 from django.utils.translation import gettext_lazy as _
 from djangoql.admin import DjangoQLSearchMixin
 from imagekit.admin import AdminThumbnail
@@ -92,8 +93,6 @@ class EntryNumberInline(admin.StackedInline):
     def get_formset(self, request, obj=None, **kwargs):
         """Annotate entry_number with the next suggested value."""
         formset = super().get_formset(request, obj, **kwargs)
-        from django.db.models import Max
-
         max_val = EntryNumber.objects.aggregate(Max("entry_number"))["entry_number__max"]
         next_val = (max_val or 0) + 1
         formset.form.base_fields["entry_number"].help_text = _("Next available: %(n)s") % {"n": next_val}
@@ -126,8 +125,6 @@ class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
         """Annotate entry_number with the next suggested value when adding."""
         form = super().get_form(request, obj, change, **kwargs)
         if obj is None:
-            from django.db.models import Max
-
             max_val = EntryNumber.objects.aggregate(Max("entry_number"))["entry_number__max"]
             next_val = (max_val or 0) + 1
             form.base_fields["entry_number"].help_text = _("Next available: %(n)s") % {"n": next_val}
