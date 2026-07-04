@@ -122,9 +122,9 @@ class EntryNumberAdmin(DjangoQLSearchMixin, admin.ModelAdmin):
         "book_entry__subtitle",
     ]
 
-    def get_form(self, request, obj=None, **kwargs):
+    def get_form(self, request, obj=None, change=False, **kwargs):
         """Annotate entry_number with the next suggested value when adding."""
-        form = super().get_form(request, obj, **kwargs)
+        form = super().get_form(request, obj, change, **kwargs)
         if obj is None:
             from django.db.models import Max
 

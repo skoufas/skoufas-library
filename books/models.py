@@ -412,7 +412,7 @@ class BookEntry(models.Model):
     def save(self, *args, **kwargs):
         """Update classification_class and romanized_title before saving."""
         if self.skoufas_classification:
-            self.classification_class = int(self.skoufas_classification[0:3])
+            self.classification_class = int(str(self.skoufas_classification)[0:3])
         else:
             self.classification_class = None
         parts = [self.title, self.subtitle]
@@ -674,6 +674,8 @@ class BookEntryImage(models.Model):
     """Φωτογραφία βιβλίου."""
 
     class ImageType(models.TextChoices):
+        """Kinds of images that can be attached to a book entry."""
+
         COVER = "cover", _("Cover")
         BACK_COVER = "back_cover", _("Back cover")
         INTERNAL = "internal", _("Internal page")
@@ -732,7 +734,7 @@ class BookEntryImage(models.Model):
 
 
 @receiver(post_delete, sender=BookEntryImage)
-def _delete_book_entry_image_file(sender, instance: BookEntryImage, **kwargs) -> None:
+def _delete_book_entry_image_file(instance: BookEntryImage, **kwargs) -> None:
     """Delete the image file from disk when the model instance is deleted."""
     if instance.image:
         instance.image.delete(save=False)

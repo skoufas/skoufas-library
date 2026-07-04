@@ -144,7 +144,6 @@ init-hook = 'import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())'
 jobs = 0
 limit-inference-results = 100
 persistent = "yes"
-suggestion-mode = "yes"
 unsafe-load-any-extension = "no"
 
 [tool.pylint.'MESSAGES CONTROL']
@@ -154,6 +153,7 @@ disable = [
     "no-else-return",
     "import-outside-toplevel",
     "no-member",
+    "line-too-long",
 ]
 
 [tool.pylint.'REPORTS']
@@ -230,7 +230,7 @@ additional-builtins = "dbutils"
 allow-global-unused-variables = "yes"
 callbacks = ["cb_", "_cb"]
 dummy-variables-rgx = "_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_"
-ignored-argument-names = "_.*|^ignored_|^unused_"
+ignored-argument-names = "_.*|^ignored_|^unused_|^args$|^kwargs$"
 init-import = "no"
 redefining-builtins-modules = "six.moves,past.builtins,future.builtins,builtins,io"
 

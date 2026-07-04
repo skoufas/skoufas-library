@@ -3,7 +3,7 @@
 default_app_config = "books.apps.BooksConfig"  # pylint: disable=invalid-name
 
 
-def romanize(greek_text: str | None) -> str:
+def romanize(greek_text: str | None) -> str:  # pylint: disable=too-many-locals,too-many-branches,too-many-statements
     """Return the ISO 843:1997 transcription of the input Greek text.
     Any non-Greek characters will be ignored and printed as they were.
 

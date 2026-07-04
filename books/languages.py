@@ -4,6 +4,7 @@ List of valid language codes.
 Original from https://github.com/audiolion/django-language-field/blob/master/languages/languages.py .
 """
 
+# pylint: disable=too-many-lines
 from django.utils.translation import gettext_lazy as _
 
 LANGUAGES = (
