@@ -1,13 +1,15 @@
 #!/bin/bash
 
-PROJECT_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")"; cd ..; pwd)"
-cd "$PROJECT_DIR"
+PROJECT_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}")" || exit; cd ..; pwd)"
+cd "$PROJECT_DIR" || exit
 pwd
 mkdir -p junk
 rm -f db.sqlite3
 rm -rf books/migrations/00*.py
 rm -rf loaning/migrations/00*.py
 rm -rf curation/migrations/00*.py
+
+# shellcheck disable=SC1091
 . .venv/bin/activate
 export PYTHONPATH=$PROJECT_DIR:$PYTHONPATH
 skoufas-library reset_db --no-input
