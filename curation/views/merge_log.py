@@ -68,7 +68,7 @@ class MergeUndoView(PermissionRequiredMixin, View):
         elif entity_type == "editor":
             recreated = self._undo_fk_entity(log, Editor, "editor", request.user)
         else:
-            messages.error(request, _("Unknown entity type — cannot undo."))
+            messages.error(request, _("Unknown entity type - cannot undo."))
             return redirect("curation:merge-log-list")
 
         messages.success(request, _('Merge undone. Entry recreated as "%(name)s".') % {"name": str(recreated)})

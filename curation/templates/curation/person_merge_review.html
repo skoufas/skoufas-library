@@ -31,23 +31,23 @@
                                 <tbody>
                                     <tr>
                                         <th>{% translate "Surname" %}</th>
-                                        <td>{{ obj.surname|default:"—" }}</td>
+                                        <td>{{ obj.surname|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "First name" %}</th>
-                                        <td>{{ obj.first_name|default:"—" }}</td>
+                                        <td>{{ obj.first_name|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Middle name" %}</th>
-                                        <td>{{ obj.middle_name|default:"—" }}</td>
+                                        <td>{{ obj.middle_name|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Organisation" %}</th>
-                                        <td>{{ obj.organisation_name|default:"—" }}</td>
+                                        <td>{{ obj.organisation_name|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Romanized" %}</th>
-                                        <td><code>{{ obj.romanized_name|default:"—" }}</code></td>
+                                        <td><code>{{ obj.romanized_name|default:"-" }}</code></td>
                                     </tr>
                                 </tbody>
                             </table>

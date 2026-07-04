@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: skoufas-library\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-28 09:15+0300\n"
+"POT-Creation-Date: 2026-07-04 20:52+0300\n"
 "PO-Revision-Date: 2026-06-25 07:28+0300\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "Curation"
 msgstr "Επιμέλεια"
 
-#: curation/models.py:15 curation/models.py:40
+#: curation/models.py:15 curation/models.py:42
 msgid "content type"
 msgstr "τύπος περιεχομένου"
 
@@ -39,23 +39,23 @@ msgstr "απορρίφθηκε από"
 msgid "suppressed at"
 msgstr "απορρίφθηκε στις"
 
-#: curation/models.py:24
+#: curation/models.py:26
 msgid "Suppressed pair"
 msgstr "Απορριφθέν ζεύγος"
 
-#: curation/models.py:25
+#: curation/models.py:27
 msgid "Suppressed pairs"
 msgstr "Απορριφθέντα ζεύγη"
 
-#: curation/models.py:41
+#: curation/models.py:43
 msgid "target object ID"
 msgstr "αναγνωριστικό αντικειμένου στόχου"
 
-#: curation/models.py:44
+#: curation/models.py:46
 msgid "merge data"
 msgstr "δεδομένα συγχώνευσης"
 
-#: curation/models.py:45
+#: curation/models.py:47
 msgid ""
 "Entity-specific snapshot of the deleted source object and all data needed to "
 "undo the merge."
@@ -63,90 +63,90 @@ msgstr ""
 "Στιγμιότυπο του διαγραμμένου αντικειμένου πηγής και όλα τα δεδομένα που "
 "χρειάζονται για την αναίρεση της συγχώνευσης."
 
-#: curation/models.py:48
+#: curation/models.py:50
 msgid "merged by"
 msgstr "συγχωνεύθηκε από"
 
-#: curation/models.py:50
+#: curation/models.py:52
 msgid "merged at"
 msgstr "συγχωνεύθηκε στις"
 
-#: curation/models.py:51
+#: curation/models.py:53
 msgid "undone at"
 msgstr "αναιρέθηκε στις"
 
-#: curation/models.py:54
+#: curation/models.py:56
 msgid "undone by"
 msgstr "αναιρέθηκε από"
 
-#: curation/models.py:62
+#: curation/models.py:66
 msgid "Merge log"
 msgstr "Αρχείο συγχωνεύσεων"
 
-#: curation/models.py:63
+#: curation/models.py:67
 msgid "Merge logs"
 msgstr "Αρχεία συγχωνεύσεων"
 
-#: curation/models.py:93
+#: curation/models.py:99
 msgid "location"
 msgstr "τοποθεσία"
 
-#: curation/models.py:98
+#: curation/models.py:104
 msgid "started by"
 msgstr "ξεκίνησε από"
 
-#: curation/models.py:100
+#: curation/models.py:106
 msgid "started at"
 msgstr "ξεκίνησε στις"
 
-#: curation/models.py:101
+#: curation/models.py:107
 msgid "closed at"
 msgstr "έκλεισε στις"
 
-#: curation/models.py:104
+#: curation/models.py:112
 msgid "Inventory session"
 msgstr "Συνεδρία απογραφής"
 
-#: curation/models.py:105
+#: curation/models.py:113
 msgid "Inventory sessions"
 msgstr "Συνεδρίες απογραφής"
 
-#: curation/models.py:132 curation/templates/curation/inventory_close.html:30
+#: curation/models.py:141 curation/templates/curation/inventory_close.html:30
 #: curation/templates/curation/inventory_scan.html:130
 msgid "Confirmed"
 msgstr "Επιβεβαιωμένο"
 
-#: curation/models.py:133 curation/templates/curation/inventory_close.html:38
+#: curation/models.py:142 curation/templates/curation/inventory_close.html:38
 #: curation/templates/curation/inventory_close.html:86
 #: curation/templates/curation/inventory_scan.html:132
 msgid "Set aside"
 msgstr "Στην άκρη"
 
-#: curation/models.py:138
+#: curation/models.py:147
 msgid "session"
 msgstr "συνεδρία"
 
-#: curation/models.py:144
+#: curation/models.py:153
 msgid "entry number"
 msgstr "αριθμός εισαγωγής"
 
-#: curation/models.py:148
+#: curation/models.py:157
 msgid "scanned at"
 msgstr "σαρώθηκε στις"
 
-#: curation/models.py:149
+#: curation/models.py:158
 msgid "outcome"
 msgstr "αποτέλεσμα"
 
-#: curation/models.py:152
+#: curation/models.py:161
 msgid "previous location"
 msgstr "προηγούμενη τοποθεσία"
 
-#: curation/models.py:160
+#: curation/models.py:171
 msgid "Inventory session entry"
 msgstr "Καταχώριση συνεδρίας απογραφής"
 
-#: curation/models.py:161
+#: curation/models.py:172
 msgid "Inventory session entries"
 msgstr "Καταχωρίσεις συνεδρίας απογραφής"
 
@@ -324,20 +324,20 @@ msgstr "Εξέταση Συγχώνευσης Βιβλίου"
 #: curation/templates/curation/book_merge_review.html:8
 msgid ""
 "Select the canonical book entry to keep. Conflicting fields are shown below "
-"— choose which value to use. The other entry will be deleted and its "
+"- choose which value to use. The other entry will be deleted and its "
 "physical copies re-assigned."
 msgstr ""
 "Επιλέξτε την σωστότερη εγγραφή βιβλίου για διατήρηση. Τα πεδία με "
-"συγκρούσεις εμφανίζονται παρακάτω — επιλέξτε ποια τιμή να χρησιμοποιηθεί. Η "
+"συγκρούσεις εμφανίζονται παρακάτω - επιλέξτε ποια τιμή να χρησιμοποιηθεί. Η "
 "άλλη εγγραφή θα διαγραφεί και τα φυσικά αντίτυπά της θα ανατεθούν εκ νέου."
 
 #: curation/templates/curation/book_merge_review.html:12
 #, python-format
 msgid ""
 "\n"
-"        Warning: Book A has %(a)s active loan(s), Book B has %(b)s active "
-"loan(s). Loans will remain valid after the merge.\n"
-"      "
+"                Warning: Book A has %(a)s active loan(s), Book B has %(b)s "
+"active loan(s). Loans will remain valid after the merge.\n"
+"            "
 msgstr ""
 "\n"
 "        Προειδοποίηση: Το Βιβλίο Α έχει %(a)s ενεργό/ενεργά δανεισμό/"
@@ -440,8 +440,8 @@ msgid "Missing from scan"
 msgstr "Λείπει από τη σάρωση"
 
 #: curation/templates/curation/inventory_close.html:53
-msgid "Confirmed — location updated"
-msgstr "Επιβεβαιωμένο — τοποθεσία ενημερώθηκε"
+msgid "Confirmed - location updated"
+msgstr "Επιβεβαιωμένο - τοποθεσία ενημερώθηκε"
 
 #: curation/templates/curation/inventory_close.html:65
 #, python-format
@@ -453,12 +453,12 @@ msgid "Assigned"
 msgstr "Ανατέθηκε"
 
 #: curation/templates/curation/inventory_close.html:76
-msgid "Set aside — needs entry number reassignment"
-msgstr "Στην άκρη — χρειάζεται επανανάθεση αριθμού εισαγωγής"
+msgid "Set aside - needs entry number reassignment"
+msgstr "Στην άκρη - χρειάζεται επανανάθεση αριθμού εισαγωγής"
 
 #: curation/templates/curation/inventory_close.html:93
-msgid "Missing from scan — expected at this location"
-msgstr "Λείπει από τη σάρωση — αναμενόταν σε αυτή την τοποθεσία"
+msgid "Missing from scan - expected at this location"
+msgstr "Λείπει από τη σάρωση - αναμενόταν σε αυτή την τοποθεσία"
 
 #: curation/templates/curation/inventory_close.html:103
 msgid "Not scanned"
@@ -531,16 +531,16 @@ msgstr ""
 "                        "
 
 #: curation/templates/curation/inventory_scan.html:76
-msgid "Yes, move it — Correct"
-msgstr "Ναι, μετακίνηση — Σωστό"
+msgid "Yes, move it - Correct"
+msgstr "Ναι, μετακίνηση - Σωστό"
 
 #: curation/templates/curation/inventory_scan.html:78
 msgid "Correct ✓"
 msgstr "Σωστό ✓"
 
 #: curation/templates/curation/inventory_scan.html:86
-msgid "Set aside — needs reassignment"
-msgstr "Στην άκρη — χρειάζεται επανανάθεση"
+msgid "Set aside - needs reassignment"
+msgstr "Στην άκρη - χρειάζεται επανανάθεση"
 
 #: curation/templates/curation/inventory_scan.html:91
 msgid "Add photo"
@@ -692,149 +692,150 @@ msgstr ""
 msgid "Topic name"
 msgstr "Όνομα θέματος"
 
-#: curation/views.py:94 curation/views.py:217 curation/views.py:362
-#: curation/views.py:473 curation/views.py:582 curation/views.py:688
+#: curation/views/duplicates.py:95 curation/views/duplicates.py:224
+#: curation/views/duplicates.py:372 curation/views/duplicates.py:486
+#: curation/views/duplicates.py:598 curation/views/duplicates.py:707
 msgid "Pair dismissed."
 msgstr "Το ζεύγος απορρίφθηκε."
 
-#: curation/views.py:99
+#: curation/views/duplicates.py:100
 msgid "Please select the canonical author."
 msgstr "Παρακαλώ επιλέξτε τον κανονικό συγγραφέα."
 
-#: curation/views.py:144
+#: curation/views/duplicates.py:145
 msgid "Authors merged successfully."
 msgstr "Οι συγγραφείς συγχωνεύθηκαν επιτυχώς."
 
-#: curation/views.py:222
+#: curation/views/duplicates.py:229
 msgid "Please select the canonical book entry."
 msgstr "Παρακαλώ επιλέξτε την κανονική εγγραφή βιβλίου."
 
-#: curation/views.py:298
+#: curation/views/duplicates.py:305
 msgid "Book entries merged successfully."
 msgstr "Οι εγγραφές βιβλίων συγχωνεύθηκαν επιτυχώς."
 
-#: curation/views.py:322
+#: curation/views/duplicates.py:330
 msgid "Translator Duplicates"
 msgstr "Διπλότυπα Μεταφραστών"
 
-#: curation/views.py:323 curation/views.py:348
+#: curation/views/duplicates.py:331 curation/views/duplicates.py:356
 msgid "Translator"
 msgstr "Μεταφραστής"
 
-#: curation/views.py:367
+#: curation/views/duplicates.py:377
 msgid "Please select the canonical translator."
 msgstr "Παρακαλώ επιλέξτε τον σωστότερο μεταφραστή."
 
-#: curation/views.py:409
+#: curation/views/duplicates.py:419
 msgid "Translators merged successfully."
 msgstr "Οι μεταφραστές συγχωνεύθηκαν επιτυχώς."
 
-#: curation/views.py:433
+#: curation/views/duplicates.py:444
 msgid "Curator Duplicates"
 msgstr "Διπλότυπα Επιμελητών"
 
-#: curation/views.py:434 curation/views.py:459
+#: curation/views/duplicates.py:445 curation/views/duplicates.py:470
 msgid "Curator"
 msgstr "Επιμελητής"
 
-#: curation/views.py:478
+#: curation/views/duplicates.py:491
 msgid "Please select the canonical curator."
 msgstr "Παρακαλώ επιλέξτε τον σωστότερο επιμελητή."
 
-#: curation/views.py:520
+#: curation/views/duplicates.py:533
 msgid "Curators merged successfully."
 msgstr "Οι επιμελητές συγχωνεύθηκαν επιτυχώς."
 
-#: curation/views.py:544
+#: curation/views/duplicates.py:558
 msgid "Topic Duplicates"
 msgstr "Διπλότυπα Θεμάτων"
 
-#: curation/views.py:545
+#: curation/views/duplicates.py:559
 msgid "Topic"
 msgstr "Θέμα"
 
-#: curation/views.py:587
+#: curation/views/duplicates.py:603
 msgid "Please select the canonical topic."
 msgstr "Παρακαλώ επιλέξτε το σωστότερο θέμα."
 
-#: curation/views.py:626
+#: curation/views/duplicates.py:642
 msgid "Topics merged successfully."
 msgstr "Τα θέματα συγχωνεύθηκαν επιτυχώς."
 
-#: curation/views.py:650
+#: curation/views/duplicates.py:667
 msgid "Editor Duplicates"
 msgstr "Διπλότυπα Εκδοτών"
 
-#: curation/views.py:651
+#: curation/views/duplicates.py:668
 msgid "Editor"
 msgstr "Εκδότης"
 
-#: curation/views.py:693
+#: curation/views/duplicates.py:712
 msgid "Please select the canonical editor."
 msgstr "Παρακαλώ επιλέξτε τον σωστότερο εκδότη."
 
-#: curation/views.py:730
+#: curation/views/duplicates.py:749
 msgid "Editors merged successfully."
 msgstr "Οι εκδότες συγχωνεύθηκαν επιτυχώς."
 
-#: curation/views.py:771
-msgid "This merge has already been undone."
-msgstr "Αυτή η συγχώνευση έχει ήδη αναιρεθεί."
-
-#: curation/views.py:774
-msgid "Cannot undo: the target object no longer exists."
-msgstr "Δεν είναι δυνατή η αναίρεση: το αντικείμενο-στόχος δεν υπάρχει πλέον."
-
-#: curation/views.py:791
-msgid "Unknown entity type — cannot undo."
-msgstr "Άγνωστος τύπος οντότητας — αδύνατη η αναίρεση."
-
-#: curation/views.py:794
-#, python-format
-msgid "Merge undone. Entry recreated as \"%(name)s\"."
-msgstr "Η συγχώνευση αναιρέθηκε. Η εγγραφή αναδημιουργήθηκε ως \"%(name)s\"."
-
-#: curation/views.py:867
-msgid "Dismissal removed. Pair will reappear in the duplicates list."
-msgstr ""
-"Η απόρριψη αφαιρέθηκε. Το ζεύγος θα επανεμφανιστεί στη λίστα διπλοτύπων."
-
-#: curation/views.py:908
+#: curation/views/inventory.py:41
 msgid "Only Shelf or Box locations can be inventoried."
 msgstr "Μόνο τοποθεσίες τύπου Ράφι ή Κουτί μπορούν να αποτελέσουν."
 
-#: curation/views.py:916
+#: curation/views/inventory.py:49
 msgid "An open inventory session already exists for this location."
 msgstr "Υπάρχει ήδη ανοιχτή συνεδρία απογραφής για αυτή την τοποθεσία."
 
-#: curation/views.py:958
+#: curation/views/inventory.py:93
 msgid "Please enter an entry number."
 msgstr "Παρακαλώ εισάγετε αριθμό εισαγωγής."
 
-#: curation/views.py:968
+#: curation/views/inventory.py:103
 #, python-format
 msgid "Entry number \"%(en)s\" not found in the database."
 msgstr "Ο αριθμός εισαγωγής \"%(en)s\" δεν βρέθηκε στη βάση δεδομένων."
 
-#: curation/views.py:986
+#: curation/views/inventory.py:122
 msgid "No pending scan to confirm."
 msgstr "Δεν υπάρχει εκκρεμής σάρωση για επιβεβαίωση."
 
-#: curation/views.py:1005
+#: curation/views/inventory.py:141
 #, python-format
 msgid "%(en)s confirmed and assigned to %(loc)s."
 msgstr "%(en)s επιβεβαιώθηκε και ανατέθηκε στο %(loc)s."
 
-#: curation/views.py:1019
+#: curation/views/inventory.py:156
 msgid "No pending scan to set aside."
 msgstr "Δεν υπάρχει εκκρεμής σάρωση για αναβολή."
 
-#: curation/views.py:1033
+#: curation/views/inventory.py:170
 #, python-format
 msgid "%(en)s set aside for entry number reassignment."
 msgstr "%(en)s τέθηκε στην άκρη για επανανάθεση αριθμού εισαγωγής."
 
-#: curation/views.py:1077
+#: curation/views/inventory.py:216
 #, python-format
 msgid "Inventory session for %(loc)s closed."
 msgstr "Η συνεδρία απογραφής για %(loc)s έκλεισε."
+
+#: curation/views/merge_log.py:51
+msgid "This merge has already been undone."
+msgstr "Αυτή η συγχώνευση έχει ήδη αναιρεθεί."
+
+#: curation/views/merge_log.py:54
+msgid "Cannot undo: the target object no longer exists."
+msgstr "Δεν είναι δυνατή η αναίρεση: το αντικείμενο-στόχος δεν υπάρχει πλέον."
+
+#: curation/views/merge_log.py:71
+msgid "Unknown entity type - cannot undo."
+msgstr "Άγνωστος τύπος οντότητας - αδύνατη η αναίρεση."
+
+#: curation/views/merge_log.py:74
+#, python-format
+msgid "Merge undone. Entry recreated as \"%(name)s\"."
+msgstr "Η συγχώνευση αναιρέθηκε. Η εγγραφή αναδημιουργήθηκε ως \"%(name)s\"."
+
+#: curation/views/suppression.py:23
+msgid "Dismissal removed. Pair will reappear in the duplicates list."
+msgstr ""
+"Η απόρριψη αφαιρέθηκε. Το ζεύγος θα επανεμφανιστεί στη λίστα διπλοτύπων."

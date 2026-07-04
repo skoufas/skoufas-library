@@ -29,15 +29,15 @@
                                 <tbody>
                                     <tr>
                                         <th>{% translate "Name" %}</th>
-                                        <td>{{ obj.name|default:"—" }}</td>
+                                        <td>{{ obj.name|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Place" %}</th>
-                                        <td>{{ obj.place|default:"—" }}</td>
+                                        <td>{{ obj.place|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Romanized" %}</th>
-                                        <td><code>{{ obj.romanized_name|default:"—" }}</code></td>
+                                        <td><code>{{ obj.romanized_name|default:"-" }}</code></td>
                                     </tr>
                                 </tbody>
                             </table>

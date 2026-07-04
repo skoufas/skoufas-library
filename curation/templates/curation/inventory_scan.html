@@ -45,7 +45,7 @@
                             {{ author }}
                             {% if not forloop.last %},{% endif %}
                         {% empty %}
-                            <span class="text-muted">—</span>
+                            <span class="text-muted">-</span>
                         {% endfor %}
                     </dd>
                     <dt class="col-sm-3">{% translate "Current location" %}</dt>
@@ -73,7 +73,7 @@
                         <button type="submit" class="btn btn-success">
                             <i class="bi bi-check-lg"></i>
                             {% if pending_conflict %}
-                                {% translate "Yes, move it — Correct" %}
+                                {% translate "Yes, move it - Correct" %}
                             {% else %}
                                 {% translate "Correct ✓" %}
                             {% endif %}
@@ -83,7 +83,7 @@
                           action="{% url 'curation:inventory-set-aside' session.pk %}">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-outline-secondary">
-                            <i class="bi bi-x-lg"></i> {% translate "Set aside — needs reassignment" %}
+                            <i class="bi bi-x-lg"></i> {% translate "Set aside - needs reassignment" %}
                         </button>
                     </form>
                     <a href="{% url 'books:book-image-add' pending.book_entry.pk %}?next={{ request.get_full_path|urlencode }}"

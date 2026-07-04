@@ -30,7 +30,7 @@ class CSVExportView(View):
         """Return a list of CSV column names."""
         # Overlaps with curation.queries.BOOK_SCALAR_FIELDS (same field names),
         # but this is the CSV's own presentation order/columns (including
-        # author_1..6 etc.), not the same list — sharing a constant would
+        # author_1..6 etc.), not the same list - sharing a constant would
         # wrongly couple CSV export formatting to curation's internal
         # duplicate-detection field list.
         # pylint: disable=duplicate-code
@@ -85,7 +85,7 @@ class CSVExportView(View):
             row.append("location")
         return row
 
-    # Wide, sequential slot-filling for a fixed CSV column layout — splitting it up
+    # Wide, sequential slot-filling for a fixed CSV column layout - splitting it up
     # would just thread the same values through several helper calls.
     # pylint: disable-next=too-many-locals,too-many-branches,too-many-statements
     async def convert_book_entry_to_csv_row(
@@ -357,7 +357,7 @@ class MARCExportView(View):
         return " ".join(parts)
 
     # A sequence of mostly-independent MARC field-mapping blocks (control fields,
-    # contributors, title, identifiers, holdings, images...) — inherently long.
+    # contributors, title, identifiers, holdings, images...) - inherently long.
     # pylint: disable-next=too-many-locals,too-many-branches,too-many-statements
     async def _book_entry_to_marc(
         self,

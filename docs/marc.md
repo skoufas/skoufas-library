@@ -2,9 +2,9 @@
 
 ## Formats
 
-- `/books/export/marc.mrc` — ISO 2709 binary (`application/marc`)
-- `/books/export/marc.xml` — MARCXML (`application/marcxml+xml`)
-- `/books/export/marc.mrk` — MARCMaker text (`text/plain`)
+- `/books/export/marc.mrc` - ISO 2709 binary (`application/marc`)
+- `/books/export/marc.xml` - MARCXML (`application/marcxml+xml`)
+- `/books/export/marc.mrk` - MARCMaker text (`text/plain`)
 
 ## Field mapping
 

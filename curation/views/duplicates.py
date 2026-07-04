@@ -212,7 +212,7 @@ class BookMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View):
         return self.render_to_response(self._context(book_a, book_b))
 
     # Field-by-field conflict resolution across scalar/boolean/M2M attributes,
-    # plus undo-log snapshotting — inherently touches many local values.
+    # plus undo-log snapshotting - inherently touches many local values.
     # pylint: disable-next=too-many-locals
     def post(self, request, a_id, b_id):
         """Dismiss the pair or merge them, applying the user's per-field choices."""

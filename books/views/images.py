@@ -320,7 +320,7 @@ def _to_jpeg_bytes(image_file) -> bytes:
 
 
 class BookEntryImageConvertView(PermissionRequiredMixin, View):
-    """Convert an uploaded image to JPEG and return it — used client-side for HEIC preview."""
+    """Convert an uploaded image to JPEG and return it - used client-side for HEIC preview."""
 
     permission_required = "curation.can_inventory"
 

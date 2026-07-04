@@ -33,7 +33,7 @@
                                 <span class="text-muted">{% translate "Deleted" %}</span>
                             {% endif %}
                         </td>
-                        <td>{{ log.merged_by|default:"—" }}</td>
+                        <td>{{ log.merged_by|default:"-" }}</td>
                         <td>{{ log.merged_at|date:"Y-m-d H:i" }}</td>
                         <td>
                             {% if log.is_undone %}

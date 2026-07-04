@@ -27,7 +27,7 @@
         {% csrf_token %}
         <div class="input-group" style="max-width: 500px;">
             <select name="location_id" class="form-select" required>
-                <option value="">— {% translate "Choose a shelf or box" %} —</option>
+                <option value="">- {% translate "Choose a shelf or box" %} -</option>
                 {% for loc in leaf_locations %}
                     <option value="{{ loc.pk }}">{{ loc }}</option>
                 {% endfor %}
@@ -55,7 +55,7 @@
                         <td><a href="{% url 'curation:inventory-close' s.pk %}">{{ s.location }}</a></td>
                         <td>{{ s.started_at|date:"Y-m-d H:i" }}</td>
                         <td>{{ s.closed_at|date:"Y-m-d H:i" }}</td>
-                        <td>{{ s.started_by|default:"—" }}</td>
+                        <td>{{ s.started_by|default:"-" }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

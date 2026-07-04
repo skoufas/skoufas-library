@@ -30,27 +30,27 @@
                                 <tbody>
                                     <tr>
                                         <th>{% translate "Surname" %}</th>
-                                        <td>{{ author.surname|default:"—" }}</td>
+                                        <td>{{ author.surname|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "First name" %}</th>
-                                        <td>{{ author.first_name|default:"—" }}</td>
+                                        <td>{{ author.first_name|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Middle name" %}</th>
-                                        <td>{{ author.middle_name|default:"—" }}</td>
+                                        <td>{{ author.middle_name|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Pseudonym" %}</th>
-                                        <td>{{ author.pseudonym|default:"—" }}</td>
+                                        <td>{{ author.pseudonym|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Organisation" %}</th>
-                                        <td>{{ author.organisation_name|default:"—" }}</td>
+                                        <td>{{ author.organisation_name|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Romanized" %}</th>
-                                        <td><code>{{ author.romanized_name|default:"—" }}</code></td>
+                                        <td><code>{{ author.romanized_name|default:"-" }}</code></td>
                                     </tr>
                                 </tbody>
                             </table>

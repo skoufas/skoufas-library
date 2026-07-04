@@ -29,11 +29,11 @@
                                 <tbody>
                                     <tr>
                                         <th>{% translate "Topic name" %}</th>
-                                        <td>{{ obj.topic_name|default:"—" }}</td>
+                                        <td>{{ obj.topic_name|default:"-" }}</td>
                                     </tr>
                                     <tr>
                                         <th>{% translate "Romanized" %}</th>
-                                        <td><code>{{ obj.romanized_topic_name|default:"—" }}</code></td>
+                                        <td><code>{{ obj.romanized_topic_name|default:"-" }}</code></td>
                                     </tr>
                                 </tbody>
                             </table>

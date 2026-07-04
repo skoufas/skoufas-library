@@ -50,7 +50,7 @@ class LocationDetailView(DetailView):
             node = node.parent if node.parent_id else None
         context["ancestors"] = ancestors
 
-        # Direct children — filter non-public if needed
+        # Direct children - filter non-public if needed
         children_qs = location.children.all()
         if not can_see_nonpublic:
             children_qs = children_qs.filter(non_public=False)

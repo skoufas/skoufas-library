@@ -50,7 +50,7 @@
     </div>
     {# Confirmed #}
     {% if confirmed %}
-        <h6>{% translate "Confirmed — location updated" %}</h6>
+        <h6>{% translate "Confirmed - location updated" %}</h6>
         <ul class="list-group mb-4">
             {% for e in confirmed %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -73,7 +73,7 @@
     {% endif %}
     {# Set aside #}
     {% if set_aside %}
-        <h6 class="text-secondary">{% translate "Set aside — needs entry number reassignment" %}</h6>
+        <h6 class="text-secondary">{% translate "Set aside - needs entry number reassignment" %}</h6>
         <ul class="list-group mb-4">
             {% for e in set_aside %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -90,7 +90,7 @@
     {% endif %}
     {# Missing #}
     {% if missing %}
-        <h6 class="text-warning">{% translate "Missing from scan — expected at this location" %}</h6>
+        <h6 class="text-warning">{% translate "Missing from scan - expected at this location" %}</h6>
         <ul class="list-group mb-4">
             {% for en in missing %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
