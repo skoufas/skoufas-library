@@ -32,7 +32,7 @@
                      aria-labelledby="classification-{{ class.classification_class }}"
                      data-bs-parent="#classAccordion">
                     <div class="accordion-body list-group">
-                        <a {% if class.classification_class %} href="{% url 'books:book-by-skoufas-main-class' class.classification_class %}" {% else %} href="{% url 'books:book-by-skoufas-main-class' 'None' %}" {% endif %}
+                        <a href="{% url 'books:book-by-skoufas-main-class' class.classification_class|default_if_none:'None' %}"
                            class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 {% blocktranslate with classification_class=class.classification_class description=class.description%}
@@ -41,7 +41,7 @@
                             </div>
                         </a>
                         {% for subclass in class.subclasses %}
-                            <a {% if subclass.skoufas_classification %} href="{% url 'books:book-by-skoufas-classification' subclass.skoufas_classification %}" {% else %} href="{% url 'books:book-by-skoufas-classification' 'None' %}" {% endif %}
+                            <a href="{% url 'books:book-by-skoufas-classification' subclass.skoufas_classification|default_if_none:'None' %}"
                                class="list-group-item list-group-item-action">
                                 <div class="d-flex w-100 justify-content-between">
                                     {{ subclass.skoufas_classification }}

@@ -6,7 +6,7 @@
     <nav aria-label="Search Results navigation">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-                <a class="page-link" href="?q={{ query }}&page=1" aria-label="First">&laquo;</a>
+                <a class="page-link" href="?q={{ query }}&page=1" aria-label="First">«</a>
             </li>
             <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
                 <a class="page-link"
@@ -24,7 +24,7 @@
             <li class="page-item">
                 <a class="page-link"
                    href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}"
-                   aria-label="Last">&raquo;</a>
+                   aria-label="Last">»</a>
             </li>
         </ul>
     </nav>
@@ -36,7 +36,7 @@
     <nav aria-label="Search results navigation">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-                <a class="page-link" href="?q={{ query }}&page=1" aria-label="First">&laquo;</a>
+                <a class="page-link" href="?q={{ query }}&page=1" aria-label="First">«</a>
             </li>
             <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
                 <a class="page-link"
@@ -54,7 +54,7 @@
             <li class="page-item">
                 <a class="page-link"
                    href="?q={{ query }}&page={{ page_obj.paginator.num_pages }}"
-                   aria-label="Last">&raquo;</a>
+                   aria-label="Last">»</a>
             </li>
         </ul>
     </nav>

@@ -29,7 +29,7 @@
             <li class="page-item">
                 <a class="page-link"
                    href="?page=1{% if q %}&q={{ q|urlencode }}{% endif %}"
-                   aria-label="First">&laquo;</a>
+                   aria-label="First">«</a>
             </li>
             <li class="page-item {% if not page_obj.has_previous %}disabled{% endif %}">
                 <a class="page-link"
@@ -47,7 +47,7 @@
             <li class="page-item">
                 <a class="page-link"
                    href="?page={{ page_obj.paginator.num_pages }}{% if q %}&q={{ q|urlencode }}{% endif %}"
-                   aria-label="Last">&raquo;</a>
+                   aria-label="Last">»</a>
             </li>
         </ul>
     </nav>
