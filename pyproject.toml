@@ -45,6 +45,7 @@ test = [
     "django-stubs[compatible-mypy]",
     "djlint==1.40.2",
     "mypy",
+    "pip-audit",
     "pre-commit==4.6.0",
     "pylint_junit",
     "pylint==4.0.6",
