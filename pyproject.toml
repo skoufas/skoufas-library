@@ -33,7 +33,7 @@ dependencies = [
     "pillow-heif",
     "pymarc",
     "Pillow",
-    "skoufas-dbf-reader==2026.6.27",
+    "skoufas-dbf-reader==2026.7.5",
     "requests",
     "markdown",
 ]
@@ -45,7 +45,7 @@ test = [
     "django-migration-linter",
     "django-stubs[compatible-mypy]",
     "djhtml",
-    "djlint==1.40.2",
+    "djlint==1.40.3",
     "mypy",
     "pip-audit",
     "pre-commit==4.6.0",
