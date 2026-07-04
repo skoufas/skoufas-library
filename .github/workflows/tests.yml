@@ -1,0 +1,49 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 10s
+          --health-timeout 10s
+          --health-retries 5
+
+    env:
+      DJANGO_ALLOWED_HOSTS: "*"
+      DJANGO_CURRENT_SECRET_KEY: "Not really safe: F0874YHFG`89HDKBWUZYT67ZTUYG879y676yv,wkjdhcbeu6f3b4rbm,/.;[pl`09wu7"
+      DJANGO_OLD_SECRET_KEY: "Not really safe: n`4908ryb49`08tyhuichnKJCXH1298-06WT`167EY;OIRTFNBRKJ."
+      DJANGO_DATABASE_NAME: postgres
+      DJANGO_DATABASE_USER: postgres
+      DJANGO_DATABASE_PASSWORD: postgres
+      DJANGO_DATABASE_HOST: localhost
+      DJANGO_DATABASE_PORT: 5432
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.14"
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv pip install --system -e .
+
+      - name: Run tests
+        run: python manage.py test
