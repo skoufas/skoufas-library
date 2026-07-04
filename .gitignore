@@ -111,3 +111,5 @@ static_collected
 junk
 typings
 db.sqlite3-journal
+.DS_Store
+.devcontainer/devcontainer-lock.json
