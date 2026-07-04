@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: skoufas-library\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 20:52+0300\n"
+"POT-Creation-Date: 2026-07-04 21:33+0300\n"
 "PO-Revision-Date: 2026-06-25 07:28+0300\n"
 "Last-Translator: \n"
 "Language-Team: Greek\n"
@@ -782,38 +782,38 @@ msgstr "Οι εκδότες συγχωνεύθηκαν επιτυχώς."
 msgid "Only Shelf or Box locations can be inventoried."
 msgstr "Μόνο τοποθεσίες τύπου Ράφι ή Κουτί μπορούν να αποτελέσουν."
 
-#: curation/views/inventory.py:49
+#: curation/views/inventory.py:50
 msgid "An open inventory session already exists for this location."
 msgstr "Υπάρχει ήδη ανοιχτή συνεδρία απογραφής για αυτή την τοποθεσία."
 
-#: curation/views/inventory.py:93
+#: curation/views/inventory.py:94
 msgid "Please enter an entry number."
 msgstr "Παρακαλώ εισάγετε αριθμό εισαγωγής."
 
-#: curation/views/inventory.py:103
+#: curation/views/inventory.py:104
 #, python-format
 msgid "Entry number \"%(en)s\" not found in the database."
 msgstr "Ο αριθμός εισαγωγής \"%(en)s\" δεν βρέθηκε στη βάση δεδομένων."
 
-#: curation/views/inventory.py:122
+#: curation/views/inventory.py:123
 msgid "No pending scan to confirm."
 msgstr "Δεν υπάρχει εκκρεμής σάρωση για επιβεβαίωση."
 
-#: curation/views/inventory.py:141
+#: curation/views/inventory.py:142
 #, python-format
 msgid "%(en)s confirmed and assigned to %(loc)s."
 msgstr "%(en)s επιβεβαιώθηκε και ανατέθηκε στο %(loc)s."
 
-#: curation/views/inventory.py:156
+#: curation/views/inventory.py:157
 msgid "No pending scan to set aside."
 msgstr "Δεν υπάρχει εκκρεμής σάρωση για αναβολή."
 
-#: curation/views/inventory.py:170
+#: curation/views/inventory.py:171
 #, python-format
 msgid "%(en)s set aside for entry number reassignment."
 msgstr "%(en)s τέθηκε στην άκρη για επανανάθεση αριθμού εισαγωγής."
 
-#: curation/views/inventory.py:216
+#: curation/views/inventory.py:217
 #, python-format
 msgid "Inventory session for %(loc)s closed."
 msgstr "Η συνεδρία απογραφής για %(loc)s έκλεισε."

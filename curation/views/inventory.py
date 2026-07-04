@@ -41,7 +41,8 @@ class InventorySessionListView(PermissionRequiredMixin, TemplateResponseMixin, V
             messages.error(request, _("Only Shelf or Box locations can be inventoried."))
             return redirect("curation:inventory-list")
         try:
-            session = InventorySession.objects.create(location=location, started_by=request.user)
+            with transaction.atomic():
+                session = InventorySession.objects.create(location=location, started_by=request.user)
         except IntegrityError:
             existing = InventorySession.objects.get(location=location, closed_at=None)
             messages.error(
