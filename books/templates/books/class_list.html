@@ -9,7 +9,7 @@
     <p>
         {% url 'contact' as contact_url %}
         {% blocktranslate %}
-        The library's classification system loosely follows the Dewey classification.
+            The library's classification system loosely follows the Dewey classification.
         {% endblocktranslate %}
     </p>
     <div class="accordion" id="classAccordion">
@@ -36,7 +36,7 @@
                            class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 {% blocktranslate with classification_class=class.classification_class description=class.description%}
-                                All books classified as {{ classification_class }} - {{ description }}
+                                    All books classified as {{ classification_class }} - {{ description }}
                                 {% endblocktranslate %}
                             </div>
                         </a>

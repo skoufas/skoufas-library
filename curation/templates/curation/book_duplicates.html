@@ -52,14 +52,14 @@
                     <tr>
                         <td>
                             {{ pair.object_a }} <a class="text-muted"
-    href="{% url 'books:book-by-id' pair.object_a.pk %}">(#{{ pair.object_a.pk }})</a>
+                                                   href="{% url 'books:book-by-id' pair.object_a.pk %}">(#{{ pair.object_a.pk }})</a>
                             {% with authors=pair.object_a.authors.all %}
                                 {% if authors %}<div class="text-muted small">{{ authors|join:", " }}</div>{% endif %}
                             {% endwith %}
                         </td>
                         <td>
                             {{ pair.object_b }} <a class="text-muted"
-    href="{% url 'books:book-by-id' pair.object_b.pk %}">(#{{ pair.object_b.pk }})</a>
+                                                   href="{% url 'books:book-by-id' pair.object_b.pk %}">(#{{ pair.object_b.pk }})</a>
                             {% with authors=pair.object_b.authors.all %}
                                 {% if authors %}<div class="text-muted small">{{ authors|join:", " }}</div>{% endif %}
                             {% endwith %}

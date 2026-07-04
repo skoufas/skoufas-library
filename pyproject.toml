@@ -42,7 +42,9 @@ dependencies = [
 test = [
     "bandit[toml]==1.9.4",
     "check-manifest==0.51",
+    "django-migration-linter",
     "django-stubs[compatible-mypy]",
+    "djhtml",
     "djlint==1.40.2",
     "mypy",
     "pip-audit",

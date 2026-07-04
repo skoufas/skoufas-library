@@ -51,9 +51,9 @@
                 {% for pair in pairs %}
                     <tr>
                         <td>{{ pair.object_a }} <a class="text-muted"
-    href="{% url 'books:author-by-id' pair.object_a.pk %}">(#{{ pair.object_a.pk }})</a></td>
+                                                   href="{% url 'books:author-by-id' pair.object_a.pk %}">(#{{ pair.object_a.pk }})</a></td>
                         <td>{{ pair.object_b }} <a class="text-muted"
-    href="{% url 'books:author-by-id' pair.object_b.pk %}">(#{{ pair.object_b.pk }})</a></td>
+                                                   href="{% url 'books:author-by-id' pair.object_b.pk %}">(#{{ pair.object_b.pk }})</a></td>
                         <td>
                             <span class="badge {% if pair.similarity >= 0.8 %}text-bg-danger{% elif pair.similarity >= 0.6 %}text-bg-warning{% else %}text-bg-secondary{% endif %}">
                                 {{ pair.similarity }}

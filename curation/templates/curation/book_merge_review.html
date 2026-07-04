@@ -10,8 +10,8 @@
         <div class="alert alert-warning">
             <i class="bi bi-exclamation-triangle-fill"></i>
             {% blocktranslate with a=active_loans_a b=active_loans_b %}
-        Warning: Book A has {{ a }} active loan(s), Book B has {{ b }} active loan(s). Loans will remain valid after the merge.
-      {% endblocktranslate %}
+                Warning: Book A has {{ a }} active loan(s), Book B has {{ b }} active loan(s). Loans will remain valid after the merge.
+            {% endblocktranslate %}
         </div>
     {% endif %}
     <form method="post">
@@ -22,7 +22,7 @@
                     <div class="card h-100">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <strong>{{ book }} <a class="text-muted fw-normal"
-    href="{% url 'books:book-by-id' book.pk %}">(#{{ book.pk }})</a></strong>
+                                                  href="{% url 'books:book-by-id' book.pk %}">(#{{ book.pk }})</a></strong>
                             <div class="form-check form-check-inline mb-0">
                                 <input class="form-check-input"
                                        type="radio"

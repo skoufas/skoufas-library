@@ -8,8 +8,8 @@
     <div class="alert alert-danger">
         <i class="bi bi-exclamation-triangle-fill"></i>
         {% blocktranslate with customer=object %}
-      Are you sure you want to permanently delete <strong>{{ customer }}</strong>? This action cannot be undone.
-    {% endblocktranslate %}
+            Are you sure you want to permanently delete <strong>{{ customer }}</strong>? This action cannot be undone.
+        {% endblocktranslate %}
     </div>
     <form method="post">
         {% csrf_token %}

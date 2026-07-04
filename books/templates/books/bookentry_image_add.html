@@ -98,138 +98,138 @@
 {% block bootstrap5_extra_script %}
     <script src="{% static 'books/cropper.js' %}"></script>
     <script>
-    (function () {
-        const CropperClass = window.Cropper['default'];
-        const fileInput = document.getElementById('id_image');
-        const cropSection = document.getElementById('crop-section');
-        const previewImg = document.getElementById('crop-preview');
-        const btnAutodetect = document.getElementById('btn-autodetect');
-        const statusEl = document.getElementById('autodetect-status');
-        const form = document.getElementById('upload-form');
-        let cropper = null;
-        let currentObjectUrl = null;
-        let convertedFile = null;  // JPEG replacement when original is HEIC
+        (function () {
+            const CropperClass = window.Cropper['default'];
+            const fileInput = document.getElementById('id_image');
+            const cropSection = document.getElementById('crop-section');
+            const previewImg = document.getElementById('crop-preview');
+            const btnAutodetect = document.getElementById('btn-autodetect');
+            const statusEl = document.getElementById('autodetect-status');
+            const form = document.getElementById('upload-form');
+            let cropper = null;
+            let currentObjectUrl = null;
+            let convertedFile = null;  // JPEG replacement when original is HEIC
 
-        function isHeic(file) {
-            return file.type === 'image/heic' || file.type === 'image/heif'
+            function isHeic(file) {
+                return file.type === 'image/heic' || file.type === 'image/heif'
                 || /\.heic$/i.test(file.name) || /\.heif$/i.test(file.name);
-        }
-
-        async function resolveFile(file) {
-            // If HEIC, convert server-side and return a JPEG File object
-            if (!isHeic(file)) return file;
-            statusEl.textContent = '{% translate "Converting HEIC…" %}';
-            const fd = new FormData();
-            fd.append('image', file);
-            fd.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-            const resp = await fetch('{% url "books:book-image-convert" %}', { method: 'POST', body: fd });
-            if (!resp.ok) throw new Error('HEIC conversion failed');
-            const blob = await resp.blob();
-            statusEl.textContent = '';
-            return new File([blob], file.name.replace(/\.heic$/i, '.jpg').replace(/\.heif$/i, '.jpg'), { type: 'image/jpeg' });
-        }
-
-        fileInput.addEventListener('change', async function () {
-            const file = this.files[0];
-            if (!file) return;
-            if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
-            if (cropper) { cropper.destroy(); cropper = null; }
-            convertedFile = null;
-            cropSection.style.display = '';
-            statusEl.textContent = '';
-            try {
-                const resolved = await resolveFile(file);
-                if (resolved !== file) {
-                    convertedFile = resolved;
-                }
-                currentObjectUrl = URL.createObjectURL(resolved);
-                previewImg.src = currentObjectUrl;
-                cropper = new CropperClass(previewImg);
-            } catch (err) {
-                statusEl.textContent = err.message;
             }
-        });
 
-        document.getElementById('btn-rotate-ccw').addEventListener('click', function () {
-            if (cropper) cropper.getCropperImage().$rotate('-90deg');
-        });
-        document.getElementById('btn-rotate-cw').addEventListener('click', function () {
-            if (cropper) cropper.getCropperImage().$rotate('90deg');
-        });
+            async function resolveFile(file) {
+            // If HEIC, convert server-side and return a JPEG File object
+                if (!isHeic(file)) return file;
+                statusEl.textContent = '{% translate "Converting HEIC…" %}';
+                const fd = new FormData();
+                fd.append('image', file);
+                fd.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+                const resp = await fetch('{% url "books:book-image-convert" %}', { method: 'POST', body: fd });
+                if (!resp.ok) throw new Error('HEIC conversion failed');
+                const blob = await resp.blob();
+                statusEl.textContent = '';
+                return new File([blob], file.name.replace(/\.heic$/i, '.jpg').replace(/\.heif$/i, '.jpg'), { type: 'image/jpeg' });
+            }
 
-        btnAutodetect.addEventListener('click', async function () {
-            if (!cropper) return;
-            statusEl.textContent = '…';
-            btnAutodetect.disabled = true;
-            try {
-                const cropperImg = cropper.getCropperImage();
-                const nativeImg = await cropperImg.$ready();
-                const [a, b] = cropperImg.$getTransform();
-                const nw = nativeImg.naturalWidth, nh = nativeImg.naturalHeight;
+            fileInput.addEventListener('change', async function () {
+                const file = this.files[0];
+                if (!file) return;
+                if (currentObjectUrl) URL.revokeObjectURL(currentObjectUrl);
+                if (cropper) { cropper.destroy(); cropper = null; }
+                convertedFile = null;
+                cropSection.style.display = '';
+                statusEl.textContent = '';
+                try {
+                    const resolved = await resolveFile(file);
+                    if (resolved !== file) {
+                        convertedFile = resolved;
+                    }
+                    currentObjectUrl = URL.createObjectURL(resolved);
+                    previewImg.src = currentObjectUrl;
+                    cropper = new CropperClass(previewImg);
+                } catch (err) {
+                    statusEl.textContent = err.message;
+                }
+            });
+
+            document.getElementById('btn-rotate-ccw').addEventListener('click', function () {
+                if (cropper) cropper.getCropperImage().$rotate('-90deg');
+            });
+            document.getElementById('btn-rotate-cw').addEventListener('click', function () {
+                if (cropper) cropper.getCropperImage().$rotate('90deg');
+            });
+
+            btnAutodetect.addEventListener('click', async function () {
+                if (!cropper) return;
+                statusEl.textContent = '…';
+                btnAutodetect.disabled = true;
+                try {
+                    const cropperImg = cropper.getCropperImage();
+                    const nativeImg = await cropperImg.$ready();
+                    const [a, b] = cropperImg.$getTransform();
+                    const nw = nativeImg.naturalWidth, nh = nativeImg.naturalHeight;
 
                 // Determine how many degrees the image has been rotated.
                 // $getTransform gives [cos·s, sin·s, -sin·s, cos·s, tx, ty]
-                const angleDeg = Math.round(Math.atan2(b, a) * 180 / Math.PI);
-                const transposed = Math.abs(angleDeg) === 90 || Math.abs(angleDeg) === 270;
+                    const angleDeg = Math.round(Math.atan2(b, a) * 180 / Math.PI);
+                    const transposed = Math.abs(angleDeg) === 90 || Math.abs(angleDeg) === 270;
 
                 // Draw the image in its current displayed orientation so the
                 // server receives coordinates that match the display.
-                const rotCanvas = document.createElement('canvas');
-                rotCanvas.width  = transposed ? nh : nw;
-                rotCanvas.height = transposed ? nw : nh;
-                const ctx = rotCanvas.getContext('2d');
-                ctx.translate(rotCanvas.width / 2, rotCanvas.height / 2);
-                ctx.rotate(angleDeg * Math.PI / 180);
-                ctx.drawImage(nativeImg, -nw / 2, -nh / 2);
+                    const rotCanvas = document.createElement('canvas');
+                    rotCanvas.width  = transposed ? nh : nw;
+                    rotCanvas.height = transposed ? nw : nh;
+                    const ctx = rotCanvas.getContext('2d');
+                    ctx.translate(rotCanvas.width / 2, rotCanvas.height / 2);
+                    ctx.rotate(angleDeg * Math.PI / 180);
+                    ctx.drawImage(nativeImg, -nw / 2, -nh / 2);
 
-                const blob = await new Promise(resolve => rotCanvas.toBlob(resolve, 'image/jpeg', 0.85));
-                const fd = new FormData();
-                fd.append('image', blob, 'detect.jpg');
-                fd.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-                const resp = await fetch('{% url "books:book-cover-detect" %}', { method: 'POST', body: fd });
-                if (!resp.ok) throw new Error('HTTP ' + resp.status);
-                const box = await resp.json();
-                if (box.error) throw new Error(box.error);
+                    const blob = await new Promise(resolve => rotCanvas.toBlob(resolve, 'image/jpeg', 0.85));
+                    const fd = new FormData();
+                    fd.append('image', blob, 'detect.jpg');
+                    fd.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+                    const resp = await fetch('{% url "books:book-cover-detect" %}', { method: 'POST', body: fd });
+                    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+                    const box = await resp.json();
+                    if (box.error) throw new Error(box.error);
 
                 // Map from rotated-image pixels → canvas display pixels.
                 // getBoundingClientRect() gives actual visual size after transform.
-                const imgRect    = cropperImg.getBoundingClientRect();
-                const canvasRect = cropper.getCropperCanvas().getBoundingClientRect();
-                const dispScale  = imgRect.width / rotCanvas.width;
-                const imgLeft    = imgRect.left - canvasRect.left;
-                const imgTop     = imgRect.top  - canvasRect.top;
-                cropper.getCropperSelection().$change(
-                    box.x * dispScale + imgLeft,
-                    box.y * dispScale + imgTop,
-                    box.width  * dispScale,
-                    box.height * dispScale
-                );
-                statusEl.textContent = '';
-            } catch (err) {
-                statusEl.textContent = '{% translate "Not detected" %}';
-            } finally {
-                btnAutodetect.disabled = false;
-            }
-        });
-
-        form.addEventListener('submit', function (e) {
-            if (!cropper) return;
-            e.preventDefault();
-            const btn = document.getElementById('btn-upload');
-            btn.disabled = true;
-            cropper.getCropperSelection().$toCanvas({ width: 2000 }).then(function (canvas) {
-                canvas.toBlob(function (blob) {
-                    const originalFile = convertedFile || fileInput.files[0];
-                    const originalName = (originalFile?.name || 'photo.jpg').replace(/\.heic$/i, '.jpg').replace(/\.heif$/i, '.jpg');
-                    const dt = new DataTransfer();
-                    dt.items.add(new File([blob], originalName, { type: 'image/jpeg' }));
-                    fileInput.files = dt.files;
-                    form.submit();
-                }, 'image/jpeg', 0.92);
-            }).catch(function () {
-                btn.disabled = false;
+                    const imgRect    = cropperImg.getBoundingClientRect();
+                    const canvasRect = cropper.getCropperCanvas().getBoundingClientRect();
+                    const dispScale  = imgRect.width / rotCanvas.width;
+                    const imgLeft    = imgRect.left - canvasRect.left;
+                    const imgTop     = imgRect.top  - canvasRect.top;
+                    cropper.getCropperSelection().$change(
+                        box.x * dispScale + imgLeft,
+                        box.y * dispScale + imgTop,
+                        box.width  * dispScale,
+                        box.height * dispScale
+                    );
+                    statusEl.textContent = '';
+                } catch (err) {
+                    statusEl.textContent = '{% translate "Not detected" %}';
+                } finally {
+                    btnAutodetect.disabled = false;
+                }
             });
-        });
-    }());
+
+            form.addEventListener('submit', function (e) {
+                if (!cropper) return;
+                e.preventDefault();
+                const btn = document.getElementById('btn-upload');
+                btn.disabled = true;
+                cropper.getCropperSelection().$toCanvas({ width: 2000 }).then(function (canvas) {
+                    canvas.toBlob(function (blob) {
+                        const originalFile = convertedFile || fileInput.files[0];
+                        const originalName = (originalFile?.name || 'photo.jpg').replace(/\.heic$/i, '.jpg').replace(/\.heif$/i, '.jpg');
+                        const dt = new DataTransfer();
+                        dt.items.add(new File([blob], originalName, { type: 'image/jpeg' }));
+                        fileInput.files = dt.files;
+                        form.submit();
+                    }, 'image/jpeg', 0.92);
+                }).catch(function () {
+                    btn.disabled = false;
+                });
+            });
+        }());
     </script>
 {% endblock bootstrap5_extra_script %}

@@ -86,6 +86,20 @@ INSTALLED_APPS = [
     else []
 )
 
+try:
+    # Only installed via the `test` extra; not present in production. Registering
+    # it enables `manage.py lintmigrations` for CI/local use.
+    import django_migration_linter  # noqa: F401  # pylint: disable=unused-import
+
+    INSTALLED_APPS.append("django_migration_linter")
+    # Only our own apps: third-party migrations (e.g. watson's) aren't ours to
+    # rewrite, and their migration history is already applied in production.
+    MIGRATION_LINTER_OPTIONS = {
+        "include_apps": ["books", "curation", "loaning", "skoufas_library_project"],
+    }
+except ImportError:
+    pass
+
 MIDDLEWARE = (
     (
         [

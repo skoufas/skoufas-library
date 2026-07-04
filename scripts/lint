@@ -27,6 +27,8 @@ run_check "ruff format" ruff format --check .
 run_check bandit bandit -c pyproject.toml -q -r books loaning skoufas_library_project manage.py
 run_check pip-audit pip-audit
 run_check djlint djlint . --lint
+# shellcheck disable=SC2046
+run_check djhtml djhtml --check $(git ls-files '*.html')
 run_check shellcheck shellcheck scripts/restart scripts/restart-venv scripts/update-messages scripts/lint
 run_check check-manifest check-manifest
 run_check pylint pylint .
@@ -36,6 +38,14 @@ run_check "migrations-check" python manage.py makemigrations --check --dry-run
 DJANGO_CURRENT_SECRET_KEY="${DJANGO_CURRENT_SECRET_KEY:-ci-only-dummy-key}" \
 DJANGO_OLD_SECRET_KEY="${DJANGO_OLD_SECRET_KEY:-ci-only-dummy-old-key}" \
 run_check mypy mypy --ignore-missing-imports .
+DJANGO_CURRENT_SECRET_KEY="${DJANGO_CURRENT_SECRET_KEY:-ci-only-dummy-key}" \
+DJANGO_OLD_SECRET_KEY="${DJANGO_OLD_SECRET_KEY:-ci-only-dummy-old-key}" \
+DJANGO_DATABASE_NAME="${DJANGO_DATABASE_NAME:-postgres}" \
+DJANGO_DATABASE_USER="${DJANGO_DATABASE_USER:-postgres}" \
+DJANGO_DATABASE_PASSWORD="${DJANGO_DATABASE_PASSWORD:-postgres}" \
+DJANGO_DATABASE_HOST="${DJANGO_DATABASE_HOST:-localhost}" \
+DJANGO_DATABASE_PORT="${DJANGO_DATABASE_PORT:-5432}" \
+run_check migration-linter python manage.py lintmigrations -v 1
 
 if [ "${#failed[@]}" -eq 0 ]; then
     echo "All lint checks passed."
