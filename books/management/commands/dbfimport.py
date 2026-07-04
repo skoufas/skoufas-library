@@ -213,6 +213,13 @@ class Command(BaseCommand):
                     middle_name=None,
                     organisation_name=split_donor[0],
                 )
+            elif len(split_donor) == 3:
+                donor_entry, donor_created = Donor.objects.get_or_create(
+                    first_name=split_donor[1],
+                    surname=split_donor[0],
+                    middle_name=split_donor[2],
+                    organisation_name=None,
+                )
             else:
                 donor_entry = None
                 donor_created = False
