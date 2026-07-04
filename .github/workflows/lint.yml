@@ -14,7 +14,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run ruff check .
       - run: uv run ruff format --check .
 
@@ -26,7 +26,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run bandit -c pyproject.toml -q -r books loaning skoufas_library_project manage.py
 
   pip-audit:
@@ -37,7 +37,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run pip-audit
 
   djlint:
@@ -48,7 +48,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run djlint . --lint
       - run: uv run djhtml --check $(git ls-files '*.html')
 
@@ -60,7 +60,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run shellcheck scripts/restart scripts/restart-venv scripts/update-messages
 
   check-manifest:
@@ -71,7 +71,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run check-manifest
 
   pylint:
@@ -82,7 +82,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run pylint .
 
   migrations-check:
@@ -96,7 +96,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run python manage.py makemigrations --check --dry-run
 
   mypy:
@@ -110,7 +110,7 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run mypy --ignore-missing-imports .
 
   migration-linter:
@@ -146,5 +146,5 @@ jobs:
         with:
           enable-cache: true
 
-      - run: uv pip install -e '.[test]'
+      - run: uv sync --extra test
       - run: uv run python manage.py lintmigrations -v 1
