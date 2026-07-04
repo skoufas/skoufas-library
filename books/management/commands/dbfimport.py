@@ -2,6 +2,7 @@
 
 import datetime
 import os
+from dataclasses import dataclass
 from typing import Any
 from typing import Optional
 
@@ -41,6 +42,18 @@ def entry_is_empty(entry: dict[str, Any]):
             return True
         return len(entry["title"]) == 0
     return False
+
+
+@dataclass
+class BookRelations:
+    """The related entities to attach to a newly-created BookEntry."""
+
+    authors: Any
+    translators: Any
+    curators: Any
+    donors: Any
+    editor: Any
+    topics: Any
 
 
 class Command(BaseCommand):
@@ -292,65 +305,38 @@ class Command(BaseCommand):
                 self.stderr.write(f"{entry['dbase_number']}: Reusing original dbf entry????")
         return dbf_entry
 
-    def add_book_entry(
-        self,
-        entry: dict[str, Any],
-        authors,
-        translators,
-        curators,
-        donors,
-        editor,
-        topics,
-    ) -> BookEntry:
+    def add_book_entry(self, entry: dict[str, Any], relations: BookRelations) -> BookEntry:
         """Return a complete book object from an entry."""
-        title = entry.get("title")
-        subtitle = entry.get("subtitle")
-        skoufas_classification = entry.get("dewey")
-        language = entry.get("language")
-        edition = entry.get("edition")
-        edition_year = entry.get("edition_year")
-        pages = entry.get("pages")
-        copies = entry.get("copies")
-        volume = entry.get("volume")
-        material = entry.get("material")
-        notes = entry.get("notes")
-        isbn = entry.get("isbn")
-        issn = entry.get("issn")
-        ean = entry.get("ean")
-        has_cd = entry.get("has_cd")
-        has_dvd = entry.get("has_dvd")
-        is_offprint = entry.get("offprint")
-
         book_entry, entry_created = BookEntry.objects.get_or_create(
-            editor=editor,
-            title=title,
-            subtitle=subtitle,
-            skoufas_classification=skoufas_classification,
-            language=language,
-            edition=edition,
-            edition_year=edition_year,
-            pages=pages,
-            copies=copies,
-            volumes=volume,
-            notes=notes,
-            material=material,
-            isbn=isbn,
-            issn=issn,
-            ean=ean,
-            offprint=is_offprint,
-            has_cd=has_cd,
-            has_dvd=has_dvd,
+            editor=relations.editor,
+            title=entry.get("title"),
+            subtitle=entry.get("subtitle"),
+            skoufas_classification=entry.get("dewey"),
+            language=entry.get("language"),
+            edition=entry.get("edition"),
+            edition_year=entry.get("edition_year"),
+            pages=entry.get("pages"),
+            copies=entry.get("copies"),
+            volumes=entry.get("volume"),
+            notes=entry.get("notes"),
+            material=entry.get("material"),
+            isbn=entry.get("isbn"),
+            issn=entry.get("issn"),
+            ean=entry.get("ean"),
+            offprint=entry.get("offprint"),
+            has_cd=entry.get("has_cd"),
+            has_dvd=entry.get("has_dvd"),
         )
 
         if not book_entry:
             self.stderr.write(f"{entry['dbase_number']}: Cannot create book entry")
         else:
             if entry_created:
-                book_entry.authors.set(authors)
-                book_entry.translators.set(translators)
-                book_entry.curators.set(curators)
-                book_entry.topics.set(topics)
-                book_entry.entry_donors.set(donors)
+                book_entry.authors.set(relations.authors)
+                book_entry.translators.set(relations.translators)
+                book_entry.curators.set(relations.curators)
+                book_entry.topics.set(relations.topics)
+                book_entry.entry_donors.set(relations.donors)
                 book_entry.save()
                 self.stdout.write(f"{entry['dbase_number']}: Added book entry")
             else:
@@ -358,7 +344,7 @@ class Command(BaseCommand):
                     f"{entry['dbase_number']}: Reusing book entry. "
                     f"Previous sequence {book_entry.dbf_sequence()}: {book_entry}"
                 )
-                for donor in donors:
+                for donor in relations.donors:
                     book_entry.entry_donors.add(donor)
                 book_entry.save()
 
@@ -424,22 +410,16 @@ class Command(BaseCommand):
                 )
             else:
                 self.stdout.write(f"\n---- {entry['dbase_number']} ----")
-                authors = self.add_authors(entry)
-                translators = self.add_translators(entry)
-                curators = self.add_curator(entry)
-                donors = self.add_donors(entry)
-                editor = self.add_editor(entry)
-                topics = self.add_topics(entry)
-                book_entry = self.add_book_entry(
-                    entry=entry,
-                    authors=authors,
-                    translators=translators,
-                    curators=curators,
-                    donors=donors,
-                    editor=editor,
-                    topics=topics,
+                relations = BookRelations(
+                    authors=self.add_authors(entry),
+                    translators=self.add_translators(entry),
+                    curators=self.add_curator(entry),
+                    donors=self.add_donors(entry),
+                    editor=self.add_editor(entry),
+                    topics=self.add_topics(entry),
                 )
-                self.add_entry_numbers(entry=entry, book_entry=book_entry, donors=donors)
+                book_entry = self.add_book_entry(entry=entry, relations=relations)
+                self.add_entry_numbers(entry=entry, book_entry=book_entry, donors=relations.donors)
 
                 self.add_original_entry(
                     entry,

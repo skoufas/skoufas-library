@@ -25,6 +25,12 @@ class CSVExportView(View):
 
     def head_csv_row(self, include_location: bool = False) -> list[str]:
         """Return a list of CSV column names."""
+        # Overlaps with curation.queries.BOOK_SCALAR_FIELDS (same field names),
+        # but this is the CSV's own presentation order/columns (including
+        # author_1..6 etc.), not the same list — sharing a constant would
+        # wrongly couple CSV export formatting to curation's internal
+        # duplicate-detection field list.
+        # pylint: disable=duplicate-code
         row = [
             "entry_number",
             "title",
@@ -71,6 +77,7 @@ class CSVExportView(View):
             "donor_2",
             "donor_3",
         ]
+        # pylint: enable=duplicate-code
         if include_location:
             row.append("location")
         return row

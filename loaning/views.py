@@ -211,6 +211,7 @@ class KohaPatronExportView(View):
         """File-like object that returns written values directly."""
 
         def write(self, value):
+            """Write the value by returning it, instead of storing in a buffer."""
             return value
 
     def _customer_to_row(self, customer: Customer) -> list:
@@ -241,6 +242,7 @@ class KohaPatronExportView(View):
             yield writer.writerow(self._customer_to_row(customer))
 
     async def get(self, request):
+        """Stream a Koha-format CSV export of all customers, for authenticated staff."""
         user = await request.auser()
         if not user.is_authenticated:
             from django.conf import settings

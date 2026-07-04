@@ -66,11 +66,9 @@ test = [
 ignore = [".vscode/launch.json", "scripts", "scripts/*"]
 
 [tool.hatch.build.targets.sdist]
-include = ["/"]
 exclude = ["/.vscode", "/junk", "/scripts", "/venv"]
 
 [tool.hatch.build.targets.wheel]
-include = ["/"]
 exclude = ["/.vscode", "/junk", "/scripts", "/venv"]
 packages = ["books", "curation", "loaning", "skoufas_library_project"]
 
@@ -89,6 +87,13 @@ exclude = '''(?x)(
     | two\.pyi$  # or files ending with "two.pyi"
     | ^three\.   # or files starting with "three."
 )'''
+
+[tool.djlint]
+# H021 (inline styles) and H006 (img width/height) are deliberately unenforced:
+# fixing them means extracting one-off styles into CSS and picking dimensions
+# for images that include user-uploaded book covers, which needs its own
+# visual-regression pass rather than being done blind alongside CI setup.
+ignore = "H021,H006"
 
 [project.scripts]
 skoufas-library = "skoufas_library_project.cli:main"
@@ -138,7 +143,7 @@ pythonPlatform = "Linux"
 
 [tool.pylint]
 extension-pkg-whitelist = []
-ignore = "CVS,migrations"
+ignore = "CVS,migrations,.venv"
 ignore-patterns = "test.*?py,conftest.py"
 init-hook = 'import sys; sys.setrecursionlimit(8 * sys.getrecursionlimit())'
 jobs = 0
@@ -237,7 +242,7 @@ additional-builtins = "dbutils"
 allow-global-unused-variables = "yes"
 callbacks = ["cb_", "_cb"]
 dummy-variables-rgx = "_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_"
-ignored-argument-names = "_.*|^ignored_|^unused_|^args$|^kwargs$"
+ignored-argument-names = "_.*|^ignored_|^unused_|^args$|^kwargs$|^request$"
 init-import = "no"
 redefining-builtins-modules = "six.moves,past.builtins,future.builtins,builtins,io"
 

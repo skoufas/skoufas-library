@@ -1,6 +1,9 @@
 """Views for uploading, fetching, converting, and cropping book cover images."""
 
+import base64
 import io
+import mimetypes
+from dataclasses import dataclass
 
 import numpy as np
 import cv2
@@ -8,6 +11,7 @@ import pillow_heif
 from PIL import Image
 
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.core.files.base import ContentFile
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils.http import url_has_allowed_host_and_scheme
@@ -75,8 +79,6 @@ class BookEntryCoverFetchView(PermissionRequiredMixin, View):
 
     def get(self, request, pk: int):
         """Fetch from provider and show preview, or an error page if not found."""
-        import base64
-
         from books.cover_fetcher import fetch_cover
 
         book_entry = get_object_or_404(BookEntry, pk=pk)
@@ -125,11 +127,6 @@ class BookEntryCoverFetchView(PermissionRequiredMixin, View):
 
     def post(self, request, pk: int):
         """Save the confirmed cover image."""
-        import base64
-        import mimetypes
-
-        from django.core.files.base import ContentFile
-
         book_entry = get_object_or_404(BookEntry, pk=pk)
 
         image_b64 = request.POST.get("image_b64", "")
@@ -163,19 +160,37 @@ class BookEntryCoverFetchView(PermissionRequiredMixin, View):
         return redirect(book_entry.get_absolute_url())
 
 
-def _detect_book_cover(img: "np.ndarray") -> dict:
-    """Return crop box {x, y, width, height} for the most prominent rectangle in img."""
-    h, w = img.shape[:2]
+@dataclass
+class _DownsampledFrame:
+    """A downsampled working copy of the source image, and how to scale back up."""
 
-    # --- Downsample to ≤800 px on the long edge ---
-    MAX_DIM = 800
-    scale = min(MAX_DIM / max(h, w), 1.0)
-    small = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
-    sh, sw = small.shape[:2]
+    small: "np.ndarray"
+    sh: int
+    sw: int
+    scale: float
+    w: int
+    h: int
 
-    # ── Strategy 1: background-colour subtraction ────────────────────────────
-    # Sample the four corners to estimate the background (table / surface) colour.
-    # The book should be the largest region that differs from that colour.
+
+def _scale_box(box, pad: int, frame: _DownsampledFrame) -> dict:
+    """Scale a (bx, by, bw, bh) box detected in the downsampled frame back to the original size."""
+    bx, by, bw, bh = box
+    inv = 1.0 / frame.scale
+    x = max(0, int((bx - pad) * inv))
+    y = max(0, int((by - pad) * inv))
+    x2 = min(frame.w, int((bx + bw + pad) * inv))
+    y2 = min(frame.h, int((by + bh + pad) * inv))
+    return {"x": x, "y": y, "width": x2 - x, "height": y2 - y}
+
+
+def _detect_by_background_subtraction(frame: _DownsampledFrame) -> dict | None:
+    """Strategy 1: find the largest region differing from the estimated background colour.
+
+    Samples the four corners (+ edge midpoints) to estimate the background
+    (table / surface) colour. The book should be the largest region that
+    differs from that colour.
+    """
+    small, sh, sw = frame.small, frame.sh, frame.sw
     corner_pixels = np.array(
         [
             small[0, 0],
@@ -193,61 +208,57 @@ def _detect_book_cover(img: "np.ndarray") -> dict:
     # cv2.absdiff's scalar operand must be a 4-element float64 array (OpenCV's
     # internal Scalar type), not a 3-element BGR array or a plain tuple.
     bg_scalar = np.array([*bg_color, 0.0], dtype=np.float64)
-    diff = cv2.absdiff(small, bg_scalar)
-    diff_gray = cv2.cvtColor(diff, cv2.COLOR_BGR2GRAY)
+    diff_gray = cv2.cvtColor(cv2.absdiff(small, bg_scalar), cv2.COLOR_BGR2GRAY)
     # Threshold: pixels more than 30 units away from background are foreground
     _, fg_mask = cv2.threshold(diff_gray, 30, 255, cv2.THRESH_BINARY)
     kernel5 = np.ones((5, 5), np.uint8)
     fg_mask = cv2.morphologyEx(fg_mask, cv2.MORPH_CLOSE, kernel5, iterations=4)
     fg_mask = cv2.morphologyEx(fg_mask, cv2.MORPH_OPEN, kernel5, iterations=2)
-    contours1, _ = cv2.findContours(fg_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    if contours1:
-        largest = max(contours1, key=cv2.contourArea)
-        area1 = cv2.contourArea(largest)
-        if area1 > sh * sw * 0.04:
-            bx, by, bw, bh = cv2.boundingRect(largest)
-            # Reject if it's the whole frame (detection failed)
-            if bw < sw * 0.98 or bh < sh * 0.98:
-                pad, inv = 8, 1.0 / scale
-                x = max(0, int((bx - pad) * inv))
-                y = max(0, int((by - pad) * inv))
-                x2 = min(w, int((bx + bw + pad) * inv))
-                y2 = min(h, int((by + bh + pad) * inv))
-                return {"x": x, "y": y, "width": x2 - x, "height": y2 - y}
+    contours, _ = cv2.findContours(fg_mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    if not contours:
+        return None
+    largest = max(contours, key=cv2.contourArea)
+    if cv2.contourArea(largest) <= sh * sw * 0.04:
+        return None
+    box = cv2.boundingRect(largest)
+    _, _, bw, bh = box
+    # Reject if it's the whole frame (detection failed)
+    if bw >= sw * 0.98 and bh >= sh * 0.98:
+        return None
+    return _scale_box(box, 8, frame)
 
-    # ── Strategy 2: edge-based contour detection ─────────────────────────────
-    gray = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
-    blurred = cv2.GaussianBlur(gray, (21, 21), 0)
-    edges = cv2.Canny(blurred, 30, 120)
+
+def _detect_by_edge_contours(frame: _DownsampledFrame) -> dict | None:
+    """Strategy 2: find a quadrilateral-ish contour via edge detection."""
+    gray = cv2.cvtColor(frame.small, cv2.COLOR_BGR2GRAY)
+    edges = cv2.Canny(cv2.GaussianBlur(gray, (21, 21), 0), 30, 120)
     kernel3 = np.ones((5, 5), np.uint8)
     edges = cv2.morphologyEx(edges, cv2.MORPH_CLOSE, kernel3, iterations=4)
     edges = cv2.dilate(edges, kernel3, iterations=1)
-    contours2, _ = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-    contours2 = sorted(contours2, key=cv2.contourArea, reverse=True)
-    min_area = sh * sw * 0.04
-    for contour in contours2[:20]:
+    contours, _ = cv2.findContours(edges, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    contours = sorted(contours, key=cv2.contourArea, reverse=True)
+    min_area = frame.sh * frame.sw * 0.04
+    for contour in contours[:20]:
         area = float(cv2.contourArea(contour))
         if area < min_area:
             break
         peri = cv2.arcLength(contour, True)
         for eps in (0.01, 0.02, 0.04, 0.06, 0.10):
             approx = cv2.approxPolyDP(contour, eps * peri, True)
-            if not (4 <= len(approx) <= 6):
+            if not 4 <= len(approx) <= 6:
                 continue
-            bx, by, bw, bh = cv2.boundingRect(approx)
-            box_area = float(bw * bh)
+            box = cv2.boundingRect(approx)
+            box_area = float(box[2] * box[3])
             if box_area < min_area:
                 continue
             if area / box_area > 0.45:
-                pad, inv = 5, 1.0 / scale
-                x = max(0, int((bx - pad) * inv))
-                y = max(0, int((by - pad) * inv))
-                x2 = min(w, int((bx + bw + pad) * inv))
-                y2 = min(h, int((by + bh + pad) * inv))
-                return {"x": x, "y": y, "width": x2 - x, "height": y2 - y}
+                return _scale_box(box, 5, frame)
             break
+    return None
 
-    # ── Fallback: centred portrait (2:3) crop ────────────────────────────────
+
+def _fallback_crop(w, h) -> dict:
+    """Fallback: centred portrait (2:3) crop when neither detection strategy fires."""
     tw = int(h * 2 / 3)
     if tw <= w:
         return {"x": (w - tw) // 2, "y": 0, "width": tw, "height": h}
@@ -255,6 +266,28 @@ def _detect_book_cover(img: "np.ndarray") -> dict:
     if th <= h:
         return {"x": 0, "y": (h - th) // 2, "width": w, "height": th}
     return {"x": 0, "y": 0, "width": w, "height": h}
+
+
+def _detect_book_cover(img: "np.ndarray") -> dict:
+    """Return crop box {x, y, width, height} for the most prominent rectangle in img."""
+    h, w = img.shape[:2]
+
+    # --- Downsample to ≤800 px on the long edge ---
+    max_dim = 800
+    scale = min(max_dim / max(h, w), 1.0)
+    small = cv2.resize(img, (int(w * scale), int(h * scale)), interpolation=cv2.INTER_AREA)
+    sh, sw = small.shape[:2]
+    frame = _DownsampledFrame(small=small, sh=sh, sw=sw, scale=scale, w=w, h=h)
+
+    box = _detect_by_background_subtraction(frame)
+    if box is not None:
+        return box
+
+    box = _detect_by_edge_contours(frame)
+    if box is not None:
+        return box
+
+    return _fallback_crop(w, h)
 
 
 class BookEntryCoverDetectView(PermissionRequiredMixin, View):
