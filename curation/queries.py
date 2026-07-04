@@ -63,13 +63,12 @@ def _pair_query(table, column, exclude_suppressed=False):
 def _fetch_pairs(sql, threshold, model_class, include_suppressed, prefetch=None):
     """Execute a self-join similarity query and return enriched pair dicts."""
     ct = ContentType.objects.get_for_model(model_class)
-    sql_params = [] if include_suppressed else [ct.pk]
 
     with connection.cursor() as cursor:
         # SET LOCAL makes % operator use our threshold for the duration of this query.
         # The GiST trigram index can then accelerate the join via index nested loop.
         cursor.execute("SET LOCAL pg_trgm.similarity_threshold = %s", [threshold])
-        cursor.execute(sql, sql_params)
+        cursor.execute(sql, [] if include_suppressed else [ct.pk])
         rows = cursor.fetchall()
 
     if not rows:

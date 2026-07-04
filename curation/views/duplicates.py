@@ -1,19 +1,17 @@
-"""Curation views for author and book deduplication workflows."""
+"""Duplicate detection & merge views for authors, books, translators, curators, topics, editors."""
 
 from django.contrib import messages
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib.contenttypes.models import ContentType
-from django.db import IntegrityError, transaction
+from django.db import transaction
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
-from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from django.views import View
-from django.views.generic import ListView
 from django.views.generic.base import TemplateResponseMixin
 
-from books.models import Author, BookEntry, Curator, Editor, EntryNumber, Location, Topic, Translator
-from curation.models import InventorySession, InventorySessionEntry, MergeLog, SuppressedPair
+from books.models import Author, BookEntry, Curator, Editor, Topic, Translator
+from curation.models import MergeLog, SuppressedPair
 from curation.queries import BOOK_BOOLEAN_FIELDS, BOOK_SCALAR_FIELDS, DEFAULT_SIMILARITY_THRESHOLD
 from curation.queries import (
     get_duplicate_author_pairs,
@@ -60,6 +58,7 @@ class AuthorDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View)
     template_name = "curation/author_duplicates.html"
 
     def get(self, request):
+        """List author pairs above the requested similarity threshold."""
         threshold = _threshold_from_request(request)
         include_suppressed = request.GET.get("show_suppressed") == "1"
         pairs = get_duplicate_author_pairs(threshold, include_suppressed=include_suppressed)
@@ -82,10 +81,12 @@ class AuthorMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View
         return author_a, author_b
 
     def get(self, request, a_id, b_id):
+        """Show the two candidate authors side-by-side for review."""
         author_a, author_b = self._get_authors_with_books(a_id, b_id)
         return self.render_to_response({"author_a": author_a, "author_b": author_b, "authors": [author_a, author_b]})
 
     def post(self, request, a_id, b_id):
+        """Dismiss the pair or merge them into the selected canonical author."""
         ct = ContentType.objects.get_for_model(Author)
         action = request.POST.get("action")
 
@@ -157,6 +158,7 @@ class BookDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View):
     template_name = "curation/book_duplicates.html"
 
     def get(self, request):
+        """List book entry pairs above the requested similarity threshold."""
         threshold = _threshold_from_request(request)
         include_suppressed = request.GET.get("show_suppressed") == "1"
         pairs = get_duplicate_book_pairs(threshold, include_suppressed=include_suppressed)
@@ -205,10 +207,15 @@ class BookMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View):
         }
 
     def get(self, request, a_id, b_id):
+        """Show the two candidate book entries side-by-side with conflict resolution."""
         book_a, book_b = self._load(a_id, b_id)
         return self.render_to_response(self._context(book_a, book_b))
 
+    # Field-by-field conflict resolution across scalar/boolean/M2M attributes,
+    # plus undo-log snapshotting — inherently touches many local values.
+    # pylint: disable-next=too-many-locals
     def post(self, request, a_id, b_id):
+        """Dismiss the pair or merge them, applying the user's per-field choices."""
         ct = ContentType.objects.get_for_model(BookEntry)
         action = request.POST.get("action")
 
@@ -311,6 +318,7 @@ class TranslatorDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, V
     template_name = "curation/person_duplicates.html"
 
     def get(self, request):
+        """List translator pairs above the requested similarity threshold."""
         threshold = _threshold_from_request(request)
         include_suppressed = request.GET.get("show_suppressed") == "1"
         pairs = get_duplicate_translator_pairs(threshold, include_suppressed=include_suppressed)
@@ -350,10 +358,12 @@ class TranslatorMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, 
         }
 
     def get(self, request, a_id, b_id):
+        """Show the two candidate translators side-by-side for review."""
         obj_a, obj_b = self._get_with_books(a_id, b_id)
         return self.render_to_response(self._context(obj_a, obj_b))
 
     def post(self, request, a_id, b_id):
+        """Dismiss the pair or merge them into the selected canonical translator."""
         ct = ContentType.objects.get_for_model(Translator)
         action = request.POST.get("action")
 
@@ -422,6 +432,7 @@ class CuratorDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View
     template_name = "curation/person_duplicates.html"
 
     def get(self, request):
+        """List curator pairs above the requested similarity threshold."""
         threshold = _threshold_from_request(request)
         include_suppressed = request.GET.get("show_suppressed") == "1"
         pairs = get_duplicate_curator_pairs(threshold, include_suppressed=include_suppressed)
@@ -461,10 +472,12 @@ class CuratorMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, Vie
         }
 
     def get(self, request, a_id, b_id):
+        """Show the two candidate curators side-by-side for review."""
         obj_a, obj_b = self._get_with_books(a_id, b_id)
         return self.render_to_response(self._context(obj_a, obj_b))
 
     def post(self, request, a_id, b_id):
+        """Dismiss the pair or merge them into the selected canonical curator."""
         ct = ContentType.objects.get_for_model(Curator)
         action = request.POST.get("action")
 
@@ -533,6 +546,7 @@ class TopicDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View):
     template_name = "curation/person_duplicates.html"
 
     def get(self, request):
+        """List topic pairs above the requested similarity threshold."""
         threshold = _threshold_from_request(request)
         include_suppressed = request.GET.get("show_suppressed") == "1"
         pairs = get_duplicate_topic_pairs(threshold, include_suppressed=include_suppressed)
@@ -570,10 +584,12 @@ class TopicMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View)
         }
 
     def get(self, request, a_id, b_id):
+        """Show the two candidate topics side-by-side for review."""
         obj_a, obj_b = self._get_with_books(a_id, b_id)
         return self.render_to_response(self._context(obj_a, obj_b))
 
     def post(self, request, a_id, b_id):
+        """Dismiss the pair or merge them into the selected canonical topic."""
         ct = ContentType.objects.get_for_model(Topic)
         action = request.POST.get("action")
 
@@ -639,6 +655,7 @@ class EditorDuplicatesView(PermissionRequiredMixin, TemplateResponseMixin, View)
     template_name = "curation/person_duplicates.html"
 
     def get(self, request):
+        """List editor pairs above the requested similarity threshold."""
         threshold = _threshold_from_request(request)
         include_suppressed = request.GET.get("show_suppressed") == "1"
         pairs = get_duplicate_editor_pairs(threshold, include_suppressed=include_suppressed)
@@ -676,10 +693,12 @@ class EditorMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View
         }
 
     def get(self, request, a_id, b_id):
+        """Show the two candidate editors side-by-side for review."""
         obj_a, obj_b = self._get_with_books(a_id, b_id)
         return self.render_to_response(self._context(obj_a, obj_b))
 
     def post(self, request, a_id, b_id):
+        """Dismiss the pair or merge them into the selected canonical editor."""
         ct = ContentType.objects.get_for_model(Editor)
         action = request.POST.get("action")
 
@@ -729,350 +748,3 @@ class EditorMergeReviewView(PermissionRequiredMixin, TemplateResponseMixin, View
 
         messages.success(request, _("Editors merged successfully."))
         return redirect("curation:editor-duplicates")
-
-
-# ---------------------------------------------------------------------------
-# Merge log & undo
-# ---------------------------------------------------------------------------
-
-
-class MergeLogListView(PermissionRequiredMixin, ListView):
-    """List all merge operations with undo buttons."""
-
-    permission_required = "curation.can_curate"
-    model = MergeLog
-    template_name = "curation/merge_log_list.html"
-    paginate_by = 50
-    context_object_name = "merge_logs"
-
-    def paginate_queryset(self, queryset, page_size):
-        paginator = self.get_paginator(queryset, page_size)
-        page_kwarg = self.page_kwarg
-        page = self.kwargs.get(page_kwarg) or self.request.GET.get(page_kwarg) or 1
-        try:
-            page_number = int(page)
-        except ValueError, TypeError:
-            page_number = 1
-        try:
-            page = paginator.page(page_number)
-        except Exception:
-            page = paginator.page(paginator.num_pages or 1)
-        return paginator, page, page.object_list, page.has_other_pages()
-
-
-class MergeUndoView(PermissionRequiredMixin, View):
-    """Generic undo view: dispatches by entity_type stored in merge_data."""
-
-    permission_required = "curation.can_curate"
-
-    def post(self, request, log_id):
-        log = get_object_or_404(MergeLog, pk=log_id)
-        if log.is_undone:
-            messages.error(request, _("This merge has already been undone."))
-            return redirect("curation:merge-log-list")
-        if not log.can_undo:
-            messages.error(request, _("Cannot undo: the target object no longer exists."))
-            return redirect("curation:merge-log-list")
-
-        entity_type = log.merge_data.get("entity_type")
-        if entity_type == "book":
-            recreated = self._undo_book(log, request.user)
-        elif entity_type == "author":
-            recreated = self._undo_person(log, Author, "bookentry_set", request.user)
-        elif entity_type == "translator":
-            recreated = self._undo_person(log, Translator, "bookentry_set", request.user)
-        elif entity_type == "curator":
-            recreated = self._undo_person(log, Curator, "bookentry_set", request.user)
-        elif entity_type == "topic":
-            recreated = self._undo_person(log, Topic, "bookentry_set", request.user)
-        elif entity_type == "editor":
-            recreated = self._undo_fk_entity(log, Editor, "editor", request.user)
-        else:
-            messages.error(request, _("Unknown entity type — cannot undo."))
-            return redirect("curation:merge-log-list")
-
-        messages.success(request, _('Merge undone. Entry recreated as "%(name)s".') % {"name": str(recreated)})
-        return redirect("curation:merge-log-list")
-
-    def _undo_person(self, log, model_class, books_attr, user):
-        with transaction.atomic():
-            data = log.merge_data
-            target = log.target_object
-            recreated = model_class.objects.create(**data["source_fields"])
-            if data.get("repointed_book_ids"):
-                books = BookEntry.objects.filter(pk__in=data["repointed_book_ids"])
-                getattr(recreated, books_attr).add(*books)
-                getattr(target, books_attr).remove(*books)
-            log.undone_at = timezone.now()
-            log.undone_by = user
-            log.save(update_fields=["undone_at", "undone_by"])
-        return recreated
-
-    def _undo_fk_entity(self, log, model_class, fk_field, user):
-        with transaction.atomic():
-            data = log.merge_data
-            recreated = model_class.objects.create(**data["source_fields"])
-            if data.get("repointed_book_ids"):
-                BookEntry.objects.filter(pk__in=data["repointed_book_ids"]).update(**{fk_field: recreated})
-            log.undone_at = timezone.now()
-            log.undone_by = user
-            log.save(update_fields=["undone_at", "undone_by"])
-        return recreated
-
-    def _undo_book(self, log, user):
-        with transaction.atomic():
-            data = log.merge_data
-            target = log.target_object
-
-            for field, old_val in data.get("target_fields_before", {}).items():
-                setattr(target, field, old_val)
-            target.save()
-
-            for attr, ids in data.get("added_m2m_to_target", {}).items():
-                if ids:
-                    getattr(target, attr).remove(*ids)
-
-            source_fields = {
-                k: v for k, v in data["source_fields"].items() if k in BOOK_SCALAR_FIELDS + BOOK_BOOLEAN_FIELDS
-            }
-            recreated = BookEntry.objects.create(**source_fields)
-
-            for attr, ids in data.get("source_m2m", {}).items():
-                if ids:
-                    getattr(recreated, attr).add(*ids)
-
-            if data.get("repointed_entry_number_ids"):
-                EntryNumber.objects.filter(pk__in=data["repointed_entry_number_ids"]).update(book_entry=recreated)
-
-            log.undone_at = timezone.now()
-            log.undone_by = user
-            log.save(update_fields=["undone_at", "undone_by"])
-        return recreated
-
-
-# ---------------------------------------------------------------------------
-# Suppression management
-# ---------------------------------------------------------------------------
-
-
-class SuppressedPairUnsuppressView(PermissionRequiredMixin, View):
-    """Remove a suppression so the pair reappears in the duplicates list."""
-
-    permission_required = "curation.can_curate"
-
-    def post(self, request, pair_id):
-        pair = get_object_or_404(SuppressedPair, pk=pair_id)
-        entity_type = pair.content_type.model
-        pair.delete()
-        messages.success(request, _("Dismissal removed. Pair will reappear in the duplicates list."))
-        if entity_type == "bookentry":
-            return redirect("curation:book-duplicates")
-        if entity_type == "translator":
-            return redirect("curation:translator-duplicates")
-        if entity_type == "curator":
-            return redirect("curation:curator-duplicates")
-        if entity_type == "topic":
-            return redirect("curation:topic-duplicates")
-        if entity_type == "editor":
-            return redirect("curation:editor-duplicates")
-        return redirect("curation:author-duplicates")
-
-
-# ---------------------------------------------------------------------------
-# Inventory workflow
-# ---------------------------------------------------------------------------
-
-_LEAF_TYPES = {Location.TYPE_SHELF, Location.TYPE_BOX}
-_PENDING_KEY = "inventory_pending_entry_number_id"
-_PENDING_CONFLICT = "inventory_pending_conflict"
-
-
-class InventorySessionListView(PermissionRequiredMixin, TemplateResponseMixin, View):
-    """Hub: list open sessions and allow starting a new one."""
-
-    permission_required = "curation.can_inventory"
-    template_name = "curation/inventory_session_list.html"
-
-    def get(self, request):
-        open_sessions = InventorySession.objects.filter(closed_at=None).select_related("location", "started_by")
-        recent_closed = InventorySession.objects.exclude(closed_at=None).select_related("location", "started_by")[:10]
-        leaf_locations = Location.objects.filter(type__in=_LEAF_TYPES).order_by("name")
-        return self.render_to_response(
-            {"open_sessions": open_sessions, "recent_closed": recent_closed, "leaf_locations": leaf_locations}
-        )
-
-    def post(self, request):
-        location_id = request.POST.get("location_id")
-        location = get_object_or_404(Location, pk=location_id)
-        if location.type not in _LEAF_TYPES:
-            messages.error(request, _("Only Shelf or Box locations can be inventoried."))
-            return redirect("curation:inventory-list")
-        try:
-            session = InventorySession.objects.create(location=location, started_by=request.user)
-        except IntegrityError:
-            existing = InventorySession.objects.get(location=location, closed_at=None)
-            messages.error(
-                request,
-                _("An open inventory session already exists for this location."),
-            )
-            return redirect("curation:inventory-scan", pk=existing.pk)
-        return redirect("curation:inventory-scan", pk=session.pk)
-
-
-class InventorySessionScanView(PermissionRequiredMixin, TemplateResponseMixin, View):
-    """Scan screen: show scan input and handle pending confirmation."""
-
-    permission_required = "curation.can_inventory"
-    template_name = "curation/inventory_scan.html"
-
-    def _session(self, pk):
-        return get_object_or_404(InventorySession, pk=pk, closed_at=None)
-
-    def _pending_context(self, request, session):
-        """Return context dict for the pending entry review, or empty dict."""
-        en_id = request.session.get(_PENDING_KEY)
-        if not en_id:
-            return {}
-        try:
-            en = EntryNumber.objects.select_related("book_entry", "location").get(pk=en_id)
-        except EntryNumber.DoesNotExist:
-            request.session.pop(_PENDING_KEY, None)
-            request.session.pop(_PENDING_CONFLICT, None)
-            return {}
-        return {
-            "pending": en,
-            "pending_conflict": request.session.get(_PENDING_CONFLICT, False),
-        }
-
-    def get(self, request, pk):
-        session = self._session(pk)
-        recent = session.entries.select_related("entry_number__book_entry").order_by("-scanned_at")[:10]
-        ctx = {"session": session, "recent_entries": recent}
-        ctx.update(self._pending_context(request, session))
-        return self.render_to_response(ctx)
-
-    def post(self, request, pk):
-        session = self._session(pk)
-        entry_number_value = request.POST.get("entry_number", "").strip()
-        if not entry_number_value:
-            messages.error(request, _("Please enter an entry number."))
-            return redirect("curation:inventory-scan", pk=pk)
-
-        try:
-            en = (
-                EntryNumber.objects.select_related("book_entry", "location")
-                .prefetch_related("book_entry__authors")
-                .get(entry_number=int(entry_number_value))
-            )
-        except EntryNumber.DoesNotExist, ValueError:
-            messages.error(request, _('Entry number "%(en)s" not found in the database.') % {"en": entry_number_value})
-            return redirect("curation:inventory-scan", pk=pk)
-
-        conflict = en.location_id is not None and en.location_id != session.location_id
-        request.session[_PENDING_KEY] = en.pk
-        request.session[_PENDING_CONFLICT] = conflict
-        return redirect("curation:inventory-scan", pk=pk)
-
-
-class InventorySessionConfirmView(PermissionRequiredMixin, View):
-    """Confirm scanned entry: assign location and record the session entry."""
-
-    permission_required = "curation.can_inventory"
-
-    def post(self, request, pk):
-        session = get_object_or_404(InventorySession, pk=pk, closed_at=None)
-        en_id = request.session.get(_PENDING_KEY)
-        if not en_id:
-            messages.error(request, _("No pending scan to confirm."))
-            return redirect("curation:inventory-scan", pk=pk)
-
-        en = get_object_or_404(EntryNumber, pk=en_id)
-        with transaction.atomic():
-            previous_location = en.location
-            en.location = session.location
-            en.save(update_fields=["location"])
-            InventorySessionEntry.objects.create(
-                session=session,
-                entry_number=en,
-                outcome=InventorySessionEntry.OUTCOME_CONFIRMED,
-                previous_location=previous_location if previous_location != session.location else None,
-            )
-
-        request.session.pop(_PENDING_KEY, None)
-        request.session.pop(_PENDING_CONFLICT, None)
-        messages.success(
-            request,
-            _("%(en)s confirmed and assigned to %(loc)s.") % {"en": en.entry_number, "loc": session.location},
-        )
-        return redirect("curation:inventory-scan", pk=pk)
-
-
-class InventorySessionSetAsideView(PermissionRequiredMixin, View):
-    """Set aside a scanned entry: flag it without changing its location."""
-
-    permission_required = "curation.can_inventory"
-
-    def post(self, request, pk):
-        session = get_object_or_404(InventorySession, pk=pk, closed_at=None)
-        en_id = request.session.get(_PENDING_KEY)
-        if not en_id:
-            messages.error(request, _("No pending scan to set aside."))
-            return redirect("curation:inventory-scan", pk=pk)
-
-        en = get_object_or_404(EntryNumber, pk=en_id)
-        InventorySessionEntry.objects.create(
-            session=session,
-            entry_number=en,
-            outcome=InventorySessionEntry.OUTCOME_SET_ASIDE,
-            previous_location=en.location,
-        )
-        request.session.pop(_PENDING_KEY, None)
-        request.session.pop(_PENDING_CONFLICT, None)
-        messages.warning(
-            request,
-            _("%(en)s set aside for entry number reassignment.") % {"en": en.entry_number},
-        )
-        return redirect("curation:inventory-scan", pk=pk)
-
-
-class InventorySessionCloseView(PermissionRequiredMixin, TemplateResponseMixin, View):
-    """Reconciliation report + close the session."""
-
-    permission_required = "curation.can_inventory"
-    template_name = "curation/inventory_close.html"
-
-    def _reconciliation(self, session):
-        scanned_ids = set(session.entries.values_list("entry_number_id", flat=True))
-        expected = EntryNumber.objects.filter(location=session.location).select_related("book_entry")
-        expected_ids = set(expected.values_list("pk", flat=True))
-        missing_ids = expected_ids - scanned_ids
-
-        confirmed = session.entries.filter(outcome=InventorySessionEntry.OUTCOME_CONFIRMED).select_related(
-            "entry_number__book_entry", "previous_location"
-        )
-        set_aside = session.entries.filter(outcome=InventorySessionEntry.OUTCOME_SET_ASIDE).select_related(
-            "entry_number__book_entry", "previous_location"
-        )
-        missing = EntryNumber.objects.filter(pk__in=missing_ids).select_related("book_entry")
-
-        return {
-            "confirmed": confirmed,
-            "set_aside": set_aside,
-            "missing": missing,
-            "confirmed_count": confirmed.count(),
-            "set_aside_count": set_aside.count(),
-            "missing_count": len(missing_ids),
-        }
-
-    def get(self, request, pk):
-        session = get_object_or_404(InventorySession, pk=pk)
-        ctx = {"session": session, "read_only": session.closed_at is not None}
-        ctx.update(self._reconciliation(session))
-        return self.render_to_response(ctx)
-
-    def post(self, request, pk):
-        session = get_object_or_404(InventorySession, pk=pk, closed_at=None)
-        session.closed_at = timezone.now()
-        session.save(update_fields=["closed_at"])
-        messages.success(request, _("Inventory session for %(loc)s closed.") % {"loc": session.location})
-        return redirect("curation:inventory-list")

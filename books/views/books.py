@@ -115,7 +115,7 @@ class ClassListView(ListView):
                             "classification_class": current_class,
                             "description": classification(current_class),
                             "subclasses": current_subclasses,
-                            "number_of_entries": sum([e["number_of_entries"] for e in current_subclasses]),
+                            "number_of_entries": sum(e["number_of_entries"] for e in current_subclasses),
                         }
                     )
                     current_subclasses = []
@@ -126,7 +126,7 @@ class ClassListView(ListView):
                 "classification_class": current_class,
                 "description": classification(current_class),
                 "subclasses": current_subclasses,
-                "number_of_entries": sum([e["number_of_entries"] for e in current_subclasses]),
+                "number_of_entries": sum(e["number_of_entries"] for e in current_subclasses),
             }
         )
         context["classes"] = classes

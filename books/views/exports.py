@@ -75,6 +75,9 @@ class CSVExportView(View):
             row.append("location")
         return row
 
+    # Wide, sequential slot-filling for a fixed CSV column layout — splitting it up
+    # would just thread the same values through several helper calls.
+    # pylint: disable-next=too-many-locals,too-many-branches,too-many-statements
     async def convert_book_entry_to_csv_row(
         self, book_entry: BookEntry, entry_number_object: EntryNumber, include_location: bool = False
     ) -> list[Any]:
@@ -258,7 +261,7 @@ class CSVExportView(View):
                 row.append("")
         return row
 
-    async def result(self, request, include_location: bool = False):
+    async def result(self, include_location: bool = False):
         """Asynchronously return the CSV."""
         pseudo_buffer = self.Echo()
         writer = csv.writer(pseudo_buffer)
@@ -285,7 +288,7 @@ class CSVExportView(View):
         user = await request.auser()
         include_location = user.is_authenticated
         return StreamingHttpResponse(
-            streaming_content=self.result(request, include_location=include_location),
+            streaming_content=self.result(include_location=include_location),
             content_type="text/csv",
             headers={"Content-Disposition": 'attachment; filename="all-skoufas-books.csv"'},
         )
@@ -342,6 +345,9 @@ class MARCExportView(View):
             parts.append(middle_name)
         return " ".join(parts)
 
+    # A sequence of mostly-independent MARC field-mapping blocks (control fields,
+    # contributors, title, identifiers, holdings, images...) — inherently long.
+    # pylint: disable-next=too-many-locals,too-many-branches,too-many-statements
     async def _book_entry_to_marc(
         self,
         book_entry: BookEntry,
@@ -638,7 +644,7 @@ class MARCSingleBookExportView(MARCExportView):
         try:
             book_entry = await BookEntry.objects.select_related("editor").aget(pk=pk)
         except BookEntry.DoesNotExist:
-            raise Http404
+            raise Http404 from None
         user = await request.auser()
         include_holdings: bool = user.is_authenticated
         can_see_nonpublic: bool = include_holdings and user.has_perm("books.view_nonpublic_location")
@@ -672,7 +678,10 @@ class MARCSingleBookDetailView(MARCExportView):
 
     template_name = "books/bookentry_marc_detail.html"
 
-    async def get(self, request: Any, pk: int, **_kwargs: Any):
+    # Inherits from MARCExportView only to reuse _book_entry_to_marc/_stream_*;
+    # its get() has its own URL contract (pk, not fmt) and is never dispatched
+    # polymorphically as a MARCExportView.
+    async def get(self, request: Any, pk: int, **_kwargs: Any):  # pylint: disable=arguments-renamed
         from asgiref.sync import sync_to_async
         from django.http import Http404
         from django.shortcuts import render
@@ -680,7 +689,7 @@ class MARCSingleBookDetailView(MARCExportView):
         try:
             book_entry = await BookEntry.objects.select_related("editor").aget(pk=pk)
         except BookEntry.DoesNotExist:
-            raise Http404
+            raise Http404 from None
 
         user = await request.auser()
         include_holdings: bool = user.is_authenticated

@@ -21,6 +21,8 @@ class SuppressedPair(models.Model):
     suppressed_at = models.DateTimeField(verbose_name=_("suppressed at"), auto_now_add=True)
 
     class Meta:
+        """Meta for SuppressedPair."""
+
         verbose_name = _("Suppressed pair")
         verbose_name_plural = _("Suppressed pairs")
         constraints = [
@@ -59,6 +61,8 @@ class MergeLog(models.Model):
     )
 
     class Meta:
+        """Meta for MergeLog."""
+
         verbose_name = _("Merge log")
         verbose_name_plural = _("Merge logs")
         ordering = ["-merged_at"]
@@ -73,10 +77,12 @@ class MergeLog(models.Model):
 
     @property
     def is_undone(self):
+        """Whether this merge has already been undone."""
         return self.undone_at is not None
 
     @property
     def can_undo(self):
+        """Whether the target object still exists, making an undo possible."""
         if self.is_undone or not self.target_object_id:
             return False
         try:
@@ -101,6 +107,8 @@ class InventorySession(models.Model):
     closed_at = models.DateTimeField(verbose_name=_("closed at"), null=True, blank=True)
 
     class Meta:
+        """Meta for InventorySession."""
+
         verbose_name = _("Inventory session")
         verbose_name_plural = _("Inventory sessions")
         ordering = ["-started_at"]
@@ -120,6 +128,7 @@ class InventorySession(models.Model):
 
     @property
     def is_open(self):
+        """Whether this session has not yet been closed."""
         return self.closed_at is None
 
 
@@ -157,6 +166,8 @@ class InventorySessionEntry(models.Model):
     )
 
     class Meta:
+        """Meta for InventorySessionEntry."""
+
         verbose_name = _("Inventory session entry")
         verbose_name_plural = _("Inventory session entries")
         ordering = ["scanned_at"]

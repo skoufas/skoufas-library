@@ -154,6 +154,13 @@ disable = [
     "import-outside-toplevel",
     "no-member",
     "line-too-long",
+    # Django's own base classes (View, ListView/DetailView + mixins) already
+    # have a deep MRO chain, and CBVs conventionally stash request-scoped
+    # state on self outside __init__ (e.g. SingleObjectMixin.get_object()
+    # sets self.object). Both checks measure Django's own class hierarchy,
+    # not this project's design choices.
+    "too-many-ancestors",
+    "attribute-defined-outside-init",
 ]
 
 [tool.pylint.'REPORTS']
