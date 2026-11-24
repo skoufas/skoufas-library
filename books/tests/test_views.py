@@ -88,6 +88,12 @@ class BookEntryViewTests(TestCase):
         self.assertContains(response, unclassified.title)
         self.assertNotContains(response, "The Axion Esti")
 
+    def test_book_by_skoufas_main_class_rejects_non_numeric(self):
+        """A main class that is neither a number nor "None" is a 404, not a server error."""
+        response = self.client.get(reverse("books:book-by-skoufas-main-class", kwargs={"classification_class": "abc"}))
+
+        self.assertEqual(response.status_code, 404)
+
     def test_book_by_skoufas_classification(self):
         """Filtering by the full classification string returns an exact match."""
         response = self.client.get(

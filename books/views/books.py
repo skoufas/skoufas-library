@@ -1,6 +1,7 @@
 """Views for browsing books by catalogue, entry number, and classification."""
 
 from django.db.models import Count
+from django.http import Http404
 from django.utils import timezone
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -27,10 +28,20 @@ class BookEntryByMainClassListView(BookEntryListView):
 
     def get_queryset(self):
         """Return books with a specific class number."""
-        self.classification_class = self.kwargs["classification_class"]
-        if self.classification_class == "None":
-            self.classification_class = None
+        raw_classification_class = self.kwargs["classification_class"]
+        try:
+            self.classification_class = None if raw_classification_class == "None" else int(raw_classification_class)
+        except ValueError as exc:
+            raise Http404(f"Invalid classification class: {raw_classification_class}") from exc
         return BookEntry.objects.filter(classification_class=self.classification_class)
+
+    def get_context_data(self, **kwargs):
+        """Add the class being filtered on, for the page title."""
+        context = super().get_context_data(**kwargs)
+        context["is_main_class_view"] = True
+        context["classification_class"] = self.classification_class
+        context["classification_description"] = classification(self.classification_class)
+        return context
 
 
 class BookEntryBySkoufasClassificationListView(BookEntryListView):
@@ -42,6 +53,13 @@ class BookEntryBySkoufasClassificationListView(BookEntryListView):
         if self.skoufas_classification == "None":
             self.skoufas_classification = None
         return BookEntry.objects.filter(skoufas_classification=self.skoufas_classification)
+
+    def get_context_data(self, **kwargs):
+        """Add the classification being filtered on, for the page title."""
+        context = super().get_context_data(**kwargs)
+        context["is_skoufas_classification_view"] = True
+        context["skoufas_classification"] = self.skoufas_classification
+        return context
 
 
 class BookEntryDetailView(DetailView):

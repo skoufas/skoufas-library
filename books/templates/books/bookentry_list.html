@@ -3,7 +3,21 @@
 {% load i18n %}
 {% load static %}
 {% block title %}
-    {% translate "All Books" %}
+    {% if is_skoufas_classification_view %}
+        {% if skoufas_classification %}
+            {% blocktranslate %}All Books classified as {{ skoufas_classification }}{% endblocktranslate %}
+        {% else %}
+            {% translate "All Books without a classification" %}
+        {% endif %}
+    {% elif is_main_class_view %}
+        {% if classification_class is not None %}
+            {% blocktranslate with description=classification_description %}All Books classified as {{ classification_class }} - {{ description }}{% endblocktranslate %}
+        {% else %}
+            {% translate "All Books without a classification" %}
+        {% endif %}
+    {% else %}
+        {% translate "All Books" %}
+    {% endif %}
 {% endblock title %}
 {% block content %}
     <nav aria-label="Page navigation example">

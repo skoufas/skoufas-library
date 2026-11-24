@@ -36337,8 +36337,8 @@ msgstr "Συγγραφείς"
 
 #: books/templates/books/author_list.html:17
 #: books/templates/books/author_list.html:62
-#: books/templates/books/bookentry_list.html:17
-#: books/templates/books/bookentry_list.html:62
+#: books/templates/books/bookentry_list.html:31
+#: books/templates/books/bookentry_list.html:76
 #: books/templates/books/donor_list.html:25
 #: books/templates/books/donor_list.html:63
 msgid "Previous"
@@ -36346,8 +36346,8 @@ msgstr "Προηγούμενη"
 
 #: books/templates/books/author_list.html:25
 #: books/templates/books/author_list.html:70
-#: books/templates/books/bookentry_list.html:25
-#: books/templates/books/bookentry_list.html:70
+#: books/templates/books/bookentry_list.html:39
+#: books/templates/books/bookentry_list.html:84
 #: books/templates/books/donor_list.html:33
 #: books/templates/books/donor_list.html:71
 msgid "Next"
@@ -36430,7 +36430,7 @@ msgid "Discard"
 msgstr "Απόρριψη"
 
 #: books/templates/books/bookentry_detail.html:39
-#: books/templates/books/bookentry_list.html:48
+#: books/templates/books/bookentry_list.html:62
 msgid "Book with no authors"
 msgstr "Βιβλίο χωρίς συγγραφέα"
 
@@ -36545,7 +36545,22 @@ msgstr "Μετατροπή HEIC…"
 msgid "Not detected"
 msgstr "Δεν εντοπίστηκε"
 
-#: books/templates/books/bookentry_list.html:6
+#: books/templates/books/bookentry_list.html:8
+#, python-format
+msgid "All Books classified as %(skoufas_classification)s"
+msgstr "Όλα τα βιβλία ταξινομημένα ως %(skoufas_classification)s"
+
+#: books/templates/books/bookentry_list.html:10
+#: books/templates/books/bookentry_list.html:16
+msgid "All Books without a classification"
+msgstr "Όλα τα βιβλία χωρίς ταξινόμηση"
+
+#: books/templates/books/bookentry_list.html:14
+#, python-format
+msgid "All Books classified as %(classification_class)s - %(description)s"
+msgstr "Όλα τα βιβλία ταξινομημένα ως %(classification_class)s - %(description)s"
+
+#: books/templates/books/bookentry_list.html:19
 msgid "All Books"
 msgstr "Όλα τα Βιβλία"
 
