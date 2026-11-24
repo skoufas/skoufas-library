@@ -1,7 +1,9 @@
 """Tests for loaning module."""
 
 import datetime
+from urllib.parse import quote
 
+from asgiref.sync import async_to_sync
 from django.contrib.auth.models import Permission
 from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
@@ -275,3 +277,42 @@ class LoaningWorkflowTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Reader, Maria")
         self.assertContains(response, "1001")
+
+
+class KohaPatronExportViewTests(TestCase):
+    """Access control for the Koha patron CSV export."""
+
+    def test_anonymous_user_is_redirected_to_login(self):
+        """A logged-out visitor is sent to the login page, which brings them back afterwards."""
+        url = reverse("loaning:customer-export-koha")
+
+        response = self.client.get(url)
+
+        self.assertRedirects(
+            response, f"{reverse('admin:login')}?next={quote(url, safe='')}", fetch_redirect_response=False
+        )
+
+    def test_user_without_permission_is_denied(self):
+        """A logged-in user without view_customer gets a 403."""
+        self.client.force_login(User.objects.create_user(username="no-perms"))
+
+        response = self.client.get(reverse("loaning:customer-export-koha"))
+
+        self.assertEqual(response.status_code, 403)
+
+    def test_staff_with_permission_gets_csv(self):
+        """A non-superuser with view_customer can download the export."""
+        user = User.objects.create_user(username="librarian")
+        user.user_permissions.add(Permission.objects.get(codename="view_customer"))
+        Customer.objects.create(first_name="Eleni", surname="Kosta")
+        self.client.force_login(user)
+
+        response = self.client.get(reverse("loaning:customer-export-koha"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response["Content-Type"], "text/csv")
+
+        async def read_body():
+            return b"".join([chunk async for chunk in response.streaming_content])
+
+        self.assertIn("Kosta", async_to_sync(read_body)().decode())
