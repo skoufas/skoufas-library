@@ -45,17 +45,17 @@ test = [
     "django-migration-linter",
     "django-stubs[compatible-mypy]",
     "djhtml",
-    "djlint==1.40.3",
+    "djlint==1.54.0",
     "mypy",
     "pip-audit",
-    "pre-commit==4.6.0",
+    "pre-commit==4.7.0",
     "pylint_junit",
-    "pylint==4.0.6",
+    "pylint==4.1.4",
     "pytest-cov==7.1.0",
     "pytest-github-actions-annotate-failures",
     "pytest-mock<3.10.1",
     "pytest-runner",
-    "pytest==9.1.1",
+    "pytest==9.2.0",
     "reorder-python-imports",
     "ruff",
     "shellcheck-py==0.11.0.1",
@@ -109,6 +109,11 @@ Tracker = "https://github.com/skoufas/skoufas-library/issues"
 
 [tool.ruff]
 line-length = 120
+
+[tool.ruff.lint]
+# Pinned to the pre-0.17 default rule set; ruff 0.17 widened its defaults
+# (RUF012, I001, UP*, ...). Adopt those deliberately in a separate change.
+select = ["E4", "E7", "E9", "F"]
 
 [tool.bandit]
 exclude_dirs = ["build", "dist", "junk", "tests", "scripts"]
