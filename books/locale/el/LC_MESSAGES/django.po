@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-07-04 20:52+0300\n"
+"POT-Creation-Date: 2026-11-24 18:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36317,6 +36317,11 @@ msgstr "Αρκτικά νησιά και Ανταρκτική"
 #: books/skoufas_classification_classes.py:1133
 msgid "Extraterrestrial worlds"
 msgstr "Εξωγήινοι κόσμοι"
+
+#: books/skoufas_classification_classes.py:1148
+#, python-format
+msgid "Unknown skoufas classification number: %(number)s"
+msgstr "Άγνωστος αριθμός ταξινόμησης Σκουφά: %(number)s"
 
 #: books/templates/books/author_detail.html:13
 msgid "Books by the author"

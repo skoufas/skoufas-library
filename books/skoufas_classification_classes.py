@@ -1136,14 +1136,13 @@ CLASSIFICATION_DECIMAL_CLASSES = {
 
 def classification(number: Optional[int]) -> Optional[str] | StrPromise:
     """Full text of classification."""
-    if not number:
+    if number is None:
         return None
     if number in CLASSIFICATION_DECIMAL_CLASSES:
         return CLASSIFICATION_DECIMAL_CLASSES[number]
-    number = (number // 10) * 10
-    if number in CLASSIFICATION_SUB_CLASSES:
-        return CLASSIFICATION_SUB_CLASSES[number]
-    number = (number // 100) * 100
-    if number in CLASSIFICATION_CLASSES:
-        return CLASSIFICATION_CLASSES[number]
-    return f"Unknown skoufas classification number: {number}"
+    if (number // 10) * 10 in CLASSIFICATION_SUB_CLASSES:
+        return CLASSIFICATION_SUB_CLASSES[(number // 10) * 10]
+    # CLASSIFICATION_CLASSES is keyed by the hundreds digit (0-9), not by 0, 100, ...
+    if number // 100 in CLASSIFICATION_CLASSES:
+        return CLASSIFICATION_CLASSES[number // 100]
+    return _("Unknown skoufas classification number: %(number)s") % {"number": number}
